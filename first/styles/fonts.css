@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "MyriadProRegular";
+    font-style: normal;
+    font-weight: normal;
+
+    src: local("Roboto"),
+    url("../fonts/MyriadProRegular.ttf") format("truetype")
+}
+
+@font-face {
+    font-family: "GothamBold";
+    font-style: normal;
+    font-weight: normal;
+
+    src: local("Roboto"),
+    url("../fonts/GothamBold.otf") format("opentype")
+}
+
+@font-face {
+    font-family: "GothamMedium";
+    font-style: normal;
+    font-weight: normal;
+
+    src: local("Roboto"),
+    url("../fonts/GothamMedium.otf") format("opentype")
+}

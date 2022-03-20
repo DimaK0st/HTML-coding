@@ -1,0 +1,42 @@
+.creatives-bg-block{
+    background-image: url(../images/bg1.png);
+}
+
+.creatives-block{
+    background: #6e6e6e;
+    height: 765px;
+}
+
+.creatives-text-block{
+    display: flex;
+    flex-direction: column;
+}
+
+.creatives-text{
+    height: auto;
+    font-size: 153px;
+    letter-spacing: -8px;
+    color: #f5f5f5;
+    font-weight: bold;
+    font-family: "GothamBold", sans-serif;
+    text-align: center;
+}
+
+.power-text{
+    height: 20px;
+    font-size: 25px;
+    letter-spacing: 19px;
+    line-height: 51px;
+    color: #11749e;
+    font-weight: 500;
+    font-family: "GothamMedium", sans-serif;
+    text-align: center;
+}
+
+.scroll-down-btn{
+    font-size: 20px;
+    letter-spacing: -1px;
+    color: #f5f5f5;
+    font-family: "Font Awesome", sans-serif;
+    text-align: center;
+}

@@ -4,8 +4,10 @@ html{
 }
 
 body{
-    width: 1200px;
     background: antiquewhite;
 }
 
-
+section{
+    width: 1200px;
+    margin: auto;
+}

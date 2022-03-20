@@ -1,4 +1,60 @@
-header{
+header {
     display: flex;
     flex-direction: row;
+    height: 115px;
+    border-bottom: solid #383838 1px;
+    max-width: 1200px;
+    margin: auto;
+    font-family: 'MyriadProRegular', sans-serif;
+    font-size: 20px;
+    color: white;
+}
+
+header a {
+    display: flex;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    transition: background-color .3s, filter .3s;
+}
+
+header a:hover {
+    color: #11749e;
+    border-bottom: solid #11749e 5px;
+    margin-top: 5px;
+    height: calc(100% - 8px);
+}
+
+.logo-media {
+    max-width: 300px;
+    width: 300px;
+    margin-top: 20px;
+}
+
+.logo-media img:hover {
+    filter: brightness(70%);
+}
+
+.nav-link {
+    display: flex;
+    max-width: 700px;
+    width: 100%;
+    justify-content: space-around;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+    transition: background-color .3s, filter .3s;
+}
+
+.social-media img:hover {
+    filter: invert(100%);
+}
+
+.social-media {
+    display: flex;
+    max-width: 180px;
+    width: 100%;
+    justify-content: space-around;
+    height: 100%;
+    align-items: center;
 }
