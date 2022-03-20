@@ -2,16 +2,22 @@
     font-family: "MyriadProRegular";
     font-style: normal;
     font-weight: normal;
-
     src: local("Roboto"),
     url("../fonts/MyriadProRegular.ttf") format("truetype")
+}
+
+@font-face {
+    font-family: "RobotoCondensed";
+    font-style: normal;
+    font-weight: bold;
+    src: local("Roboto"),
+    url("../fonts/RobotoCondensed.ttf") format("truetype")
 }
 
 @font-face {
     font-family: "GothamBold";
     font-style: normal;
     font-weight: normal;
-
     src: local("Roboto"),
     url("../fonts/GothamBold.otf") format("opentype")
 }
@@ -20,7 +26,14 @@
     font-family: "GothamMedium";
     font-style: normal;
     font-weight: normal;
-
     src: local("Roboto"),
     url("../fonts/GothamMedium.otf") format("opentype")
+}
+
+@font-face {
+    font-family: "GothamBook";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Roboto"),
+    url("../fonts/GothamBookRegular.otf") format("opentype")
 }

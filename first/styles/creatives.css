@@ -3,13 +3,20 @@
 }
 
 .creatives-block{
-    background: #6e6e6e;
+    display: flex;
+    flex-direction: column;
     height: 765px;
+    align-content: stretch;
 }
 
 .creatives-text-block{
     display: flex;
     flex-direction: column;
+}
+
+.creatives-block div{
+    height: 100%;
+    max-height: 253px;
 }
 
 .creatives-text{
@@ -26,17 +33,29 @@
     height: 20px;
     font-size: 25px;
     letter-spacing: 19px;
-    line-height: 51px;
     color: #11749e;
     font-weight: 500;
     font-family: "GothamMedium", sans-serif;
     text-align: center;
 }
 
-.scroll-down-btn{
-    font-size: 20px;
-    letter-spacing: -1px;
-    color: #f5f5f5;
-    font-family: "Font Awesome", sans-serif;
+.scroll-down-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.scroll-down-block span{
+    font-size: 13px;
+    font-family: "Myriad Pro", sans-serif;
+    color: rgb(255, 255, 255);
     text-align: center;
 }
+
+.scroll-down-block img{
+    margin-top: 20px;
+    width: 65px;
+    height: 65px;
+}
+

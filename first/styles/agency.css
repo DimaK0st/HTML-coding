@@ -1,0 +1,89 @@
+.awesome-agency-bg {
+    display: flex;
+    flex-direction: column;
+    height: 740px;
+    background: #11749e;
+}
+
+.awesome-agency {
+    /*background: aqua;*/
+    max-width: 1200px;
+}
+
+.awesome-agency-top {
+    display: flex;
+    justify-content: center;
+    margin: 170px auto  0 auto;
+    position: relative;
+}
+
+.awesome-agency-w {
+    font-size: 248px;
+    font-family: "RobotoCondensed", sans-serif;
+    color: rgba(255, 255, 255, 0.18);
+    position: absolute;
+    top: -150px;
+    z-index: 2;
+}
+
+.awesome-agency-text {
+    font-size: 38px;
+    font-family: "GothamMedium", sans-serif;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    text-align: center;
+    z-index: 1;
+}
+
+.awesome-agency-list {
+    margin-top: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.awesome-agency-item {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    text-align: center;
+}
+
+.awesome-agency-item-img img {
+    width: 40px;
+    height: 40px;
+    margin: 46px;
+}
+
+.awesome-agency-item-img {
+    width: 133px;
+    height: 133px;
+    line-height: 40px;
+    background: #2e85aa;
+    border-radius: 50%;
+    text-align: center;
+    margin: auto;
+}
+
+.awesome-agency-item-head {
+    margin-top: 25px;
+}
+
+.awesome-agency-item-head span {
+    font-size: 18px;
+    font-family: "GothamMedium", sans-serif;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.awesome-agency-item-text {
+    margin-top: 33px;
+}
+
+.awesome-agency-item-text span {
+    font-size: 15px;
+    font-family: "GothamBook", sans-serif;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
