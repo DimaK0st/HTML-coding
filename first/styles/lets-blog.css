@@ -1,0 +1,67 @@
+.lets-blog {
+    width: 100%;
+    background: #f3f3f3;
+}
+
+.lets-blog-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.lets-blog-head {
+    margin-top: 160px;
+    font-size: 38px;
+    color: #222222;
+    font-family: "GothamMedium", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.lets-blog-text {
+    margin: 115px 0 75px 0;
+    font-size: 30px;
+    line-height: 37px;
+    color: #222222;
+    font-family: "GothamBook", sans-serif;
+    text-align: center;
+}
+
+.lets-blog-block {
+    height: 1020px;
+}
+
+.lets-blog-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.lets-blog-item {
+    display: flex;
+    flex-direction: column;
+    max-width: 270px;
+}
+
+.lets-blog-item img {
+    max-height: 270px;
+    max-width: 270px;
+}
+
+.lets-blog-item-head {
+    margin-top: 40px;
+    font-size: 18px;
+    color: #11749e;
+    font-weight: 500;
+    font-family: "GothamMedium", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.lets-blog-item-text {
+    margin-top: 20px;
+    font-size: 15px;
+    color: #222222;
+    font-family: "GothamBook", sans-serif;
+    text-align: center;
+}
