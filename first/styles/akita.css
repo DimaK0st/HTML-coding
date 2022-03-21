@@ -1,0 +1,72 @@
+.akita-block section {
+    display: flex;
+    flex-direction: column;
+    max-width: 1600px;
+    width: 100%;
+}
+
+.akita-first-block, .akita-second-block {
+    display: flex;
+    flex-direction: row;
+}
+
+.akita-first-block {
+    background-color: #222222;
+    color: rgb(255, 255, 255);
+}
+
+.akita-second-block {
+    background-color: #f3f3f3;
+    color: #222222;
+}
+
+.akita-block-text {
+    max-width: 800px;
+    width: 100%;
+}
+
+.left {
+    float: right;
+}
+
+.akita-text {
+    display: flex;
+    flex-direction: column;
+    max-width: 470px;
+    width: 100%;
+}
+
+.akita-text-left {
+    padding-right: 115px;
+}
+
+.akita-text-right {
+    padding-left: 115px;
+}
+
+.akita-img, .akita-img img {
+    flex-grow: 1;
+    max-width: 800px;
+    width: 100%;
+    display: block;
+}
+
+.akita-text-date {
+    margin-top: 80px;
+    font-size: 13px;
+    font-family: "GothamBook", sans-serif;
+}
+
+.akita-text-head {
+    margin-top: 15px;
+    font-size: 25px;
+    font-family: "GothamMedium", sans-serif;
+    text-transform: uppercase;
+}
+
+.akita-text-text {
+    margin-top: 25px;
+    font-size: 15px;
+    font-family: "GothamBook", sans-serif;
+    line-height: 1.6;
+}
