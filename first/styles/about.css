@@ -1,0 +1,94 @@
+.about-bg{
+    display: flex;
+    height: 850px;
+    background-image: url("/images/bg4.png");
+}
+
+.about-bg section{
+    max-width: 1200px;
+}
+
+.about-header-center{
+    margin: 140px 0;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+}
+
+.about-header-char{
+    position: absolute;
+    font-size: 247px;
+    font-family: "RobotoCondensed", serif;
+    color: rgba(255, 255, 255, 0.18);
+    font-weight: bold;
+    line-height: 0.852;
+    top: -90px;
+}
+
+.about-head {
+    font-size: 38px;
+    color: rgb(255, 255, 255);
+    font-family: "GothamMedium", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+}
+
+.about-list-block{
+    display: flex;
+    flex-direction: column;
+}
+
+.about-list-width{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.about-list-width input, .about-list-message{
+    box-sizing: border-box;
+    width: 100%;
+    background: rgba( 0,0,0,0);
+    padding: 15px;
+    border: #ffffff solid 1px;
+}
+
+.about-list-width input::placeholder, .about-list-message::placeholder{
+    color: white;
+    font-size: 15px;
+    font-family: "GothamBook", sans-serif;
+}
+
+.about-list-width-email{
+    margin: 0 35px;
+}
+
+.about-list-message{
+    box-sizing: border-box;
+    height: 150px;
+}
+
+.about-list-block-btn{
+    margin: 45px auto;
+}
+
+.about-list-btn{
+    box-sizing: border-box;
+    padding: 20px 60px;
+    background: #11749e;
+    font-size: 24px;
+    font-family: "GothamMedium", sans-serif;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    border: black solid 0;
+}
+
+.map{
+    border:0;
+    width: 100%;
+    max-width: 1920px;
+    max-height: 350px;
+}

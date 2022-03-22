@@ -1,0 +1,36 @@
+.blog-bottom {
+    display: flex;
+    flex-direction: row;
+    height: 350px;
+    background-color: #11749e;
+}
+
+.blog-bottom section {
+    display: flex;
+    flex-direction: row;
+    margin-top: 110px;
+}
+
+.blog-bottom div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.blog-bottom div img {
+    width: 70px;
+    height: 70px;
+    margin-right: 35px;
+}
+
+.blog-bottom div span {
+    max-width: 470px;
+    font-size: 15px;
+    font-family: "Myriad Pro", sans-serif;
+    color: rgb(255, 255, 255);
+    line-height: 1.6;
+}
+
+.blog-bottom-block-left{
+    margin-right: 50px;
+}

@@ -8,13 +8,39 @@
     flex-direction: column;
 }
 
-.lets-blog-head {
+.lets-blog-header{
+    position: relative;
+}
+
+.lets-blog-header-char{
+    position: absolute;
+}
+
+.lets-blog-header-center{
     margin-top: 160px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+}
+
+.lets-blog-header-char{
+    position: absolute;
+    font-size: 247px;
+    font-family: "RobotoCondensed", serif;
+    color: rgba(34, 34, 34, 0.18);
+    font-weight: bold;
+    line-height: 0.852;
+    top: -90px;
+    left: 50px;
+}
+
+.lets-blog-head {
     font-size: 38px;
     color: #222222;
     font-family: "GothamMedium", sans-serif;
     text-align: center;
     text-transform: uppercase;
+    position: relative;
 }
 
 .lets-blog-text {
