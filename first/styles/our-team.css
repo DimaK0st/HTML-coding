@@ -91,3 +91,17 @@ width: 100%;
     line-height: 1.6;
 }
 
+
+
+@media screen and (max-width: 1100px){
+
+    .our-team-bg{
+        height: auto;
+        padding-bottom: 40px;
+    }
+
+    .our-team-item{
+    margin-bottom: 40px;
+    }
+
+}

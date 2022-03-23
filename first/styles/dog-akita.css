@@ -77,3 +77,12 @@
     line-height: 1.6;
     text-align: left;
 }
+
+@media screen and (max-width: 1100px){
+
+    .dog-akita-block div{
+        padding-left: 5px;
+        box-sizing: border-box;
+    }
+
+}

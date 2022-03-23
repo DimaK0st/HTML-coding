@@ -26,7 +26,9 @@
 }
 
 .akita-block-text {
+    padding: 0 5px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .left {
@@ -81,10 +83,24 @@
     }
 
     .akita-text-right {
+        box-sizing: border-box;
         padding-left: 50px;
     }
 
     .akita-text-left{
         padding-right: 50px;
+        box-sizing: border-box;
+    }
+
+    .akita-text-date {
+        font-size: 8px;
+    }
+
+    .akita-text-head {
+        font-size: 20px;
+    }
+
+    .akita-text-text {
+        font-size: 10px;
     }
 }
