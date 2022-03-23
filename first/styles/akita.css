@@ -73,3 +73,18 @@
     font-family: "GothamBook", sans-serif;
     line-height: 1.6;
 }
+
+@media screen and (max-width: 1300px){
+
+    .akita-text-date{
+        margin-top: 50px;
+    }
+
+    .akita-text-right {
+        padding-left: 50px;
+    }
+
+    .akita-text-left{
+        padding-right: 50px;
+    }
+}
