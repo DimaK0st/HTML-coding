@@ -1,5 +1,6 @@
 .creatives-bg-block{
     background-image: url(../images/bg1.png);
+    background-repeat: no-repeat;
 }
 
 .creatives-block{
