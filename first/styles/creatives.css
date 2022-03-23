@@ -1,31 +1,32 @@
-.creatives-bg-block{
+.creatives-bg-block {
     background-image: url(../images/bg1.png);
     background-size: 100%;
 }
-@media screen and (max-width: 1600px){
-    .creatives-bg-block{
+
+@media screen and (max-width: 1600px) {
+    .creatives-bg-block {
         background-size: auto;
     }
 }
 
-.creatives-block{
+.creatives-block {
     display: flex;
     flex-direction: column;
     height: 765px;
     align-content: stretch;
 }
 
-.creatives-text-block{
+.creatives-text-block {
     display: flex;
     flex-direction: column;
 }
 
-.creatives-block div{
+.creatives-block div {
     height: 100%;
     max-height: 253px;
 }
 
-.creatives-text{
+.creatives-text {
     height: auto;
     font-size: 153px;
     letter-spacing: -8px;
@@ -35,7 +36,7 @@
     text-align: center;
 }
 
-.power-text{
+.power-text {
     height: 20px;
     font-size: 25px;
     letter-spacing: 19px;
@@ -52,37 +53,35 @@
     margin: auto;
 }
 
-.scroll-down-block span{
+.scroll-down-block span {
     font-size: 13px;
     font-family: "Myriad Pro", sans-serif;
     color: rgb(255, 255, 255);
     text-align: center;
 }
 
-.scroll-down-block img{
+.scroll-down-block img {
     margin-top: 20px;
     width: 65px;
     height: 65px;
 }
 
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 1100px) {
 
-    .creatives-block{
+    .creatives-block {
         height: 465px;
     }
 
-
-    .creatives-text{
+    .creatives-text {
         font-size: 103px;
     }
 
-    .power-text{
+    .power-text {
         font-size: 15px;
         letter-spacing: 12px;
     }
 
-    .empty-div{
-        height: 50px !important;
+    .menu__image {
+        margin: auto;
     }
-
 }
