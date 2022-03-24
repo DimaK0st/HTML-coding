@@ -85,3 +85,16 @@
         margin: auto;
     }
 }
+
+@media screen and (max-width: 550px) {
+
+    .creatives-text {
+        font-size: 70px;
+    }
+
+    .power-text {
+        font-size: 10px;
+        letter-spacing: 7px;
+    }
+
+}

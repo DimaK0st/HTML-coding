@@ -100,3 +100,28 @@
     }
 
 }
+
+@media screen and (max-width: 550px) {
+
+    .awesome-agency-w{
+        font-size: 200px;
+        top: -100px;
+    }
+
+    .awesome-agency-top{
+        margin-top: 100px;
+    }
+
+    .awesome-agency-item{
+        margin-bottom: 30px;
+    }
+
+    .awesome-agency-item-text{
+        margin-top: 20px;
+    }
+
+    .blog-bottom section{
+        padding: 5px;
+    }
+
+}
