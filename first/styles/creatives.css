@@ -3,12 +3,6 @@
     background-size: 100%;
 }
 
-@media screen and (max-width: 1600px) {
-    .creatives-bg-block {
-        background-size: auto;
-    }
-}
-
 .creatives-block {
     display: flex;
     flex-direction: column;
@@ -81,21 +75,14 @@
         letter-spacing: 12px;
     }
 
-    .menu__image {
+    .menu-image {
         margin: auto;
     }
 }
 
-@media screen and (max-width: 550px) {
-
-    .creatives-text {
-        font-size: 70px;
-        letter-spacing: 1px;
-    }
-
-    .power-text {
-        font-size: 10px;
-        letter-spacing: 7px;
+@media screen and (max-width: 1600px) {
+    .creatives-bg-block {
+        background-size: auto;
     }
 }
 

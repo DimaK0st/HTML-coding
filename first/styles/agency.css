@@ -6,7 +6,6 @@
 }
 
 .awesome-agency {
-    /*background: aqua;*/
     max-width: 1200px;
 }
 
@@ -98,30 +97,28 @@
     .awesome-agency-item {
         margin-bottom: 20px;
     }
-
 }
 
 @media screen and (max-width: 550px) {
 
-    .awesome-agency-w{
+    .awesome-agency-w {
         font-size: 200px;
         top: -100px;
     }
 
-    .awesome-agency-top{
+    .awesome-agency-top {
         margin-top: 100px;
     }
 
-    .awesome-agency-item{
+    .awesome-agency-item {
         margin-bottom: 30px;
     }
 
-    .awesome-agency-item-text{
+    .awesome-agency-item-text {
         margin-top: 20px;
     }
 
-    .blog-bottom section{
+    .blog-bottom section {
         padding: 5px;
     }
-
 }

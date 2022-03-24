@@ -79,21 +79,21 @@
     text-align: left;
 }
 
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 1100px) {
 
-    .dog-akita-block div{
+    .dog-akita-block div {
         padding-left: 5px;
         box-sizing: border-box;
     }
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 800px) {
 
-    .dog-akita-block-list{
+    .dog-akita-block-list {
         flex-direction: column;
     }
 
-    .dog-akita-bg{
+    .dog-akita-bg {
         height: auto;
         padding-bottom: 40px;
     }

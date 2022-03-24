@@ -1,14 +1,14 @@
-.our-team-bg{
+.our-team-bg {
     display: flex;
     background: #ffffff;
     height: 950px;
 }
 
-.our-team-block{
+.our-team-block {
     max-width: 1200px;
 }
 
-.our-team-header-center{
+.our-team-header-center {
     margin: 140px 0;
     text-align: center;
     position: relative;
@@ -16,7 +16,7 @@
     justify-content: space-around;
 }
 
-.our-team-header-char{
+.our-team-header-char {
     position: absolute;
     font-size: 247px;
     font-family: "RobotoCondensed", serif;
@@ -24,10 +24,9 @@
     font-weight: bold;
     line-height: 0.852;
     top: -90px;
-    left: 50px;
 }
 
-.our-team-text{
+.our-team-text {
     font-size: 30px;
     font-family: "GothamBook", serif;
     color: rgb(34, 34, 34);
@@ -48,26 +47,26 @@
 
 }
 
-.our-team-list{
+.our-team-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin: auto;
-width: 100%;
+    width: 100%;
 }
 
-.our-team-item{
+.our-team-item {
     position: relative;
     display: flex;
     justify-content: center;
 }
 
-.our-team-item img{
+.our-team-item img {
     max-width: 270px;
     max-height: 415px;
 }
 
-.our-team-item-text-block{
+.our-team-item-text-block {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -77,31 +76,28 @@ width: 100%;
     padding: 25px 40px 0 40px;
 }
 
-.our-team-item-name{
+.our-team-item-name {
     font-size: 20px;
     font-family: "GothamMedium", sans-serif;
     color: rgb(17, 116, 158);
     text-transform: uppercase;
 }
 
-.our-team-item-job{
+.our-team-item-job {
     font-size: 15px;
     font-family: "GothamMedium", sans-serif;
     color: rgb(0, 0, 0);
     line-height: 1.6;
 }
 
+@media screen and (max-width: 1100px) {
 
-
-@media screen and (max-width: 1100px){
-
-    .our-team-bg{
+    .our-team-bg {
         height: auto;
         padding-bottom: 40px;
     }
 
-    .our-team-item{
-    margin-bottom: 40px;
+    .our-team-item {
+        margin-bottom: 40px;
     }
-
 }

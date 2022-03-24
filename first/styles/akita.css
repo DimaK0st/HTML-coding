@@ -76,9 +76,9 @@
     line-height: 1.6;
 }
 
-@media screen and (max-width: 1300px){
+@media screen and (max-width: 1300px) {
 
-    .akita-text-date{
+    .akita-text-date {
         margin-top: 50px;
     }
 
@@ -87,7 +87,7 @@
         padding-left: 50px;
     }
 
-    .akita-text-left{
+    .akita-text-left {
         padding-right: 50px;
         box-sizing: border-box;
     }
@@ -105,26 +105,26 @@
     }
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 800px) {
 
-    .akita-first-block{
+    .akita-first-block {
         flex-direction: column;
     }
 
-    .akita-second-block{
+    .akita-second-block {
         flex-direction: column;
         flex-flow: column-reverse;
     }
 
-    .akita-block-text{
+    .akita-block-text {
         margin: 40px 0;
     }
 
-    .left{
+    .left {
         float: left;
     }
 
-    .akita-text{
+    .akita-text {
         padding-left: 5px;
         max-width: 100%;
     }
