@@ -90,11 +90,36 @@
 
     .creatives-text {
         font-size: 70px;
+        letter-spacing: 1px;
     }
 
     .power-text {
         font-size: 10px;
         letter-spacing: 7px;
     }
+}
 
+@media screen and (max-width: 550px) {
+
+    .creatives-text {
+        font-size: 70px;
+        letter-spacing: 1px;
+    }
+
+    .power-text {
+        font-size: 10px;
+        letter-spacing: 7px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .creatives-text {
+        font-size: 50px;
+        letter-spacing: 2px;
+    }
+
+    .creatives-block div {
+        max-height: 103px;
+    }
 }
