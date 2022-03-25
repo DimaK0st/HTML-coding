@@ -1,0 +1,112 @@
+.creatives-bg-block {
+    background-image: url(../images/bg1.png);
+    background-size: 100%;
+}
+
+.creatives-block {
+    display: flex;
+    flex-direction: column;
+    height: 765px;
+    align-content: stretch;
+}
+
+.creatives-text-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.creatives-block div {
+    height: 100%;
+    max-height: 253px;
+}
+
+.creatives-text {
+    height: auto;
+    font-size: 153px;
+    letter-spacing: -8px;
+    color: #f5f5f5;
+    font-weight: bold;
+    font-family: "GothamBold", sans-serif;
+    text-align: center;
+}
+
+.power-text {
+    height: 20px;
+    font-size: 25px;
+    letter-spacing: 19px;
+    color: #11749e;
+    font-weight: 500;
+    font-family: "GothamMedium", sans-serif;
+    text-align: center;
+}
+
+.scroll-down-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.scroll-down-block span {
+    font-size: 13px;
+    font-family: "Myriad Pro", sans-serif;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.scroll-down-block img {
+    margin-top: 20px;
+    width: 65px;
+    height: 65px;
+}
+
+@media screen and (max-width: 1100px) {
+
+    .creatives-block {
+        height: 465px;
+    }
+
+    .creatives-text {
+        font-size: 103px;
+    }
+
+    .power-text {
+        font-size: 15px;
+        letter-spacing: 12px;
+    }
+
+    .menu-image {
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .creatives-bg-block {
+        background-size: auto;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    .creatives-text {
+        font-size: 70px;
+        letter-spacing: 1px;
+    }
+
+    .power-text {
+        font-size: 10px;
+        letter-spacing: 7px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .creatives-text {
+        font-size: 50px;
+        letter-spacing: 2px;
+    }
+
+    .creatives-block div {
+        max-height: 103px;
+    }
+}

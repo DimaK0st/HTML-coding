@@ -1,0 +1,137 @@
+#ourCollection {
+    max-width: 1200px;
+    min-height: 1200px;
+    margin: 0 auto 0 auto;
+    padding-right: 11px;
+}
+
+
+.block-text-center {
+    margin-top: 0;
+    padding-top: 100px;
+}
+
+.our-collection-array1 {
+
+    position: relative;
+    z-index: 1;
+    width: 272px;
+    background: #ffffff;
+    margin-bottom: 30px;
+
+}
+
+.our-collection-array {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin-top: 70px;
+}
+
+.invisible-block {
+    position: absolute;
+    z-index: 10;
+    margin-left: -10px;
+    margin-top: -15px;
+    width: 293px;
+    height: 436px;
+    background: #ffda98;
+    opacity: 0;
+    -webkit-transition: 2s ease; /* Safari and Chrome */
+    -moz-transition: 2s ease; /* Firefox 4 */
+    -o-transition: 2s ease; /* Opera */
+    box-shadow: 0 0 10px 2px #cdccc6;
+}
+
+.invisible-block-selecter {
+    width: 185px;
+    height: 60px;
+    background: #4b4f51;
+    margin: 180px 58px 200px 51px;
+    border-radius: 25px;
+}
+
+.select-image {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    padding-top: 20px;
+}
+
+.invisible-block:hover {
+    opacity: 0.7;
+    transition: opacity 1s;
+
+}
+
+.image-triangle {
+    position: relative;
+    z-index: 3;
+}
+
+.triangle {
+    position: absolute;
+    z-index: 4;
+    width: 0px;
+    height: 0;
+    border-top: 56px solid #ff412d;
+    border-right: 56px solid transparent;
+}
+
+.our-collection-text {
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.block-image-center {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+}
+
+.rectangle {
+    margin: 0 5px 0 5px;
+}
+
+.ourCollectionArrays:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    z-index: 100;
+}
+
+@media screen and (max-width: 1120px) {
+    .our-collection-array {
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (max-width: 830px) {
+
+    .Shape {
+        width: 130px;
+    }
+
+    #ourCollection {
+        padding: 0 2px 0 2px;
+    }
+
+    .our-collection-array {
+        padding: 0 2px 0 2px;
+        justify-content: space-evenly;
+    }
+
+    .block-text-center {
+        margin-top: 0;
+        padding-top: 30px;
+    }
+}

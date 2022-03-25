@@ -1,0 +1,19 @@
+html {
+    margin: auto;
+    background: #383838;
+    scroll-behavior: smooth;
+}
+
+body {
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}

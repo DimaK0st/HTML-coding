@@ -2,391 +2,926 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>PAHU</title>
 
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/fonts.css">
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/creatives.css">
-    <link rel="stylesheet" href="styles/agency.css">
-    <link rel="stylesheet" href="styles/akita.css">
-    <link rel="stylesheet" href="styles/lets-blog.css">
-    <link rel="stylesheet" href="styles/blog-bottom.css">
-    <link rel="stylesheet" href="styles/dog-akita.css">
-    <link rel="stylesheet" href="styles/our-team.css">
-    <link rel="stylesheet" href="styles/about.css">
+    <link rel="stylesheet" href="style/MainPageStyle.css">
+    <link rel="stylesheet" href="style/fonts.css">
 
-    <script src="scripts/main.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style/OurDesigner.css">
+    <link rel="stylesheet" href="style/Main.css">
+    <link rel="stylesheet" href="style/WhyChooseUsTop.css">
+    <link rel="stylesheet" href="style/WhyChooseUsDown.css">
+    <link rel="stylesheet" href="style/OurCollection.css">
+    <link rel="stylesheet" href="style/OurProject.css">
+    <link rel="stylesheet" href="style/FromOurBlog.css">
+    <link rel="stylesheet" href="style/Footer.css">
+
+    <link rel="stylesheet" href="style/Header.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/g/jquery.owlcarousel@1.31(owl.carousel.css)">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.6.3/css/font-awesome.min.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
+
 <body>
 
-<div class="creatives-bg-block">
-    <header id="header-web">
-        <div class="logo-media">
-            <img src="images/Logo.png" alt="Слава Україні">
+<header>
+    <div class="header-main">
+        <div class="header-logo">
+            <a href="#">
+                <img src="image/header/Logo.svg" alt="Слава Україні">
+            </a>
         </div>
-        <div class="nav-link">
-            <a href="#main">Home</a>
-            <a href="#agency">Pages</a>
-            <a href="#akita">Features</a>
-            <a href="#lets-blog">Extensions</a>
-            <a href="#blog-bottom">Tutorials</a>
-            <a href="#about">Contact us</a>
-        </div>
-        <div class="social-media">
-            <img src="images/s4.png" alt="Слава Україні">
-            <img src="images/s3.png" alt="Слава Україні">
-            <img src="images/s2.png" alt="Слава Україні">
-            <img src="images/s1.png" alt="Слава Україні">
-        </div>
-    </header>
 
-    <header id="header-mobile">
-        <div class="hamburger-menu">
-            <input id="menu-toggle" type="checkbox"/>
-            <label class="menu-btn" for="menu-toggle">
-                <span></span>
-            </label>
+        <div class="header-menu MENU font-popins">
 
-            <ul class="menu-box">
-                <li class="menu-image"><img src="images/Logo.png" alt="Слава Україні"></li>
-                <li><a class="menu-item" href="#main">Home</a></li>
-                <li><a class="menu-item" href="#agency">Pages</a></li>
-                <li><a class="menu-item" href="#akita">Features</a></li>
-                <li><a class="menu-item" href="#lets-blog">Extensions</a></li>
-                <li><a class="menu-item" href="#blog-bottom">Tutorials</a></li>
-                <li><a class="menu-item" href="#about">Contact us</a></li>
-                <li class="menu-image social">
-                    <img src="images/s4.png" alt="Слава Україні">
-                    <img src="images/s3.png" alt="Слава Україні">
-                    <img src="images/s2.png" alt="Слава Україні">
-                    <img src="images/s1.png" alt="Слава Україні"></li>
-            </ul>
-        </div>
-    </header>
+            <input type="checkbox" id="menu-checkbox"/>
+            <nav role="navigation">
+                <label for="menu-checkbox" class="toggle-button" data-open="Menu" data-close="Close" onclick></label>
 
-    <section id="main" class="creatives-block">
-        <div class="empty-div">
-        </div>
-        <div class="creatives-text-block">
-            <span class="creatives-text">CREATIVES</span>
-            <span class="power-text">Power by PSDfreebies.com</span>
-        </div>
-        <div class="scroll-down-block">
-            <span>Scroll Down</span>
-            <a href="#agency"><img src="images/arrow.png " alt="Слава Україні"></a>
-        </div>
-    </section>
-</div>
 
-<div id="agency" class="anchor">
-    <div class="awesome-agency-bg">
-        <section class="awesome-agency">
-            <div class="awesome-agency-top">
-                <span class="awesome-agency-w">W</span>
-                <span class="awesome-agency-text">We Are An Awesome Agency</span>
+                <ul class="main-menu MENU">
+                    <li><a href="#Main">HOME</a></li>
+                    <li><a href="#whyChooseUsTop">FEATURES</a></li>
+                    <li><a href="#ourCollection">SHOP</a></li>
+                    <li><a href="#fromOurBlog">BLOG</a></li>
+                    <li><a href="#OurProject">ACCESSORIES</a></li>
+                    <li><a href="#footer">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-image">
+            <a href="#"> <img src="image/header/zoom.svg" alt="Слава Україні"></a>
+            <a href="#"> <img src="image/header/like.svg" alt="Слава Україні"></a>
+            <a href="#">
+                <div class="header-image-basket-array">
+
+                    <div class="header-image-basket">
+                        <img src="image/header/basket.svg" alt="Слава Україні">
+                    </div>
+                </div>
+            </a>
+            <div class="header-image-ellipse">
+                <img src="image/header/Ellipse%201.svg" alt="Слава Україні">
             </div>
-            <div class="awesome-agency-list">
-                <div class="awesome-agency-item">
-                    <div class="awesome-agency-item-img">
-                        <img src="images/write-copy.png" alt="Слава Україні">
-                    </div>
-                    <div class="awesome-agency-item-head">
-                        <span>FEATURE ONE</span>
-                    </div>
-                    <div class="awesome-agency-item-text">
-                        <span>Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus</span>
-                    </div>
-                </div>
-                <div class="awesome-agency-item">
-                    <div class="awesome-agency-item-img">
-                        <img src="images/write-copy.png" alt="Слава Україні">
-                    </div>
-                    <div class="awesome-agency-item-head">
-                        <span>FEATURE ONE</span>
-                    </div>
-                    <div class="awesome-agency-item-text">
-                        <span>Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus</span>
-                    </div>
-                </div>
-                <div class="awesome-agency-item">
-                    <div class="awesome-agency-item-img">
-                        <img src="images/simon-says.png" alt="Слава Україні">
-                    </div>
-                    <div class="awesome-agency-item-head">
-                        <span>FEATURE ONE</span>
-                    </div>
-                    <div class="awesome-agency-item-text">
-                        <span>Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus</span>
-                    </div>
-                </div>
-                <div class="awesome-agency-item">
-                    <div class="awesome-agency-item-img">
-                        <img src="images/search.png" alt="Слава Україні">
-                    </div>
-                    <div class="awesome-agency-item-head">
-                        <span>FEATURE ONE</span>
-                    </div>
-                    <div class="awesome-agency-item-text">
-                        <span>Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus</span>
-                    </div>
-                </div>
+            <div class="header-image-number">
+                <span class="header-text-2">2</span>
             </div>
-        </section>
+        </div>
     </div>
-</div>
+</header>
 
-<div id="akita" class="anchor">
-    <div class="akita-bg">
-        <section class="akita-block">
-            <div class="akita-first-block">
-                <div class="akita-block-text">
-                    <div class="akita-text akita-text-left left">
-                        <span class="akita-text-date">Jan 4, 2016   |   In Culture</span>
-                        <span class="akita-text-head">Akita Inu Dog</span>
-                        <span class="akita-text-text">
-                        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                        <br>
-                        <br>
-                        Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur
-                    </span>
+
+<section id="Main">
+    <h1 class="anchor"></h1>
+
+    <div>
+        <div class="prod-slider-container">
+            <div class="inner-container">
+                <div class="owl-carousel1">
+
+                    <div class="item">
+                        <div class="main-slider-img">
+                            <img src="image/Main/Main.png" alt="Tuner Image">
+                        </div>
+                        <div class="main-slider-text">
+                            <div class="main-text-top">
+                                <img src="image/Main/line.svg" alt="Слава Україні">
+                                <span class="welcome-to-pahu-design">Welcome To <span
+                                        style="color: #fece76">Pahu Design</span></span>
+                            </div>
+                            <div class="main-text-top"><span
+                                    class="you-are-in-good-hand-with-us">YOU ARE IN GOOD<br>HAND WITH US</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="main-slider-img">
+                            <img src="image/Main/Main.png" alt="Tuner Image">
+                        </div>
+                        <div class="main-slider-text">
+                            <div class="main-text-top">
+                                <img src="image/Main/line.svg" alt="Слава Україні">
+                                <span class="welcome-to-pahu-design">Welcome To <span
+                                        style="color: #fece76">Pahu Design</span></span>
+                            </div>
+                            <div class="main-text-top"><span
+                                    class="you-are-in-good-hand-with-us">YOU ARE IN GOOD<br>HAND WITH US</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="main-slider-img">
+                            <img src="image/Main/Main.png" alt="Tuner Image">
+                        </div>
+                        <div class="main-slider-text">
+                            <div class="main-text-top">
+                                <img src="image/Main/line.svg" alt="Слава Україні">
+                                <span class="welcome-to-pahu-design">Welcome To <span
+                                        style="color: #fece76">Pahu Design</span></span>
+                            </div>
+                            <div class="main-text-top"><span
+                                    class="you-are-in-good-hand-with-us">YOU ARE IN GOOD<br>HAND WITH US</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="main-slider-img">
+                            <img src="image/Main/Main.png" alt="Tuner Image">
+                        </div>
+                        <div class="main-slider-text">
+                            <div class="main-text-top">
+                                <img src="image/Main/line.svg" alt="Слава Україні">
+                                <span class="welcome-to-pahu-design">Welcome To <span
+                                        style="color: #fece76">Pahu Design</span></span>
+                            </div>
+                            <div class="main-text-top"><span
+                                    class="you-are-in-good-hand-with-us">YOU ARE IN GOOD<br>HAND WITH US</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="main-slider-img">
+                            <img src="image/Main/Main.png" alt="Tuner Image">
+                        </div>
+                        <div class="main-slider-text">
+                            <div class="main-text-top">
+                                <img src="image/Main/line.svg" alt="Слава Україні">
+                                <span class="welcome-to-pahu-design">Welcome To <span
+                                        style="color: #fece76">Pahu Design</span></span>
+
+
+                            </div>
+                            <div class="main-text-top"><span
+                                    class="you-are-in-good-hand-with-us">YOU ARE IN GOOD<br>HAND WITH US</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="main-slider-img">
+                            <img src="image/Main/Main.png" alt="Tuner Image">
+                        </div>
+                        <div class="main-slider-text">
+                            <div class="main-text-top">
+                                <img src="image/Main/line.svg" alt="Слава Україні">
+                                <span class="welcome-to-pahu-design">Welcome To <span
+                                        style="color: #fece76">Pahu Design</span></span>
+
+
+                            </div>
+                            <div class="main-text-top"><span
+                                    class="you-are-in-good-hand-with-us">YOU ARE IN GOOD<br>HAND WITH US</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="akita-img">
-                    <img src="images/Layer88.png" alt="Слава Україні">
-                </div>
             </div>
-            <div class="akita-second-block">
-                <div class="akita-img">
-                    <img src="images/Layer90.png" alt="Слава Україні">
-                </div>
-                <div class="akita-block-text">
-                    <div class="akita-text akita-text-right">
-                        <span class="akita-text-date">Jan 4, 2016   |   In Culture</span>
-                        <span class="akita-text-head">Akita Inu Dog</span>
-                        <span class="akita-text-text">
-                        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                        <br>
-                        <br>
-                        Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur
-                    </span>
-                    </div>
-                </div>
-            </div>
-        </section>
+
+        </div>
     </div>
-</div>
+</section>
 
-<div id="lets-blog" class="anchor">
-    <div class="lets-blog">
-        <a id="anchor" class="anchor100"></a>
-        <section class="lets-blog-block">
-            <div class="lets-blog-header">
-                <div class="lets-blog-header-center">
-                <span class="lets-blog-head">
-                    Let's blog
-                <span class="lets-blog-header-char">
-                    B
-                </span>
-                </span>
-                </div>
-                <span class="lets-blog-text">
-                We love clean design and advanced digital solutions.
-            </span>
-            </div>
-            <div class="lets-blog-list">
-                <div class="lets-blog-item">
-                    <img src="images/list1.png" alt="Слава Україні">
-                    <span class="lets-blog-item-head">
-                    Fresh Summer Campaign
-                </span>
-                    <span class="lets-blog-item-text">
-                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                </span>
-                </div>
-                <div class="lets-blog-item">
-                    <img src="images/list2.png" alt="Слава Україні">
-                    <span class="lets-blog-item-head">
-                    Fresh Summer Campaign
-                </span>
-                    <span class="lets-blog-item-text">
-                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                </span>
-                </div>
 
-                <div class="lets-blog-item">
-                    <img src="images/list3.png" alt="Слава Україні">
-                    <span class="lets-blog-item-head">
-                        Fresh Summer Campaign
-                    </span>
-                    <span class="lets-blog-item-text">
-                        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                    </span>
-                </div>
-                <div class="lets-blog-item">
-                    <img src="images/list4.png" alt="Слава Україні">
-                    <span class="lets-blog-item-head">
-                        Fresh Summer Campaign
-                    </span>
-                    <span class="lets-blog-item-text">
-                        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                    </span>
-                </div>
+<section id="whyChooseUsTop">
 
-            </div>
-        </section>
-    </div>
-</div>
-
-<div id="blog-bottom" class="anchor">
-    <div class="blog-bottom">
-        <section class="blog-bottom-block">
-            <div class="blog-bottom-block-left">
-                <img src="images/write-copy.png" alt="Слава Україні">
-                <span>
-                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                </span>
-            </div>
+    <h1 class="anchor"></h1>
+    <div class="why-choose-us-top">
+        <div class="block-text-center">
             <div>
-                <img src="images/write-copy.png" alt="Слава Україні">
-                <span>
-                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                </span>
+                <span style="font-family: 'Poppins',sans-serif ; color: #ffce76;"
+                      class="BlockTextCenterFont"> WHY CHOOSE US </span>
             </div>
-        </section>
-    </div>
-</div>
+            <div class="block-image-center">
+                <img src="image/WhyChooseUs/Shape 1.svg" class="Shape" alt="Слава Україні">
+                <img src="image/WhyChooseUs/Rectangle%205.svg" class="rectangle" alt="Слава Україні">
+                <img src="image/WhyChooseUs/Shape 1.svg" class="Shape" alt="Слава Україні">
+            </div>
 
-<div id="dog-akita" class="anchor">
-    <div class="dog-akita-bg">
-        <section class="dog-akita-block">
-            <div class="dog-akita-block-list">
+        </div>
+        <div class="why-choose-us-array">
+
+            <div class="WhyChooseUsArray1">
+                <div class="why-choose-us-array1-1-top">
+                    <div class="why-choose-us-array1-1-top-text">
+                        <span class="why-choose-us-top1">MORDERN DESIGN</span>
+                        <span class="why-choose-us-top2 why-choose-us-left">Lorem ipsum dolor sit amet, consecte- <br>tur adipiscing elit, sed do eiusmod <br>
+                            tempor incididunt ut labore et dolore <br>magna aliqua.</span>
+                    </div>
+
+                    <div class="why-choose-us-array-marg-left">
+                        <img src="image/WhyChooseUs/1_1T.svg" alt="Слава Україні">
+                    </div>
+
+
+                </div>
+
+                <div class="why-choose-us-array1-1-down marg-text12">
+                    <div class="why-choose-us-array1-1-down-text ">
+                        <span class="why-choose-us-top1 ">UNIQUE QUALITY</span>
+                        <span class="why-choose-us-top2 why-choose-us-left">Lorem ipsum dolor sit amet, consecte- <br>tur adipiscing elit, sed do eiusmod <br>
+                            tempor incididunt ut labore et dolore <br>magna aliqua.</span>
+                    </div>
+
+                    <div class="why-choose-us-array-marg-left">
+                        <img src="image/WhyChooseUs/2_1T.svg" alt="Слава Україні">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="WhyChooseUsArray1">
+                <img src="image/WhyChooseUs/chair.png" alt="Слава Україні">
+            </div>
+
+            <div class="WhyChooseUsArray1">
+
+                <div class="why-choose-us-array1-1-top">
+
+                    <div class="why-choose-us-array-marg-rigth">
+                        <img src="image/WhyChooseUs/1_2T.svg" alt="Слава Україні">
+                    </div>
+                    <div class="why-choose-us-array1-1-top-text">
+                        <span class="why-choose-us-top1">HONEST PRICES</span>
+                        <span class="why-choose-us-top2">Lorem ipsum dolor sit amet, consecte- <br>tur adipiscing elit, sed do eiusmod <br> tempor incididunt ut labore et dolore <br>magna aliqua.</span>
+                    </div>
+
+
+                </div>
+
+                <div class="why-choose-us-array1-1-down marg-text12">
+                    <div class="why-choose-us-array-marg-rigth">
+                        <img src="image/WhyChooseUs/2_2T.svg" alt="Слава Україні">
+                    </div>
+                    <div class="why-choose-us-array1-1-down-text">
+                        <span class="why-choose-us-top1 ">GREAT SUPPORT</span>
+                        <span class="why-choose-us-top2">Lorem ipsum dolor sit amet, consecte- <br>tur adipiscing elit, sed do eiusmod <br> tempor incididunt ut labore et dolore <br>magna aliqua.</span>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</section>
+
+
+<section id="whyChooseUsDown">
+
+    <h1 class="anchor"></h1>
+
+    <div class="why-choose-us-down-array">
+
+        <div class="why-choose-us-down-array1">
+            <div class="why-choose-us-down-array1-1">
+                <span class="patio-furniture-vietnam">PATIO <br> FURNITURE <br> VIETNAM</span>
+                <span class="view-deatail">VIEW DEATAIL →</span>
+            </div>
+            <div class="why-choose-us-down-array1-2">
+                <img class="WhyChooseUsDownArray11" src="image/WhyChooseUs/2_3.png" height="670" width="396" alt="Слава Україні">
+            </div>
+        </div>
+
+        <div class="why-choose-us-down-array2">
+
+            <div class="why-choose-us-down-array-top">
+
                 <div>
-                <span class="dog-akita-block-head">
-                    Akita Inu Dog
-                </span>
-                    <span class="dog-akita-block-text">
-                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                </span>
-                    <div class="dog-akita-block-items">
-                    <span class="dog-akita-block-item-1">
-                        Fully Responsive Design
-                    </span>
-                        <span class="dog-akita-block-item-2">
-                        High Quality Code
-                    </span>
-                        <span class="dog-akita-block-item-3">
-                        Different Headers & Layout
-                    </span>
+                    <img src="image/WhyChooseUs/2_1.png" height="341" width="390" alt="Слава Україні">
+                </div>
+
+                <div class="why-choose-us-down-array-top2-3">
+                    <div class="why-choose-us-down-array2-3">
+                        <span class="design-by-jarnet-park-trend-2017">DESIGN BY <br> JARNET PARK <br> TREND 2017 </span>
+                        <span class="view-deatail2">VIEW DEATAIL →</span>
+                    </div>
+
+                    <div>
+                        <img src="image/WhyChooseUs/2_2.png" height="341" width="815" alt="Слава Україні">
                     </div>
                 </div>
-                <div class="dog-akita-img">
-                    <img src="images/phone.png" alt="Слава Україні">
+            </div>
+
+
+            <div class="why-choose-us-down-array-down">
+                <div class="why-choose-us-down-array-down2-4">
+                    <div class="why-choose-us-down-array2-4">
+                        <span class="ceramics-wm-munoz">CERAMICS <br> WM <br> MUNOZ </span>
+                        <span class="view-deatail3">VIEW DEATAIL →</span>
+                    </div>
+
+                    <div>
+                        <img src="image/WhyChooseUs/2_4.png" height="330" width="866" alt="Слава Україні">
+                    </div>
+                </div>
+                <div>
+                    <img src="image/WhyChooseUs/2_5.png" height="330" width="338" alt="Слава Україні">
                 </div>
             </div>
-        </section>
-    </div>
-</div>
 
-<div id="our-team" class="anchor">
-    <div class="our-team-bg">
-        <section class="our-team-block">
-            <div class="our-team-header-center">
-                <span class="our-team-head">
-                    OUR TEAM
-                    <span class="our-team-header-char">
-                        T
-                    </span>
-                </span>
+        </div>
+
+
+    </div>
+
+
+    <div class="why-choose-us-down-mobile-array">
+
+        <div class="why-choose-us-down-mobile-arrays">
+            <div class="why-choose-us-down-mobile-array1">
+                <div class="why-choose-us-down-mobile-array1-1">
+                    <span class="patio-furniture-vietnam">PATIO <br> FURNITURE <br> VIETNAM</span>
+                    <span class="view-deatail">VIEW DEATAIL →</span>
+                </div>
+                <div class="why-choose-us-down-mobile-array1-2">
+                    <img class="why-choose-us-down-mobile-array11" src="image/WhyChooseUs/2_3.png" height="670"
+                         width="396" alt="Слава Україні">
+                </div>
             </div>
-            <div class="our-team-text">
-            <span>
-                 sales long tail influencer pitch release niche market.
-            </span>
+
+            <div class="why-choose-us-down-mobile-array2">
+
+                <div class="why-choose-us-down-mobile-array-top">
+
+                    <div>
+                        <img src="image/WhyChooseUs/2_1.png" height="341" width="390" alt="Слава Україні">
+                    </div>
+                    <div>
+                        <img src="image/WhyChooseUs/2_5_1.svg" height="340" width="390" alt="Слава Україні">
+                    </div>
+
+                </div>
+
             </div>
-            <div class="our-team-list">
-                <div class="our-team-item">
-                    <img src="images/list2-1.png" alt="Слава Україні">
-                    <div class="our-team-item-text-block">
-                    <span class="our-team-item-name">
-                        JOHN SNOW
-                    </span>
-                        <span class="our-team-item-job">
-                            CEO
+        </div>
+
+        <div class="why-choose-us-down-mobile-array-down">
+            <div class="why-choose-us-down-mobile-array-down2-4">
+                <div class="why-choose-us-down-mobile-array2-4">
+                    <span class="ceramics-wm-munoz">CERAMICS <br> WM <br> MUNOZ </span>
+                    <span class="view-deatail3">VIEW DEATAIL →</span>
+                </div>
+
+                <div class="why-choose-us-down-mobile-array-image">
+                    <img src="image/WhyChooseUs/2_4.png" height="330" width="866" alt="Слава Україні">
+                </div>
+            </div>
+            <div class="why-choose-us-down-mobile-array-top2-3">
+                <div class="why-choose-us-down-mobile-array2-3">
+                    <span class="design-by-jarnet-park-trend-2017">DESIGN BY <br> JARNET PARK <br> TREND 2017 </span>
+                    <span class="view-deatail2">VIEW DEATAIL →</span>
+                </div>
+
+                <div>
+                    <img src="image/WhyChooseUs/2_2.png" height="341" width="815" alt="Слава Україні">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+<section id="ourCollection">
+    <h1 class="anchor"></h1>
+    <div class="block-text-center">
+        <div>
+            <span class="BlockTextCenterFont font-popins" style=" margin-top: 0"> OUR COLLECTION </span>
+        </div>
+        <div class="block-image-center">
+            <img src="image/FromOurBlog/Shape%201.png" class="Shape" alt="Слава Україні">
+            <img src="image/FromOurBlog/Rectangle%205.png" class="rectangle" alt="Слава Україні">
+            <img src="image/FromOurBlog/Shape%201%20copy.png" class="Shape" alt="Слава Україні">
+        </div>
+
+    </div>
+
+
+    <div class="our-collection-array">
+
+        <div class="ourCollectionArrays">
+
+            <div class="invisible-block">
+                <div class="invisible-block-selecter">
+                    <div class="select-image">
+                        <a href="#"> <img src="image/header/zoom.svg" alt="Слава Україні"></a>
+                        <a href="#"> <img src="image/header/basket.svg" alt="Слава Україні"></a>
+                        <a href="#"> <img src="image/header/like.svg" alt="Слава Україні"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="our-collection-array1">
+                <div>
+                    <div class="triangle"></div>
+                    <span class="NEW font-popins">NEW</span>
+                    <img class="image-triangle" src="image/OurCollectoin/1.png" alt="Слава Україні">
+                </div>
+                <div class="our-collection-text">
+                    <span class="corona-chair font-popins">CORONA CHAIR</span>
+                    <span class="printed font-popins">Printed evening dress with straight sleeves</span>
+                    <span class="text-14-86 font-popins">$14.86</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ourCollectionArrays">
+
+
+            <div class="invisible-block">
+                <div class="invisible-block-selecter">
+                    <div class="select-image">
+                        <a href="#"> <img src="image/header/zoom.svg" alt="Слава Україні"></a>
+                        <a href="#"> <img src="image/header/basket.svg" alt="Слава Україні"></a>
+                        <a href="#"> <img src="image/header/like.svg" alt="Слава Україні"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="our-collection-array1">
+                <div>
+                    <img src="image/OurCollectoin/7.png" alt="Слава Україні">
+                </div>
+                <div class="our-collection-text">
+                    <span class="corona-chair font-popins">CORONA CHAIR</span>
+                    <span class="printed font-popins">Printed evening dress with straight sleeves</span>
+                    <span class="text-14-86 font-popins">$14.86</span>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="ourCollectionArrays">
+
+
+            <div class="invisible-block">
+                <div class="invisible-block-selecter">
+                    <div class="select-image">
+                        <a href="#"> <img src="image/header/zoom.svg" alt="Слава Україні"></a>
+                        <a href="#"> <img src="image/header/basket.svg" alt="Слава Україні"></a>
+                        <a href="#"> <img src="image/header/like.svg" alt="Слава Україні"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="our-collection-array1">
+                <div>
+                    <div class="triangle"></div>
+                    <span class="NEW font-popins">NEW</span>
+                    <img src="image/OurCollectoin/3.png" alt="Слава Україні">
+                </div>
+                <div class="our-collection-text">
+                    <span class="corona-chair font-popins">CORONA CHAIR</span>
+                    <span class="printed font-popins">Printed evening dress with straight sleeves</span>
+                    <span class="text-14-86 font-popins">$14.86</span>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="ourCollectionArrays">
+
+
+            <div class="invisible-block">
+                <div class="invisible-block-selecter">
+                    <div class="select-image">
+                        <a href="#"> <img src="image/header/zoom.svg" alt="Слава Україні"></a>
+                        <a href="#"> <img src="image/header/basket.svg" alt="Слава Україні"></a>
+                        <a href="#"> <img src="image/header/like.svg" alt="Слава Україні"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="our-collection-array1">
+                <div>
+                    <img src="image/OurCollectoin/4.png" alt="Слава Україні">
+                </div>
+                <div class="our-collection-text">
+                    <span class="corona-chair font-popins">CORONA CHAIR</span>
+                    <span class="printed font-popins">Printed evening dress with straight sleeves</span>
+                    <span class="text-14-86 font-popins">$14.86</span>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="ourCollectionArrays">
+
+
+            <div class="invisible-block">
+                <div class="invisible-block-selecter">
+                    <div class="select-image">
+                        <a href="#"> <img src="image/header/zoom.svg" alt="Слава Україні"></a>
+                        <a href="#"> <img src="image/header/basket.svg" alt="Слава Україні"></a>
+                        <a href="#"> <img src="image/header/like.svg" alt="Слава Україні"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="our-collection-array1">
+                <div>
+                    <img src="image/OurCollectoin/5.png" alt="Слава Україні">
+                </div>
+                <div class="our-collection-text">
+                    <span class="corona-chair font-popins">CORONA CHAIR</span>
+                    <span class="printed font-popins">Printed evening dress with straight sleeves</span>
+                    <span class="text-14-86 font-popins">$14.86</span>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="ourCollectionArrays">
+
+
+            <div class="invisible-block">
+                <div class="invisible-block-selecter">
+                    <div class="select-image">
+                        <a href="#"> <img src="image/header/zoom.svg" alt="Слава Україні"></a>
+                        <a href="#"> <img src="image/header/basket.svg" alt="Слава Україні"></a>
+                        <a href="#"> <img src="image/header/like.svg" alt="Слава Україні"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="our-collection-array1">
+                <div>
+                    <img src="image/OurCollectoin/6.png" alt="Слава Україні">
+                </div>
+                <div class="our-collection-text">
+                    <span class="corona-chair font-popins">CORONA CHAIR</span>
+                    <span class="printed font-popins">Printed evening dress with straight sleeves</span>
+                    <span class="text-14-86 font-popins">$14.86</span>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="ourCollectionArrays">
+
+
+            <div class="invisible-block">
+                <div class="invisible-block-selecter">
+                    <div class="select-image">
+                        <a href="#"> <img src="image/header/zoom.svg" alt="Слава Україні"></a>
+                        <a href="#"> <img src="image/header/basket.svg" alt="Слава Україні"></a>
+                        <a href="#"> <img src="image/header/like.svg" alt="Слава Україні"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="our-collection-array1">
+                <div>
+                    <div class="triangle"></div>
+                    <span class="NEW font-popins">NEW</span>
+                    <img src="image/OurCollectoin/7.png" alt="Слава Україні">
+                </div>
+                <div class="our-collection-text">
+                    <span class="corona-chair font-popins">CORONA CHAIR</span>
+                    <span class="printed font-popins">Printed evening dress with straight sleeves</span>
+                    <span class="text-14-86 font-popins">$14.86</span>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="ourCollectionArrays">
+
+
+            <div class="invisible-block">
+                <div class="invisible-block-selecter">
+                    <div class="select-image">
+                        <a href="#"> <img src="image/header/zoom.svg" alt="Слава Україні"></a>
+                        <a href="#"> <img src="image/header/basket.svg" alt="Слава Україні"></a>
+                        <a href="#"> <img src="image/header/like.svg" alt="Слава Україні"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="our-collection-array1">
+                <div>
+                    <img src="image/OurCollectoin/8.png" alt="Слава Україні">
+                </div>
+                <div class="our-collection-text">
+                    <span class="corona-chair font-popins">CORONA CHAIR</span>
+                    <span class="printed font-popins">Printed evening dress with straight sleeves</span>
+                    <span class="text-14-86 font-popins">$14.86</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+<section id="ourDesigner">
+
+    <h1 class="anchor"></h1>
+    <div class="our-designer">
+        <div class="block-text-center" style="margin-top: 0">
+            <div>
+                <span style="color: #ffce76;" class="BlockTextCenterFont font-popins"> OUR DESIGNER </span>
+            </div>
+            <div class="block-image-center">
+                <img src="image/OurDesigner/Shape%201.png" class="Shape" alt="Слава Україні">
+                <img src="image/OurDesigner/Rectangle%205.png" class="rectangle" alt="Слава Україні">
+                <img src="image/OurDesigner/Shape%201%20copy.png" class="Shape" alt="Слава Україні">
+            </div>
+        </div>
+
+        <div class="our-designer-array">
+            <div class="our-designer-array1">
+                <div class="block-image-designer">
+                    <img class="image-grid" src="image/OurDesigner/VectorSmartObject.png"
+                         width="376" height="359" alt="Слава Україні">
+                    <img class="image-designer" src="image/OurDesigner/1.png" alt="Слава Україні">
+                </div>
+
+                <div class="image-text-line">
+                    <span class="our-designer-font font-popins">Bertil Stam</span>
+                    <img class="image-line" src="image/OurDesigner/arrow.svg" alt="Слава Україні">
+                </div>
+
+            </div>
+
+            <div class="our-designer-array1">
+                <div class="block-image-designer">
+                    <img class="image-grid" src="image/OurDesigner/VectorSmartObject.png"
+                         width="376" height="359" alt="Слава Україні">
+                    <img class="image-designer" src="image/OurDesigner/2.png" alt="Слава Україні">
+                </div>
+
+                <div class="image-text-line">
+                    <span class="our-designer-font font-popins">Bertil Stam</span>
+                    <img class="image-line" src="image/OurDesigner/arrow.svg" alt="Слава Україні">
+                </div>
+
+            </div>
+
+            <div class="our-designer-array1">
+                <div class="block-image-designer">
+                    <img class="image-grid" src="image/OurDesigner/VectorSmartObject.png"
+                         width="376" height="359" alt="Слава Україні">
+                    <img class="image-designer" src="image/OurDesigner/3.png" alt="Слава Україні">
+                </div>
+
+                <div class="image-text-line">
+                    <span class="our-designer-font font-popins">Bertil Stam</span>
+                    <img class="image-line" src="image/OurDesigner/arrow.svg" alt="Слава Україні">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="OurProject">
+
+    <h1 class="anchor"></h1>
+    <div class="block-text-center">
+        <div>
+            <span class="BlockTextCenterFont font-popins"> OUR PROJECT </span>
+        </div>
+        <div class="block-image-center">
+            <img src="image/FromOurBlog/Shape%201.png" class="Shape" alt="Слава Україні">
+            <img src="image/FromOurBlog/Rectangle%205.png" class="rectangle" alt="Слава Україні">
+            <img src="image/FromOurBlog/Shape%201%20copy.png" class="Shape" alt="Слава Україні">
+        </div>
+
+    </div>
+
+    <div class="slider-center">
+        <div class="prod-slider-container">
+            <div class="inner-container">
+                <div class="owl-carousel">
+
+                    <div class="item">
+                        <img src="image/OurProject/1_1.png" width="398" height="1000" alt="Слава Україні">
+                    </div>
+                    <div class="item">
+                        <img src="image/OurProject/2_2.png" width="400" height="1000" alt="Слава Україні">
+                    </div>
+                    <div class="item">
+                        <img src="image/OurProject/3_3.png" width="400" height="1000" alt="Слава Україні">
+                    </div>
+                    <div class="item">
+                        <img src="image/OurProject/4_4.png" width="400" height="1000" alt="Слава Україні">
+                    </div>
+                    <div class="item">
+                        <img src="image/OurProject/1_1.png" width="398" height="1000" alt="Слава Україні">
+                    </div>
+                    <div class="item">
+                        <img src="image/OurProject/2_2.png" width="400" height="1000" alt="Слава Україні">
+                    </div>
+                    <div class="item">
+                        <img src="image/OurProject/3_3.png" width="400" height="1000" alt="Слава Україні">
+                    </div>
+                    <div class="item">
+                        <img src="image/OurProject/4_4.png" width="400" height="1000" alt="Слава Україні">
+                    </div>
+                    <div class="item">
+                        <img src="image/OurProject/1_1.png" width="398" height="1000" alt="Слава Україні">
+                    </div>
+                    <div class="item">
+                        <img src="image/OurProject/2_2.png" width="400" height="1000" alt="Слава Україні">
+                    </div>
+                    <div class="item">
+                        <img src="image/OurProject/3_3.png" width="400" height="1000" alt="Слава Україні">
+                    </div>
+                    <div class="item">
+                        <img src="image/OurProject/4_4.png" width="400" height="1000" alt="Слава Україні">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</section>
+
+<section id="fromOurBlog">
+    <h1 class="anchor"></h1>
+    <div class="BlockFromOurBlog">
+
+        <div class="block-text-center">
+            <div>
+                <span class="BlockTextCenterFont font-popins"> FROM OUR BLOG </span>
+            </div>
+            <div class="block-image-center">
+                <img src="image/FromOurBlog/Shape%201.png" class="Shape" alt="Слава Україні">
+                <img src="image/FromOurBlog/Rectangle%205.png" class="rectangle" alt="Слава Україні">
+                <img src="image/FromOurBlog/Shape%201%20copy.png" class="Shape" alt="Слава Україні">
+            </div>
+
+        </div>
+
+        <div class="block-from-our-blog-array">
+
+            <div class="block-from-our-blog-array1">
+                <div class="block-from-our-blog-array-image">
+                    <img src="image/FromOurBlog/1.png" width="372" height="270" alt="Слава Україні">
+                </div>
+                <div class="block-from-our-blog-array-down">
+                    <div class="block-from-our-blog-array-text">
+                        <span class="block-from-our-blog-array-text1 font-popins">OUR NEW WORK SPACE</span>
+                        <span class="block-from-our-blog-array-text2 font-popins">Feel alive! So if you’re looking for, here is a list of some of the most popular and fiestas the Mardin has to offer thisfiestas the Mardin has to offer!</span>
+                    </div>
+                    <button class="block-from-our-blog-array-button read-more">READ MORE →</button>
+                </div>
+            </div>
+
+            <div class="block-from-our-blog-array1">
+                <div class="block-from-our-blog-array-image">
+                    <img src="image/FromOurBlog/2.png" width="372" height="270" alt="Слава Україні">
+                </div>
+                <div class="block-from-our-blog-array-down">
+                    <div class="block-from-our-blog-array-text">
+                        <span class="block-from-our-blog-array-text1 font-popins">MODERN TREND COLLECTION</span>
+                        <span class="block-from-our-blog-array-text2 font-popins">Feel alive! So if you’re looking for, here is a list of some of the most popular and fiestas the Mardin has to offer thisfiestas the Mardin has to offer!</span>
+                    </div>
+                    <button class="block-from-our-blog-array-button read-more">READ MORE →</button>
+                </div>
+            </div>
+
+            <div class="block-from-our-blog-array1">
+
+                <div class="block-from-our-blog-array-image">
+                    <img src="image/FromOurBlog/3.png" width="372" height="270" alt="Слава Україні">
+                </div>
+                <div class="block-from-our-blog-array-down">
+                    <div class="block-from-our-blog-array-text">
+                        <span class="block-from-our-blog-array-text1 font-popins">A WOMAN THINKING</span>
+                        <span class="block-from-our-blog-array-text2 font-popins">Feel alive! So if you’re looking for, here is a list of some of the most popular and fiestas the Mardin has to offer thisfiestas the Mardin has to offer!</span>
+                    </div>
+                    <button class="block-from-our-blog-array-button read-more">READ MORE →</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<footer id="footer">
+
+    <h1 class="anchor"></h1>
+    <div class="block-footer">
+
+
+        <div class="block-footer1">
+
+            <div class="block-footer11 block-center left-line">
+                <div class="block-footer11-text ">
+                    <div class="marg-Px">
+                        <span class="call-us-now font-popins">CALL US NOW</span></div>
+                    <div>
+                        <span class="Office_telephones font-popins">Office telephone (251) 546-9442</span>
+                    </div>
+                    <div>
+                        <span class="Hotline font-popins">Hotline: 906-2721</span></div>
+                </div>
+            </div>
+
+            <div class="block-footer11 block-center left-line">
+                <div class="block-footer11-text ">
+                    <div class="marg-Px">
+                        <span class="call-us-now font-popins">COME VISIT US</span></div>
+                    <div>
+                        <span class="Office_telephones font-popins">123 6th St.</span>
+                    </div>
+                    <div>
+                        <span class="Hotline font-popins">Melbourne, FL 32904</span></div>
+                </div>
+            </div>
+
+            <div class="block-footer11 block-center left-line">
+                <div class="block-footer11-text ">
+                    <div class="marg-Px">
+                        <span class="call-us-now font-popins">SEND A MESSENGE</span></div>
+                    <div>
+                        <span class="Office_telephones font-popins">Office telephone (251) 546-9442</span>
+                    </div>
+                    <div>
+                        <span class="Hotline font-popins">Hotline: 906-2721</span></div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="block-footer2">
+            <div class="blockFooter21 block-center">
+                <div class="block-footer21-elem">
+                    <div class="footerLogo">
+                        <img src="image/footer/Logo.svg" alt="Слава Україні">
+                    </div>
+                    <div class="social-img">
+                        <a href="#"><img src="image/footer/facebook.svg" alt="Слава Україні"></a>
+                        <a href="#"><img src="image/footer/google.svg" alt="Слава Україні"></a>
+                        <a href="#"><img src="image/footer/twitter.svg" alt="Слава Україні"></a>
+                        <a href="#"><img src="image/footer/youtube.svg" alt="Слава Україні"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blockFooter21 block-center">
+                <div class="blockFooter22Text ">
+                    <div class="marg-Px">
+                        <span class="hours-work font-popins">Hours work</span></div>
+                    <div>
+                        <span class="monday-friday font-popins">Monday - Friday: 08:00 am - 17:00 pm.</span>
+                    </div>
+                    <div>
+                        <span class="monday-friday font-popins">Saturday: 09:00 am - 12h30 pm.</span></div>
+                </div>
+            </div>
+
+            <div class="blockFooter21 block-center">
+                <div class="blockFooter22Text ">
+                    <div class="marg-Px">
+                        <span class="news-letter font-popins">Newsletter</span></div>
+
+                    <div style="margin: 15px 0 5px 0">
+                        <input type="email" class="form-control footer-input enter-your-email font-popins"
+                               placeholder="Enter your email..."
+                               style="margin: 0 0 10px 0;">
+                        <span class="input-group-btn">
+                            <button type="submit" class="arrow"><span>→</span></button>
                         </span>
                     </div>
-                </div>
-                <div class="our-team-item">
-                    <img src="images/list2-2.png" alt="Слава Україні">
-                    <div class="our-team-item-text-block">
-                    <span class="our-team-item-name">
-                        LADY SANSA
-                    </span>
-                        <span class="our-team-item-job">
-                        WebDesigner
-                    </span>
+
+                    <div>
+                        <span class="sign-up-to font-popins">Sign up to get exclusive offers from our favorite </span>
                     </div>
-                </div>
-                <div class="our-team-item">
-                    <img src="images/list2-3.png" alt="Слава Україні">
-                    <div class="our-team-item-text-block">
-                    <span class="our-team-item-name">
-                        DAVID SMITH
-                    </span>
-                        <span class="our-team-item-job">
-                        Photographer
-                    </span>
-                    </div>
-                </div>
-                <div class="our-team-item">
-                    <img src="images/list2-4.png" alt="Слава Україні">
-                    <div class="our-team-item-text-block">
-                    <span class="our-team-item-name">
-                        LADY SANSA
-                    </span>
-                        <span class="our-team-item-job">
-                        Photographer
-                    </span>
-                    </div>
+                    <div>
+                        <span class="sign-up-to font-popins">brands and to be well up in the news.</span></div>
                 </div>
             </div>
-        </section>
+        </div>
+
     </div>
-</div>
 
-<div id="about" class="anchor">
-    <div class="about-bg">
-        <section class="about-block">
-            <div class="about-header-center">
-            <span class="about-head">
-                We’d love to hear about your project.
-                <span class="about-header-char">
-                    C
-                </span>
-            </span>
-            </div>
-            <div class="about-list-block">
-                <div class="about-list-width">
-                    <input placeholder="Name">
-                    <input placeholder="Email" class="about-list-width-email">
-                    <input placeholder="Phone">
-                </div>
-                <div>
-                    <textarea placeholder="Message" class="about-list-message"></textarea>
-                </div>
-                <div class="about-list-block-btn">
-                    <button class="about-list-btn">SUBMIT</button>
-                </div>
-            </div>
-        </section>
-    </div>
-</div>
+</footer>
 
-<iframe class="map"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5440402.772944172!2d26.68974984281999!3d48.255778216377074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d1d9c154700e8f%3A0x1068488f64010!2z0KPQutGA0LDQuNC90LA!5e0!3m2!1sru!2snl!4v1647972285373!5m2!1sru!2snl"
-        allowfullscreen="" loading="lazy"></iframe>
-
+<script src="https://cdn.jsdelivr.net/g/jquery@2.2.4,jquery.owlcarousel@1.31"></script>
+<script src="scripts/slider.js"></script>
 </body>
+
 </html>

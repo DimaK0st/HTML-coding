@@ -1,0 +1,186 @@
+#whyChooseUsDown {
+    margin: auto;
+    max-width: 1600px;
+}
+
+.why-choose-us-down-array1 {
+    position: relative;
+}
+
+.why-choose-us-down-array1-1 {
+    left: 75px;
+    top: 75px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 10;
+}
+
+.why-choose-us-down-array1-2 {
+    position: relative;
+}
+
+.why-choose-us-down-array2-3 {
+    left: 55px;
+    top: 45px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 10;
+}
+
+.why-choose-us-down-array2-4 {
+    left: 50px;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 10;
+}
+
+.why-choose-us-down-array-top2-3 {
+    position: relative;
+}
+
+.why-choose-us-down-array-down2-4 {
+    position: relative;
+}
+
+.why-choose-us-down-array-top {
+    display: flex;
+    flex-direction: row;
+    max-height: 340px;
+    position: relative;
+}
+
+.why-choose-us-down-array-down {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    max-height: 330px;
+    position: relative;
+}
+
+.why-choose-us-down-array {
+    display: flex;
+    flex-direction: row;
+}
+
+.why-choose-us-down-array2 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.why-choose-us-down-mobile-array {
+    display: none
+}
+
+
+@media screen and (max-width: 830px) {
+    #whyChooseUsDown {
+        height: auto;
+    }
+
+    .why-choose-us-down-array {
+        display: none
+    }
+
+    .why-choose-us-down-mobile-array img {
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .why-choose-us-down-mobile-array1 {
+        position: relative;
+    }
+
+    .why-choose-us-down-mobile-array1-1 {
+        left: 10%;
+        top: 10%;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        z-index: 10;
+    }
+
+    .why-choose-us-down-mobile-array1-2 {
+        position: relative;
+    }
+
+    .why-choose-us-down-mobile-array2-3 {
+        left: 5%;
+        top: 10%;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        z-index: 10;
+    }
+
+    .why-choose-us-down-mobile-array2-4 {
+        left: 5%;
+        top: 10%;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        z-index: 10;
+    }
+
+    .why-choose-us-down-mobile-array-top2-3 {
+        position: relative;
+    }
+
+    .why-choose-us-down-mobile-array-down2-4 {
+        position: relative;
+    }
+
+    .why-choose-us-down-mobile-array-top {
+        display: flex;
+        flex-direction: column;
+        max-height: 340px;
+        position: relative;
+    }
+
+    .why-choose-us-down-mobile-array-down {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        position: relative;
+    }
+
+    .why-choose-us-down-mobile-array {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .why-choose-us-down-mobile-arrays {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+    }
+
+    .why-choose-us-down-mobile-array-image {
+        display: inline-block;
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .patio-furniture-vietnam, .ceramics-wm-munoz, .design-by-jarnet-park-trend-2017 {
+        font-size: 16px;
+    }
+
+    .view-deatail, .view-deatail3, .view-deatail2 {
+        font-size: 10px;
+        margin-top: 10px;
+    }
+}

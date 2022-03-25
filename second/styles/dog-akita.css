@@ -1,0 +1,100 @@
+.dog-akita-bg {
+    height: 850px;
+    background-image: url("/images/bg3.png");
+}
+
+.dog-akita-block {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+}
+
+.dog-akita-block-list {
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+}
+
+.dog-akita-block div {
+    width: 100%;
+}
+
+.dog-akita-block-items {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dog-akita-block-items span {
+    padding: 10px 20px;
+    font-size: 15px;
+    font-family: "GothamMedium", sans-serif;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    background: #11749e;
+    margin-bottom: 25px;
+}
+
+.dog-akita-block-item-1 {
+    width: 65%;
+}
+
+.dog-akita-block-item-2 {
+    width: 70%;
+}
+
+.dog-akita-block-item-3 {
+    width: 75%;
+}
+
+.dog-akita-img {
+    display: flex;
+    justify-content: center;
+}
+
+.dog-akita-img img {
+    margin: auto;
+    max-width: 320px;
+    max-height: 650px;
+}
+
+.dog-akita-block-list div {
+    display: flex;
+    flex-direction: column;
+}
+
+.dog-akita-block-head {
+    font-size: 25px;
+    font-family: "GothamMedium", sans-serif;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    line-height: 1.44;
+}
+
+.dog-akita-block-text {
+    font-size: 15px;
+    font-family: "GothamBook", sans-serif;
+    color: rgb(255, 255, 255);
+    line-height: 1.6;
+    text-align: left;
+}
+
+@media screen and (max-width: 1100px) {
+
+    .dog-akita-block div {
+        padding-left: 5px;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .dog-akita-block-list {
+        flex-direction: column;
+    }
+
+    .dog-akita-bg {
+        height: auto;
+        padding-bottom: 40px;
+    }
+}

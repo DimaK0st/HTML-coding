@@ -1,0 +1,154 @@
+#Main {
+    margin: auto;
+    width: auto;
+    height: auto;
+}
+
+.Main {
+    position: relative;
+}
+
+.main-text {
+    padding: 330px 0 0 11.7%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-text-top {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 60px;
+}
+
+.main-slider-text {
+    position: absolute;
+    z-index: 10;
+    top: 340px;
+    left: 200px;
+}
+
+.main-slider-img {
+    position: relative;
+    z-index: 1;
+}
+
+.main-slider-img img {
+    width: 100%;
+}
+
+#Main i.fa {
+    cursor: pointer;
+    position: absolute;
+    font-size: 60px;
+    padding-top: 8px;
+    height: 64px;
+    width: 70px;
+    color: #ffffff;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #9d9fa0;
+    display: table-cell;
+    top: -550px;
+}
+
+#Main .main-slider-text {
+    top: 30%;
+    left: 10%
+}
+
+@media screen and (max-width: 1400px) {
+
+    #Main i.fa {
+        top: -440px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    #Main i.fa {
+        top: -400px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    #Main i.fa {
+        top: -350px;
+    }
+}
+
+@media screen and (max-width: 830px) {
+
+    .main-text {
+        padding: 80px 0 0 11.7%;
+    }
+
+    .main-text-top {
+        margin-bottom: 10%;
+    }
+
+    #Main i.fa {
+        font-size: inherit;
+        top: -300px;
+        height: 44px;
+        width: 52px;
+    }
+
+    #Main .fa-chevron-right:before {
+        font-size: 35px;
+        padding-bottom: 60px;
+    }
+
+    #Main .fa-chevron-left:before {
+        font-size: 35px;
+        padding-bottom: 60px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    #Main i.fa {
+        top: -250px;
+    }
+
+    #Main .main-slider-text {
+        top: 20%;
+        left: 15%
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #Main .owl-next {
+        right: 52px;
+    }
+
+    #Main i.fa {
+        top: -200px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    #Main i.fa {
+        top: -150px;
+        height: 34px;
+        width: 42px;
+    }
+
+    #Main .fa-chevron-right:before {
+        font-size: 25px;
+    }
+
+    #Main .fa-chevron-left:before {
+        font-size: 25px;
+    }
+}
+
+
+@media screen and (max-width: 350px) {
+
+    #Main i.fa {
+        top: -100px;
+    }
+}
