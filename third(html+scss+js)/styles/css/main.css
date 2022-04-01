@@ -2,10 +2,9 @@ main {
   margin: 0;
 }
 main li {
+  padding: 12px;
   margin: 0;
 }
 main li a {
   color: #324234;
 }
-
-/*# sourceMappingURL=main.css.map */
