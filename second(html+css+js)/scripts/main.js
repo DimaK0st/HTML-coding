@@ -1,19 +1,17 @@
-window.onscroll = function () {
-    let header = document.getElementById('header-web')
-
-    if (window.scrollY > 5) {
-        header.style.background = 'rgba(0,0,0,0.38)'
-    } else {
-        header.style.background = 'rgba(0, 0, 0, 0)'
-    }
-}
-console.log('hai');
+const header = document.getElementById('header-web')
 const animItems = document.querySelectorAll('._anim-items');
-console.log(animItems);
+
 if (animItems.length > 0) {
     window.addEventListener('scroll', animOnScroll);
 
     function animOnScroll(params) {
+
+        if (window.scrollY > 5) {
+            header.style.background = 'rgba(0,0,0,0.38)'
+        } else {
+            header.style.background = 'rgba(0, 0, 0, 0)'
+        }
+
         for (let index = 0; index < animItems.length; index++) {
             const animItem = animItems[index];
             const animItemsHeight = animItem.offsetHeight;
