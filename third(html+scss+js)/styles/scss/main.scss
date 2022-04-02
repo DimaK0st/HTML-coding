@@ -85,58 +85,10 @@ header {
   width: 300px;
   height: 100%;
   margin: 0;
-  padding: 80px 0;
-  list-style: none;
-  background-color: #ECEFF1;
-  box-shadow: 1px 6px rgba(0, 0, 0, .2);
-  transition-duration: .25s;
-}
-
-.menu-item {
-  padding: 12px 24px;
-  color: #333;
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  text-decoration: none;
-  transition-duration: .25s;
-
-  &:hover {
-    background-color: #CFD8DC;
+  li{
+    margin: 0;
+    a{
+      color: $color;
+    }
   }
 }
-
-.menu-image {
-  display: flex;
-  justify-content: center;
-}
-
-.social {
-  img {
-    margin: 10px;
-    filter: brightness(10%);
-  }
-}
-
-#header-mobile {
-  display: none;
-  border: #222222 solid 0;
-}
-
-.anchor {
-  background-color: rgba(0, 0, 0, 0);
-  padding-top: 115px;
-  margin-top: -115px;
-}
-
-@include _1170 {
-}
-
-@include _768 {
-  .anchor {
-    background-color: rgba(0, 0, 0, 0);
-    padding-top: 0;
-    margin-top: 0;
-  }
-}
-
