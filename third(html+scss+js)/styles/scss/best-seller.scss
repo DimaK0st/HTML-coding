@@ -1,0 +1,71 @@
+@import "CONST";
+
+.best-seller {
+  max-width: 100%;
+  width: 100%;
+  height: 800px;
+  background: white;
+
+  .best-seller-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: $width-content;
+    text-align: center;
+    margin: auto;
+
+    img {
+      max-width: 240px;
+      max-height: 240px;
+    }
+
+    .best-seller-text {
+      margin-top: 135px;
+      font-size: 75px;
+      font-family: "GrandHotel-Regular", sans-serif;
+      color: $color-grey;
+      line-height: 55px;
+    }
+
+    .best-seller-description {
+      font-size: 25px;
+      font-family: "Montserrat-Regular", sans-serif;
+      color: $color-grey;
+      line-height: 25px;
+      max-width: 910px;
+      margin: 50px auto 80px auto;
+    }
+
+    .best-seller-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+
+      .best-seller-item {
+        display: flex;
+        flex-direction: column;
+        max-width: 250px;
+
+        .best-seller-item-text {
+          margin: 17px 0 25px 0;
+          font-size: 42px;
+          font-family: "GrandHotel-Regular", sans-serif;
+          color: $color-grey;
+          line-height: 35px;
+          text-align: center;
+        }
+
+        .best-seller-item-description {
+          font-size: 17px;
+          font-family: "Montserrat-Regular", sans-serif;
+          color: $color-grey;
+          line-height: 1.2;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
