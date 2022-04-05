@@ -1,0 +1,138 @@
+.statistics {
+  width: 100%;
+  height: 800px;
+  background: #2a2a2a;
+  position: relative;
+  z-index: 100;
+}
+.statistics .statistics-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.statistics .statistics-block .statistics-text {
+  margin-top: 110px;
+  font-size: 100px;
+  font-family: "GrandHotel-Regular", sans-serif;
+  color: #ffc200;
+  line-height: 0.8;
+  text-align: center;
+}
+.statistics .statistics-block .statistics-description {
+  font-size: 25px;
+  font-family: "Montserrat-Regular", sans-serif;
+  color: white;
+  line-height: 1;
+  text-align: center;
+  width: 800px;
+  margin: 45px auto 100px auto;
+}
+.statistics .statistics-block .statistics-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+.statistics .statistics-block .statistics-list .statistics-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: white 5px solid;
+  border-radius: 50%;
+  width: 220px;
+  height: 220px;
+}
+.statistics .statistics-block .statistics-list .statistics-item .statistics-item-numbers {
+  font-size: 50px;
+  font-family: "Montserrat-Bold", sans-serif;
+  color: #ffc200;
+  line-height: 1;
+  text-align: center;
+}
+.statistics .statistics-block .statistics-list .statistics-item .statistics-item-text {
+  font-size: 29px;
+  font-family: "Montserrat-Bold", sans-serif;
+  color: white;
+  text-transform: uppercase;
+  line-height: 1;
+  text-align: center;
+}
+.statistics .svg-icon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 10;
+}
+.statistics .svg-icon img {
+  position: absolute;
+}
+.statistics .svg-icon .cucumber-1 {
+  top: 50px;
+  left: 25%;
+}
+.statistics .svg-icon .cucumber-2 {
+  top: 250px;
+  left: 90%;
+}
+.statistics .svg-icon .cucumber-3 {
+  top: 715px;
+  left: 5%;
+}
+.statistics .svg-icon .tomato {
+  top: 655px;
+  left: 58%;
+}
+.statistics .svg-icon .onion {
+  top: 470px;
+  left: 90%;
+}
+.statistics .svg-icon .garlic {
+  top: 700px;
+  left: 87%;
+}
+.statistics .svg-icon .pepper-1 {
+  top: 40px;
+  left: 77%;
+}
+.statistics .svg-icon .pepper-2 {
+  top: 630px;
+  left: 24%;
+}
+.statistics .svg-icon .salad {
+  top: 190px;
+  left: 4%;
+}
+.statistics .bg1-2 {
+  position: absolute;
+  top: 0;
+  left: -175px;
+  z-index: 0;
+}

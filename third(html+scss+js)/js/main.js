@@ -89,7 +89,7 @@ function offset(el) {
 }
 
 function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
+    return Math.floor(Math.random() * max + 0.2);
 }
 
 
