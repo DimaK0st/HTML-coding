@@ -1,0 +1,87 @@
+.chicken-grill {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  background: white;
+  height: 800px;
+  position: relative;
+  z-index: 100;
+}
+.chicken-grill .chicken-grill-bg {
+  position: absolute;
+  top: -333px;
+  width: 100%;
+  height: 1000px;
+  z-index: 1;
+}
+.chicken-grill .chicken-grill-block {
+  margin-top: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  z-index: 100;
+}
+.chicken-grill .chicken-grill-block > div {
+  width: 100%;
+  margin: 0 auto;
+}
+.chicken-grill .chicken-grill-block .chicken-grill-left .chicken-grill-left-block {
+  width: 100%;
+  max-width: 650px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+}
+.chicken-grill .chicken-grill-block .chicken-grill-left .chicken-grill-left-block .chicken-grill-text {
+  font-size: 100px;
+  font-family: "GrandHotel-Regular", sans-serif;
+  color: #ffc200;
+  line-height: 1;
+}
+.chicken-grill .chicken-grill-block .chicken-grill-left .chicken-grill-left-block .chicken-grill-description {
+  margin-top: 30px;
+  margin-bottom: 70px;
+  font-size: 30px;
+  font-family: "Montserrat-Regular", sans-serif;
+  color: white;
+}
+.chicken-grill .chicken-grill-block .chicken-grill-left .chicken-grill-left-block .chicken-grill-button {
+  max-width: 330px;
+  width: 100%;
+  padding: 25px 75px;
+  font-size: 25px;
+  background: #ffc200;
+  border: 0 #ffc200;
+  font-family: "Montserrat-Bold", sans-serif;
+  color: #333333;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.chicken-grill .chicken-grill-block .chicken-grill-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.chicken-grill .chicken-grill-block .chicken-grill-right img {
+  width: 100%;
+  height: 100%;
+  max-width: 470px;
+  max-height: 470px;
+}

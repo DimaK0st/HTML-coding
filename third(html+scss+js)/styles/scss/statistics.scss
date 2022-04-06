@@ -17,7 +17,7 @@
       margin-top: 110px;
       font-size: 100px;
       font-family: "GrandHotel-Regular", sans-serif;
-      color: rgb(255, 194, 0);
+      color: $color-orange;
       line-height: 0.8;
       text-align: center;
     }
@@ -69,10 +69,7 @@
           line-height: 1;
           text-align: center;
         }
-
-
       }
-
     }
   }
 
@@ -139,11 +136,4 @@
     left: -175px;
     z-index: 0;
   }
-
-
 }
-
-
-
-
-
