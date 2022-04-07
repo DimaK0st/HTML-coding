@@ -1,0 +1,41 @@
+.lenora-friends {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-image: url("/images/chicken-grill/bg4.png");
+  height: 800px;
+  width: 100%;
+}
+.lenora-friends .lenora-friends-bg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #ffc200;
+  opacity: 50%;
+}
+.lenora-friends .lenora-friends-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+}
+.lenora-friends .lenora-friends-block .lenora-friends-text {
+  font-size: 45px;
+  font-family: "Montserrat-Regular", sans-serif;
+  color: #333333;
+  text-align: center;
+}
+.lenora-friends .lenora-friends-block .lenora-friends-description {
+  margin-top: 50px;
+  font-size: 75px;
+  font-family: "GrandHotel-Regular", sans-serif;
+  color: #333333;
+  line-height: 0.8;
+  text-align: center;
+}
