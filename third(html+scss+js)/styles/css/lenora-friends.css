@@ -2,8 +2,12 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-image: url("/images/chicken-grill/bg4.png");
-  height: 800px;
+  background: url("/images/chicken-grill/bg4.png") no-repeat center;
+  max-height: 900px;
+  height: 100%;
+  overflow: hidden;
+  background-size: 100% auto;
+  margin: auto;
   width: 100%;
 }
 .lenora-friends .lenora-friends-bg {
@@ -24,6 +28,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   margin: auto;
+  width: 930px;
 }
 .lenora-friends .lenora-friends-block .lenora-friends-text {
   font-size: 45px;
