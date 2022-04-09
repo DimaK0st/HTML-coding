@@ -1,0 +1,72 @@
+@import "CONST";
+
+.subscribe {
+  display: flex;
+  width: 100%;
+  height: $height-content;
+  background: white;
+
+  .subscribe-block {
+    display: flex;
+    flex-direction: column;
+    width: 850px;
+    margin: auto;
+    text-align: center;
+
+    .subscribe-text {
+
+      font-size: 100px;
+      font-family: "MyriadProRegular", sans-serif;
+      color: $color-grey;
+      line-height: 0.7;
+
+    }
+
+    .subscribe-description {
+      margin-top: 50px;
+      margin-bottom: 80px;
+      font-size: 30px;
+      font-family: "Montserrat-Regular", sans-serif;
+      color: $color-grey;
+      line-height: 1;
+      text-align: center;
+
+
+    }
+
+    .subscribe-form {
+      display: flex;
+      margin: auto;
+      width: fit-content;
+      box-shadow: 0 0 100px 1px #bbbbbb;
+
+      .subscribe-form-input {
+        width: 550px;
+        padding: 16px 30px;
+        font-size: 25px;
+        box-sizing: border-box;
+        line-height: 25px;
+        border: white 0;
+        overflow: visible;
+      }
+
+      .subscribe-form-btn {
+        overflow: visible;
+        margin: 0;
+        padding: 0;
+        width: 222px;
+        height: 65px;
+        border: white 0;
+        background: $color-orange;
+        font-size: 25px;
+        font-family: "Montserrat-Bold", sans-serif;
+        color: $color-grey;
+        text-transform: uppercase;
+      }
+
+    }
+
+
+  }
+
+}
