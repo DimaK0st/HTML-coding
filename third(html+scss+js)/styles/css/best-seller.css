@@ -78,3 +78,13 @@
   line-height: 1.2;
   text-align: center;
 }
+
+@media (max-width: 768px) {
+  .best-seller {
+    height: auto;
+    margin: auto;
+  }
+  .best-seller .best-seller-item {
+    margin: 0 auto 20px auto;
+  }
+}

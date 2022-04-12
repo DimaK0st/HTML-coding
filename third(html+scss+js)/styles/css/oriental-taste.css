@@ -1,4 +1,6 @@
 .oriental-taste {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10,6 +12,12 @@
   width: 100%;
   height: 800px;
   background: white;
+}
+@media (max-width: 979px) {
+  .oriental-taste {
+    height: auto;
+    padding-bottom: 100px;
+  }
 }
 .oriental-taste .oriental-taste-bg {
   width: 100%;
@@ -25,6 +33,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
   max-width: 1200px;
   height: 800px;
@@ -32,8 +43,30 @@
   position: relative;
   z-index: 100;
 }
+@media (max-width: 979px) {
+  .oriental-taste .oriental-taste-block {
+    margin-top: 50px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
 .oriental-taste .oriental-taste-block > div {
   width: 100%;
+}
+@media (max-width: 979px) {
+  .oriental-taste .oriental-taste-block > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 .oriental-taste .oriental-taste-block .oriental-taste-right {
   display: -webkit-box;
@@ -43,6 +76,11 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+@media (max-width: 979px) {
+  .oriental-taste .oriental-taste-block .oriental-taste-right {
+    text-align: center;
+  }
 }
 .oriental-taste .oriental-taste-block .oriental-taste-right .oriental-taste-text {
   margin-top: 100px;
@@ -71,4 +109,9 @@
   line-height: 20px;
   text-transform: uppercase;
   text-align: center;
+}
+@media (max-width: 979px) {
+  .oriental-taste .oriental-taste-block .oriental-taste-right .oriental-taste-button {
+    margin: auto;
+  }
 }

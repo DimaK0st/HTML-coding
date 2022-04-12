@@ -1,6 +1,8 @@
 @import "CONST";
+@import "media_mixin";
 
 .oriental-taste {
+  box-sizing: content-box;
   display: flex;
   position: relative;
   justify-content: center;
@@ -8,6 +10,10 @@
   width: 100%;
   height: 800px;
   background: white;
+
+  @include _979 {
+    height: auto;
+padding-bottom: 100px  }
 
   .oriental-taste-bg {
     width: 100%;
@@ -19,6 +25,7 @@
   .oriental-taste-block {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     width: 100%;
     max-width: $width-content;
     height: $height-content;
@@ -26,13 +33,27 @@
     position: relative;
     z-index: 100;
 
+    @include _979 {
+      margin-top: 50px;
+      flex-direction: column;
+      justify-content: center;
+    }
+
     & > div {
       width: 100%;
+      @include _979 {
+        display: flex;
+        justify-content: center;
+      }
     }
 
     .oriental-taste-right {
       display: flex;
       flex-direction: column;
+
+      @include _979 {
+        text-align: center;
+      }
 
       .oriental-taste-text {
         margin-top: 100px;
@@ -63,6 +84,11 @@
         line-height: 20px;
         text-transform: uppercase;
         text-align: center;
+
+        @include _979 {
+          margin: auto;
+        }
+
       }
 
 
