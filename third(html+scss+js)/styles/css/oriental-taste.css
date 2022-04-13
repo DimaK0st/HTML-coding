@@ -25,6 +25,12 @@
   top: 160px;
   z-index: 1;
 }
+@media (max-width: 979px) {
+  .oriental-taste .oriental-taste-bg {
+    top: auto;
+    bottom: -20px;
+  }
+}
 .oriental-taste .oriental-taste-block {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -1,4 +1,5 @@
 @import "CONST";
+@import "media_mixin";
 
 .chicken-grill {
   display: flex;
@@ -9,6 +10,11 @@
   position: relative;
   overflow:hidden;
   z-index: 100;
+
+  @include _979{
+    height: auto;
+    padding-bottom: 50px;
+  }
 
   .chicken-grill-bg{
     position: absolute;
@@ -23,6 +29,10 @@
     display: flex;
     flex-direction: row;
     z-index: 100;
+
+    @include _979{
+      flex-direction: column;
+    }
 
     & > div {
       width: 100%;
@@ -51,6 +61,10 @@
           font-size: 30px;
           font-family: "Montserrat-Regular", sans-serif;
           color: white;
+
+          @include _979{
+            color: $color-grey;
+          }
         }
 
         .chicken-grill-button {
@@ -73,6 +87,11 @@
     .chicken-grill-right {
       display: flex;
       justify-content: center;
+
+      @include _979{
+        order: -1;
+        margin-bottom: 40px;
+      }
 
       & img {
 

@@ -5,6 +5,12 @@
   position: relative;
   z-index: 100;
 }
+@media (max-width: 979px) {
+  .statistics {
+    height: auto;
+    padding-bottom: 40px;
+  }
+}
 .statistics .statistics-block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -33,6 +39,12 @@
   text-align: center;
   width: 800px;
   margin: 45px auto 100px auto;
+}
+@media (max-width: 979px) {
+  .statistics .statistics-block .statistics-description {
+    width: auto;
+    margin-bottom: 200px;
+  }
 }
 .statistics .statistics-block .statistics-list {
   display: -webkit-box;
@@ -68,6 +80,8 @@
   border-radius: 50%;
   width: 220px;
   height: 220px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 .statistics .statistics-block .statistics-list .statistics-item .statistics-item-numbers {
   font-size: 50px;
@@ -102,21 +116,54 @@
   top: 250px;
   left: 90%;
 }
+@media (max-width: 768px) {
+  .statistics .svg-icon .cucumber-2 {
+    top: 290px;
+  }
+}
 .statistics .svg-icon .cucumber-3 {
-  top: 715px;
+  top: 750px;
   left: 5%;
+}
+@media (max-width: 768px) {
+  .statistics .svg-icon .cucumber-3 {
+    top: 555px;
+  }
 }
 .statistics .svg-icon .tomato {
   top: 655px;
   left: 58%;
 }
+@media (max-width: 979px) {
+  .statistics .svg-icon .tomato {
+    left: 60%;
+    top: 400px;
+  }
+}
 .statistics .svg-icon .onion {
   top: 470px;
   left: 90%;
 }
+@media (max-width: 1500px) {
+  .statistics .svg-icon .onion {
+    top: 620px;
+    left: 80%;
+  }
+}
+@media (max-width: 979px) {
+  .statistics .svg-icon .onion {
+    top: 750px;
+    left: 80%;
+  }
+}
 .statistics .svg-icon .garlic {
   top: 700px;
   left: 87%;
+}
+@media (max-width: 768px) {
+  .statistics .svg-icon .garlic {
+    top: 620px;
+  }
 }
 .statistics .svg-icon .pepper-1 {
   top: 40px;
@@ -126,9 +173,20 @@
   top: 630px;
   left: 24%;
 }
+@media (max-width: 979px) {
+  .statistics .svg-icon .pepper-2 {
+    left: 20%;
+    top: 400px;
+  }
+}
 .statistics .svg-icon .salad {
   top: 190px;
   left: 4%;
+}
+@media (max-width: 979px) {
+  .statistics .svg-icon .salad {
+    top: 90px;
+  }
 }
 .statistics .bg1-2 {
   position: absolute;

@@ -5,6 +5,10 @@ body{
   background: #ffffff;
 }
 
+img{
+  overflow:hidden;
+}
+
 header {
   flex-direction: row;
   position: fixed;

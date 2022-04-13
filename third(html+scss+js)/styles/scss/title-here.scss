@@ -1,4 +1,5 @@
 @import "CONST";
+@import "media_mixin";
 
 .title-here-block {
   display: flex;
@@ -14,8 +15,26 @@
     width: 41%;
     background-image: url("../../images/main/bg1.png");
 
-    & img{
+    @include _1170 {
+      width: 30%;
+    }
+
+    @include _768 {
+      display: none;
+    }
+
+    & img {
       margin: 40px 60px;
+      position: relative;
+      z-index: 100;
+
+      @include _1170 {
+        margin: 40px 4px;
+      }
+
+      @include _768 {
+        display: none;
+      }
     }
   }
 
@@ -24,6 +43,14 @@
     width: 59%;
     background: $color-grey-bg;
     z-index: 10;
+
+    @include _1170 {
+      width: 70%;
+    }
+
+    @include _768 {
+      width: 100%;
+    }
 
     .title-here-header {
       display: flex;
@@ -37,6 +64,10 @@
       font-family: "Montserrat-Regular", sans-serif;
       color: white;
       line-height: 1.2;
+
+      @include _768 {
+        display: none;
+      }
 
       div {
         display: flex;
@@ -56,6 +87,10 @@
       max-width: 620px;
       position: relative;
       z-index: 10;
+
+      @include _768 {
+        margin-top: 200px;
+      }
 
       .title-here-text-head {
         font-size: 125px;
@@ -144,12 +179,11 @@
       z-index: 0;
     }
 
-    .salad{
+    .salad {
       top: 310px;
       left: -90px;
     }
   }
-
 
 
 }

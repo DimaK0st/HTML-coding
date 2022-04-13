@@ -1,4 +1,5 @@
 @import "CONST";
+@import "media_mixin";
 
 .statistics {
 
@@ -7,6 +8,11 @@
   background: $color-grey-bg;
   position: relative;
   z-index: 100;
+@include _979{
+  height: auto;
+  padding-bottom: 40px;
+}
+
 
   .statistics-block {
     display: flex;
@@ -30,6 +36,11 @@
       text-align: center;
       width: 800px;
       margin: 45px auto 100px auto;
+
+      @include _979{
+        width: auto;
+        margin-bottom: 200px;
+      }
     }
 
     .statistics-list {
@@ -50,6 +61,8 @@
         border-radius: 50%;
         width: 220px;
         height: 220px;
+        margin-top: 10px;
+        margin-bottom: 20px;
 
         .statistics-item-numbers {
           font-size: 50px;
@@ -84,6 +97,7 @@
       position: absolute;
     }
 
+
     .cucumber-1 {
       top: 50px;
       left: 25%;
@@ -92,26 +106,54 @@
     .cucumber-2 {
       top: 250px;
       left: 90%;
+
+      @include _768{
+        top: 290px;
+      }
     }
 
     .cucumber-3 {
-      top: 715px;
+      top: 750px;
       left: 5%;
+
+      @include _768{
+        top: 555px;
+      }
     }
 
     .tomato {
       top: 655px;
       left: 58%;
+
+      @include _979{
+        left: 60%;
+        top: 400px;
+      }
+
     }
 
     .onion {
       top: 470px;
       left: 90%;
+
+      @include _1500{
+        top: 620px;
+        left: 80%;
+      }
+
+      @include _979{
+        top: 750px;
+        left: 80%;
+      }
     }
 
     .garlic {
       top: 700px;
       left: 87%;
+
+      @include _768{
+        top: 620px;
+      }
     }
 
     .pepper-1 {
@@ -122,11 +164,20 @@
     .pepper-2 {
       top: 630px;
       left: 24%;
+
+      @include _979{
+        left: 20%;
+        top: 400px;
+      }
     }
 
     .salad {
       top: 190px;
       left: 4%;
+
+      @include _979{
+        top: 90px;
+      }
     }
   }
 

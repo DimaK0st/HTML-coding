@@ -13,13 +13,19 @@
 
   @include _979 {
     height: auto;
-padding-bottom: 100px  }
+    padding-bottom: 100px
+  }
 
   .oriental-taste-bg {
     width: 100%;
     position: absolute;
     top: 160px;
     z-index: 1;
+
+    @include _979{
+      top: auto;
+      bottom: -20px;
+    }
   }
 
   .oriental-taste-block {
