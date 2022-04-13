@@ -14,7 +14,7 @@
 }
 .title-here-block .title-here-left-block {
   width: 41%;
-  background-image: url("/images/main/bg1.png");
+  background-image: url("../../images/main/bg1.png");
 }
 .title-here-block .title-here-left-block img {
   margin: 40px 60px;
@@ -22,7 +22,7 @@
 .title-here-block .title-here-right-block {
   position: relative;
   width: 59%;
-  background: #2a2a2a;
+  background: #2f2f2f;
   z-index: 10;
 }
 .title-here-block .title-here-right-block .title-here-header {

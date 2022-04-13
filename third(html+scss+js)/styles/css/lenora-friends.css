@@ -2,7 +2,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: url("/images/chicken-grill/bg4.png") no-repeat center;
+  background: url("../../images/chicken-grill/bg4.png") no-repeat center;
   max-height: 900px;
   height: 100%;
   overflow: hidden;
