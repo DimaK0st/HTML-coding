@@ -12,6 +12,11 @@
 .title-here-block .title-here-left-block, .title-here-block .title-here-right-block {
   height: 800px;
 }
+@media (max-width: 480px) {
+  .title-here-block .title-here-left-block, .title-here-block .title-here-right-block {
+    height: 650px;
+  }
+}
 .title-here-block .title-here-left-block {
   width: 41%;
   background-image: url("../../images/main/bg1.png");
@@ -107,17 +112,34 @@
     margin-top: 200px;
   }
 }
+@media (max-width: 480px) {
+  .title-here-block .title-here-right-block .title-here-text-block {
+    margin: 100px 5px 5px 5px;
+  }
+}
 .title-here-block .title-here-right-block .title-here-text-block .title-here-text-head {
   font-size: 125px;
   line-height: 125px;
   font-family: "GrandHotel-Regular", sans-serif;
   color: #ffc200;
 }
+@media (max-width: 480px) {
+  .title-here-block .title-here-right-block .title-here-text-block .title-here-text-head {
+    font-size: 75px;
+    text-align: center;
+  }
+}
 .title-here-block .title-here-right-block .title-here-text-block .title-here-description {
   margin: 25px 0 40px 0;
   font-size: 30px;
   font-family: "Montserrat-Regular", sans-serif;
   color: white;
+}
+@media (max-width: 480px) {
+  .title-here-block .title-here-right-block .title-here-text-block .title-here-description {
+    font-size: 20px;
+    text-align: center;
+  }
 }
 .title-here-block .title-here-right-block .title-here-text-block button {
   padding: 10px 0 10px 0;
@@ -137,37 +159,84 @@
 .title-here-block .title-here-right-block .svg-icon img {
   position: absolute;
 }
+@media (max-width: 768px) {
+  .title-here-block .title-here-right-block .svg-icon img {
+    max-width: 70px;
+    max-height: 70px;
+  }
+}
 .title-here-block .title-here-right-block .svg-icon .cucumber-1 {
   top: 115px;
   left: 2%;
+}
+@media (max-width: 480px) {
+  .title-here-block .title-here-right-block .svg-icon .cucumber-1 {
+    top: 50px;
+  }
 }
 .title-here-block .title-here-right-block .svg-icon .cucumber-2 {
   top: 300px;
   left: 80%;
 }
+@media (max-width: 480px) {
+  .title-here-block .title-here-right-block .svg-icon .cucumber-2 {
+    top: 205px;
+  }
+}
 .title-here-block .title-here-right-block .svg-icon .cucumber-3 {
   top: 670px;
   left: 54%;
+}
+@media (max-width: 480px) {
+  .title-here-block .title-here-right-block .svg-icon .cucumber-3 {
+    top: 570px;
+  }
 }
 .title-here-block .title-here-right-block .svg-icon .cucumber-4 {
   top: 640px;
   left: 3.5%;
 }
+@media (max-width: 480px) {
+  .title-here-block .title-here-right-block .svg-icon .cucumber-4 {
+    top: 570px;
+  }
+}
 .title-here-block .title-here-right-block .svg-icon .tomato {
   top: 640px;
   left: 23%;
+}
+@media (max-width: 480px) {
+  .title-here-block .title-here-right-block .svg-icon .tomato {
+    top: 500px;
+  }
 }
 .title-here-block .title-here-right-block .svg-icon .onion {
   top: 515px;
   left: 81%;
 }
+@media (max-width: 480px) {
+  .title-here-block .title-here-right-block .svg-icon .onion {
+    top: 490px;
+    left: 75%;
+  }
+}
 .title-here-block .title-here-right-block .svg-icon .garlic {
   top: 740px;
   left: 76%;
 }
+@media (max-width: 480px) {
+  .title-here-block .title-here-right-block .svg-icon .garlic {
+    top: 590px;
+  }
+}
 .title-here-block .title-here-right-block .svg-icon .pepper {
   top: 120px;
   left: 63%;
+}
+@media (max-width: 480px) {
+  .title-here-block .title-here-right-block .svg-icon .pepper {
+    top: 50px;
+  }
 }
 .title-here-block .title-here-right-block .bg1-2 {
   position: absolute;

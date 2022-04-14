@@ -10,6 +10,16 @@
   margin: auto;
   width: 100%;
 }
+@media (max-width: 1170px) {
+  .lenora-friends {
+    background-size: auto auto;
+  }
+}
+@media (max-width: 600px) {
+  .lenora-friends {
+    height: 500px;
+  }
+}
 .lenora-friends .lenora-friends-bg {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -35,6 +45,11 @@
   font-family: "Montserrat-Regular", sans-serif;
   color: #333333;
   text-align: center;
+}
+@media (max-width: 600px) {
+  .lenora-friends .lenora-friends-block .lenora-friends-text {
+    font-size: 30px;
+  }
 }
 .lenora-friends .lenora-friends-block .lenora-friends-description {
   margin-top: 50px;

@@ -22,9 +22,14 @@
     top: 160px;
     z-index: 1;
 
-    @include _979{
+    @include _979 {
       top: auto;
       bottom: -20px;
+    }
+
+    @include _480 {
+      height: 75%;
+      width: auto;
     }
   }
 
@@ -50,6 +55,13 @@
       @include _979 {
         display: flex;
         justify-content: center;
+      }
+    }
+
+    .oriental-taste-left {
+      @include _480 {
+        width: 75%;
+        margin: auto;
       }
     }
 

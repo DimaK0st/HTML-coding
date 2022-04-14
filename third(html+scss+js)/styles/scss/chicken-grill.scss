@@ -22,6 +22,10 @@
     width: 100%;
     height: 1000px;
     z-index: 1;
+
+    @include _600{
+      height: 700px;
+    }
   }
 
   .chicken-grill-block {
@@ -32,6 +36,10 @@
 
     @include _979{
       flex-direction: column;
+    }
+
+    @include _600{
+      margin-top: 0;
     }
 
     & > div {
@@ -53,6 +61,11 @@
           font-family: "GrandHotel-Regular", sans-serif;
           color: $color-orange;
           line-height: 1;
+
+          @include _600{
+            font-size: 60px;            text-align: center;
+
+          }
         }
 
         .chicken-grill-description {
@@ -64,6 +77,11 @@
 
           @include _979{
             color: $color-grey;
+          }
+
+          @include _600{
+            font-size: 30px;
+            text-align: center;
           }
         }
 
@@ -93,13 +111,23 @@
         margin-bottom: 40px;
       }
 
-      & img {
+      @include _600{
+        order: -1;
 
+        & img{
+          width: 75%;
+        }
+      }
+
+      & img {
         width: 100%;
         height: 100%;
         max-width: 470px;
         max-height: 470px;
 
+        @include _600{
+            width: 75%;
+        }
       }
 
     }

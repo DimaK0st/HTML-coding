@@ -26,6 +26,11 @@
   color: #333333;
   line-height: 0.7;
 }
+@media (max-width: 480px) {
+  .subscribe .subscribe-block .subscribe-text {
+    font-size: 50px;
+  }
+}
 .subscribe .subscribe-block .subscribe-description {
   margin-top: 50px;
   margin-bottom: 80px;
@@ -34,6 +39,12 @@
   color: #333333;
   line-height: 1;
   text-align: center;
+}
+@media (max-width: 480px) {
+  .subscribe .subscribe-block .subscribe-description {
+    font-size: 25px;
+    margin-bottom: 120px;
+  }
 }
 .subscribe .subscribe-block .subscribe-form {
   display: -webkit-box;
@@ -46,6 +57,14 @@
   -webkit-box-shadow: 0 0 100px 1px #bbbbbb;
           box-shadow: 0 0 100px 1px #bbbbbb;
 }
+@media (max-width: 480px) {
+  .subscribe .subscribe-block .subscribe-form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 .subscribe .subscribe-block .subscribe-form .subscribe-form-input {
   width: 550px;
   padding: 16px 30px;
@@ -55,6 +74,11 @@
   line-height: 25px;
   border: white 0;
   overflow: visible;
+}
+@media (max-width: 979px) {
+  .subscribe .subscribe-block .subscribe-form .subscribe-form-input {
+    width: 100%;
+  }
 }
 .subscribe .subscribe-block .subscribe-form .subscribe-form-btn {
   overflow: visible;
@@ -69,6 +93,11 @@
   color: #333333;
   text-transform: uppercase;
 }
+@media (max-width: 480px) {
+  .subscribe .subscribe-block .subscribe-form .subscribe-form-btn {
+    width: 100%;
+  }
+}
 .subscribe .svg-icon {
   position: absolute;
   width: 100%;
@@ -79,6 +108,12 @@
 .subscribe .svg-icon img {
   position: absolute;
 }
+@media (max-width: 768px) {
+  .subscribe .svg-icon img {
+    max-width: 70px;
+    max-height: 70px;
+  }
+}
 .subscribe .svg-icon .cucumber-1 {
   top: 50px;
   left: 25%;
@@ -86,6 +121,17 @@
 .subscribe .svg-icon .cucumber-2 {
   top: 250px;
   left: 90%;
+}
+@media (max-width: 600px) {
+  .subscribe .svg-icon .cucumber-2 {
+    top: 285px;
+  }
+}
+@media (max-width: 480px) {
+  .subscribe .svg-icon .cucumber-2 {
+    top: 215px;
+    left: 80%;
+  }
 }
 .subscribe .svg-icon .cucumber-3 {
   top: 715px;
@@ -99,6 +145,17 @@
   top: 470px;
   left: 90%;
 }
+@media (max-width: 1170px) {
+  .subscribe .svg-icon .onion {
+    top: 410px;
+    left: 85%;
+  }
+}
+@media (max-width: 480px) {
+  .subscribe .svg-icon .onion {
+    left: 70%;
+  }
+}
 .subscribe .svg-icon .garlic {
   top: 700px;
   left: 87%;
@@ -107,6 +164,11 @@
   top: 40px;
   left: 77%;
 }
+@media (max-width: 480px) {
+  .subscribe .svg-icon .pepper-1 {
+    left: 60%;
+  }
+}
 .subscribe .svg-icon .pepper-2 {
   top: 630px;
   left: 24%;
@@ -114,4 +176,9 @@
 .subscribe .svg-icon .salad {
   top: 190px;
   left: 4%;
+}
+@media (max-width: 600px) {
+  .subscribe .svg-icon .salad {
+    top: 110px;
+  }
 }

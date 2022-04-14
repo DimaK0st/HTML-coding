@@ -1,4 +1,5 @@
 @import "CONST";
+@import "media_mixin";
 
 .subscribe {
   display: flex;
@@ -16,12 +17,14 @@
     text-align: center;
 
     .subscribe-text {
-
       font-size: 100px;
       font-family: "MyriadProRegular", sans-serif;
       color: $color-grey;
       line-height: 0.7;
 
+      @include _480{
+        font-size: 50px;
+      }
     }
 
     .subscribe-description {
@@ -33,7 +36,10 @@
       line-height: 1;
       text-align: center;
 
-
+      @include _480{
+        font-size: 25px;
+        margin-bottom: 120px;
+      }
     }
 
     .subscribe-form {
@@ -41,6 +47,10 @@
       margin: auto;
       width: fit-content;
       box-shadow: 0 0 100px 1px #bbbbbb;
+
+      @include _480{
+        flex-direction: column;
+      }
 
       .subscribe-form-input {
         width: 550px;
@@ -50,6 +60,10 @@
         line-height: 25px;
         border: white 0;
         overflow: visible;
+
+      @include _979{
+        width: 100%;
+      }
       }
 
       .subscribe-form-btn {
@@ -64,11 +78,12 @@
         font-family: "Montserrat-Bold", sans-serif;
         color: $color-grey;
         text-transform: uppercase;
+
+        @include _480{
+         width: 100%;
+        }
       }
-
     }
-
-
   }
 
   .svg-icon {
@@ -80,6 +95,11 @@
 
     & img {
       position: absolute;
+
+      @include _768{
+        max-width: 70px;
+        max-height: 70px;
+      }
     }
 
     .cucumber-1 {
@@ -90,6 +110,15 @@
     .cucumber-2 {
       top: 250px;
       left: 90%;
+
+      @include _600{
+        top: 285px;
+      }
+
+      @include _480{
+        top: 215px;
+        left: 80%;
+      }
     }
 
     .cucumber-3 {
@@ -105,6 +134,15 @@
     .onion {
       top: 470px;
       left: 90%;
+
+      @include _1170{
+        top: 410px;
+        left: 85%;
+      }
+
+      @include _480{
+        left: 70%;
+      }
     }
 
     .garlic {
@@ -115,6 +153,11 @@
     .pepper-1 {
       top: 40px;
       left: 77%;
+
+      @include _480{
+        left: 60%;
+      }
+
     }
 
     .pepper-2 {
@@ -125,7 +168,10 @@
     .salad {
       top: 190px;
       left: 4%;
+
+      @include _600{
+        top: 110px;
+      }
     }
   }
-
 }

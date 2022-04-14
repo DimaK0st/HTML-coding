@@ -11,6 +11,11 @@
     padding-bottom: 40px;
   }
 }
+@media (max-width: 768px) {
+  .statistics {
+    padding-bottom: 85px;
+  }
+}
 .statistics .statistics-block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -108,6 +113,12 @@
 .statistics .svg-icon img {
   position: absolute;
 }
+@media (max-width: 768px) {
+  .statistics .svg-icon img {
+    max-width: 70px;
+    max-height: 70px;
+  }
+}
 .statistics .svg-icon .cucumber-1 {
   top: 50px;
   left: 25%;
@@ -119,6 +130,12 @@
 @media (max-width: 768px) {
   .statistics .svg-icon .cucumber-2 {
     top: 290px;
+  }
+}
+@media (max-width: 600px) {
+  .statistics .svg-icon .cucumber-2 {
+    top: 360px;
+    left: 85%;
   }
 }
 .statistics .svg-icon .cucumber-3 {
@@ -156,6 +173,12 @@
     left: 80%;
   }
 }
+@media (max-width: 768px) {
+  .statistics .svg-icon .onion {
+    top: 1015px;
+    left: 75%;
+  }
+}
 .statistics .svg-icon .garlic {
   top: 700px;
   left: 87%;
@@ -168,6 +191,11 @@
 .statistics .svg-icon .pepper-1 {
   top: 40px;
   left: 77%;
+}
+@media (max-width: 480px) {
+  .statistics .svg-icon .pepper-1 {
+    left: 72%;
+  }
 }
 .statistics .svg-icon .pepper-2 {
   top: 630px;
@@ -186,6 +214,11 @@
 @media (max-width: 979px) {
   .statistics .svg-icon .salad {
     top: 90px;
+  }
+}
+@media (max-width: 480px) {
+  .statistics .svg-icon .salad {
+    top: 35px;
   }
 }
 .statistics .bg1-2 {
