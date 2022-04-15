@@ -19,6 +19,9 @@
   width: 850px;
   margin: auto;
   text-align: center;
+  padding: 5px;
+  position: relative;
+  z-index: 11;
 }
 .subscribe .subscribe-block .subscribe-text {
   font-size: 100px;
