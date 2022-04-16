@@ -6,6 +6,10 @@ img {
   overflow: hidden;
 }
 
+body{
+  overflow-x:hidden;
+}
+
 header {
   width: 100%;
   position: fixed;

@@ -65,6 +65,8 @@ if (animItems.length > 0 || rotateItems.length > 0) {
                 animItemPoint = window.innerHeight - window.innerHeight / animStart;
             }
 
+            console.log((pageYOffset > animItemOffset - animItemPoint));
+            console.log(pageYOffset < (animItemOffset + animItemsHeight));
             if ((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemsHeight)) {
                 animItem.classList.add('_active');
             } else {
