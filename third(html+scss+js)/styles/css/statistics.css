@@ -35,6 +35,7 @@
   color: #ffc200;
   line-height: 0.8;
   text-align: center;
+  width: auto;
 }
 .statistics .statistics-block .statistics-description {
   font-size: 25px;

@@ -31,12 +31,6 @@ if (animItems.length > 0 || rotateItems.length > 0) {
 
     function animOnScroll(params) {
 
-        // if (window.scrollY > 5) {
-        //     header.style.background = 'rgba(0,0,0,0.38)'
-        // } else {
-        //     header.style.background = 'rgba(0, 0, 0, 0)'
-        // }
-
         for (let i = 0; i < rotateItems.length; i++) {
             const rotateItem = rotateItems[i];
             const rotateItemsHeight = rotateItem.offsetHeight;
@@ -65,8 +59,6 @@ if (animItems.length > 0 || rotateItems.length > 0) {
                 animItemPoint = window.innerHeight - window.innerHeight / animStart;
             }
 
-            console.log((pageYOffset > animItemOffset - animItemPoint));
-            console.log(pageYOffset < (animItemOffset + animItemsHeight));
             if ((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemsHeight)) {
                 animItem.classList.add('_active');
             } else {

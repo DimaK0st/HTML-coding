@@ -1,13 +1,15 @@
+html{
+  max-width: 100%;
+  scroll-behavior: smooth;
+}
+
 body {
   background: #ffffff;
+  overflow-x:hidden;
 }
 
 img {
   overflow: hidden;
-}
-
-body{
-  overflow-x:hidden;
 }
 
 header {
