@@ -1,0 +1,51 @@
+@import "CONST";
+@import "media_mixin";
+
+.footer{
+  height: $height-content;
+  background: $color-grey-bg;
+
+  .footer-block{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1300px;
+    width: 100%;
+    padding-top: 250px;
+
+    .footer-block-left{
+      width: 100%;
+      max-width: 50%;
+
+    .footer-block-left-img{
+      display: flex;
+      flex-direction: row;
+    }
+    }
+
+    .footer-block-right{
+
+      .footer-block-right-1{
+        width: 100%;
+        max-width: 38.5%;
+      }
+
+      .footer-block-right-2{
+        width: 100%;
+
+        max-width: 38.5%;
+      }
+
+      .footer-block-right-3{
+        width: 100%;
+        max-width: 23%;
+      }
+
+    }
+  }
+
+
+
+
+
+}
+
