@@ -1,50 +1,127 @@
 @import "CONST";
 @import "media_mixin";
 
-.footer{
+.footer {
   height: $height-content;
   background: $color-grey-bg;
 
-  .footer-block{
+  @include _600 {
+    height: auto;
+  }
+
+  .footer-block {
     display: flex;
     flex-wrap: wrap;
     max-width: 1300px;
+    justify-content: center;
     width: 100%;
     padding-top: 250px;
+    margin: auto;
 
-    .footer-block-left{
-      width: 100%;
-      max-width: 50%;
+    @include _979 {
+      padding-top: 100px;
+    }
 
-    .footer-block-left-img{
+    .footer-text {
+      font-size: 25px;
+      margin-bottom: 30px;
+      font-family: "Montserrat-Bold", sans-serif;
+      color: white;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .footer-description {
+      font-size: 23px;
+      font-family: "Montserrat-Regular", sans-serif;
+      color: white;
+      line-height: 1.2;
+      text-align: left;
+
+      p {
+        margin-bottom: 10px;
+        transition: background-color .3s, filter .3s;
+        cursor: pointer;
+      }
+
+      p:hover {
+        color: $color-orange;
+      }
+    }
+
+    .footer-block-left {
+      display: flex;
+      justify-content: center;
+      width: 50%;
+
+      @include _979 {
+        width: 100%;
+      }
+
+      .footer-block-left-div {
+        max-width: 480px;
+        width: 100%;
+        color: #ffc200;
+      }
+
+      .footer-block-left-img {
+        display: flex;
+        flex-direction: row;
+        margin-top: 28px;
+
+        img {
+          margin-right: 15px;
+          fill: #ffc200;
+          color: #ffc200;
+        }
+      }
+    }
+
+    .footer-block-right {
       display: flex;
       flex-direction: row;
-    }
-    }
+      width: 50%;
 
-    .footer-block-right{
+      @include _979 {
+        margin-top: 40px;
+        width: 100%;
+        justify-content: space-around;
+      }
 
-      .footer-block-right-1{
+      @include _600 {
+        flex-direction: column;
+
+        div {
+          margin: auto auto 40px;
+        }
+      }
+
+      .footer-block-right-1 {
         width: 100%;
         max-width: 38.5%;
       }
 
-      .footer-block-right-2{
+      .footer-block-right-2 {
         width: 100%;
 
         max-width: 38.5%;
       }
 
-      .footer-block-right-3{
+      .footer-block-right-3 {
         width: 100%;
         max-width: 23%;
+
+        @include _979 {
+          max-width: 140px;
+        }
+
+        @include _600 {
+          max-width: 38.5%;
+        }
       }
 
     }
   }
-
-
-
 
 
 }

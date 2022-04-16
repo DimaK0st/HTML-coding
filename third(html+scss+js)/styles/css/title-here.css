@@ -20,6 +20,7 @@
 .title-here-block .title-here-left-block {
   width: 41%;
   background-image: url("../../images/main/bg1.png");
+  max-width: 600px;
 }
 @media (max-width: 1170px) {
   .title-here-block .title-here-left-block {
@@ -48,7 +49,7 @@
 }
 .title-here-block .title-here-right-block {
   position: relative;
-  width: 59%;
+  width: 100%;
   background: #2f2f2f;
   z-index: 10;
 }
@@ -78,6 +79,7 @@
   font-family: "Montserrat-Regular", sans-serif;
   color: white;
   line-height: 1.2;
+  cursor: pointer;
 }
 @media (max-width: 768px) {
   .title-here-block .title-here-right-block .title-here-header {

@@ -18,6 +18,7 @@
   .title-here-left-block {
     width: 41%;
     background-image: url("../../images/main/bg1.png");
+    max-width: 600px;
 
     @include _1170 {
       width: 30%;
@@ -44,7 +45,7 @@
 
   .title-here-right-block {
     position: relative;
-    width: 59%;
+    width: 100%;
     background: $color-grey-bg;
     z-index: 10;
 
@@ -67,6 +68,7 @@
       font-family: "Montserrat-Regular", sans-serif;
       color: white;
       line-height: 1.2;
+      cursor: pointer;
 
       @include _768 {
         display: none;
