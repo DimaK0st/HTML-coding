@@ -2,17 +2,17 @@
   font-family: "GrandHotel-Regular";
   font-style: normal;
   font-weight: normal !important;
-  src: local("Roboto"), url("../../fonts/GrandHotel-Regular.ttf") format("truetype");
+  src: url("../../fonts/GrandHotel-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Montserrat-Regular";
   font-style: normal;
   font-weight: normal !important;
-  src: local("Roboto"), url("../../fonts/Montserrat-Regular.ttf") format("truetype");
+  src: url("../../fonts/Montserrat-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Montserrat-Bold";
   font-style: normal;
   font-weight: normal !important;
-  src: local("Roboto"), url("../../fonts/Montserrat-Bold.ttf") format("truetype");
+  src: url("../../fonts/Montserrat-Bold.ttf") format("truetype");
 }

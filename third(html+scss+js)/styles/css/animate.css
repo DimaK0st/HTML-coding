@@ -1,0 +1,38 @@
+._anim-left, ._anim-right, ._anim-top, ._anim-bottom {
+  opacity: 0;
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+}
+
+._anim-rotate-left {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+}
+
+._anim-left {
+  -webkit-transform: translate(-100%, 0);
+          transform: translate(-100%, 0);
+}
+
+._anim-right {
+  -webkit-transform: translate(100%, 0);
+          transform: translate(100%, 0);
+}
+
+._anim-top {
+  -webkit-transform: translate(0, -100%);
+          transform: translate(0, -100%);
+}
+
+._anim-bottom {
+  -webkit-transform: translate(0, 100%);
+          transform: translate(0, 100%);
+}
+
+._active {
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  opacity: 1;
+}

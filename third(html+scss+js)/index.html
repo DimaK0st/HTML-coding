@@ -15,10 +15,11 @@
     <link rel="stylesheet" href="styles/css/lenora-friends.css">
     <link rel="stylesheet" href="styles/css/subscribe.css">
     <link rel="stylesheet" href="styles/css/footer.css">
+    <link rel="stylesheet" href="styles/css/animate.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="background-color: #181817;">
+<body onLoad = "window.location.href = '#home'" style="background-color: #181817;">
 <header id="header-mobile" style="margin-top: 500px">
     <div class="hamburger-menu">
         <input id="menu-toggle" type="checkbox"/>
@@ -28,12 +29,11 @@
 
         <ul class="menu-box">
             <li class="menu-image"><img src="images/main/logo.png" alt="Слава Україні"></li>
-            <li><a class="menu-item" href="#main">Home</a></li>
-            <li><a class="menu-item" href="#agency">Pages</a></li>
-            <li><a class="menu-item" href="#akita">Features</a></li>
-            <li><a class="menu-item" href="#lets-blog">Extensions</a></li>
-            <li><a class="menu-item" href="#blog-bottom">Tutorials</a></li>
-            <li><a class="menu-item" href="#about">Contact us</a></li>
+            <li><a class="menu-item" href="#home">Home</a></li>
+            <li><a class="menu-item" href="#oriental">Product</a></li>
+            <li><a class="menu-item" href="#statistics">Promo</a></li>
+            <li><a class="menu-item" href="#chicken">About</a></li>
+            <li><a class="menu-item" href="#subscribe">Contact</a></li>
             <li class="menu-image social">
                 <img src="images/social/Facebook.svg" alt="Слава Україні" class="_rotate">
                 <img src="images/social/Instagram.svg" alt="Слава Україні" class="_rotate">
@@ -43,7 +43,7 @@
     </div>
 </header>
 
-<div class="title-here-block">
+<div id='home' class="title-here-block">
 
     <div class="title-here-left-block">
         <img src="images/main/logo.png" alt="Слава Україні">
@@ -52,11 +52,11 @@
     <div class="title-here-right-block">
         <img class="bg1-2" src="images/main/bg1-2.svg" alt="Слава Україні">
         <div class="title-here-header">
-            <div><a>Home</a></div>
-            <div><a>Product</a></div>
-            <div><a>Promo</a></div>
-            <div><a>About</a></div>
-            <div><a>Contact</a></div>
+            <div><a href="#home">Home</a></div>
+            <div><a href="#oriental">Product</a></div>
+            <div><a href="#statistics">Promo</a></div>
+            <div><a href="#chicken">About</a></div>
+            <div><a href="#subscribe">Contact</a></div>
             <div><img src="images/main/Search.svg" alt="Слава Україні"></div>
         </div>
 
@@ -83,44 +83,38 @@
 </div>
 
 <section class="best-seller">
-
     <div class="best-seller-block">
-
         <span class="best-seller-text">Best Seller</span>
-        <span class="best-seller-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Vivamus lacinia odio vitae vestibulum vestibulum. </span>
-
+        <span class="best-seller-description  _anim-items _anim-left _anim-no-hide">Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. </span>
         <div class="best-seller-list">
-            <div class="best-seller-item">
+            <div class="best-seller-item _anim-items _anim-left _anim-no-hide">
                 <img src="images/best-seller/1.png" alt="Слава Україні">
                 <span class="best-seller-item-text">Title Here</span>
                 <span class="best-seller-item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
             </div>
-            <div class="best-seller-item">
+            <div class="best-seller-item _anim-items _anim-top _anim-no-hide">
                 <img src="images/best-seller/1.png" alt="Слава Україні">
                 <span class="best-seller-item-text">Title Here</span>
                 <span class="best-seller-item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
             </div>
-            <div class="best-seller-item">
+            <div class="best-seller-item _anim-items _anim-right _anim-no-hide">
                 <img src="images/best-seller/1.png" alt="Слава Україні">
                 <span class="best-seller-item-text">Title Here</span>
                 <span class="best-seller-item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
             </div>
         </div>
-
-
     </div>
-
 </section>
 
-<section class="oriental-taste">
+<section id="oriental" class="oriental-taste">
     <img class="oriental-taste-bg" src="images/oriental-taste/bg2.svg" alt="Слава Україні">
     <div class="oriental-taste-block">
         <div class="oriental-taste-left">
             <img src="images/oriental-taste/imgItem.png" alt="Слава Україні">
         </div>
 
-        <div class="oriental-taste-right">
+        <div class="oriental-taste-right _anim-items _anim-left _anim-no-hide">
             <span class="oriental-taste-text">Oriental Taste</span>
             <span class="oriental-taste-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Vivamus lacinia odio vitae vestibulum vestibulum. </span>
@@ -131,35 +125,30 @@
 
 </section>
 
-<section class="statistics">
-
+<section id="statistics" class="statistics">
     <div class="statistics-block">
-
         <span class="statistics-text">Statistics</span>
-        <span class="statistics-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Vivamus lacinia odio vitae vestibulum vestibulum. </span>
-
+        <span class="statistics-description _anim-items _anim-left _anim-no-hide">Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. </span>
         <div class="statistics-list">
-            <div class="statistics-item">
+            <div class="statistics-item _anim-items _anim-right _anim-no-hide">
                 <span class="statistics-item-numbers">123</span>
                 <span class="statistics-item-text">OUTLETS</span>
             </div>
-            <div class="statistics-item">
+            <div class="statistics-item _anim-items _anim-left _anim-no-hide">
                 <span class="statistics-item-numbers">123</span>
                 <span class="statistics-item-text">OUTLETS</span>
             </div>
-            <div class="statistics-item">
+            <div class="statistics-item _anim-items _anim-right _anim-no-hide">
                 <span class="statistics-item-numbers">123</span>
                 <span class="statistics-item-text">OUTLETS</span>
             </div>
-            <div class="statistics-item">
+            <div class="statistics-item _anim-items _anim-left _anim-no-hide">
                 <span class="statistics-item-numbers">123</span>
                 <span class="statistics-item-text">OUTLETS</span>
             </div>
         </div>
     </div>
-
-
     <div class="svg-icon">
         <img class="cucumber-1 _rotate" src="images/svg-icon/cucumber.svg" alt="Слава Україні">
         <img class="cucumber-2 _rotate" src="images/svg-icon/cucumber.svg" alt="Слава Україні">
@@ -171,12 +160,11 @@
         <img class="salad _rotate" src="images/svg-icon/salad.svg" alt="Слава Україні">
         <img class="tomato _rotate" src="images/svg-icon/tomato.svg" alt="Слава Україні">
     </div>
-
 </section>
 
-<section class="chicken-grill">
+<section id="chicken" class="chicken-grill">
     <div class="chicken-grill-block">
-        <div class="chicken-grill-left">
+        <div class="chicken-grill-left _anim-items _anim-left _anim-no-hide">
             <div class="chicken-grill-left-block">
                 <span class="chicken-grill-text">Chicken Grill</span>
                 <span class="chicken-grill-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -185,7 +173,7 @@
             </div>
         </div>
 
-        <div class="chicken-grill-right">
+        <div class="chicken-grill-right _anim-items _anim-rotate-left _anim-no-hide">
             <img src="images/chicken-grill/1.png" alt="Слава Україні">
         </div>
     </div>
@@ -193,7 +181,7 @@
 
 </section>
 
-<section class="lenora-friends">
+<section class="lenora-friends _anim-items _anim-left _anim-no-hide">
     <div class="lenora-friends-bg">
         <div class="lenora-friends-block">
 
@@ -206,15 +194,16 @@
 </section>
 
 
-<section class="subscribe">
+<section id="subscribe" class="subscribe">
 
     <div class="subscribe-block">
-        <span class="subscribe-text">Subscribe</span>
-        <span class="subscribe-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <span class="subscribe-text _anim-items _anim-left _anim-no-hide">Subscribe</span>
+        <span class="subscribe-description _anim-items _anim-right _anim-no-hide">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Vivamus lacinia odio vitae vestibulum vestibulum. </span>
         <div class="subscribe-form">
-            <input class="subscribe-form-input" placeholder="Your Email">
-            <button class="subscribe-form-btn">Subscribe</button>
+            <input class="subscribe-form-input _anim-items _anim-left _anim-no-hide" placeholder="Your Email">
+            <button class="subscribe-form-btn _anim-items _anim-right _anim-no-hide">Subscribe</button>
         </div>
     </div>
 

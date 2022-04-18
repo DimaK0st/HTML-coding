@@ -49,6 +49,11 @@
     background: $color-grey-bg;
     z-index: 10;
 
+    a{
+      color: white;
+      text-decoration: none;
+    }
+
     @include _1170 {
       width: 70%;
     }

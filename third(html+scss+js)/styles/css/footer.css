@@ -64,6 +64,7 @@
 @media (max-width: 979px) {
   .footer .footer-block .footer-block-left {
     width: 100%;
+    padding: 5px;
   }
 }
 .footer .footer-block .footer-block-left .footer-block-left-div {
