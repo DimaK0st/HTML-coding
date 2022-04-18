@@ -13,12 +13,21 @@
         margin: auto;
         justify-content: center;
         align-items: center;
+        font-size: 50px;
+
     }
 
-    div {
+    body{
+        width: 100%
+    }
+
+    body > div {
         text-align: center;
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        border-bottom: #11749e 2px solid;
     }
 
     a {
@@ -27,14 +36,41 @@
         margin-bottom: 20px;
         text-decoration: none;
     }
+
+    .react-item{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 30px;
+    }
+
+    .react-item-url, .react-item-git{
+        color: darkorange;
+        margin-bottom: 20px;
+        text-decoration: none;
+    }
+
+    .react-item-git{
+        color: #11749e;
+    }
+
 </style>
 
 <body>
 
 <div>
+    <p>HTML</p>
     <a href="first(html+css+js)/index.html"> First </a>
     <a href="second(html+css+js)/index.html"> Second </a>
     <a href="third(html+scss+js)/index.html"> Third </a>
+</div>
+
+<div>
+    <p>React</p>
+    <div class="react-item">
+        1) <a href="https://dimak0st.github.io/React-Clicker/" class="react-item-url">Clicker</a> -
+        <a href="https://github.com/DimaK0st/React-Clicker" class="react-item-git">Git</a>
+    </div>
 </div>
 </body>
 </html>
