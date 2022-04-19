@@ -4,3 +4,19 @@ $color-orange: #ffc200;
 
 $height-content: 800px;
 $width-content: 1200px;
+
+@mixin button {
+  .button{
+    padding: 10px 0 10px 0;
+    max-width: 250px;
+    background: $color-orange;
+    border: #ffc200 0;
+    cursor: pointer;
+    color: $color-grey;
+    font-size: 20px;
+    font-family: "Montserrat-Bold", sans-serif;
+    text-transform: uppercase;
+    @content;
+
+  }
+}

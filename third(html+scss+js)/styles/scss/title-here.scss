@@ -138,14 +138,7 @@
         }
       }
 
-      button {
-        padding: 10px 0 10px 0;
-        max-width: 250px;
-        background: $color-orange;
-
-        color: $color-grey;
-        font-size: 20px;
-        font-family: "Montserrat-Bold", sans-serif;
+      @include button{
 
       }
     }

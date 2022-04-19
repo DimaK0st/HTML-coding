@@ -2,9 +2,6 @@ html {
     margin: auto;
     background: #383838;
     scroll-behavior: smooth;
-}
-
-body {
     overflow-x:hidden;
 }
 

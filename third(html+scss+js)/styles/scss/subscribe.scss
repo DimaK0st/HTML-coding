@@ -69,18 +69,11 @@
       }
       }
 
-      .subscribe-form-btn {
-        overflow: visible;
-        margin: 0;
-        padding: 0;
+      @include button{
+        max-width: none;
         width: 222px;
         height: 65px;
-        border: white 0;
-        background: $color-orange;
         font-size: 25px;
-        font-family: "Montserrat-Bold", sans-serif;
-        color: $color-grey;
-        text-transform: uppercase;
 
         @include _480{
          width: 100%;

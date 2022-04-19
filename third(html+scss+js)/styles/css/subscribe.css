@@ -83,21 +83,23 @@
     width: 100%;
   }
 }
-.subscribe .subscribe-block .subscribe-form .subscribe-form-btn {
-  overflow: visible;
-  margin: 0;
-  padding: 0;
+.subscribe .subscribe-block .subscribe-form .button {
+  padding: 10px 0 10px 0;
+  max-width: 250px;
+  background: #ffc200;
+  border: #ffc200 0;
+  cursor: pointer;
+  color: #333333;
+  font-size: 20px;
+  font-family: "Montserrat-Bold", sans-serif;
+  text-transform: uppercase;
+  max-width: none;
   width: 222px;
   height: 65px;
-  border: white 0;
-  background: #ffc200;
   font-size: 25px;
-  font-family: "Montserrat-Bold", sans-serif;
-  color: #333333;
-  text-transform: uppercase;
 }
 @media (max-width: 480px) {
-  .subscribe .subscribe-block .subscribe-form .subscribe-form-btn {
+  .subscribe .subscribe-block .subscribe-form .button {
     width: 100%;
   }
 }

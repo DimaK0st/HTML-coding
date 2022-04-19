@@ -156,13 +156,16 @@
     text-align: center;
   }
 }
-.title-here-block .title-here-right-block .title-here-text-block button {
+.title-here-block .title-here-right-block .title-here-text-block .button {
   padding: 10px 0 10px 0;
   max-width: 250px;
   background: #ffc200;
+  border: #ffc200 0;
+  cursor: pointer;
   color: #333333;
   font-size: 20px;
   font-family: "Montserrat-Bold", sans-serif;
+  text-transform: uppercase;
 }
 .title-here-block .title-here-right-block .svg-icon {
   position: absolute;

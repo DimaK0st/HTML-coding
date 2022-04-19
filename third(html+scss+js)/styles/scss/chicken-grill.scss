@@ -85,19 +85,12 @@
           }
         }
 
-        .chicken-grill-button {
+        @include button {
           max-width: 330px;
           margin: auto;
           width: 100%;
           padding: 25px 75px;
           font-size: 25px;
-          background: $color-orange;
-          border: 0 $color-orange;
-          font-family: "Montserrat-Bold", sans-serif;
-          color: $color-grey;
-          line-height: 20px;
-          text-transform: uppercase;
-          text-align: center;
         }
       }
     }
