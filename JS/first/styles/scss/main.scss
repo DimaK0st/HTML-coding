@@ -1,0 +1,15 @@
+@import 'CONST';
+@import 'media_mixin';
+
+html{
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body{
+  background: #ffffff;
+}
+
+img{
+  overflow:hidden;
+}

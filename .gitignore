@@ -1,4 +1,4 @@
 /task/*
 .idea/
 .idea
-third(html+scss+js)/styles/prepros.config
+HTML/third(html+scss+js)/styles/prepros.config
