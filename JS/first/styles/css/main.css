@@ -1,3 +1,11 @@
+.red-btn {
+  background-color: #fd0283;
+}
+
+.green-btn {
+  background-color: #02fd06;
+}
+
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -9,4 +17,62 @@ body {
 
 img {
   overflow: hidden;
+}
+
+.box {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+
+.wrapper {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border: 3px solid red;
+}
+
+.btn-block {
+  background-color: grey;
+  margin-top: 10px;
+}
+
+button {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-right: 5px;
+  width: 100px;
+  height: 40px;
+  background-color: yellow;
+  border: none;
+  transition: 0.3s all;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.btn-block, .dynamic-btn-block, .set-timeout-block {
+  margin-top: 10px;
+  background-color: grey;
+  padding: 10px;
+}
+
+.dynamic-btn-block .remove-btn {
+  background-color: #fd0283;
+}
+.dynamic-btn-block .add-btn {
+  background-color: #02fd06;
+}
+
+.set-timeout-block .remove-btn {
+  background-color: #fd0283;
+}
+.set-timeout-block .add-btn {
+  background-color: #02fd06;
 }
