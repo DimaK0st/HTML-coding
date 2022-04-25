@@ -15,13 +15,13 @@ btns[1].addEventListener('click', () => {
 
 wrapper.addEventListener('click', (event) => {
     if (event.target && event.target.tagName === 'BUTTON') {
-        if (event.target.classList.contains('remove-btn')) {
+        if (event.target.classList.contains('red-btn')) {
             const btns = wrapper.querySelectorAll("button")
             btns[btns.length - 1].remove();
             return;
         }
 
-        if (event.target.classList.contains('add-btn')) {
+        if (event.target.classList.contains('green-btn')) {
             const newBtn = document.createElement('button')
             newBtn.innerText = '0'
             wrapper.append(newBtn)
