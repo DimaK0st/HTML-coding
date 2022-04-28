@@ -52,7 +52,7 @@ button {
   background-color: red;
 }
 
-.btn-block, .dynamic-btn-block, .set-timeout-block {
+.btn-block, .dynamic-btn-block, .set-timeout-block, .date-block, .ajax-block {
   margin-top: 10px;
   background-color: grey;
   padding: 10px;
@@ -75,5 +75,18 @@ button {
 
   .add-btn {
     background-color: #02fd06;
+  }
+}
+
+.ajax-block {
+  label {
+    display: block;
+    font-size: 30px;
+  }
+
+  input {
+    width: 300px;
+    height: 50px;
+    font-size: 30px;
   }
 }

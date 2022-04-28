@@ -102,18 +102,42 @@ ivan.allInfo()
 
 //es6
 
-class UserV2{
+class UserV2 {
     constructor(name, id) {
         this.name = name
         this.id = id
         this.human = true
     }
-    hello(){
+
+    hello() {
         console.log(`Hello ${this.name}, id= ${this.id}`)
     }
+
     allInfo() {
         console.log(`Name ${this.name}`)
         console.log(`Id ${this.id}`)
         console.log(`Human ${this.human}`)
     }
 }
+
+// ---------------------AJAX-------------------------
+
+const inputUah = document.querySelector('#uah'),
+    inputUsd = document.querySelector('#usd')
+
+inputUah.addEventListener('change', () => {
+    const request = new XMLHttpRequest();
+
+    request.open('GET', 'https://random-data-api.com/api/number/random_number')
+    request.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+    request.send()
+    request.addEventListener('load', () => {
+        if (request.status === 200) {
+            const data = JSON.parse(request.response)
+            inputUsd.value = (+inputUah.value / data.normal).toFixed(2);
+        }else{
+            inputUsd.value = 'error';
+        }
+    })
+
+})
