@@ -79,6 +79,8 @@ function counterController() {
     }
 }
 
+// Class
+
 function User(name, id) {
     this.name = name
     this.id = id
@@ -135,9 +137,87 @@ inputUah.addEventListener('change', () => {
         if (request.status === 200) {
             const data = JSON.parse(request.response)
             inputUsd.value = (+inputUah.value / data.normal).toFixed(2);
-        }else{
+        } else {
             inputUsd.value = 'error';
         }
     })
 
 })
+
+for (let i = 0; i < 5; i++) {
+    console.log(i)
+}
+
+// -----------------Promise-----------------
+console.log('Promise: ')
+console.log('Отправка данных')
+
+const test1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log('Подготовка данных')
+
+        const data = {
+            firstName: 'Slava',
+            lastName: 'Ukraini'
+        }
+        resolve(data)
+
+    }, 1000)
+}).then((data) => {
+    console.log('Получение данных')
+    console.log(data)
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            data.status = 'order'
+            // resolve(data)
+            reject()
+        }, 1000)
+    })
+}).then((data) => {
+    console.log('Обновленные данные')
+    console.log(data)
+    data.modify = true
+    return data
+}).then((data) => {
+    console.log('Модифицированные данные')
+    console.log(data)
+}).catch(() => {
+    console.error('Ошибка вызванная reject')
+}).finally(() => {
+    console.log('Промис закончил выполнение :)')
+})
+
+const test2 = new Promise(() => {
+    console.log('Test2')
+})
+
+Promise.all([test1, test2]).then(() => {
+        console.log('Два промиса выполнились')
+    }
+)
+
+Promise.race([test1, test2]).then(() => {
+        console.log('Первый  промис быстрее')
+    }
+)
+
+
+//-----------Fetch API---------------
+
+
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+    .then(response => response.json())
+    .then(json => console.log(json))
+
+console.log('Get method')
+
+fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: JSON.stringify({name: 'Ivan'}),
+    headers:{'Content-type': 'application/json'}
+
+})
+    .then(response => response.json())
+    .then(json => console.log(json))
+
+    
