@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/animate.css">
 </head>
 <body>
@@ -110,14 +111,14 @@
                 приготовления и дробления рациона.
             </div>
         </div>
-        <div class="offer__slider">
+        <div class="offer__slider first">
             <div class="offer__slider-counter">
                 <div class="offer__slider-prev">
                     <img src="icons/left.svg" alt="prev">
                 </div>
-                <span id="current">03</span>
+                <span id="current1">03</span>
                 /
-                <span id="total">04</span>
+                <span id="total1">04</span>
                 <div class="offer__slider-next">
                     <img src="icons/right.svg" alt="next">
                 </div>
@@ -134,6 +135,54 @@
                 </div>
                 <div class="offer__slide">
                     <img src="img/slider/paprika.jpg" alt="paprika">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="height: 100px"></div>
+<div class="offer second">
+
+    <div class="container">
+        <div class="offer__advantages">
+            <h2>Быстро и полезно</h2>
+            <div class="offer__advantages-text">
+                Готовка дома занимает много сил, времени и нервов. Мы привозим еду сразу на целый день, и ты можешь
+                действовать так, как тебе удобно, не подстраиваясь ни под кого и будучи уверенным в качестве продукта!
+            </div>
+            <h2>Правильный рацион</h2>
+            <div class="offer__advantages-text">
+                Мы разработали специальное меню, где учтены все нюансы правильного питания, от баланса БЖУ до их
+                приготовления и дробления рациона.
+            </div>
+        </div>
+        <div class="offer__slider second">
+            <div class="offer__slider-counter">
+                <div class="offer__slider-prev">
+                    <img src="icons/left.svg" alt="prev">
+                </div>
+                <span id="current2">03</span>
+                /
+                <span id="total2">04</span>
+                <div class="offer__slider-next">
+                    <img src="icons/right.svg" alt="next">
+                </div>
+            </div>
+            <div class="offer__slider-wrapper">
+                <div class="offer__slider-inner">
+                    <div class="offer__slide">
+                        <img src="img/slider/pepper.jpg" alt="pepper">
+                    </div>
+                    <div class="offer__slide">
+                        <img src="img/slider/food-12.jpg" alt="food">
+                    </div>
+                    <div class="offer__slide">
+                        <img src="img/slider/olive-oil.jpg" alt="oil">
+                    </div>
+                    <div class="offer__slide">
+                        <img src="img/slider/paprika.jpg" alt="paprika">
+                    </div>
                 </div>
             </div>
         </div>
@@ -282,10 +331,13 @@
     </div>
 </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="js/tab.js"></script>
 <script src="js/timer.js"></script>
 <script src="js/modal.js"></script>
-<script src="js/menuCard.js"></script>
 <script src="js/ajax.js"></script>
+<script src="js/menuCard.js"></script>
+<script src="js/first-slider.js"></script>
+<script src="js/second-slider.js"></script>
 <script src="js/main.js"></script>
 </html>

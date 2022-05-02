@@ -6,10 +6,10 @@ const message = {
 }
 
 forms.forEach(item => {
-    postData(item)
+    bindPostData(item)
 });
 
-function postData(form) {
+function bindPostData(form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault()
 
@@ -47,24 +47,14 @@ function postData(form) {
         // });
 
         const formData = new FormData(form)
-        const object = {}
-        formData.forEach(function (value, key) {
-            object[key] = value;
-        })
-        const json = JSON.stringify(object)
-        fetch('https://jsonplaceholder.typicode.com/posts', {
-            method: 'POST',
-            body: json,
-            headers: {
-                'Content-type': 'application/json; charset=utf-8'
-            }
-        }).then(
-            data => data.json()
-        ).then((data) => {
-            console.log(data)
-            statusMessage.remove()
-            showThanksModal(message.success)
-        }).catch(() => {
+        const json = JSON.stringify(Object.fromEntries(formData.entries()))
+
+        postData('http://localhost:3000/requests', json)
+            .then((data) => {
+                console.log(data)
+                statusMessage.remove()
+                showThanksModal(message.success)
+            }).catch(() => {
             showThanksModal(message.failure)
         }).finally(() => {
             form.reset()
@@ -94,4 +84,27 @@ function showThanksModal(message) {
         prevModalDialog.classList.add('show')
         prevModalDialog.classList.remove('hide')
     }, 4000)
+}
+
+const postData = async (url, json) => {
+    const res = await fetch(url, {
+            method: 'POST',
+            body: json,
+            headers: {
+                'Content-type': 'application/json; charset=utf-8'
+            }
+        }
+    )
+
+    return await res.json()
+}
+
+const getResource = async (url, json) => {
+    const res = await fetch(url)
+
+    if (!res.ok) {
+        throw new Error(`Could not fetch ${url}, status ${res.status}`)
+    }
+
+    return await res.json()
 }
