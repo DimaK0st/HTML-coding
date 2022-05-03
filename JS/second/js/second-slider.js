@@ -40,12 +40,15 @@ for (let i = 0; i < slides2.length; i++) {
     dots.push(dot)
 }
 
+function deleteNotDigits(str){
+    return +str.replace(/\D/g, '')
+}
 
 next2.addEventListener('click', () => {
-    if (offset === +widthWrapper.slice(0, widthWrapper.length - 2) * (slides2.length - 1)) {
+    if (offset === deleteNotDigits(widthWrapper) * (slides2.length - 1)) {
         offset = 0
     } else {
-        offset += +widthWrapper.slice(0, widthWrapper.length - 2)
+        offset += deleteNotDigits(widthWrapper)
     }
 
     slidesField.style.transform = `translateX(-${offset}px)`
@@ -70,9 +73,9 @@ next2.addEventListener('click', () => {
 
 prev2.addEventListener('click', () => {
     if (offset === 0) {
-        offset = +widthWrapper.slice(0, widthWrapper.length - 2) * (slides2.length - 1)
+        offset = deleteNotDigits(widthWrapper) * (slides2.length - 1)
     } else {
-        offset -= +widthWrapper.slice(0, widthWrapper.length - 2)
+        offset -= deleteNotDigits(widthWrapper)
     }
 
     slidesField.style.transform = `translateX(-${offset}px)`
@@ -83,11 +86,7 @@ prev2.addEventListener('click', () => {
         sliderIndex--
     }
 
-    if (slides2.length < 10) {
-        current2.textContent = `0${sliderIndex}`
-    } else {
-        current2.textContent = sliderIndex
-    }
+    current2.textContent = getZero(sliderIndex)
 
     dots.forEach(dot =>{
         dot.style.opacity = '.5'
@@ -100,14 +99,10 @@ dots.forEach(dot =>{
         const slideTo = e.target.getAttribute('data-slide-to')
 
         sliderIndex = slideTo
-        offset = +widthWrapper.slice(0, widthWrapper.length - 2) * (slideTo - 1)
+        offset = deleteNotDigits(widthWrapper) * (slideTo - 1)
         slidesField.style.transform = `translateX(-${offset}px)`
 
-        if (slides2.length < 10) {
-            current2.textContent = `0${sliderIndex}`
-        } else {
-            current2.textContent = sliderIndex
-        }
+            current2.textContent = getZero(sliderIndex)
 
         dots.forEach(dot =>{
             dot.style.opacity = '.5'

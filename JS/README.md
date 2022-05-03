@@ -11,3 +11,9 @@
 - SetTimeout/setInterval/clearInterval
 - QuerySelectorAll/querySelector/classList/toggle
 - JSON
+- Regular
+- LocalStorage
+- Slider
+- 
+- 
+- 
