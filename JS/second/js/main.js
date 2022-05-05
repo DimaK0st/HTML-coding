@@ -1,61 +1,19 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const deadline = new Date()
-    deadline.setDate(deadline.getDate() + 3)
-    deadline.setHours(deadline.getHours() + 3)
+    const ajax = require('./modules/ajax'),
+        calc = require('./modules/calc'),
+        firstSlider = require('./modules/first-slider'),
+        secondSlider = require('./modules/second-slider'),
+        menuCard = require('./modules/menuCard'),
+        modal = require('./modules/modal'),
+        tab = require('./modules/tab'),
+        timer = require('./modules/timer')
 
-    hideTabContent()
-    showTabContent()
-    showSlides()
-
-    setClock('.timer', deadline)
-
-    //Render cards
-
-    // getResource('http://localhost:3000/menu')
-    //     .then(data =>{
-    //         data.map(({img,altimg,title,descr,price})=>{
-    //             new MenuCard(img,altimg,title,descr,price, '.menu .container').render()
-    //         })
-    //     })
-
-    // axios.get('http://localhost:3000/menu')
-    //     .then(data =>{
-    //                 data.data.map(({img,altimg,title,descr,price})=>{
-    //                     new MenuCard(img,altimg,title,descr,price, '.menu .container').render()
-    //                 })
-    //     })
-
-    //git version
-    new MenuCard(
-        'img/tabs/vegy.jpg',
-        'vegy',
-        'Меню "Фитнес"',
-        `Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих
-                овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой
-                и высоким качеством!`,
-        9,
-        '.menu .container'
-    ).render()
-    new MenuCard(
-        'img/tabs/elite.jpg',
-        'elite',
-        'Меню “Премиум”',
-        `В меню “Премиум” мы используем не только красивый дизайн упаковки, но и
-    качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в
-    ресторан!`,
-        15,
-        '.menu .container'
-    ).render()
-    new MenuCard(
-        'img/tabs/post.jpg',
-        'post',
-        'Меню "Постное"',
-        `Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие
-                    продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество
-                    белков за счет тофу и импортных вегетарианских стейков.`,
-        20,
-        '.menu .container',
-        'menu__item',
-        'box',
-    ).render()
+    ajax()
+    calc()
+    firstSlider()
+    secondSlider()
+    menuCard()
+    modal()
+    tab()
+    timer()
 })
