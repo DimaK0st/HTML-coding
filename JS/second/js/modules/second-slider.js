@@ -1,12 +1,12 @@
-function secondSlider() {
-    const slides2 = document.querySelectorAll('.second .offer__slide'),
-        slider = document.querySelector('.offer .second'),
-        prev2 = document.querySelector('.second .offer__slider-prev'),
-        next2 = document.querySelector('.second .offer__slider-next'),
-        total2 = document.querySelector('#total2'),
-        current2 = document.querySelector('#current2'),
-        sliderWrapper = document.querySelector('.second .offer__slider-wrapper'),
-        slidesField = document.querySelector('.second .offer__slider-inner'),
+function secondSlider({container, slide,nextArrow,prevArrow,totalCounter,currentCounter,wrapper,field}) {
+    const slides2 = document.querySelectorAll(slide),
+        slider = document.querySelector(container),
+        prev2 = document.querySelector(prevArrow),
+        next2 = document.querySelector(nextArrow),
+        total2 = document.querySelector(totalCounter),
+        current2 = document.querySelector(currentCounter),
+        sliderWrapper = document.querySelector(wrapper),
+        slidesField = document.querySelector(field),
         widthWrapper = window.getComputedStyle(sliderWrapper).width
 
     let sliderIndex = 1,
@@ -118,4 +118,4 @@ function secondSlider() {
     }
 }
 
-module.exports = secondSlider
+export default secondSlider

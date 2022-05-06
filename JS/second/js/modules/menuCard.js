@@ -1,3 +1,5 @@
+import {getResource} from "../services/services";
+
 function menuCard() {
     class MenuCard {
         constructor(src, alt, title, description, price, parentSelector, ...classes) {
@@ -92,4 +94,4 @@ function menuCard() {
     ).render()
 }
 
-module.exports = menuCard
+export default menuCard

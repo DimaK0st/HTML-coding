@@ -1,5 +1,8 @@
-function ajax() {
-    const forms = document.querySelectorAll('form');
+import {visibilityModal} from "./modal";
+import {postData} from "../services/services";
+
+function ajax(formSelector, modalTimerId) {
+    const forms = document.querySelectorAll(formSelector);
     const message = {
         loading: './img/form/005 spinner.svg',
         success: 'Спасибо! Скоро мы с вами свяжемся',
@@ -68,7 +71,7 @@ function ajax() {
         const prevModalDialog = document.querySelector('.modal__dialog')
 
         prevModalDialog.classList.add('hide');
-        visibilityModal(true)
+        visibilityModal(true, '.modal', modalTimerId)
 
         const thanksModal = document.createElement('div')
         thanksModal.classList.add('modal__dialog')
@@ -87,28 +90,6 @@ function ajax() {
         }, 4000)
     }
 
-    const postData = async (url, json) => {
-        const res = await fetch(url, {
-                method: 'POST',
-                body: json,
-                headers: {
-                    'Content-type': 'application/json; charset=utf-8'
-                }
-            }
-        )
-
-        return await res.json()
-    }
-
-    const getResource = async (url, json) => {
-        const res = await fetch(url)
-
-        if (!res.ok) {
-            throw new Error(`Could not fetch ${url}, status ${res.status}`)
-        }
-
-        return await res.json()
-    }
 }
 
-module.exports = ajax;
+export default ajax;

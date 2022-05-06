@@ -1,53 +1,54 @@
-function modal() {
+function visibilityModal(bool, modalSelector,idModalTimer) {
+    modal = document.querySelector(modalSelector);
+    if (bool) {
+        modal.classList.add('show')
+        modal.classList.remove('hide')
+        document.body.style.overflow = 'hidden'
+        if (idModalTimer){
+        clearTimeout(idModalTimer)}
+    } else {
+        modal.classList.add('hide')
+        modal.classList.remove('show')
+        document.body.style.overflow = ''
+    }
+}
 
-    const modalTrigger = document.querySelectorAll('[data-modal]'),
-        modal = document.querySelector('.modal');
+
+function modal(triggerSelector, modalSelector, idModalTimer) {
+
+    const modalTrigger = document.querySelectorAll(triggerSelector),
+        modal = document.querySelector(modalSelector);
 
     modalTrigger.forEach(btn => {
             btn.addEventListener('click', () => {
-                visibilityModal(true)
+                visibilityModal(true, modalSelector, idModalTimer)
             })
         }
     )
 
     modal.addEventListener('click', (e) => {
         if (e.target === modal || e.target.getAttribute('data-close') === '') {
-            visibilityModal(false)
+            visibilityModal(false, modalSelector)
         }
     })
 
     document.addEventListener('keydown', (e) => {
         if (e.code === 'Escape' && modal.classList.contains('show')) {
-            visibilityModal(false)
+            visibilityModal(false, modalSelector)
         }
     })
 
-    const idModalTimer = setTimeout(() => {
-        visibilityModal(true)
-    }, 10000)
-
     window.addEventListener('scroll', showModalByScroll)
-
-
-    function visibilityModal(bool) {
-        if (bool) {
-            modal.classList.add('show')
-            modal.classList.remove('hide')
-            document.body.style.overflow = 'hidden'
-            clearTimeout(idModalTimer)
-        } else {
-            modal.classList.add('hide')
-            modal.classList.remove('show')
-            document.body.style.overflow = ''
-        }
-    }
 
     function showModalByScroll() {
         if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight - 1) {
-            visibilityModal(true)
+            visibilityModal(true, modalSelector, idModalTimer)
             window.removeEventListener('scroll', showModalByScroll)
         }
     }
+
+
 }
 
-module.exports = modal
+export default modal
+export {visibilityModal}

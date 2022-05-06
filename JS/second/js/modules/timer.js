@@ -1,4 +1,4 @@
-function timer() {
+function timer(idSelector, deadline) {
 
     function getTimeRemaining(endTime) {
         const t = Date.parse(endTime) - new Date;
@@ -40,11 +40,7 @@ function timer() {
         }
     }
 
-    const deadline = new Date()
-    deadline.setDate(deadline.getDate() + 3)
-    deadline.setHours(deadline.getHours() + 3)
-
-    setClock('.timer', deadline)
+    setClock(idSelector, deadline)
 }
 
-module.exports = timer
+export default timer

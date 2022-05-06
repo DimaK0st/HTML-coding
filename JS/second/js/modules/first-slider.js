@@ -50,4 +50,4 @@ function firstSlider() {
     showSlides()
 }
 
-module.exports = firstSlider
+export default firstSlider
