@@ -1,3 +1,5 @@
+function events(debugMode=false) {
+
 const btns = document.querySelectorAll('button');
 const dynamicWrapper = document.querySelector('.dynamic-btn-block');
 const setTimeoutWrapper = document.querySelector('.set-timeout-block');
@@ -78,3 +80,5 @@ function counterController() {
         }
     }
 }
+}
+export default events

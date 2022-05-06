@@ -1,22 +1,26 @@
+import debug from "../main";
+
+function es6(debugMode=false) {
+
 // Class
 function User(name, id) {
     this.name = name
     this.id = id
     this.human = true
     this.hello = () => {
-        console.log(`Hello ${this.name}, id= ${id}`)
+        debug(`Hello ${this.name}, id= ${id}`, debugMode)
     }
 }
 
 User.prototype.allInfo = function () {
-    console.log(`Name ${this.name}`)
-    console.log(`Id ${this.id}`)
-    console.log(`Human ${this.human}`)
+    debug(`Name ${this.name}`, debugMode)
+    debug(`Id ${this.id}`, debugMode)
+    debug(`Human ${this.human}`, debugMode)
 }
 
 let ivan = new User('Ivan', 666)
 ivan.hello()
-console.log(ivan)
+    debug(ivan)
 ivan.allInfo()
 
 //es6
@@ -28,13 +32,13 @@ class UserV2 {
     }
 
     hello() {
-        console.log(`Hello ${this.name}, id= ${this.id}`)
+        debug(`Hello ${this.name}, id= ${this.id}`, debugMode)
     }
 
     allInfo() {
-        console.log(`Name ${this.name}`)
-        console.log(`Id ${this.id}`)
-        console.log(`Human ${this.human}`)
+        debug(`Name ${this.name}`, debugMode)
+        debug(`Id ${this.id}`, debugMode)
+        debug(`Human ${this.human}`, debugMode)
     }
 }
 
@@ -53,8 +57,8 @@ const persone = {
     }
 }
 
-console.log(persone.userAge = 30)
-console.log(persone.userAge)
+debug(persone.userAge = 30)
+    debug(persone.userAge)
 
 //Инкапсуляция
 
@@ -63,7 +67,7 @@ function User3(name, age) {
     this.age = age
 
     this.say = function () {
-        console.log(`Имя пользователя: ${this.name}, возраст ${this.age}`)
+        debug(`Имя пользователя: ${this.name}, возраст ${this.age}`, debugMode)
     }
 }
 
@@ -81,7 +85,7 @@ function User4(name, age) {
     let userAge = age
 
     this.say = function () {
-        console.log(`Имя пользователя: ${this.name}, возраст ${userAge}`)
+        debug(`Имя пользователя: ${this.name}, возраст ${userAge}`,debugMode)
     }
 
     this.getAge = function () {
@@ -92,7 +96,7 @@ function User4(name, age) {
         if (typeof age === 'number' && age > 0 && age < 150) {
             userAge = age
         } else {
-            console.log('Недопустимое значение :(')
+            debug('Недопустимое значение :(',debugMode)
         }
     }
 
@@ -114,7 +118,7 @@ class User5 {
     }
 
     say() {
-        console.log(`Имя пользователя: ${this.name}, возраст ${this._age}`)
+        debug(`Имя пользователя: ${this.name}, возраст ${this._age}`,debugMode)
     }
 
     get age() {
@@ -125,7 +129,7 @@ class User5 {
         if (typeof age === 'number' && age > 0 && age < 150) {
             this._age = age
         } else {
-            console.log('Недопустимое значение :(')
+            debug('Недопустимое значение :(',debugMode)
         }
     }
 }
@@ -136,3 +140,5 @@ ivan.say()
 ivan.age = 30
 
 ivan.say()
+}
+export default es6

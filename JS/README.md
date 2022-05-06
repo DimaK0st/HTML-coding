@@ -14,6 +14,6 @@
 - Regular
 - LocalStorage
 - Slider
-- 
-- 
+- Webpack
+- Babel
 - 
