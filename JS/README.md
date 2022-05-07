@@ -16,4 +16,5 @@
 - Slider
 - Webpack
 - Babel
-- 
+- Jquery(Только основы)
+- Function Generator

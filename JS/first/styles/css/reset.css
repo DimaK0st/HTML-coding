@@ -1,12 +1,4 @@
 @charset "UTF-8";
-/* Указываем box sizing */
-*,
-*::before,
-*::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
 /* Убираем внешние отступы */
 body,
 h1,

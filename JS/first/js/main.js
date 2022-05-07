@@ -6,10 +6,12 @@ import fetchAndAjax from "./modules/fetchAndAjax";
 import localStorages from "./modules/localStorage";
 import promise from "./modules/promise";
 import regularExp from "./modules/regularExp";
-
+import jquery from "./modules/jquery";
+import generator from "./modules/generator";
+import animations from "./modules/animations";
 
 window.addEventListener('DOMContentLoaded', () => {
-
+animations()
     arrayFunc()
     errors()
     es6()
@@ -18,7 +20,8 @@ window.addEventListener('DOMContentLoaded', () => {
     localStorages()
     promise()
     regularExp()
-
+jquery()
+    generator(true)
 })
 
 

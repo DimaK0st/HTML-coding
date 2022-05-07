@@ -87,6 +87,13 @@ button {
   font-size: 30px;
 }
 
+.animate-block > div {
+  display: flex;
+}
+.animate-block > div .wrapper {
+  margin-left: 10px;
+}
+
 .jquery-block button {
   width: 100px;
   height: 40px;
@@ -119,4 +126,24 @@ button {
 }
 .jquery-block img {
   height: 300px;
+}
+.jquery-block .box {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+.jquery-block .wrapper {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border: 3px solid red;
+}
+.jquery-block button {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 100px;
+  height: 40px;
+  background-color: yellow;
+  border: none;
 }
