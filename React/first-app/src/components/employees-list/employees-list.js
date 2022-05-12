@@ -1,12 +1,12 @@
 import EmployeesListItem from "../employees-list-item/employees-list-item";
 import './employees-list.css'
 
-const EmployeesList = () => {
+const EmployeesList = (props) => {
     return (
         <ul>
-            <EmployeesListItem name='Stepan Kj.' salary='800' />
-            <EmployeesListItem name='Ivan G.' salary='5000' />
-            <EmployeesListItem name='Rost Ik.' salary='3000' />
+            {props.data.map((item)=>{
+                return <EmployeesListItem name={item.name} salary={item.salary} increase={item.increase} key={item.id} onDelete={()=>props.onDelete(item.id)}/>
+            })}
         </ul>
     )
 }
