@@ -16,6 +16,17 @@ class EmployeesAddForm extends Component {
         })
     }
 
+    onSubmitCheck = (e, name, salary) => {
+        e.preventDefault();
+        if (name!=='' && !isNaN(salary)) {
+            this.props.onPost(name, salary)
+            this.setState({
+                name: '',
+                salary: 0
+            })
+        }
+    }
+
     render() {
 
         const {name, salary} = this.state
@@ -24,6 +35,7 @@ class EmployeesAddForm extends Component {
             <div className="app-add-form">
                 <h3>Добавьте нового сотрудника</h3>
                 <form
+                    onSubmit={(e) => this.onSubmitCheck(e, name, salary)}
                     className="add-form d-flex">
                     <input type="text"
                            className="form-control new-post-label"
@@ -39,7 +51,8 @@ class EmployeesAddForm extends Component {
                            placeholder="З/П в $?"/>
 
                     <button type="submit"
-                            className="btn btn-outline-light">Добавить
+                            className="btn btn-outline-light"
+                    >Добавить
                     </button>
                 </form>
             </div>

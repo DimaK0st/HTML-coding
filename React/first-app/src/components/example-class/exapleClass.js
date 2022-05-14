@@ -1,5 +1,5 @@
 import '../app/app.css'
-import {Component} from "react";
+import {Component, Fragment} from "react";
 
 class WhoAmI extends Component {
     constructor(props) {
@@ -27,6 +27,19 @@ class WhoAmI extends Component {
 
     render() {
         const {name, surname, link} = this.props
+
+        // Example Fragment
+        // return (
+        //     <Fragment>
+        //
+        //     </Fragment>
+        // )
+        //OR
+        // return (
+        //     <>
+        //
+        //     </>
+        // )
         return (
             <div>
                 <button onClick={this.nextYear}>+++</button>

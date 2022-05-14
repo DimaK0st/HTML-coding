@@ -4,8 +4,13 @@ import './employees-list.css'
 const EmployeesList = (props) => {
     return (
         <ul>
-            {props.data.map((item)=>{
-                return <EmployeesListItem name={item.name} salary={item.salary} increase={item.increase} key={item.id} onDelete={()=>props.onDelete(item.id)}/>
+            {props.data.map((item) => {
+                return <EmployeesListItem
+                    {...item}
+                    key={item.id}
+                    onDelete={() => props.onDelete(item.id)}
+                    onToggleProp={(e) => props.onToggleProp(item.id, e.currentTarget.getAttribute('data-toggle'))}
+                />
             })}
         </ul>
     )
