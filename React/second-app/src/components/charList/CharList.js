@@ -41,7 +41,7 @@ class CharList extends Component {
         const errorMessage = error ? <ErrorMassage/> : null
         const spinner = loading ? <Spinner/> : null
         if (!(loading || error)){
-            content = charList.map(char=><View char={char}/>)
+            content = charList.map(char=><View char={char} props={this.props}/>)
         }
 
 
@@ -51,8 +51,6 @@ class CharList extends Component {
                     {errorMessage}
                     {spinner}
                     {content}
-
-
                 </ul>
                 <button className="button button__main button__long">
                     <div className="inner">load more</div>
@@ -62,7 +60,7 @@ class CharList extends Component {
     }
 }
 
-const View = ({char}) => {
+const View = ({char, props}) => {
     const {name, thumbnail, wiki, id} = char
     let imgStyle = null
 
@@ -71,7 +69,7 @@ const View = ({char}) => {
     }
 
     return (
-        <li className="char__item" src={wiki} key={id}>
+        <li className="char__item" key={id} onClick={()=>props.onCharSelected(id)}>
             <img src={thumbnail} alt="abyss" style={imgStyle}/>
             <div className="char__name">{name}</div>
         </li>
