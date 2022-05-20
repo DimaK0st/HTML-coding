@@ -45,8 +45,6 @@ class CharInfo extends Component {
             .catch(this.onError)
     }
 
-
-
     render() {
         const {char, loading,error}=this.state
 
@@ -98,7 +96,6 @@ const View = ({char})=>{
                 {comics.length > 0 ? null : 'There is no comics with this character'}
                 {
                     comics.map((item,i)=>{
-                        // eslint-disable-next-line
                         if (i>10) return
 
                         return(
@@ -111,8 +108,6 @@ const View = ({char})=>{
             </ul>
         </>
     )
-
 }
-
 
 export default CharInfo;

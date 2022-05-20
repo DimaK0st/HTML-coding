@@ -12,7 +12,7 @@ class App extends Component {
         selectedChar: null,
     }
 
-    onCharSelected = (id)=>{
+    onCharSelected = (id) => {
         this.setState({
             selectedChar: id
         })
