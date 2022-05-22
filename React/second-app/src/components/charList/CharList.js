@@ -61,7 +61,7 @@ class CharList extends Component {
 }
 
 const View = ({char, props}) => {
-    const {name, thumbnail, wiki, id} = char
+    const {name, thumbnail, id} = char
     let imgStyle = null
 
     if (thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
