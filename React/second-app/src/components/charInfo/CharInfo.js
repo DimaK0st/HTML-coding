@@ -79,8 +79,8 @@ const View = ({char})=>{
                 <div>
                     <div className="char__info-name">{name}</div>
                     <div className="char__btns">
-                        <a href="#" className="button button__main">
-                            <div className="inner">{homepage}</div>
+                        <a href={homepage} className="button button__main">
+                            <div className="inner">Homepage</div>
                         </a>
                         <a href={wiki} className="button button__secondary">
                             <div className="inner">Wiki</div>
@@ -96,6 +96,7 @@ const View = ({char})=>{
                 {comics.length > 0 ? null : 'There is no comics with this character'}
                 {
                     comics.map((item,i)=>{
+                        // eslint-disable-next-line
                         if (i>10) return
 
                         return(

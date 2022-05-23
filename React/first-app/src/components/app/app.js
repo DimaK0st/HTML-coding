@@ -86,7 +86,6 @@ class App extends Component {
     }
 
     filterPost = (items, filter) => {
-        console.log(filter)
         switch (filter) {
             case 'rise':
                 return items.filter(item => item.rise)

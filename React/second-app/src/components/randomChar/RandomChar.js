@@ -6,9 +6,6 @@ import Spinner from "../spinner/Spinner";
 import ErrorMassage from "../errorMassage/ErrorMassage";
 
 class RandomChar extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         this.updateChar()
