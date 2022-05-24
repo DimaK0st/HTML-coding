@@ -95,6 +95,28 @@ const Wrapper = styled.div`
 
 `
 
+const DynamicGreating = (props)=>{
+    return(
+        <div className={'mb-3 p-3 border border-'+ props.color}>
+            {/*{props.children}*/}
+            {
+                React.Children.map(props.children, child=>{
+                    return React.cloneElement(child, {className:'help'})
+                })
+            }
+        </div>
+    )
+}
+
+// function App() {
+//     return (
+//         <DynamicGreating>
+//             <h2>Hello i'm child1</h2>
+//             <h2>Hello i'm child2</h2>
+//         </DynamicGreating>
+//     )
+// }
+
 function App() {
 
     // static logHello =()=>{
