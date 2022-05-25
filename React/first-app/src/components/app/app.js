@@ -116,7 +116,6 @@ class App extends Component {
                 <EmployeesList data={visibleData}
                                onDelete={this.deleteItem}
                                onToggleProp={this.onToggleProp}
-
                 />
                 <EmployeesAddForm onPost={this.addEmployees}/>
             </div>
