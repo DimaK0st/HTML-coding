@@ -3,57 +3,41 @@ import {useEffect, useState} from "react";
 import MarvelService from "../../services/MarvelService";
 import ErrorMassage from "../errorMassage/ErrorMassage";
 import Spinner from "../spinner/Spinner";
+import useMarvelService from "../../services/MarvelService";
 
 const CharList = (props) => {
     const [charList, setCharList] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(false)
     const [newItemLoading, setNewItemLoading] = useState(false)
     const [offset, setOffset] = useState(210)
     const [charEnded, setCharEnded] = useState(false)
 
-    const marvelService = new MarvelService()
+    const {loading,error,getAllCharacters, clearError} = useMarvelService()
 
     useEffect(() => {
-        updateChar()
+        updateChar(offset,true)
     }, [])
 
-    const updateChar = (offset) => {
-        onCharListLoading()
-        marvelService.getAllCharacters(offset)
+    const updateChar = (offset, initial) => {
+        clearError()
+        setNewItemLoading(!initial)
+        getAllCharacters(offset)
             .then(onCharListLoaded)
-            .catch(onError)
-    }
-
-    const onCharListLoading = () => {
-        setNewItemLoading(true)
     }
 
 
     const onCharListLoaded = (newCharList) => {
         let ended = newCharList.length < 9
 
-
         setCharList(charList => [...charList, ...newCharList])
-        setLoading(false)
         setNewItemLoading(false)
         setOffset(offset => offset + 9)
         setCharEnded(charEnded => ended)
 
     }
 
-    const onError = () => {
-        setError(true)
-        setLoading(false)
-    }
-
-    let content
-
+    let content = charList.map(char => <View char={char} key={char.id.toString()} props={props}/>)
     const errorMessage = error ? <ErrorMassage/> : null
-    const spinner = loading ? <Spinner/> : null
-    if (!(loading || error)) {
-        content = charList.map(char => <View char={char} key={char.id.toString()} props={props}/>)
-    }
+    const spinner = loading && !newItemLoading? <Spinner/> : null
 
 
     return (
