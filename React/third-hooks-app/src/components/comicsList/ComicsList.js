@@ -3,6 +3,7 @@ import useMarvelService from "../../services/MarvelService";
 import {useEffect, useState} from "react";
 import ErrorMassage from "../errorMassage/ErrorMassage";
 import Spinner from "../spinner/Spinner";
+import {Link} from "react-router-dom";
 
 const ComicsList = (props) => {
 
@@ -56,14 +57,14 @@ const ComicsList = (props) => {
 }
 
 const View = (props)=>{
-    const {key,title,thumbnail,price}=props.comics
+    const {id,key,title,thumbnail,price}=props.comics
     return(
         <li className="comics__item" key={key}>
-            <a href="#">
+            <Link to={`/comics/${id}`}>
                 <img src={thumbnail} alt={title} className="comics__item-img"/>
                 <div className="comics__item-name">{title}</div>
                 <div className="comics__item-price">{price}</div>
-            </a>
+            </Link>
         </li>
     )
 }
