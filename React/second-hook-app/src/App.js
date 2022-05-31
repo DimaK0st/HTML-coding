@@ -1,4 +1,4 @@
-import {Component, useCallback, useEffect, useMemo, useState} from 'react';
+import {Component, useCallback, useEffect, useMemo, useReducer, useState} from 'react';
 import {Container} from 'react-bootstrap';
 import './App.css';
 import {CSSTransition, Transition} from "react-transition-group";
@@ -47,11 +47,27 @@ import {CSSTransition, Transition} from "react-transition-group";
 //     }
 // }
 
+function reducer(state, action){
+    switch (action.type){
+        case 'toggle':
+            return {autoplay: !state.autoplay}
+        case 'slow':
+            return {autoplay: 300}
+        case 'fast':
+            return {autoplay: 700}
+        case 'custom':
+            return {autoplay: action.payload}
+        default:
+            throw new Error()
+
+    }
+}
 
 const Slider = (props) => {
 
     const [state, setState] = useState(0);
-    const [autoplay, setAutoplay] = useState(false)
+    // const [autoplay, setAutoplay] = useState(false)
+    const [autoplay, dispatch] = useReducer(reducer, false)
 
     const getSomeImages = useCallback(() => {
         console.log('fetch!!')
@@ -73,7 +89,7 @@ const Slider = (props) => {
         setAutoplay(autoplay => !autoplay)
     }
 
-    const total = useMemo(() => {
+    const total = useMemo(()=>{
         return countTotal(state)
     }, [state])
 
@@ -100,7 +116,7 @@ const Slider = (props) => {
                 <div className="text-center mt-5">Active slide {state}
                 </div>
                 <div className="text-center mt-5">{total} <br/>
-                    {autoplay ? 'auto' : null}
+                    {autoplay.autoplay ? 'auto: '+autoplay.autoplay : null}
                 </div>
                 <div className="buttons mt-3">
                     <button
@@ -113,7 +129,19 @@ const Slider = (props) => {
                     </button>
                     <button
                         className="btn btn-primary me-2"
-                        onClick={toggleAutoplay}>toggle autoplay
+                        onClick={()=>dispatch({type: 'toggle'})}>toggle autoplay
+                    </button>
+                    <button
+                        className="btn btn-primary me-2"
+                        onClick={()=>dispatch({type: 'slow'})}>slow autoplay
+                    </button>
+                    <button
+                        className="btn btn-primary me-2"
+                        onClick={()=>dispatch({type: 'fast'})}>fast autoplay
+                    </button>
+                    <button
+                        className="btn btn-primary me-2"
+                        onClick={(e)=>dispatch({type: 'custom', payload: +e.target.textContent})}>1000
                     </button>
                 </div>
             </div>
