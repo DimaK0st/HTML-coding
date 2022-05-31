@@ -1,9 +1,11 @@
 import AppHeader from "../appHeader/AppHeader";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import {MainPage, ComicsPage, SingleComicPage} from "../pages";
-import {lazy,Suspense} from "react";
+import {createContext, lazy, Suspense} from "react";
 
 const Page404 = lazy(() => import('../pages/404'))
+
+const dataContext =createContext()
 
 const App = () => {
     return (
