@@ -1,9 +1,9 @@
-import './singleComicPage.scss';
+import './SingleComicLayout.scss';
 import {Link, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import useMarvelService from "../../services/MarvelService";
-import ErrorMassage from "../errorMassage/ErrorMassage";
-import Spinner from "../spinner/Spinner";
+import useMarvelService from "../../../services/MarvelService";
+import ErrorMassage from "../../errorMassage/ErrorMassage";
+import Spinner from "../../spinner/Spinner";
 
 const SingleComicPage = () => {
     const {comicId} = useParams();

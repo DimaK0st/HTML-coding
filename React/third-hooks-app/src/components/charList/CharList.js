@@ -24,7 +24,6 @@ const CharList = (props) => {
             .then(onCharListLoaded)
     }
 
-
     const onCharListLoaded = (newCharList) => {
         let ended = newCharList.length < 9
 
@@ -32,7 +31,6 @@ const CharList = (props) => {
         setNewItemLoading(false)
         setOffset(offset => offset + 9)
         setCharEnded(charEnded => ended)
-
     }
 
     let content = charList.map(char => <View char={char} key={char.id.toString()} props={props}/>)
@@ -57,7 +55,7 @@ const CharList = (props) => {
 }
 
 const View = ({char, props}) => {
-    const {name, thumbnail, id} = char
+    const {title, thumbnail, id} = char
     let imgStyle = null
 
     if (thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
@@ -67,7 +65,7 @@ const View = ({char, props}) => {
     return (
         <li className="char__item" key={id.toString()} onClick={() => props.onCharSelected(id)}>
             <img src={thumbnail} alt="abyss" style={imgStyle}/>
-            <div className="char__name">{name}</div>
+            <div className="char__name">{title}</div>
         </li>
     )
 }
