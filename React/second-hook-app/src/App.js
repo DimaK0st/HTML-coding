@@ -6,6 +6,7 @@ import Modal from "./components/Modal";
 import * as PropTypes from "prop-types";
 import FormWithHookFormik from "./components/FormWithHookFormik";
 import SliderClass from "./components/SliderClass";
+import FormComponentFormik from "./components/FormComponentFormik";
 
 
 
@@ -27,6 +28,7 @@ function App() {
 
     return (
         <>
+            <FormComponentFormik/>
             <FormWithHookFormik/>
             <Slider/>
             <SliderClass/>
