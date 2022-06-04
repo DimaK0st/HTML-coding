@@ -13,7 +13,7 @@ import {filtersFetched,filtersFetching,filtersFetchingError,filtersHeroes} from 
 import Spinner from "../spinner/Spinner";
 
 const HeroesFilters = () => {
-    const {filters, filtersLoadingStatus} = useSelector(state => state);
+    const {filters, filtersLoadingStatus} = useSelector(state => state.filters);
     const dispatch = useDispatch();
     const {request} = useHttp();
 

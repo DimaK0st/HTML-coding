@@ -3,14 +3,15 @@ import {addNewHero, filtersFetched, filtersFetching, filtersFetchingError} from 
 import {useDispatch, useSelector} from "react-redux";
 import {useHttp} from "../../hooks/http.hook";
 import data from "bootstrap/js/src/dom/data";
-import { v4 as uuidv4 } from 'uuid';
+import {v4 as uuidv4} from 'uuid';
+import Spinner from "../spinner/Spinner";
 
 const HeroesAddForm = () => {
-    const [name,setName]=useState()
-    const [description,setDescription]=useState()
-    const [element,setElement]=useState()
+    const [name, setName] = useState()
+    const [description, setDescription] = useState()
+    const [element, setElement] = useState()
 
-    const {filters, filtersLoadingStatus} = useSelector(state => state);
+    const {filters, filtersLoadingStatus} = useSelector(state => state.filters);
     const dispatch = useDispatch();
     const {request} = useHttp();
 
@@ -23,44 +24,48 @@ const HeroesAddForm = () => {
         // eslint-disable-next-line
     }, []);
 
-    const contentOption = filters.map((item)=>(
-        <option value={item}>{item}</option>
-    ))
-
-
-    const onSubmitHandler=(e)=>{
+    const onSubmitHandler = (e) => {
         e.preventDefault()
 
         const newHero = {
             id: uuidv4(),
             name: name,
             description: description,
-            element:element,
+            element: element,
         }
 
-            request("http://localhost:3001/heroes", 'POST', JSON.stringify(newHero))
-                .then(res =>console.log(res))
-                .then(() => dispatch(addNewHero(newHero)))
-                .catch(() => dispatch(filtersFetchingError()))
+        request("http://localhost:3001/heroes", 'POST', JSON.stringify(newHero))
+            .then(res => console.log(res))
+            .then(() => dispatch(addNewHero(newHero)))
+            .catch(() => dispatch(filtersFetchingError()))
 
         setName('')
         setDescription('')
         setElement('')
     }
 
+    if (filtersLoadingStatus === "loading") {
+        return <Spinner/>;
+    } else if (filtersLoadingStatus === "error") {
+        return <h5 className="text-center mt-5">Ошибка загрузки</h5>
+    }
+
+    const contentOption = filters.map((item) => (
+        item === 'all' ? null : <option value={item}>{item}</option>
+    ))
     return (
         <form className="border p-4 shadow-lg rounded" onSubmit={onSubmitHandler}>
             <div className="mb-3">
                 <label htmlFor="name" className="form-label fs-4">Имя нового героя</label>
-                <input 
+                <input
                     required
-                    type="text" 
-                    name="name" 
-                    className="form-control" 
-                    id="name" 
+                    type="text"
+                    name="name"
+                    className="form-control"
+                    id="name"
                     placeholder="Как меня зовут?"
                     value={name}
-                    onChange={(e)=>setName(e.target.value)}
+                    onChange={(e) => setName(e.target.value)}
                 />
             </div>
 
@@ -68,25 +73,25 @@ const HeroesAddForm = () => {
                 <label htmlFor="text" className="form-label fs-4">Описание</label>
                 <textarea
                     required
-                    name="text" 
-                    className="form-control" 
-                    id="text" 
+                    name="text"
+                    className="form-control"
+                    id="text"
                     placeholder="Что я умею?"
                     style={{"height": '130px'}}
-                value={description}
-                onChange={(e)=>setDescription(e.target.value)}/>
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}/>
             </div>
 
             <div className="mb-3">
                 <label htmlFor="element" className="form-label">Выбрать элемент героя</label>
-                <select 
+                <select
                     required
-                    className="form-select" 
-                    id="element" 
+                    className="form-select"
+                    id="element"
                     name="element"
                     value={element}
-                    onChange={(e)=>setElement(e.target.value)}>
-                    <option >Я владею элементом...</option>
+                    onChange={(e) => setElement(e.target.value)}>
+                    <option>Я владею элементом...</option>
                     {contentOption}
                 </select>
             </div>

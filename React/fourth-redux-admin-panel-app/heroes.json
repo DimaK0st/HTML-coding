@@ -35,6 +35,12 @@
       "name": "asdfasdf",
       "description": "asdfasdf",
       "element": "water"
+    },
+    {
+      "id": "e75f9276-d8dd-41fe-8343-33718e2f72ba",
+      "name": "asdfasdf",
+      "description": "asdfasdf",
+      "element": "fire"
     }
   ],
   "filters": [
