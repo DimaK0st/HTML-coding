@@ -1,8 +1,14 @@
-export const heroesFetching = () => {
-    return {
-        type: 'HEROES_FETCHING',
-    }
-}
+import {createAction} from "@reduxjs/toolkit/src/createAction";
+
+// export const heroesFetching = () => {
+//     return {
+//         type: 'HEROES_FETCHING',
+//     }
+// }
+//       |
+//      \ /
+
+export const heroesFetching = createAction('HEROES_FETCHING')
 
 export const heroesFetched = (heroes) => {
     return {
@@ -17,12 +23,16 @@ export const heroesFetchingError = () => {
     }
 }
 
-export const heroDelete = (id) => {
-    return {
-        type: 'HERO_DELETE',
-        payload: id,
-    }
-}
+// export const heroDelete = (id) => {
+//     return {
+//         type: 'HERO_DELETE',
+//         payload: id,
+//     }
+// }
+//           |
+//          \ /
+
+export const heroDelete = createAction('HERO_DELETE')
 
 export const addNewHero = (data) => {
     return {
