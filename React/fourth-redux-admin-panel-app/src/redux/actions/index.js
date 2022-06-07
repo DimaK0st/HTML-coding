@@ -1,4 +1,4 @@
-import {createAction} from "@reduxjs/toolkit/src/createAction";
+import {createAction} from "@reduxjs/toolkit";
 
 // export const heroesFetching = () => {
 //     return {
@@ -10,19 +10,9 @@ import {createAction} from "@reduxjs/toolkit/src/createAction";
 
 export const heroesFetching = createAction('HEROES_FETCHING')
 
-export const heroesFetched = (heroes) => {
-    return {
-        type: 'HEROES_FETCHED',
-        payload: heroes,
-    }
-}
+export const heroesFetched = createAction('HEROES_FETCHED')
 
-export const heroesFetchingError = () => {
-    return {
-        type: 'HEROES_FETCHING_ERROR',
-    }
-}
-
+export const heroesFetchingError = createAction('HEROES_FETCHING_ERROR')
 // export const heroDelete = (id) => {
 //     return {
 //         type: 'HERO_DELETE',
@@ -34,41 +24,14 @@ export const heroesFetchingError = () => {
 
 export const heroDelete = createAction('HERO_DELETE')
 
-export const addNewHero = (data) => {
-    return {
-        type: 'HERO_ADD',
-        payload: data,
-    }
-}
+export const addNewHero = createAction('HERO_ADD')
 
-export const heroDeleteError = () => {
-    return {
-        type: 'HERO_DELETE_ERROR',
-    }
-}
+export const heroDeleteError = createAction('HERO_DELETE_ERROR')
 
-export const filtersFetching = () => {
-    return {
-        type: 'FILTER_FETCHING',
-    }
-}
+export const filtersFetching = createAction('FILTER_FETCHING')
 
-export const filtersFetched = (heroes) => {
-    return {
-        type: 'FILTER_FETCHED',
-        payload: heroes,
-    }
-}
+export const filtersFetched = createAction('FILTER_FETCHED')
 
-export const filtersFetchingError = () => {
-    return {
-        type: 'FILTER_FETCHING_ERROR',
-    }
-}
+export const filtersFetchingError = createAction('FILTER_FETCHING_ERROR')
 
-export const filtersHeroes = (filter) => {
-    return {
-        type: 'FILTER_HEROES',
-        payload: filter,
-    }
-}
+export const filtersHeroes = createAction('FILTER_HEROES')
