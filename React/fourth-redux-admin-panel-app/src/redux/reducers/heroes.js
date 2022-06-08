@@ -9,7 +9,6 @@ import {
     addNewHero
 } from "../actions";
 
-
 const initialState = {
     heroes: [],
     heroesLoadingStatus: 'idle',
