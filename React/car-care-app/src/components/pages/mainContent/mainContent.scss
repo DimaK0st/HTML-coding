@@ -1,0 +1,13 @@
+.left-side, .right-side{
+  flex-basis: 20%;
+}
+
+.main-content{
+  flex-basis: 50%;
+  margin: 0 4% 0 4%;
+}
+
+.main-content, .left-side, .right-side{
+  height: 100%;
+  border: #02fd06 1px solid;
+}
