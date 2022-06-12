@@ -9,9 +9,6 @@ import RequireAuth from "../../hoc/RequireAuth";
 function App() {
     const auth= true
 
-    console.log(auth)
-
-
   return (
       <Router>
         <div className="app">
