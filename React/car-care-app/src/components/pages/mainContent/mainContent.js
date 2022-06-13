@@ -2,7 +2,6 @@ import LeftSide from "../../sidePanel/leftSide/LeftSide";
 import RightSide from "../../sidePanel/rightSide/RightSide";
 import './mainContent.scss';
 
-
 const MainContent = (props) => {
     console.log('mainContent', props)
     return (

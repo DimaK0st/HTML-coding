@@ -2,7 +2,7 @@ import './auth.scss'
 import {useEffect, useState} from "react";
 
 const Login = (props) => {
-    console.log('props',props)
+    console.log('props', props)
     const initState = {
         label: '',
         input: '',
@@ -41,14 +41,11 @@ const Login = (props) => {
                     input: null,
                     button: null,
                 })
-
         }
-
-
     }, [props])
 
 
-    const content = (typeForm.label !== null)?
+    const content = (typeForm.label !== null) ?
         <div className={'auth-block'}>
             <label htmlFor="signin">{typeForm.label}</label>
             <div className="wrapper">
@@ -61,7 +58,7 @@ const Login = (props) => {
 
     return (
         <>
-        {content}
+            {content}
         </>
     )
 }
