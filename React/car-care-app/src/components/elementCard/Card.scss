@@ -1,7 +1,31 @@
 .car-item{
 
+  width: 200px;
+  height: 300px;
+  margin: 10px 10px 0 0;
+  border-radius: 10px;
+  border: #282c34 2px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+  .title{
+    margin: 10px 0 15px 0;
+  }
 
+  .kilometers{
+    margin-top: 5px;
+  }
 
+  span{
+    font-family: Andale Mono, monospace;
+  }
 
+  .value{
+    font-weight: 600;
+  }
+
+  .image{
+    width: 150px;
+  }
 }

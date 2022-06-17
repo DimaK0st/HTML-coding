@@ -5,6 +5,7 @@ import './App.css';
 import {React, Suspense} from "react";
 import {BrowserRouter as Router, Route, Routes,} from "react-router-dom";
 import RequireAuth from "../../hoc/RequireAuth";
+import Home from "../pages/home/Home";
 
 function App() {
     const auth = true
@@ -12,15 +13,15 @@ function App() {
     return (
         <Router>
             <div className="app">
-                <AppHeader/>
+                {/*<AppHeader/>*/}
                 <main>
                     <Suspense fallback={<span>Loading</span>}>
                         <Routes>
                             <Route path='/login' element={<MainContent typeForm='login'>mainPage</MainContent>}/>
                             <Route path='/register' element={<MainContent typeForm='register'>mainPage</MainContent>}/>
                             <Route path='/forgot' element={<MainContent typeForm='forgot'>mainPage</MainContent>}/>
-                            <Route path='/home' element={<RequireAuth>
-                                <MainContent>mainPage</MainContent>
+                            <Route path='/home' element={<RequireAuth auth={auth}>
+                                <MainContent><Home/></MainContent>
                             </RequireAuth>}/>
                             <Route path='*' element={<MainContent>mainPage</MainContent>}/>
                         </Routes>
