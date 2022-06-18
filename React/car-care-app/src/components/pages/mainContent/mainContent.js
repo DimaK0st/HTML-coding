@@ -6,9 +6,9 @@ const MainContent = (props) => {
     console.log('mainContent', props)
     return (
         <>
-            {/*<div className={'left-side'}>*/}
-            {/*    <LeftSide/>*/}
-            {/*</div>*/}
+            <div className={'left-side'}>
+                <LeftSide/>
+            </div>
             <div className={'main-content'}>
                 {props.children}
             </div>

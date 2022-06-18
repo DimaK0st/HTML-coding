@@ -1,6 +1,9 @@
 
 import './Card.scss'
 import logo from '../../assets/logo512.png'
+import edit from '../../assets/card-icons/edit.png'
+import del from '../../assets/card-icons/delete.png'
+
 
 const Card = () => {
 
@@ -19,6 +22,8 @@ const Card = () => {
             <span className={'kilometers'}>
                 Final km: <span className={'value'}>25000</span>
             </span>
+            <img className={'edit-icon'} src={edit}/>
+            <img className={'delete-icon'} src={del}/>
         </div>
     )
 }

@@ -1,0 +1,29 @@
+.new-card-and-millage {
+  width: 100%;
+
+  .new-card {
+    width: 50%;
+
+    .add-new-card {
+      margin: auto;
+      width: 200px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+
+      .image {
+        width: 150px;
+        margin: auto;
+      }
+
+    }
+  }
+
+  .add-millage {
+    width: 50%;
+
+
+  }
+
+
+}

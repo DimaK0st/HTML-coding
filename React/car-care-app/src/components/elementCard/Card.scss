@@ -1,7 +1,7 @@
 .car-item{
-
   width: 200px;
   height: 300px;
+  position: relative;
   margin: 10px 10px 0 0;
   border-radius: 10px;
   border: #282c34 2px solid;
@@ -28,4 +28,23 @@
   .image{
     width: 150px;
   }
+
+  .edit-icon, .delete-icon{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+
+  }
+
+  .edit-icon{
+    top: 10px;
+    right: 10px;
+  }
+
+  .delete-icon{
+    bottom: 5px;
+  }
+
+
 }
