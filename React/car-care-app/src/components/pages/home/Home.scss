@@ -1,7 +1,22 @@
+body{
+  background-image: url("/assets/home_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+.home-wrapper{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
 .car-list{
 
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
+  height: auto;
+  overflow-y: scroll;
+
+}
 
 }

@@ -3,6 +3,7 @@ import logo from "../../assets/logo512.png";
 import './AddNewCard.scss'
 import SelectSearch from 'react-select-search';
 import Fuse from "fuse.js";
+import {TextField} from "@mui/material";
 
 const AddNewCardAndMillage = () => {
     const [addNewCard, setAddNewCard] = useState(true)
@@ -27,14 +28,16 @@ const AddNewCardAndMillage = () => {
                     emptyMessage="Not found"
                     placeholder="Choose detail"
                 />
-            <span className={'kilometers'}>
-                Start km: <input placeholder='Start' type='number'/>
-            </span>
-            <span className={'kilometers'}>
-                Final km: <input placeholder='Final' type='number'/>
-            </span>
+
+            <TextField className={'kilometers'}
+                       size="small" label="Start km" type="number"
+                       variant="outlined" />
+            <TextField className={'kilometers'}
+                       size="small" label="Final km" type="number"
+                       variant="outlined" />
+
             <div className={'button-wrapper'}>
-                <button className={'cansel'} onClick={()=>showAddNewCard(false)}>Cansel</button>
+                <button className={'cancel'} onClick={()=>showAddNewCard(false)}>Cancel</button>
                 <button className={'submit'}>Submit</button>
             </div>
         </div>: null
@@ -42,7 +45,7 @@ const AddNewCardAndMillage = () => {
     return(
         <div className={'new-card-and-millage'}>
             <div className={'new-card'}>
-            {addNewCard ? null: <button onClick={()=>showAddNewCard(true)}>Add new spare part</button> }
+            {addNewCard ? null: <button className={'add-new-card-btn'} onClick={()=>showAddNewCard(true)}>Add new spare part</button> }
             {contentAddCard}
             </div>
             <div className={'add-millage'}>

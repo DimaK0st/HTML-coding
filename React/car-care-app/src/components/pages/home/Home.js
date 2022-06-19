@@ -7,7 +7,7 @@ import AddNewCard from "../../elementCard/AddNewCard";
 const Home = () => {
 
     return (
-        <div>
+        <div className={'home-wrapper'}>
             <Speedometer value={999999}/>
             <AddNewCard/>
             <div className={'car-list'}>

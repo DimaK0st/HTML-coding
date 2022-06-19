@@ -31,6 +31,23 @@ main{
   height: 100%;
 }
 
+::-webkit-scrollbar {
+  width: 3px; /* ширина для вертикального скролла */
+  height: 8px; /* высота для горизонтального скролла */
+  background-color: rgba(15, 195, 217, 0);
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(210, 179, 68, 0.71);
+  border-radius: 9em;
+  box-shadow: inset 1px 1px 10px #f3faf7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #253861;
+}
+
 /**
  * Main wrapper
  */
