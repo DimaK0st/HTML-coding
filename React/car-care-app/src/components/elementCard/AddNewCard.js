@@ -8,7 +8,7 @@ import {TextField} from "@mui/material";
 const AddNewCardAndMillage = () => {
     const [addNewCard, setAddNewCard] = useState(false)
 
-    const showAddNewCard = (type) => {
+    const showAddNewCard = (type)=>{
         setAddNewCard(type)
     }
 
@@ -16,18 +16,18 @@ const AddNewCardAndMillage = () => {
         {name: 'Brace', value: 'sv'},
         {name: 'English', value: 'en'},]
 
-    const contentAddCard = addNewCard ?
+    const contentAddCard = addNewCard?
         <div className={'add-new-card'}>
-            <img className={'image'} src={logo}/>
+            <img className={'image'} src={logo} />
             <SelectSearch
-                options={options}
-                search
-                value="detail"
-                name="detail"
-                filterOptions={fuzzySearch}
-                emptyMessage="Not found"
-                placeholder="Choose detail"
-            />
+                    options={options}
+                    search
+                    value="detail"
+                    name="detail"
+                    filterOptions={fuzzySearch}
+                    emptyMessage="Not found"
+                    placeholder="Choose detail"
+                />
 
             <TextField className={'kilometers'}
                        size="small" label="Start km" type="number"
@@ -40,18 +40,16 @@ const AddNewCardAndMillage = () => {
                        variant="outlined" rows={3}/>
 
             <div className={'button-wrapper'}>
-                <button className={'cancel'} onClick={() => showAddNewCard(false)}>Cancel</button>
+                <button className={'cancel'} onClick={()=>showAddNewCard(false)}>Cancel</button>
                 <button className={'submit'}>Submit</button>
             </div>
-        </div> : null
+        </div>: null
 
-    return (
+    return(
         <div className={'new-card-and-millage'}>
             <div className={'new-card'}>
-                {addNewCard ? null :
-                    <button className={'add-new-card-btn'} onClick={() => showAddNewCard(true)}>Add new spare
-                        part</button>}
-                {contentAddCard}
+            {addNewCard ? null: <button className={'add-new-card-btn'} onClick={()=>showAddNewCard(true)}>Add new spare part</button> }
+            {contentAddCard}
             </div>
             <div className={'add-millage'}>
 
@@ -67,12 +65,11 @@ function fuzzySearch(options) {
     });
 
     return (value) => {
-
         if (!value.length) {
             return options;
         }
 
-        return fuse.search(value).map(({item}) => item);
+        return fuse.search(value).map(({ item }) => item);
     };
 }
 

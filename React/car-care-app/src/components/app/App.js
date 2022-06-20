@@ -23,7 +23,7 @@ function App() {
                             <Route path='/home' element={<RequireAuth auth={auth}>
                                 <MainContent><Home/></MainContent>
                             </RequireAuth>}/>
-                            <Route path='*' element={<Page404/>}/>
+                            <Route path='*' element={<MainContent>mainPage</MainContent>}/>
                         </Routes>
                     </Suspense>
                 </main>

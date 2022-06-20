@@ -1,4 +1,4 @@
-.car-item {
+.car-item{
   width: 190px;
   min-height: 330px;
   position: relative;
@@ -11,27 +11,27 @@
   background: rgba(255, 255, 255, 0.49);
   padding: 0 5px 20px;
 
-  .title {
+  .title{
     margin: 10px 0 15px 0;
   }
 
-  .kilometers {
+  .kilometers{
     margin-top: 5px;
   }
 
-  span {
+  span{
     font-family: Andale Mono, monospace;
   }
 
-  .value {
+  .value{
     font-weight: 600;
   }
 
-  .image {
+  .image{
     width: 150px;
   }
 
-  .edit-icon, .delete-icon {
+  .edit-icon, .delete-icon{
     position: absolute;
     width: 20px;
     height: 20px;
@@ -39,16 +39,16 @@
 
   }
 
-  .edit-icon {
+  .edit-icon{
     top: 10px;
     right: 10px;
   }
 
-  .delete-icon {
+  .delete-icon{
     bottom: 5px;
   }
 
-  .shower {
+  .shower{
     cursor: pointer;
     color: orange;
   }
