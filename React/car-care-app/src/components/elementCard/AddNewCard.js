@@ -6,7 +6,7 @@ import Fuse from "fuse.js";
 import {TextField} from "@mui/material";
 
 const AddNewCardAndMillage = () => {
-    const [addNewCard, setAddNewCard] = useState(true)
+    const [addNewCard, setAddNewCard] = useState(false)
 
     const showAddNewCard = (type)=>{
         setAddNewCard(type)
@@ -31,10 +31,13 @@ const AddNewCardAndMillage = () => {
 
             <TextField className={'kilometers'}
                        size="small" label="Start km" type="number"
-                       variant="outlined" />
+                       variant="outlined" required/>
             <TextField className={'kilometers'}
                        size="small" label="Final km" type="number"
-                       variant="outlined" />
+                       variant="outlined" required/>
+            <TextField className={'kilometers'}
+                       size="small" label="Description" type="number" multiline
+                       variant="outlined" rows={3}/>
 
             <div className={'button-wrapper'}>
                 <button className={'cancel'} onClick={()=>showAddNewCard(false)}>Cancel</button>

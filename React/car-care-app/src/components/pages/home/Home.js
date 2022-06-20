@@ -11,12 +11,13 @@ const Home = () => {
             <Speedometer value={999999}/>
             <AddNewCard/>
             <div className={'car-list'}>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
+                <Card title='Engine' start='2500' left='3500' final='32000' description='asdf asdf a sdf  sdf sd ff d f s dfa  sd fa sd fa s df a sd fasdf asdf a sdf  sdf sd ff d f s dfa  sd fa sd fa s df a sd fasdf asdf a sdf  sdf sd ff d f s dfa  sd fa sd fa s df a sd fasdf asdf a sdf  sdf sd ff d f s dfa  sd fa sd fa s df a sd fasdf asdf a sdf  sdf sd ff d f s dfa  sd fa sd fa s df a sd f '/>
+                <Card title='Engine' start='2500' left='3500' final='32000' description='asdf asdf a sdf  sdf sd ff d f s dfa  sd fa sd fa s df a sd f '/>
+                <Card title='Engine' start='2500' left='3500' final='32000' description='asdf asdf a sdf  sdf sd ff d f s dfa  sd fa sd fa s df a sd f '/>
+                <Card title='Engine' start='2500' left='3500' final='32000' description='asdf asdf a sdf  sdf sd ff d f s dfa  sd fa sd fa s df a sd f '/>
+                <Card title='Engine' start='2500' left='3500' final='32000' description='asdf asdf a sdf  sdf sd ff d f s dfa  sd fa sd fa s df a sd f '/>
+                <Card title='Engine' start='2500' left='3500' final='32000' description='asdf asdf a sdf  sdf sd ff d f s dfa  sd fa sd fa s df a sd f '/>
+                <Card title='Engine' start='2500' left='3500' final='32000' description='asdf asdf a sdf  sdf sd ff d f s dfa  sd fa sd fa s df a sd f '/>
             </div>
         </div>
     )
