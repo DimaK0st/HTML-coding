@@ -27,8 +27,6 @@
         margin: 10px auto 0 auto;
         background: rgba(255, 255, 255, 0.83);
 
-
-
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
           /* display: none; <- Crashes Chrome on hover */
@@ -69,10 +67,7 @@
         .submit {
           background-color: #05cd51;
         }
-
       }
-
-
     }
 
     .add-new-card-btn {
@@ -103,8 +98,5 @@
 
   .add-millage {
     width: 50%;
-
-
   }
-
 }
