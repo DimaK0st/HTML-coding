@@ -8,7 +8,7 @@ import {useState} from "react";
 const Card = (props) => {
     const [fullDescription, setFullDescription] = useState(false)
 
-    const {title, image, start, left, final, description} = props
+    const {id, title, image, start, left, final, description} = props
 
     const showFullDescription = () => {
         setFullDescription((fullDescription) => !fullDescription)
@@ -17,6 +17,7 @@ const Card = (props) => {
     let miniDescription = description?.length > 20 ? description.slice(0, 20) : description
     return (
         <div className={'car-item'}>
+            <input type="hidden" value={id}/>
             <span className={'title'}>
                 Name: <span className={'value'}>{title}</span>
             </span>
