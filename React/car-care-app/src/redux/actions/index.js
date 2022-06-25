@@ -9,3 +9,7 @@ import {createAction} from "@reduxjs/toolkit";
 //      \ /
 
 export const heroesFetching = createAction('HEROES_FETCHING')
+
+export const sparesAddCard = createAction('SPARES_ADD_CARD')
+
+

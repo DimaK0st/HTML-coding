@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useCallback, useState} from "react";
 import logo from "../../assets/logo512.png";
 import './AddNewCard.scss'
 import SelectSearch from 'react-select-search';
@@ -9,10 +9,10 @@ import SparesHelper from "../../services/SparesHelper";
 const AddNewCardAndMillage = (props) => {
     const [form, setForm] = useState()
 
-    const onValueChange = (name,value) => {
+    const onValueChange = (name, value) => {
         console.log(value)
-        setForm((form)=>{
-            return{
+        setForm((form) => {
+            return {
                 ...form,
                 [name]: value
             }
@@ -44,22 +44,22 @@ const AddNewCardAndMillage = (props) => {
                 filterOptions={fuzzySearch}
                 emptyMessage="Not found"
                 placeholder="Choose detail"
-                onChange={(e)=>onValueChange('option', e)}
+                onChange={(e) => onValueChange('option', e)}
             />
 
             <TextField className={'kilometers'}
                        size="small" label="Start km" type="number"
-                       variant="outlined" required onChange={(e)=>onValueChange('Start', e.target.value)}/>
+                       variant="outlined" required onChange={(e) => onValueChange('Start', e.target.value)}/>
             <TextField className={'kilometers'}
                        size="small" label="Final km" type="number"
-                       variant="outlined" required onChange={(e)=>onValueChange('Final', e.target.value)}/>
+                       variant="outlined" required onChange={(e) => onValueChange('Final', e.target.value)}/>
             <TextField className={'kilometers'}
                        size="small" label="Description" type="number" multiline
-                       variant="outlined" rows={3} onChange={(e)=>onValueChange('Description', e.target.value)}/>
+                       variant="outlined" rows={3} onChange={(e) => onValueChange('Description', e.target.value)}/>
 
             <div className={'button-wrapper'}>
                 <button className={'cancel'} onClick={() => showAddNewCard(false)}>Cancel</button>
-                <button className={'submit'} onClick={addCard}>Submit</button>
+                <button className={'submit'} onClick={() => addCard()}>Submit</button>
             </div>
         </div> : null
 

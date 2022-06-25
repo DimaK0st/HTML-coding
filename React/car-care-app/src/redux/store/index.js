@@ -1,6 +1,7 @@
 import {createStore, combineReducers, compose, applyMiddleware} from 'redux';
 import heroes from "../reducers/heroes";
 import {configureStore} from "@reduxjs/toolkit";
+import spares from "../reducers/spares";
 
 const stringMiddleware = (store) => (dispatch) => (action) => {
     if (typeof action === 'string') {
@@ -11,7 +12,7 @@ const stringMiddleware = (store) => (dispatch) => (action) => {
 
 
 const store = configureStore({
-    reducer: {heroes,},
+    reducer: {heroes, spares},
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(stringMiddleware),
     devTools: process.env.NODE_ENV !== 'production',
 })
