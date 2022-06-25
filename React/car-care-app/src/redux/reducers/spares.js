@@ -5,8 +5,16 @@ import {
 } from "../actions";
 
 const initialState = {
-    cardList: [],
-    count: 'temp',
+    cardList: [
+        {
+            Description: "1234",
+            Final: "1234",
+            Start: "1234",
+            id: 0,
+            option: "sv",
+        }
+    ],
+    count: 0,
 }
 
 const spares = createReducer(initialState, {
@@ -15,8 +23,9 @@ const spares = createReducer(initialState, {
         //     state.heroesLoadingStatus = 'idle';
         //     state.heroes = action.payload
         // },
-        [sparesAddCard]: (state,action) => {
-            state.cardList = [...state.cardList, {...action.payload}]
+        [sparesAddCard]: (state, action) => {
+                state.cardList = [...state.cardList, {...action.payload, id: state.count}]
+                state.count = state.count + 1
         },
         // [heroesFetchingError]: state => {
         //     state.heroesLoadingStatus = 'error'
