@@ -1,16 +1,22 @@
 import {useCallback, useState} from "react";
 import logo from "../../assets/logo512.png";
 import './AddNewCard.scss'
-import SelectSearch from 'react-select-search';
 import Fuse from "fuse.js";
 import {TextField} from "@mui/material";
-import SparesHelper from "../../services/SparesHelper";
+import Select from 'react-select';
+import zIndex from "@mui/material/styles/zIndex";
+import SelectSearch from "react-select-search";
 
 const AddNewCardAndMillage = (props) => {
-    const [form, setForm] = useState()
+    const [form, setForm] = useState({
+        option:'',
+        Description: '',
+        Final: '',
+        Start: '',
+    })
+    const [addNewCard, setAddNewCard] = useState(false)
 
     const onValueChange = (name, value) => {
-        console.log(value)
         setForm((form) => {
             return {
                 ...form,
@@ -23,7 +29,6 @@ const AddNewCardAndMillage = (props) => {
         props.addCard(form)
     }
 
-    const [addNewCard, setAddNewCard] = useState(false)
 
     const showAddNewCard = (type) => {
         setAddNewCard(type)
@@ -35,18 +40,17 @@ const AddNewCardAndMillage = (props) => {
 
     const contentAddCard = addNewCard ?
         <div className={'add-new-card'}>
-            <img className={'image'} src={logo}/>
+            <img className={'image'} src={logo} alt={''}/>
+
             <SelectSearch
                 options={options}
                 search
-                value="detail"
-                name="detail"
+                value={form['option']}
+                name="option"
                 filterOptions={fuzzySearch}
-                emptyMessage="Not found"
                 placeholder="Choose detail"
                 onChange={(e) => onValueChange('option', e)}
             />
-
             <TextField className={'kilometers'}
                        size="small" label="Start km" type="number"
                        variant="outlined" required onChange={(e) => onValueChange('Start', e.target.value)}/>
