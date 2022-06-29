@@ -3,7 +3,7 @@ import RightSide from "../../sidePanel/rightSide/RightSide";
 import './mainContent.scss';
 
 const MainContent = (props) => {
-    console.log('mainContent', props)
+
     return (
         <>
             <div className={'left-side'}>

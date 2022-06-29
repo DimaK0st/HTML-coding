@@ -8,14 +8,18 @@ import EditCard from "./EditCard";
 
 const Card = (props) => {
     const [fullDescription, setFullDescription] = useState(false)
-    const [editCard, setEditCard] = useState(false)
+    const [editedCard, setEditedCard] = useState(false)
 
     const showEditCard = () => {
-        console.log(editCard)
-        setEditCard((editCard) => !editCard)
+        setEditedCard((editCard) => !editCard)
     }
 
-    const {id, title, image, start, left, final, description} = props
+    const editCard = (editForm) => {
+        setEditedCard(false)
+        props.editCard(editForm)
+    }
+
+    const {id, title, image, start, left, final, description} = props.data
 
     const showFullDescription = () => {
         setFullDescription((fullDescription) => !fullDescription)
@@ -23,7 +27,8 @@ const Card = (props) => {
 
     let miniDescription = description?.length > 20 ? description.slice(0, 20) : description
 
-    const contentEdit = editCard ? <EditCard showEditCard={showEditCard} props={props}/> : null
+    const contentEdit = editedCard ?
+        <EditCard editCard={editCard} showEditCard={showEditCard} props={props}/> : null
 
     return (
         <div className={'car-item'}>

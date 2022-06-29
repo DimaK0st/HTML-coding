@@ -15,14 +15,15 @@ const Home = () => {
     const addCard = useCallback((value) => {
       sparesHelper.addCard(value)
     })
+    const editCard = useCallback((value) => {
+      sparesHelper.editCard(value)
+    })
 
     const spares = useSelector(state => state.spares)
-    console.log('spares', spares)
-    console.log('spares.cardList', spares.cardList)
-    console.log('spares.cardList', spares.cardList.length)
 
     const content = spares.cardList.map(item=>{
-        return <Card id={item.id} title={item.option} start={item.Start} left={item.Start} final={item.Final} description={item.Description}/>}
+        return <Card data={item}
+                     editCard={editCard}/>}
     )
 
     return (
@@ -31,7 +32,6 @@ const Home = () => {
             <AddNewCard addCard={addCard}/>
             <div className={'car-list'}>
                 {content}
-                <Card id='asdas' title='Engine' start='2500' left='3500' final='32000' description='asdf asdf a sdf  sdf sd ff d f s dfa  sd fa sd fa s df a sd f '/>
             </div>
         </div>
     )

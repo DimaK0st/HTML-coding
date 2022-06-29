@@ -1,5 +1,4 @@
 import {createStore, combineReducers, compose, applyMiddleware} from 'redux';
-import heroes from "../reducers/heroes";
 import {configureStore} from "@reduxjs/toolkit";
 import spares from "../reducers/spares";
 import storage from 'redux-persist/lib/storage'
@@ -17,7 +16,7 @@ const persistConfig = {
     storage,
 }
 
-const reducers = combineReducers({heroes, spares})
+const reducers = combineReducers({spares})
 
 
 const persistedReducer = persistReducer(persistConfig, reducers)

@@ -2,7 +2,6 @@ import './auth.scss'
 import {useEffect, useState} from "react";
 
 const Login = (props) => {
-    console.log('props', props)
     const initState = {
         label: '',
         input: '',

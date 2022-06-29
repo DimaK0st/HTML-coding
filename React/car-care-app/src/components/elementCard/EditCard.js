@@ -6,13 +6,8 @@ import Fuse from "fuse.js";
 import {TextField} from "@mui/material";
 
 const EditCard = (props) => {
-    const [editForm, setEditForm] = useState(props.props)
-    console.log('props',props)
-    console.log('editForm',editForm)
+    const [editForm, setEditForm] = useState(props.props.data)
     const onValueChange = (name, value) => {
-        console.log('---------------------------------')
-        console.log('name',name)
-        console.log('value',value)
         setEditForm((editForm) => {
             return {
                 ...editForm,
@@ -21,8 +16,8 @@ const EditCard = (props) => {
         })
     }
 
-    const addCard = () => {
-        props.addCard(editForm)
+    const editCard = () => {
+        props.editCard(editForm)
     }
 
     const options = [
@@ -56,7 +51,7 @@ const EditCard = (props) => {
 
             <div className={'button-wrapper'}>
                 <button className={'cancel'} onClick={() => props.showEditCard()}>Cancel</button>
-                <button className={'submit'} onClick={() => addCard()}>Submit</button>
+                <button className={'submit'} onClick={() => editCard()}>Submit</button>
             </div>
         </div>
     )

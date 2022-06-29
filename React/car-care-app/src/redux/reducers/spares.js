@@ -1,7 +1,7 @@
 import {createReducer} from "@reduxjs/toolkit";
 
 import {
-    sparesAddCard,
+    sparesAddCard, sparesEditCard,
 } from "../actions";
 
 const initialState = {
@@ -26,6 +26,16 @@ const spares = createReducer(initialState, {
         [sparesAddCard]: (state, action) => {
             state.cardList = [...state.cardList, {...action.payload, id: state.count}]
             state.count = state.count + 1
+        },
+        [sparesEditCard]: (state, action) => {
+            state.cardList = state.cardList.map((item)=>{
+                if(item.id === action.payload.id){
+                    return action.payload
+                }
+                else {
+                    return item
+                }
+            })
         },
         // [heroesFetchingError]: state => {
         //     state.heroesLoadingStatus = 'error'
