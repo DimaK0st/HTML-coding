@@ -13,17 +13,22 @@ const Home = () => {
     sparesHelper.setDistance(12341234)
 
     const addCard = useCallback((value) => {
+        console.log('addCard',value)
       sparesHelper.addCard(value)
     })
     const editCard = useCallback((value) => {
       sparesHelper.editCard(value)
+    })
+    const deleteCard = useCallback((value) => {
+      sparesHelper.deleteCard(value)
     })
 
     const spares = useSelector(state => state.spares)
 
     const content = spares.cardList.map(item=>{
         return <Card data={item}
-                     editCard={editCard}/>}
+                     editCard={editCard}
+                     deleteCard={deleteCard}/>}
     )
 
     return (

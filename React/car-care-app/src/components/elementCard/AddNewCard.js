@@ -9,10 +9,10 @@ import SelectSearch from "react-select-search";
 
 const AddNewCardAndMillage = (props) => {
     const [form, setForm] = useState({
-        option:'',
-        Description: '',
-        Final: '',
-        Start: '',
+        title:'',
+        description: '',
+        final: '',
+        start: '',
     })
     const [addNewCard, setAddNewCard] = useState(false)
 
@@ -45,21 +45,21 @@ const AddNewCardAndMillage = (props) => {
             <SelectSearch
                 options={options}
                 search
-                value={form['option']}
+                value={form['title']}
                 name="option"
                 filterOptions={fuzzySearch}
                 placeholder="Choose detail"
-                onChange={(e) => onValueChange('option', e)}
+                onChange={(e) => onValueChange('title', e)}
             />
             <TextField className={'kilometers'}
                        size="small" label="Start km" type="number"
-                       variant="outlined" required onChange={(e) => onValueChange('Start', e.target.value)}/>
+                       variant="outlined" required onChange={(e) => onValueChange('start', e.target.value)}/>
             <TextField className={'kilometers'}
                        size="small" label="Final km" type="number"
-                       variant="outlined" required onChange={(e) => onValueChange('Final', e.target.value)}/>
+                       variant="outlined" required onChange={(e) => onValueChange('final', e.target.value)}/>
             <TextField className={'kilometers'}
                        size="small" label="Description" type="number" multiline
-                       variant="outlined" rows={3} onChange={(e) => onValueChange('Description', e.target.value)}/>
+                       variant="outlined" rows={3} onChange={(e) => onValueChange('description', e.target.value)}/>
 
             <div className={'button-wrapper'}>
                 <button className={'cancel'} onClick={() => showAddNewCard(false)}>Cancel</button>

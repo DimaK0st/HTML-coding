@@ -9,6 +9,9 @@ import EditCard from "./EditCard";
 const Card = (props) => {
     const [fullDescription, setFullDescription] = useState(false)
     const [editedCard, setEditedCard] = useState(false)
+    const {id, title, image, start, left, final, description} = props.data
+
+    console.log(id, title, image, start, left, final, description)
 
     const showEditCard = () => {
         setEditedCard((editCard) => !editCard)
@@ -19,7 +22,9 @@ const Card = (props) => {
         props.editCard(editForm)
     }
 
-    const {id, title, image, start, left, final, description} = props.data
+    const deleteCard = () => {
+        props.deleteCard(id)
+    }
 
     const showFullDescription = () => {
         setFullDescription((fullDescription) => !fullDescription)
@@ -51,7 +56,7 @@ const Card = (props) => {
                 <a onClick={showFullDescription}>{fullDescription ? '<--' : '...'}</a></span>
             </span>
             <img className={'edit-icon'} src={edit} onClick={showEditCard}/>
-            <img className={'delete-icon'} src={del}/>
+            <img className={'delete-icon'} src={del} onClick={deleteCard}/>
 
             {contentEdit}
         </div>

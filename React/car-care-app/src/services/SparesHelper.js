@@ -1,7 +1,7 @@
 import {useCookies} from "react-cookie";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {sparesAddCard, sparesEditCard} from "../redux/actions";
+import {clear, sparesAddCard, sparesDeleteCard, sparesEditCard} from "../redux/actions";
 
 const SparesHelper = () => {
 
@@ -10,6 +10,7 @@ const SparesHelper = () => {
     const spares = useSelector(state => state.spares)
     const dispatch = useDispatch();
 
+    // dispatch(clear())
     const setDistance = (distance) => {
         setCookie('distance', distance, {path: '/'})
     }
@@ -30,6 +31,10 @@ const SparesHelper = () => {
       dispatch(sparesEditCard(object))
     }
 
+    const deleteCard = (id) => {
+      dispatch(sparesDeleteCard(id))
+    }
+
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
     }
@@ -39,7 +44,7 @@ const SparesHelper = () => {
     }
 
 
-    return {setDistance, getDistance, addCard, editCard, getCards}
+    return {setDistance, getDistance, addCard, editCard, deleteCard, getCards}
 }
 
 export default SparesHelper
