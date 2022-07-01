@@ -41,7 +41,7 @@ const Card = (props) => {
             <span className={'title'}>
                 Name: <span className={'value'}>{title}</span>
             </span>
-            <img className={'image'} src={logo}/>
+            <img className={'image'} src={logo} alt='img'/>
             <span className={'kilometers'}>
                 Start km: <span className={'value'}>{start}</span>
             </span>
@@ -53,10 +53,10 @@ const Card = (props) => {
             </span>
             <span className={'kilometers'}>
                 Description: <span className={'value'}>{fullDescription ? description : miniDescription}
-                <a onClick={showFullDescription}>{fullDescription ? '<--' : '...'}</a></span>
+                <p onClick={showFullDescription}>{fullDescription ? '<--' : '...'}</p></span>
             </span>
-            <img className={'edit-icon'} src={edit} onClick={showEditCard}/>
-            <img className={'delete-icon'} src={del} onClick={deleteCard}/>
+            <img className={'edit-icon'} src={edit} onClick={showEditCard} alt='img'/>
+            <img className={'delete-icon'} src={del} onClick={deleteCard} alt='img'/>
 
             {contentEdit}
         </div>

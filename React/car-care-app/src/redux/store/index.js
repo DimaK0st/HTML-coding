@@ -1,8 +1,8 @@
-import {createStore, combineReducers, compose, applyMiddleware} from 'redux';
+import {combineReducers} from 'redux';
 import {configureStore} from "@reduxjs/toolkit";
 import spares from "../reducers/spares";
 import storage from 'redux-persist/lib/storage'
-import {persistReducer, persistStore} from "redux-persist"; // defaults to localStorage for web and AsyncStorage for react-native
+import {persistReducer} from "redux-persist"; // defaults to localStorage for web and AsyncStorage for react-native
 
 const stringMiddleware = (store) => (dispatch) => (action) => {
     if (typeof action === 'string') {

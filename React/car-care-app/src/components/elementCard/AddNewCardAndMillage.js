@@ -1,10 +1,8 @@
-import {useCallback, useState} from "react";
+import {useState} from "react";
 import logo from "../../assets/logo512.png";
-import './AddNewCard.scss'
+import './AddNewCardAndMillage.scss'
 import Fuse from "fuse.js";
 import {TextField} from "@mui/material";
-import Select from 'react-select';
-import zIndex from "@mui/material/styles/zIndex";
 import SelectSearch from "react-select-search";
 
 const AddNewCardAndMillage = (props) => {
@@ -14,7 +12,9 @@ const AddNewCardAndMillage = (props) => {
         final: '',
         start: '',
     })
+    const [distance, setDistance] = useState(props.distance)
     const [addNewCard, setAddNewCard] = useState(false)
+    const [newDistance, setNewDistance] = useState(false)
 
     const onValueChange = (name, value) => {
         setForm((form) => {
@@ -28,10 +28,15 @@ const AddNewCardAndMillage = (props) => {
     const addCard = () => {
         props.addCard(form)
     }
-
+    const saveDistance = () => {
+        props.setDistance(distance)
+    }
 
     const showAddNewCard = (type) => {
         setAddNewCard(type)
+    }
+    const showNewDistance = (type) => {
+        setNewDistance(type)
     }
 
     const options = [
@@ -58,7 +63,7 @@ const AddNewCardAndMillage = (props) => {
                        size="small" label="Final km" type="number"
                        variant="outlined" required onChange={(e) => onValueChange('final', e.target.value)}/>
             <TextField className={'kilometers'}
-                       size="small" label="Description" type="number" multiline
+                       size="small" label="Description" type="text" multiline
                        variant="outlined" rows={3} onChange={(e) => onValueChange('description', e.target.value)}/>
 
             <div className={'button-wrapper'}>
@@ -67,16 +72,30 @@ const AddNewCardAndMillage = (props) => {
             </div>
         </div> : null
 
+    const contentSetDistance = newDistance?
+        <>
+            <TextField className={'distance'}
+                       size="small" label="Start km" type="number"
+                       variant="outlined" required onChange={(e) => setDistance(Number(e.target.value))}/>
+            <div className={'button-wrapper'}>
+                <button className={'cancel'} onClick={() => showNewDistance(false)}>Cancel</button>
+                <button className={'submit'} onClick={() => saveDistance()}>Submit</button>
+            </div>
+        </> : null
+
     return (
         <div className={'new-card-and-millage'}>
             <div className={'new-card'}>
                 {addNewCard ? null :
-                    <button className={'add-new-card-btn'} onClick={() => showAddNewCard(true)}>Add new spare
-                        part</button>}
+                    <button className={'add-new-card-btn'} onClick={() => showAddNewCard(true)}>
+                        Add new spare part</button>}
                 {contentAddCard}
             </div>
             <div className={'add-millage'}>
-
+                {newDistance ? null :
+                <button className={'add-distance-btn'} onClick={() => showNewDistance(true)}>
+                    Set Distance</button>}
+                {contentSetDistance}
             </div>
         </div>
     )
