@@ -49,7 +49,7 @@ const spares = createReducer(initialState, {
         [sparesSetDistance]: (state, action) => {
             console.log(action.payload)
             console.log(state.distance)
-            state.distance = [...state.distance, {value: action.payload, date: new Date()}]
+            state.distance = [...state.distance, {value: action.payload>999999? 999999: action.payload, date: new Date()}]
         },
 
     },
