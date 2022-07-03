@@ -1,0 +1,22 @@
+.main-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: "Comic Sans MS", serif;
+
+  .title{
+    text-align: center;
+  }
+
+  .description{
+    text-align: center;
+    text-indent: 40px;
+    font-size: 27px;
+  }
+
+  .main-image{
+
+    margin: 50px auto;
+    width: 200px;
+  }
+}
