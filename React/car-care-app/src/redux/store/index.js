@@ -17,7 +17,7 @@ const persistConfig = {
     storage,
 }
 
-const reducers = combineReducers({spares,authentication})
+const reducers = combineReducers({spares, authentication})
 
 
 const persistedReducer = persistReducer(persistConfig, reducers)

@@ -28,7 +28,7 @@ const spares = createReducer(initialState, {
         [clear]: (state, action) => {
             state.cardList = initialState.cardList
             state.count = initialState.count
-            state.distance= initialState.distance
+            state.distance = initialState.distance
         },
         [sparesAddCard]: (state, action) => {
             state.cardList = [...state.cardList, {...action.payload, id: state.count}]
@@ -49,7 +49,10 @@ const spares = createReducer(initialState, {
         [sparesSetDistance]: (state, action) => {
             console.log(action.payload)
             console.log(state.distance)
-            state.distance = [...state.distance, {value: action.payload>999999? 999999: action.payload, date: new Date()}]
+            state.distance = [...state.distance, {
+                value: action.payload > 999999 ? 999999 : action.payload,
+                date: new Date()
+            }]
         },
 
     },

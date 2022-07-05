@@ -1,4 +1,3 @@
-import SparesHelper from "./SparesHelper";
 import {useDispatch, useSelector} from "react-redux";
 import {authLogin, authRegister} from "../redux/actions";
 import {useNavigate} from "react-router-dom";
@@ -10,8 +9,8 @@ const AuthHelper = () => {
 
     const login = (data) => {
         console.log(authentication.users)
-        console.log(authentication.users?.filter(item=>item.login===data.login && item.password===data.password))
-        if (!!authentication.users?.filter(item=>item.login===data.login && item.password===data.password)){
+        console.log(authentication.users?.filter(item => item.login === data.login && item.password === data.password))
+        if (!!authentication.users?.filter(item => item.login === data.login && item.password === data.password)) {
             dispatch(authLogin())
             navigate('/home')
         }
@@ -20,18 +19,16 @@ const AuthHelper = () => {
 
     const register = (data) => {
 
-        if (data.password.length<8){
+        if (data.password.length < 8) {
             return `Пароль слишком короткий введено ${data.password.length} символов, а нужно мин 8`
         }
 
-        console.log(authentication.users.filter(item=>item.login===data.login).length)
-        if(!authentication.users.filter(item=>item.login===data.login).length){
+        if (!authentication.users.filter(item => item.login === data.login).length) {
             dispatch(authRegister({
                 login: data.login,
                 password: data.password,
             }))
-        }
-        else {
+        } else {
             return "Пользователь уже существует!!!"
         }
     }

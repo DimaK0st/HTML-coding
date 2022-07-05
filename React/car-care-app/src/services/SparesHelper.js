@@ -1,29 +1,17 @@
-import {useCookies} from "react-cookie";
 import {useDispatch} from "react-redux";
-import {sparesAddCard, sparesDeleteCard, sparesEditCard, sparesSetDistance,clear} from "../redux/actions";
+import {sparesAddCard, sparesDeleteCard, sparesEditCard, sparesSetDistance, clear} from "../redux/actions";
 
 const SparesHelper = () => {
-
-    const [cookies, setCookie] = useCookies(['Spares']);
-
     const dispatch = useDispatch();
 
     // dispatch(clear())
 
-    const getCards = () => {
-        if (cookies?.cardsList === undefined) {
-            return []
-        } else {
-            return cookies.cardsList
-        }
-    }
-
     const editCard = (object) => {
-      dispatch(sparesEditCard(object))
+        dispatch(sparesEditCard(object))
     }
 
     const deleteCard = (id) => {
-      dispatch(sparesDeleteCard(id))
+        dispatch(sparesDeleteCard(id))
     }
 
     const addCard = (value) => {
@@ -34,8 +22,7 @@ const SparesHelper = () => {
         dispatch(sparesSetDistance(value))
     }
 
-
-    return {setDistance, addCard, editCard, deleteCard, getCards}
+    return {setDistance, addCard, editCard, deleteCard}
 }
 
 export default SparesHelper
