@@ -4,6 +4,7 @@ import {
     clear,
     sparesAddCard, sparesDeleteCard, sparesEditCard, sparesSetDistance,
 } from "../actions";
+import {options} from "./constOptions";
 
 const initialState = {
     distance: [
@@ -21,6 +22,7 @@ const initialState = {
             title: "sv",
         },
     ],
+    options: [...options],
     count: 1,
 }
 
@@ -28,6 +30,7 @@ const spares = createReducer(initialState, {
         [clear]: (state, action) => {
             state.cardList = initialState.cardList
             state.count = initialState.count
+            state.options = [...options]
             state.distance = initialState.distance
         },
         [sparesAddCard]: (state, action) => {

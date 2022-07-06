@@ -3,7 +3,7 @@ import {authLogin, authRegister} from "../actions";
 
 
 const initialState = {
-    user: [
+    users: [
         {
             login: 'test',
             password: 'test',
@@ -14,7 +14,7 @@ const initialState = {
 
 const authentication = createReducer(initialState, {
         [authRegister]: (state, action) => {
-            state.users = [{login: action.payload.login, password: action.payload.password}]
+            state.users = [...state.users, {login: action.payload.login, password: action.payload.password}]
         },
         [authLogin]: (state) => {
             state.auth = true

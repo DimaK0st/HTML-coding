@@ -33,11 +33,10 @@ const Home = () => {
     )
 
     const distance = spares.distance?.slice(-1)[0].value
-
     return (
         <div className={'home-wrapper'}>
             <Speedometer value={distance}/>
-            <AddNewCard addCard={addCard} setDistance={setDistance}/>
+            <AddNewCard addCard={addCard} options={spares.options} setDistance={setDistance}/>
             <div className={'car-list'}>
                 {content}
             </div>

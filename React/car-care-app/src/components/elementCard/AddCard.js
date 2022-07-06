@@ -4,6 +4,7 @@ import {TextField} from "@mui/material";
 import {useState} from "react";
 import logo from "../../assets/logo512.png";
 import Fuse from "fuse.js";
+import {useSelector} from "react-redux";
 
 const AddCard = (props) => {
     const [form, setForm] = useState({
@@ -12,6 +13,7 @@ const AddCard = (props) => {
         final: '',
         start: '',
     })
+    const [options, setOptions] = useState(props.options)
 
     const onValueChange = (name, value) => {
         setForm((form) => {
@@ -25,10 +27,7 @@ const AddCard = (props) => {
     const addCard = () => {
         props.addCard(form)
     }
-
-    const options = [
-        {name: 'Brace', value: 'sv'},
-        {name: 'English', value: 'en'},]
+    console.log(options)
 
     return (
         <div className={'add-new-card'}>
