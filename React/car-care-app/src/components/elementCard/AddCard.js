@@ -27,16 +27,27 @@ const AddCard = (props) => {
     const addCard = () => {
         props.addCard(form)
     }
-    console.log(options)
 
     return (
         <div className={'add-new-card'}>
             <img className={'image'} src={logo} alt={''}/>
 
             <SelectSearch
-                options={options}
+                options={options.map(item => {
+
+
+                    console.log( item.name)
+                    console.log( item.name.split(' '))
+                    console.log( item.name.split(' ')[0])
+                    console.log( item.name.split(' ')[0].length)
+                    console.log( item.name.slice(form['title'].split(' ')[0].length))
+                    console.log( item.name.slice(form['title'].split(' ')[0].length))
+                    return{
+                    name: item.name.slice(form['title'].split(' ')[0].length),
+                    value: item.value
+                }})}
                 search
-                value={form['title']}
+                value={form['title'].substr(form['title'].split(' ')[0].length)}
                 name="option"
                 filterOptions={fuzzySearch}
                 placeholder="Choose detail"
