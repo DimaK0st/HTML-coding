@@ -1,10 +1,10 @@
 import Card from "../../elementCard/Card";
 import './Home.scss'
 import Speedometer from "../../speedometer/Speedometer";
-import AddNewCard from "../../elementCard/AddNewCardAndMillage";
 import SparesHelper from "../../../services/SparesHelper";
 import {useCallback} from "react";
 import {useSelector} from "react-redux";
+import AddNewCardAndMillage from "../../elementCard/AddNewCardAndMillage";
 
 const Home = () => {
 
@@ -24,19 +24,20 @@ const Home = () => {
     }, [sparesHelper])
 
     const spares = useSelector(state => state.spares)
+    const distance = spares.distance?.slice(-1)[0].value
 
     const content = spares.cardList.map(item => {
             return <Card data={item}
+                         distance={distance}
                          editCard={editCard}
                          deleteCard={deleteCard}/>
         }
     )
 
-    const distance = spares.distance?.slice(-1)[0].value
     return (
         <div className={'home-wrapper'}>
             <Speedometer value={distance}/>
-            <AddNewCard addCard={addCard} options={spares.options} setDistance={setDistance}/>
+            <AddNewCardAndMillage distance={distance} addCard={addCard} options={spares.options} setDistance={setDistance}/>
             <div className={'car-list'}>
                 {content}
             </div>

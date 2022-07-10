@@ -11,10 +11,10 @@ const AddCard = (props) => {
         title: '',
         description: '',
         final: '',
-        start: '',
+        start: props.distance,
     })
     const [options, setOptions] = useState(props.options)
-
+    console.dir(props.distance)
     const onValueChange = (name, value) => {
         setForm((form) => {
             return {
@@ -28,37 +28,27 @@ const AddCard = (props) => {
         props.addCard(form)
     }
 
+    console.dir(props)
+
     return (
         <div className={'add-new-card'}>
             <img className={'image'} src={logo} alt={''}/>
 
             <SelectSearch
-                options={options.map(item => {
-
-
-                    console.log( item.name)
-                    console.log( item.name.split(' '))
-                    console.log( item.name.split(' ')[0])
-                    console.log( item.name.split(' ')[0].length)
-                    console.log( item.name.slice(form['title'].split(' ')[0].length))
-                    console.log( item.name.slice(form['title'].split(' ')[0].length))
-                    return{
-                    name: item.name.slice(form['title'].split(' ')[0].length),
-                    value: item.value
-                }})}
+                options={options}
                 search
-                value={form['title'].substr(form['title'].split(' ')[0].length)}
+                value={form['title']}
                 name="option"
                 filterOptions={fuzzySearch}
                 placeholder="Choose detail"
                 onChange={(e) => onValueChange('title', e)}
             />
+            {/*<TextField className={'kilometers'}*/}
+            {/*           size="small" label="Start km" type="number"*/}
+            {/*           variant="outlined" required onChange={(e) => onValueChange('start', e.target.value)}/>*/}
             <TextField className={'kilometers'}
-                       size="small" label="Start km" type="number"
-                       variant="outlined" required onChange={(e) => onValueChange('start', e.target.value)}/>
-            <TextField className={'kilometers'}
-                       size="small" label="Final km" type="number"
-                       variant="outlined" required onChange={(e) => onValueChange('final', e.target.value)}/>
+                       size="small" label="How km to check" type="number"
+                       variant="outlined" required onChange={(e) => onValueChange('final', parseInt(e.target.value) + props.distance)}/>
             <TextField className={'kilometers'}
                        size="small" label="Description" type="text" multiline
                        variant="outlined" rows={3} onChange={(e) => onValueChange('description', e.target.value)}/>

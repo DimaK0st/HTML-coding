@@ -21,7 +21,7 @@ const AddNewCardAndMillage = (props) => {
                     <button className={'add-new-card-btn'} onClick={() => showAddNewCard(true)}>
                         Add new spare part
                     </button>}
-                {addNewCard ? <AddCard addCard={props.addCard} options={props.options}
+                {addNewCard ? <AddCard addCard={props.addCard} options={props.options} distance={props.distance}
                                        showAddNewCard={showAddNewCard}/> : null}
             </div>
             <div className={'add-millage'}>
