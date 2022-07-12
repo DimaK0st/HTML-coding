@@ -8,9 +8,11 @@ const AuthHelper = () => {
     const navigate = useNavigate();
 
     const login = (data) => {
-        console.log(authentication.users)
-        console.log(authentication.users?.filter(item => item.login === data.login && item.password === data.password))
-        if (!!authentication.users?.filter(item => item.login === data.login && item.password === data.password)) {
+        if (data.login==='' || data.password===''){
+            return
+        }
+
+        if (!!authentication.users?.filter(item => item.login === data.login && item.password === data.password).length) {
             dispatch(authLogin())
             navigate('/home')
         }
@@ -31,6 +33,7 @@ const AuthHelper = () => {
         } else {
             return "Пользователь уже существует!!!"
         }
+        navigate('/login')
     }
 
     return {login, register}

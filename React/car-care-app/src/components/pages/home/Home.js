@@ -25,8 +25,9 @@ const Home = () => {
 
     const spares = useSelector(state => state.spares)
     const distance = spares.distance?.slice(-1)[0].value
+    let cardList = [...spares.cardList].sort((a,b)=> parseInt(a.final)-distance>parseInt(b.final)-distance ? 1 : -1)
 
-    const content = spares.cardList.map(item => {
+    const content = cardList.map(item => {
             return <Card data={item}
                          distance={distance}
                          editCard={editCard}
@@ -43,6 +44,10 @@ const Home = () => {
             </div>
         </div>
     )
+}
+
+function byField(field) {
+    return (a, b) => a[field] > b[field] ? 1 : -1;
 }
 
 export default Home

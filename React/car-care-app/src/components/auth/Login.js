@@ -27,10 +27,9 @@ const Login = (props) => {
 
     useEffect(()=>{
         setErrors((error)=> {
-            console.log('form.password!==form.repPassword && form.login===\'\'',form.password!==form.repPassword && form.login==='')
             return {
             err: form.password!==form.repPassword && form.login==='',
-            message: form.password!==form.repPassword? 'Пароли не совпадают': ''
+            message: form.password!==form.repPassword && typeForm.label==='Register'? 'Пароли не совпадают': ''
         }})
     },[form])
 

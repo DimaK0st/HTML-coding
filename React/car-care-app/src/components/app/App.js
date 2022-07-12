@@ -12,8 +12,8 @@ import {useSelector} from "react-redux";
 function App() {
     const authentication = useSelector(state => state.authentication)
     console.log('authentication',authentication)
-    const auth = true
-    // const auth = authentication.auth
+    // const auth = true
+    const auth = authentication.auth
     console.log('auth',auth)
     return (
         <Router>

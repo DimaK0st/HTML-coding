@@ -40,7 +40,7 @@ const Card = (props) => {
         <div className={'car-item'}>
             <input type="hidden" value={id}/>
             <span className={'title'}>
-                Name: <span className={'value'}>{options.filter(item=> item.value===title)[0].name}</span>
+                Name: <span className={'value'}>{options.filter(item=> item.value===title).length? options.filter(item=> item.value===title)[0].name: title}</span>
             </span>
             <img className={'image'} src={logo} alt='img'/>
             <span className={'kilometers'}>
@@ -54,7 +54,7 @@ const Card = (props) => {
             </span>
             <span className={'kilometers'}>
                 Description: <span className={'value'}>{fullDescription ? description : miniDescription}
-                <p onClick={showFullDescription}>{fullDescription ? '<--' : '...'}</p></span>
+                <a onClick={showFullDescription}>{fullDescription ? '<--' : (description?.length > 20? '...': null)}</a></span>
             </span>
             <img className={'edit-icon'} src={edit} onClick={showEditCard} alt='img'/>
             <img className={'delete-icon'} src={del} onClick={deleteCard} alt='img'/>

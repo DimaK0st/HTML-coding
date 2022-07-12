@@ -7,12 +7,14 @@ import Fuse from "fuse.js";
 import {useSelector} from "react-redux";
 
 const AddCard = (props) => {
-    const [form, setForm] = useState({
+    const initState={
         title: '',
         description: '',
         final: '',
         start: props.distance,
-    })
+    }
+
+    const [form, setForm] = useState(initState)
     const [options, setOptions] = useState(props.options)
     console.dir(props.distance)
     const onValueChange = (name, value) => {
@@ -26,6 +28,8 @@ const AddCard = (props) => {
 
     const addCard = () => {
         props.addCard(form)
+        setForm(initState)
+        props.showAddNewCard(false)
     }
 
     console.dir(props)
