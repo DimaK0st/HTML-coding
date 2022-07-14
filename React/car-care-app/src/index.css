@@ -145,7 +145,8 @@ main{
 .select-search__option,
 .select-search__not-found {
   display: block;
-  height: 36px;
+  min-height: 36px;
+  height: auto;
   width: 100%;
   padding: 0 16px;
   background: #fff;
@@ -155,6 +156,7 @@ main{
   font-size: 14px;
   text-align: left;
   cursor: pointer;
+  /*overflow: hidden;*/
 }
 
 .select-search--multiple .select-search__option {

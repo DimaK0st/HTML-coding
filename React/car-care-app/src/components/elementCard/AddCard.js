@@ -16,7 +16,6 @@ const AddCard = (props) => {
 
     const [form, setForm] = useState(initState)
     const [options, setOptions] = useState(props.options)
-    console.dir(props.distance)
     const onValueChange = (name, value) => {
         setForm((form) => {
             return {
@@ -31,8 +30,6 @@ const AddCard = (props) => {
         setForm(initState)
         props.showAddNewCard(false)
     }
-
-    console.dir(props)
 
     return (
         <div className={'add-new-card'}>

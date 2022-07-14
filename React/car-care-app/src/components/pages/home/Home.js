@@ -2,11 +2,17 @@ import Card from "../../elementCard/Card";
 import './Home.scss'
 import Speedometer from "../../speedometer/Speedometer";
 import SparesHelper from "../../../services/SparesHelper";
-import {useCallback} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {useSelector} from "react-redux";
-import AddNewCardAndMillage from "../../elementCard/AddNewCardAndMillage";
+import HomeMenu from "../../elementCard/HomeMenu";
 
 const Home = () => {
+    const spares = useSelector(state => state.spares)
+    const distance = spares.distance?.slice(-1)[0].value
+    const [cardList, setCardList] = useState(
+        [...spares.cardList].sort((a, b) => parseInt(a.final) - distance > parseInt(b.final) - distance ? 1 : -1),
+    )
+    const [sortBy, setSortBy] = useState('left')
 
     const sparesHelper = SparesHelper()
 
@@ -23,12 +29,27 @@ const Home = () => {
         sparesHelper.deleteCard(value)
     }, [sparesHelper])
 
-    const spares = useSelector(state => state.spares)
-    const distance = spares.distance?.slice(-1)[0].value
-    let cardList = [...spares.cardList].sort((a,b)=> parseInt(a.final)-distance>parseInt(b.final)-distance ? 1 : -1)
+    useEffect(() => {
+        sortArray(sortBy)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [sortBy, spares.cardList])
 
-    const content = cardList.map(item => {
+    const sortArray = (field) => {
+        switch (field) {
+            case 'start':
+                return setCardList([...spares.cardList].sort((a, b) => parseInt(a.start) > parseInt(b.start) ? 1 : -1))
+            case 'left':
+                return setCardList([...spares.cardList].sort((a, b) => parseInt(a.final) - distance > parseInt(b.final) - distance ? 1 : -1))
+            case 'final':
+                return setCardList([...spares.cardList].sort((a, b) => parseInt(a.final) > parseInt(b.final) ? 1 : -1))
+            default:
+                return setCardList([...spares.cardList])
+        }
+    }
+
+    const content = cardList.map((item) => {
             return <Card data={item}
+                         options={spares.options}
                          distance={distance}
                          editCard={editCard}
                          deleteCard={deleteCard}/>
@@ -38,16 +59,13 @@ const Home = () => {
     return (
         <div className={'home-wrapper'}>
             <Speedometer value={distance}/>
-            <AddNewCardAndMillage distance={distance} addCard={addCard} options={spares.options} setDistance={setDistance}/>
+            <HomeMenu sort={{sortBy, setSortBy}} distance={distance} addCard={addCard} options={spares.options}
+                      setDistance={setDistance}/>
             <div className={'car-list'}>
                 {content}
             </div>
         </div>
     )
-}
-
-function byField(field) {
-    return (a, b) => a[field] > b[field] ? 1 : -1;
 }
 
 export default Home

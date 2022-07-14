@@ -34,7 +34,6 @@ const Login = (props) => {
     },[form])
 
     const formFunc = () => {
-        console.log(errors)
         if(errors.err){
             return
         }

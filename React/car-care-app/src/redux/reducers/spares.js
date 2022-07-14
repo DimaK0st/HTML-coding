@@ -1,8 +1,7 @@
 import {createReducer} from "@reduxjs/toolkit";
 
 import {
-    clear,
-    sparesAddCard, sparesDeleteCard, sparesEditCard, sparesSetDistance,
+    sparesAddCard, sparesAddOption, sparesDeleteCard, sparesEditCard, sparesSetDistance,
 } from "../actions";
 import {options} from "./constOptions";
 
@@ -15,27 +14,36 @@ const initialState = {
     ],
     cardList: [
         {
-            description: "1234",
-            final: "1234",
-            start: "1234",
+            description: "Test Description",
+            final: "6",
+            start: "1",
             id: 0,
-            title: "sv",
+            title: "10",
+        },
+        {
+            description: "Test Description Test Description Test Description Test Description",
+            final: "4",
+            start: "3",
+            id: 1,
+            title: "12",
+        },
+        {
+            description: "Test Description Test Description Test Description Test Description",
+            final: "3",
+            start: "2",
+            id: 2,
+            title: "13",
         },
     ],
     options: [...options],
-    count: 1,
+    countСard: 3,
+    countOption: 73,
 }
 
 const spares = createReducer(initialState, {
-        [clear]: (state, action) => {
-            state.cardList = initialState.cardList
-            state.count = initialState.count
-            state.options = [...options]
-            state.distance = initialState.distance
-        },
         [sparesAddCard]: (state, action) => {
-            state.cardList = [...state.cardList, {...action.payload, id: state.count}]
-            state.count = state.count + 1
+            state.cardList = [...state.cardList, {...action.payload, id: state.countСard}]
+            state.countСard = state.countСard + 1
         },
         [sparesEditCard]: (state, action) => {
             state.cardList = state.cardList.map((item) => {
@@ -50,12 +58,17 @@ const spares = createReducer(initialState, {
             state.cardList = state.cardList.filter((item) => item.id !== action.payload)
         },
         [sparesSetDistance]: (state, action) => {
-            console.log(action.payload)
-            console.log(state.distance)
             state.distance = [...state.distance, {
                 value: action.payload > 999999 ? 999999 : action.payload,
                 date: new Date()
             }]
+        },
+        [sparesAddOption]: (state, action) => {
+            state.options = [...state.options, {
+                name: action.payload,
+                value: state.countOption
+            }]
+            state.countOption = state.countOption + 1
         },
 
     },

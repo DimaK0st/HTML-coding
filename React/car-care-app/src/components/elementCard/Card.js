@@ -4,15 +4,12 @@ import del from '../../assets/card-icons/delete.png'
 import logo from '../../assets/logo512.png'
 import {useState} from "react";
 import EditCard from "./EditCard";
-import {options} from "../../redux/reducers/constOptions";
 
 
 const Card = (props) => {
     const [fullDescription, setFullDescription] = useState(false)
     const [editedCard, setEditedCard] = useState(false)
     const {id, title, image, start, left, final, description} = props.data
-
-    console.log(id, title, image, start, left, final, description)
 
     const showEditCard = () => {
         setEditedCard((editCard) => !editCard)
@@ -35,12 +32,15 @@ const Card = (props) => {
 
     const contentEdit = editedCard ?
         <EditCard editCard={editCard} showEditCard={showEditCard} props={props}/> : null
+    const name = props.options.filter(item=> item.value===title).length? props.options.filter(item=> item.value===title)[0].name: title
 
     return (
         <div className={'car-item'}>
             <input type="hidden" value={id}/>
-            <span className={'title'}>
-                Name: <span className={'value'}>{options.filter(item=> item.value===title).length? options.filter(item=> item.value===title)[0].name: title}</span>
+            <span className={'title'}
+                style={name.length>12?{'marginBottom': '-4px'}:{}}
+            >
+                Name: <span className={'value'}>{name}</span>
             </span>
             <img className={'image'} src={logo} alt='img'/>
             <span className={'kilometers'}>
