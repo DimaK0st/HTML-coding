@@ -13,11 +13,16 @@ class CreatePhoneNumbersTable extends Migration
      */
     public function up()
     {
+
+        Schema::disableForeignKeyConstraints();
+
         Schema::create('phone_numbers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('region_id')->constrained('phone_regions')->onDelete('cascade');
-            $table->foreignId('digital_id')->constrained('phone_digitals')->onDelete('cascade');
+            $table->foreignId('region_id')->constrained('phone_regions')->cascadeOnDelete();
+            $table->string('digital',7);
         });
+
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

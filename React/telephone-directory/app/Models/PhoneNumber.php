@@ -16,19 +16,10 @@ class PhoneNumber extends Model
 {
     public $timestamps = false;
 
-
     protected $fillable = [
         'region_id',
-        'digital_id',
+        'digital',
     ];
-
-    /**
-     * @return HasMany
-     */
-    public function regions(): HasMany
-    {
-        return $this->hasMany(PhoneRegion::class, 'id', 'region_id');
-    }
 
     /**
      * @return HasMany

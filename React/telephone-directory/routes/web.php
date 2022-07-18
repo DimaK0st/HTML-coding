@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\PhoneReview;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
+    $review = new PhoneReview();
+    dd($review);
+
     return view('welcome');
 });
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePhoneDigitalsTable extends Migration
+class CreatePhoneViewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreatePhoneDigitalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('phone_digitals', function (Blueprint $table) {
+        Schema::create('phone_views', function (Blueprint $table) {
             $table->id();
-            $table->string('digital',7);
+            $table->timestamps();
         });
     }
 
@@ -26,6 +26,6 @@ class CreatePhoneDigitalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('phone_digitals');
+        Schema::dropIfExists('phone_views');
     }
 }

@@ -19,34 +19,42 @@ class PhoneDigitalSeeder extends Seeder
         $this->command->getOutput()->progressStart(9999999);
 
         $result = [];
-        for ($i = 0; $i < 9999999; $i++) {
+        for ($i = 0; $i < 10000000; $i++) {
             $this->command->getOutput()->progressAdvance();
-            $result[]=['digital' =>$i];
-            if ($i%1000===0) {
-//                dump($i % 10000);
-//                dump($i);
-                PhoneDigital::query()->insert($result);
-                $result = array();
-                dump($result);
+
+            if ($i < 1000001) {
+                $result[] = ['digital' => str_repeat('0', 7 - strlen(strval($i))) . $i];
+                if ($i !== 0 and $i % 1000 === 0) {
+                    PhoneDigital::query()->insert($result);
+                    $result = array();
+                }
+                continue;
             }
-//            if ($i < 1000000) {
-//                $result[]= ['digital' => str_repeat('0', 7 - strlen(strval($i))) . $i];
-//                if ($i!==0 and $i%10000===0 and $i === 999999){
+
+            $result[] = ['digital' => $i];
+            if ($i % 1000 === 0 or $i===9999999) {
+                    PhoneDigital::query()->insert($result);
+                    $result = array();
+                }
+
+
+//            if ($i < 1000001) {
+//                $result[] = ['digital' => str_repeat('0', 7 - strlen(strval($i))) . $i];
+//                if (($i !== 0 and $i % 1000 === 0) or $i === 999999) {
 //                    PhoneDigital::query()->insert($result);
-//                    $result=array();
+//                    $result = array();
 //                }
-//                continue;
-//            }
-//
-//            $result[]= ['digital' => strval($i)];
-//            if ($i%10000===0){
-//                dump($i%10000);
-//                dump($i);
-//                PhoneDigital::query()->insert($result);
-//                $result=array();
+//            } else {
+//                $result[] = ['digital' => strval($i)];
+//                if ($i % 1000 === 0 or $i===9999999) {
+//                    if ($i>9700000){
+//                        dump($i);
+//                    }
+//                    PhoneDigital::query()->insert($result);
+//                    $result = array();
+//                }
 //            }
         }
-
         $this->command->getOutput()->progressFinish();
 
     }
