@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Phone\Controllers\PhoneController;
 use App\Models\PhoneReview;
 use Illuminate\Support\Facades\Route;
 
@@ -15,12 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    $review = new PhoneReview();
-    dd($review);
 
-    return view('welcome');
-});
 
-Route::view('{path}', 'welcome')->where('path', '([A-z\d\-\/_.]+)?');
+//Route::view('{path}', 'welcome')->where('path', '([A-z\d\-\/_.]+)?');
 
