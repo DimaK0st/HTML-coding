@@ -1,7 +1,9 @@
 import React from 'react';
 
-function Master(props) {
-        return (
+function Home(props) {
+    {console.log('asdfasdf')}
+
+    return (
             <div className="container">
                 <nav className="navbar navbar-default">
                     <div className="container-fluid">
@@ -23,4 +25,4 @@ function Master(props) {
         )
 }
 
-export default Master;
+export default Home;

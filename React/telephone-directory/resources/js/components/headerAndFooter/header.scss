@@ -1,0 +1,61 @@
+@import "./resources/sass/_variables.scss";
+
+header {
+
+    height: 130px;
+    background: $gradient-up-header;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px 20px 70px;
+    border-radius: 0 0 30px 30px;
+
+
+    img {
+        height: 50px;
+        filter: invert(1);
+        transform: scaleX(-1);
+        cursor: pointer;
+    }
+
+    .input-wrapper {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        span{
+            position: absolute;
+            left: 12%;
+            font-size: 35px;
+            font-family: inherit;
+            color: gray;
+            top: 3px;
+
+        }
+
+        input {
+            height: 60px;
+            width: 80%;
+            margin: auto;
+            border: seashell solid 0;
+            border-radius: 40px;
+            font-family: inherit;
+            font-size: 35px;
+            text-align: center;
+        }
+
+        img{
+            padding: 14px;
+            border-radius: 40px;
+            background: #00dc05;
+            position: absolute;
+            top: 5px;
+            right: 12%;
+            cursor: pointer;
+            filter: invert(1);
+        }
+    }
+
+}

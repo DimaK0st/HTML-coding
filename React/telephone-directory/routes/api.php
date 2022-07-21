@@ -29,8 +29,3 @@ Route::group(['prefix'=>'v1'], function () {
 //        return view('welcome');    });
 });
 
-
-Route::post('/set', function () {
-
-});
-
