@@ -24,9 +24,9 @@ class PhoneNumber extends Model
     /**
      * @return HasMany
      */
-    public function digitals(): HasMany
+    public function regions(): HasMany
     {
-        return $this->hasMany(PhoneDigital::class, 'id', 'digital_id');
+        return $this->hasMany(PhoneRegion::class, 'id', 'digital_id');
     }
 
 }
