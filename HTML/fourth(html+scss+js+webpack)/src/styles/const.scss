@@ -1,0 +1,10 @@
+$color-cyan: #10EBF8;
+$dark-blue: #163358;
+
+@mixin font-roboto{
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 22px;
+}

@@ -16,7 +16,7 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.scss */ \"./src/styles/main.scss\");\n/* harmony import */ var _scripts_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/main */ \"./src/scripts/main.js\");\n/* harmony import */ var _scripts_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_scripts_main__WEBPACK_IMPORTED_MODULE_1__);\n\n\nconsole.log('hui2');\n\n//# sourceURL=webpack://fourth/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_reset_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/reset.scss */ \"./src/styles/reset.scss\");\n/* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/main.scss */ \"./src/styles/main.scss\");\n/* harmony import */ var _styles_header_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/header.scss */ \"./src/styles/header.scss\");\n/* harmony import */ var _styles_water_suyum_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/water-suyum.scss */ \"./src/styles/water-suyum.scss\");\n/* harmony import */ var _styles_footer_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/footer.scss */ \"./src/styles/footer.scss\");\n/* harmony import */ var _scripts_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scripts/main */ \"./src/scripts/main.js\");\n/* harmony import */ var _scripts_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_scripts_main__WEBPACK_IMPORTED_MODULE_5__);\n\n\n\n\n\n\nconsole.log('hui2');\n\n//# sourceURL=webpack://fourth/./src/index.js?");
 
 /***/ }),
 
@@ -30,6 +30,28 @@ eval("console.log('hui1');\n\n//# sourceURL=webpack://fourth/./src/scripts/main.
 
 /***/ }),
 
+/***/ "./src/styles/footer.scss":
+/*!********************************!*\
+  !*** ./src/styles/footer.scss ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://fourth/./src/styles/footer.scss?");
+
+/***/ }),
+
+/***/ "./src/styles/header.scss":
+/*!********************************!*\
+  !*** ./src/styles/header.scss ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://fourth/./src/styles/header.scss?");
+
+/***/ }),
+
 /***/ "./src/styles/main.scss":
 /*!******************************!*\
   !*** ./src/styles/main.scss ***!
@@ -38,6 +60,28 @@ eval("console.log('hui1');\n\n//# sourceURL=webpack://fourth/./src/scripts/main.
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://fourth/./src/styles/main.scss?");
+
+/***/ }),
+
+/***/ "./src/styles/reset.scss":
+/*!*******************************!*\
+  !*** ./src/styles/reset.scss ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://fourth/./src/styles/reset.scss?");
+
+/***/ }),
+
+/***/ "./src/styles/water-suyum.scss":
+/*!*************************************!*\
+  !*** ./src/styles/water-suyum.scss ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://fourth/./src/styles/water-suyum.scss?");
 
 /***/ })
 

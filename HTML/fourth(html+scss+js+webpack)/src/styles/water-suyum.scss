@@ -1,0 +1,88 @@
+@import "const";
+@import "media_mixin";
+
+.wrapper-water-suyum {
+  height: 660px;
+  background-image: url("images/bg/main_bg.png");
+  padding-top: 100px;
+  background-position: center;
+  background-size: cover;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .title {
+      @include font-roboto;
+      margin-top: 88px;
+      font-size: 57px;
+      line-height: 57px;
+      color: #FFFFFF;
+      max-width: 650px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .description {
+      @include font-roboto;
+      font-style: normal;
+      max-width: 252px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 25px;
+      color: #FFFFFF;
+      margin-top: 20px;
+      letter-spacing: 1px
+    }
+
+    .button {
+      @include font-roboto;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 15px;
+      line-height: 18px;
+      margin-top: 48px;
+      max-width: 252px;
+      height: 65px;
+      background: $color-cyan;
+      border: #10EBF8 0;
+      text-transform: uppercase;
+    }
+
+    .year {
+      top: 290px;
+      right: 14%;
+      height: 123px;
+      width: 123px;
+      background-image: url("images/water-suyum/year.svg");
+      position: absolute;
+
+      .year-title {
+        @include font-roboto;
+        font-size: 7px;
+
+      }
+
+      .year-number {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include font-roboto;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 55px;
+        line-height: 64px;
+        text-align: center;
+        letter-spacing: -4px;
+        color: $dark-blue;
+
+      }
+
+
+    }
+
+  }
+
+}
