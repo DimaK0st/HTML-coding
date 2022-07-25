@@ -1,0 +1,84 @@
+@import "const";
+@import "media_mixin";
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding-top: 40px;
+  justify-content: center;
+
+  .cup {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    .splash {
+      position: absolute;
+      mix-blend-mode: multiply;
+      transform: matrix(-0.99, 0.13, 0.13, 0.99, 0, 0);
+      left: 134px;
+      top: 30px;
+    }
+
+    .title {
+      display: flex;
+      flex-direction: row;
+      height: 60px;
+      margin-top: 320px;
+
+      span {
+        @include font-roboto;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 30px;
+        color: $text-blue;
+        max-width: 160px;
+      }
+
+      img {
+        height: 60px;
+        width: 60px;
+        margin: auto;
+      }
+    }
+  }
+
+  .cooler {
+
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    .pump {
+      position: absolute;
+      left: 120px;
+      top: -16px;
+    }
+
+    .title {
+      display: flex;
+      flex-direction: row;
+      height: 60px;
+      margin-top: 320px;
+
+      span {
+        @include font-roboto;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 30px;
+        color: $text-blue;
+        max-width: 230px;
+      }
+
+
+      img {
+        height: 60px;
+        width: 60px;
+        margin: auto;
+      }
+    }
+  }
+}
