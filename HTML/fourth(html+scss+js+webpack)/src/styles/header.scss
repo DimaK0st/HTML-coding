@@ -2,8 +2,10 @@
 @import "media_mixin";
 
 header {
-  box-sizing: border-box;
-  position: absolute;
+  box-sizing: border-box;;
+  position: relative;
+  position: fixed;
+  top: 0;
   height: 100px;
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.19);
@@ -12,6 +14,7 @@ header {
   align-items: center;
   justify-content: space-around;
   padding: 0 9%;
+  z-index: 999;
 
   @include _979{
     padding: 0 1%;
@@ -33,9 +36,26 @@ header {
   .double {
     display: flex;
     align-items: center;
+    img{
+
+    }
+    span{
+    @include font-roboto;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 17px;
+      line-height: 20px;
+      color: white;
+      margin-left: 10px;
+      cursor: pointer;
+    }
   }
   .left {
     margin-right: 2.5%;
+    padding-bottom: 10px;
+    span{
+      margin-bottom: -10px;
+    }
   }
 
   .right {
