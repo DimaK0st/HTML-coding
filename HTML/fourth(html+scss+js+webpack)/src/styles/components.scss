@@ -1,0 +1,22 @@
+@import "media_mixin";
+@import "const";
+
+
+@mixin button {
+  @include font-roboto;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 18px;
+  margin-top: 48px;
+  width: 100%;
+  max-width: 252px;
+  height: 65px;
+  background: $color-cyan;
+  border: #10EBF8 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  @content;
+}
+
+

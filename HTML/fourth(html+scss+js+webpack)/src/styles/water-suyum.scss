@@ -1,5 +1,6 @@
 @import "const";
 @import "media_mixin";
+@import "components";
 
 .wrapper-water-suyum {
   height: 660px;
@@ -9,7 +10,7 @@
   background-size: cover;
   position: relative;
 
-  .border{
+  .border {
     position: absolute;
     bottom: 0;
     height: 60px;
@@ -45,18 +46,7 @@
     }
 
     .button {
-      @include font-roboto;
-      font-style: normal;
-      font-weight: 800;
-      font-size: 15px;
-      line-height: 18px;
-      margin-top: 48px;
-      max-width: 252px;
-      height: 65px;
-      background: $color-cyan;
-      border: #10EBF8 0;
-      text-transform: uppercase;
-      cursor: pointer;
+      @include button
     }
 
     .year {

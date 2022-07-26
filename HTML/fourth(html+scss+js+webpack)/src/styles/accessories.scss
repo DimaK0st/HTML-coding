@@ -6,12 +6,17 @@
   flex-direction: row;
   box-sizing: border-box;
   padding-top: 40px;
-  justify-content: center;
+  padding-bottom: 45px;
+  justify-content: space-between;
 
   .cup {
     display: flex;
     flex-direction: row;
     position: relative;
+
+    .cup-img{
+      max-width: 300px;
+    }
 
     .splash {
       position: absolute;
@@ -55,6 +60,10 @@
       position: absolute;
       left: 120px;
       top: -16px;
+    }
+
+    .cooler-img{
+      max-width: 246px;
     }
 
     .title {
