@@ -1,4 +1,26 @@
-.wrapper-suyum-blob {
+@import "const";
 
+.wrapper-suyum-blob {
+  .part{
+
+
+
+    .item{
+
+      .bold{
+        font-weight: 600;
+      }
+
+      .description{
+        @include font-roboto;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
 
 }
