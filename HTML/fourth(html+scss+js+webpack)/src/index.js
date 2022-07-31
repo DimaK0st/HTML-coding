@@ -7,5 +7,6 @@ import "./styles/water-suyum.scss";
 import "./styles/accessories.scss";
 import "./styles/healthy-water.scss";
 import "./styles/suyum-blob.scss";
+import "./styles/manufacturing-process.scss";
 import "./styles/footer.scss";
 
