@@ -10,5 +10,6 @@ import "./styles/suyum-blob.scss";
 import "./styles/manufacturing-process.scss";
 import "./styles/water-sales.scss";
 import "./styles/delivery-regions.scss";
+import "./styles/purchase-features.scss";
 import "./styles/footer.scss";
 

@@ -3,7 +3,6 @@
 
 .wrapper-delivery-regions {
 
-
   .wrapper {
     display: flex;
     flex-direction: column;
@@ -64,6 +63,20 @@
     flex-direction: column;
     padding-bottom: 70px;
 
+    position: relative;
+    z-index: 15;
+
+    .background{
+      position: absolute;
+      height: 500px;
+      margin: auto;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      z-index: 10;
+      overflow: hidden;
+    }
+
     .region-delivery-title {
       @include font-roboto;
       font-style: normal;
@@ -73,10 +86,14 @@
       color: black;
       text-align: center;
       margin-bottom: 60px;
+      position: relative;
+      z-index: 15;
     }
 
     .regions {
       width: 100%;
+      position: relative;
+      z-index: 15;
 
       .wrapper-region {
         display: flex;
