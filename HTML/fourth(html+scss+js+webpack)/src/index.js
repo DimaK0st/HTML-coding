@@ -11,5 +11,6 @@ import "./styles/manufacturing-process.scss";
 import "./styles/water-sales.scss";
 import "./styles/delivery-regions.scss";
 import "./styles/purchase-features.scss";
+import "./styles/article.scss";
 import "./styles/footer.scss";
 
