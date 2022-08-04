@@ -14,12 +14,12 @@
       font-weight: 700;
       font-size: 48px;
       line-height: 54px;
+      margin-left: 28px;
     }
 
     .articles {
       display: flex;
       flex-direction: row;
-      flex: 1 0 0;
       margin-top: 40px;
 
       .center {
@@ -28,7 +28,7 @@
       }
 
       .wrapper-article {
-
+        width: 33.333%;
 
         .article {
 
@@ -40,7 +40,7 @@
             display: flex;
             justify-content: center;
             max-width: 347px;
-            width:100%;
+            width: 100%;
           }
 
           .wrapper-date {
@@ -52,7 +52,8 @@
               max-width: 12px;
               margin-right: 7px;
             }
-            .date{
+
+            .date {
               @include font-roboto;
               font-style: normal;
               font-weight: 400;
@@ -60,7 +61,8 @@
               line-height: 16px;
             }
           }
-          .title{
+
+          .title {
             min-height: 90px;
             margin-top: 13px;
             margin-bottom: 10px;
@@ -75,7 +77,7 @@
             color: #044988;
           }
 
-          .description{
+          .description {
             padding-bottom: 20px;
 
             @include font-roboto;
@@ -85,7 +87,6 @@
             line-height: 20px;
             color: #585858;
           }
-
 
 
         }
