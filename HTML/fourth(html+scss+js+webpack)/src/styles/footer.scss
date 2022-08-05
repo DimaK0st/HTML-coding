@@ -1,0 +1,115 @@
+@import "const";
+@import "components";
+
+footer{
+
+  background-image: url("/images/footer/bg.png");
+  height: 500px;
+  position: relative;
+
+  .border-1{
+    position: absolute;
+    width: 100%;
+    top:-5px;
+    z-index: 11;
+  }
+  .border-2{
+    position: absolute;
+    width: 100%;
+    top: 4px;
+    z-index: 10;
+  }
+
+  .wrapper{
+    padding-top: 145px;
+    display: flex;
+    flex-direction: row;
+    .item{
+      display: flex;
+      flex-direction: column;
+      width: 25%;
+
+      .logo{
+        width: 160px;
+      }
+
+      .double{
+        display: flex;
+        margin-bottom: 24px;
+
+        .double-image{
+          width: 22px;
+        }
+
+        .double-text{
+          margin-left: 10px;
+          @include font-roboto;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 22px;
+          color: $white;
+        }
+      }
+
+      .delivery{
+        margin-bottom: 10px;
+        @include font-roboto;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 22px;
+        color: $white;
+      }
+
+      .text{
+        margin-bottom: 16px;
+        @include font-roboto;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 22px;
+        color: $white;
+      }
+
+      .telephones, .email{
+        display: flex;
+        flex-direction: column;
+      }
+
+      .telephones{
+        margin-bottom: 36px;
+      }
+
+      .telephones-description, .email-description{
+        margin-bottom: 7px;
+        @include font-roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 22px;
+        text-transform: uppercase;
+        color: $white;
+      }
+
+      .telephones-text{
+        margin-bottom: 5px;
+        @include font-roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 20px;
+        color: $white;
+      }
+
+      .email-text{
+        @include font-roboto;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: $white;
+      }
+    }
+  }
+}
