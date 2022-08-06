@@ -3,68 +3,432 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-<link href="style.css" rel="stylesheet"></head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="style.css" rel="stylesheet"><link href="main.css" rel="stylesheet"></head>
 <body>
 <header>
+    <div class="wrapper-header">
+        <img class="logo" src="images/header/logo.svg" alt="Слава Україні">
+        <div class="double left">
+            <img src="images/header/catalog.svg" alt="Слава Україні">
+            <span>Каталог</span>
+        </div>
+        <div class="double right">
+            <img src="images/header/delivery.svg" alt="Слава Україні">
+            <span>Доставка</span>
+        </div>
+        <div class="order">
+            <span>Быстрый заказ</span>
+        </div>
+        <div class="phone-number">
+            +7 (916) 171-27-67
+            <img src="images/header/polygon.svg">
+        </div>
+        <div class="basket-wrapper">
+            <img class="basket" src="images/header/basket.svg" alt="Слава Україні">
+            <div class="count">
+                <span>1</span>
+            </div>
+        </div>
+        <img class="main" src="images/header/menu.svg" alt="Слава Україні">
+    </div>
+    <div class="hamburger-menu">
+        <input id="menu__toggle" type="checkbox"/>
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
 
-    <img class="logo" src="images/header/logo.svg" alt="Слава Україні">
-    <div class="double left">
-        <img src="images/header/catalog.svg" alt="Слава Україні">
-        <span>Каталог</span>
+        <ul class="menu__box">
+            <li><a class="menu__item" href="#">Главная</a></li>
+            <li><a class="menu__item" href="#">Проекты</a></li>
+            <li><a class="menu__item" href="#">Команда</a></li>
+            <li><a class="menu__item" href="#">Блог</a></li>
+            <li><a class="menu__item" href="#">Контакты</a></li>
+        </ul>
     </div>
-    <div class="double right">
-        <img src="images/header/delivery.svg" alt="Слава Україні">
-        <span>Доставка</span>
-    </div>
-    <div class="order">
-        <span>Быстрый заказ</span>
-    </div>
-    <div class="phone-number">
-        +7 (916) 171-27-67
-        <img src="images/header/polygon.svg">
-    </div>
-    <div class="basket-wrapper">
-        <img class="basket" src="images/header/basket.svg" alt="Слава Україні">
-        <div class="count">
-            <span>1</span>
+</header>
+<section class="wrapper-water-suyum">
+    <img class="border" src="images/water-suyum/border.svg">
+    <div class="wrapper">
+        <span class="title">Натуральная питьевая вода Suyum</span>
+        <span class="description">Вкусная и абсолютно чистая, насыщенная кислородом</span>
+        <button class="button">В каталог</button>
+        <div class="year">
+            <span class="year-number">10</span>
+            <svg viewBox="0 0 70 70">
+                <path d="M35,35m-23,0a23,23 0 1,1 46,0a23,23 0 1,1 -46,0" opacity="0" id="tophalf"/>
+                <text style="font: initial;">
+                    <textPath class="year-title" xlink:href="#tophalf" startOffset="0%">лет на рынке</textPath>
+                    <textPath class="year-title" xlink:href="#tophalf" startOffset="50%">лет на рынке</textPath>
+                </text>
+            </svg>
         </div>
     </div>
-    <img class="main" src="images/header/menu.svg" alt="Слава Україні">
+</section>
+<section class="wrapper-accessories">
+    <div class="wrapper">
+        <div class="cup">
+            <img class="splash" src="images/accessories/splash.png">
+            <img class="cup-img" src="images/accessories/cup.png">
+            <div class="title">
+                <span>Вода питьевая</span>
+                <img src="images/accessories/arrow.svg">
+            </div>
+        </div>
+        <div class="cooler">
+            <img class="pump" src="images/accessories/pump.png">
+            <img class="cooler-img" src="images/accessories/cooler.png">
+            <div class="title">
+                <span>Оборудование и аксессуары</span>
+                <img src="images/accessories/arrow.svg">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="wrapper-healthy-water">
+    <img class="border" src="images/healthy-water/border.svg">
+    <img class="left-bg" src="images/healthy-water/left-bg.png">
+    <div class="wrapper">
+        <div class="left half">
+
+        </div>
+        <div class="right half">
+            <img class="blob" src="images/healthy-water/blob.svg">
+            <div class="wrapper-right">
+                <span class="title">Здоровая вода Suyum</span>
+                <div class="description">
+                    <img src="images/healthy-water/building.svg">
+                    <span>Чистая питьевая вода с бесплатной доставкой домой и в офис!</span>
+                </div>
+                <div class="wrapper-cost">
+                    <span class="text">от</span>
+                    <span class="price">165 ₽</span>
+                </div>
+                <button>Заказать доставку</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="wrapper-suyum-blob">
+    <div class="wrapper">
+        <div class="part">
+            <div class="item">
+                <img class="image" src="images/suyum-blob/1.svg">
+                <div class="text-block text-block-1">
+                    <span class="text">Чистая, натуральная питьевая вода</span>
+                    <span class="text bold">по низкой цене</span>
+                </div>
+            </div>
+            <div class="item">
+                <img class="image" src="images/suyum-blob/2_1.svg">
+                <img class="days" src="images/suyum-blob/2_2.svg">
+                <div class="text-block text-block-2">
+                    <span class="text bold">Бесплатная доставка</span>
+                    <span class="text">воды
+7 дней в неделю на следующий день после её заказа</span>
+                </div>
+            </div>
+            <div class="item">
+                <img class="image" src="images/suyum-blob/3.svg">
+                <div class="text-block text-block-3">
+                    <span class="text bold">Высокое содержание кислорода</span>
+                    <span class="text">в воде: улучшает самочувствие
+и повышает работоспособность </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="part">
+            <img src="images/suyum-blob/center.svg">
+            <img class="o2" src="images/suyum-blob/o2.png">
+            <img class="wave" src="images/suyum-blob/wave.png">
+        </div>
 
 
-</header>
+        <div class="part mobile-bottom">
+            <div class="item">
+                <img class="image" src="images/suyum-blob/4.svg">
+                <div class="text-block text-block-4">
+                    <span class="text bold">Бутилирование без доступа воздуха</span>
+                    <span class="text">(не говоря уже
+о человеческих руках)</span>
+                </div>
+            </div>
+            <div class="item">
+                <img class="image" src="images/suyum-blob/5.svg">
+                <div class="text-block text-block-5">
+                    <span class="text bold">Отличые вкусовые качества:</span>
+                    <span class="text">за счет натуральности
+и природной свежести</span>
+                </div>
+            </div>
+            <div class="item">
+                <img class="image" src="images/suyum-blob/6.svg">
+                <div class="text-block text-block-6">
+                    <span class="text bold">Идеальная мягкость воды</span>
+                    <span class="text">(за счет снижение содержания солей кальция и магния)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="wrapper-manufacturing-process">
+    <img class="water" src="images/manufacturing-process/water.png">
+    <div class="wrapper">
+        <span class="title">Производственный процесс</span>
+        <div class="items">
+            <div class="wrapper-item">
+                <div class="item">
+                    <span class="top-text">Первичная очистка</span>
+                    <div class="wrapper-image">
+                        <img src="images/manufacturing-process/1.svg">
+                    </div>
+                    <span class="bottom-text bottom-text-1">Фильтрация через песок</span>
+                </div>
+            </div>
+            <div class="wrapper-item">
+                <div class="item">
+                    <span class="top-text">Обратный осмос</span>
+                    <div class="wrapper-image">
+                        <img src="images/manufacturing-process/2.svg">
+                    </div>
+                    <span class="bottom-text bottom-text-2">Мембранная система
+и Na-катионирование</span>
+                </div>
+            </div>
+            <div class="wrapper-item">
+                <div class="item">
+                    <span class="top-text">Озонирование</span>
+                    <div class="wrapper-image">
+                        <img src="images/manufacturing-process/3.svg">
+                    </div>
+                    <span class="bottom-text bottom-text-3">Насыщение кислородом</span>
+                </div>
+            </div>
+            <div class="wrapper-item">
+                <div class="item">
+                    <span class="top-text">Бутилирование</span>
+                    <div class="wrapper-image">
+                        <img src="images/manufacturing-process/4.svg">
+                    </div>
+                    <span class="bottom-text bottom-text-4">Розлив в фирменную поликарбонатную тару без доступа воздуха</span>
+                </div>
+            </div>
+            <div class="wrapper-item">
+                <div class="item">
+                    <span class="top-text">Упаковка</span>
+                    <div class="wrapper-image">
+                        <img src="images/manufacturing-process/5.svg">
+                    </div>
+                    <span class="bottom-text bottom-text-5">Максимально чистая вода, насыщенная кислородом</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<section class="wrapper-water-suyum">
 
 </section>
-<section class="wrapper-">
+<section class="wrapper-water-sales">
+    <div class="wrapper">
+        <div class="half">
+            <div class="wrapper-half">
+                <span class="title">Продажа питьевой бутилированной воды</span>
+                <span class="description-1">Бутилированная питьевая вода Suyum пользуется большим спросом по всей стране. Она вкусная, натуральная и абсолютно чистая. Также вода Suyum имеет благоприятные органолептические свойства, восстанавливает затраченные силы и придает дополнительную энергию вашему организму.</span>
+                <span class="description-2">Наша компания гарантирует всем клиентам получение высококачественной питьевой жидкости в бутылках по приемлемой цене. Мы заботимся о вашем здоровье и всегда держим марку.</span>
+                <button class="btn">В каталог</button>
+            </div>
+        </div>
+        <div class="half">
+            <div class="wrapper-half">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="wrapper-delivery-regions">
+    <div class="wrapper">
+        <div class="items">
+            <div class="wrapper-item">
+                <div class="item">
+                    <img class="image" src="images/delivery-regions/1.png">
+                    <span class="title">Доставка воды в офис</span>
+                    <span class="description">Бесплатная доставка питьевой воды в офис на следующий день после заказа</span>
+                </div>
+            </div>
+            <div class="wrapper-item">
+                <div class="item">
+                    <img class="image" src="images/delivery-regions/2.png">
+                    <span class="title">Доставка воды на дом</span>
+                    <span class="description">Бесплатная доставка воды по Москве и области с подъёмом в квартиру</span>
+                </div>
+            </div>
+            <div class="wrapper-item">
+                <div class="item">
+                    <img class="image" src="images/delivery-regions/3.png">
+                    <span class="title">Бесплатная доставка</span>
+                    <span class="description">Бесплатная доставка питьевой воды от 2-х бутылок</span>
+                </div>
+            </div>
+            <div class="wrapper-item">
+                <div class="item">
+                    <img class="image" src="images/delivery-regions/4.png">
+                    <span class="title">Оплата</span>
+                    <span class="description">Оплата осуществляется безналичным способом, банковской картой
+или наличными курьеру</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper bottom">
+        <img class="background" src="images/delivery-regions/bg.svg">
+        <span class="region-delivery-title">Регионы доставки</span>
+        <div class="regions">
+            <div class="wrapper-region">
+                <div class="region">
+                    <a href="/" class="region-name">Москва ЮГ (внутри МКАДа)</a>
+                    <a href="/" class="region-name">Подольск</a>
+                    <a href="/" class="region-name">Климовск</a>
+                    <a href="/" class="region-name">Щербинка</a>
+                    <a href="/" class="region-name">Львовский</a>
+                    <a href="/" class="region-name">Бутово</a>
+                </div>
+                <div class="region">
+                    <a href="/" class="region-name">Чехов</a>
+                    <a href="/" class="region-name">Домодедово</a>
+                    <a href="/" class="region-name">Видное</a>
+                    <a href="/" class="region-name">Ступино</a>
+                    <a href="/" class="region-name">Оболенск</a>
+                    <a href="/" class="region-name">Вороново</a>
+                </div>
+                <div class="region">
+                    <a href="/" class="region-name">Троицк</a>
+                    <a href="/" class="region-name">Воскресенское</a>
+                    <a href="/" class="region-name">Серпухов</a>
+                    <a href="/" class="region-name">Краснопахорское</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </section>
-<section class="wrapper-">
+<section class="wrapper-purchase-features">
+
+    <img class="blobs" src="images/purchase-features/blobs.png">
+    <div class="blur"></div>
+
+    <img class="border" src="images/purchase-features/border.svg">
+
+    <div class="wrapper">
+        <div class="part">
+            <div class="wrapper-chel">
+                <img class="chel" src="images/purchase-features/chel.png">
+                <img class="blob" src="images/purchase-features/blob.svg">
+                <img class="wave" src="images/purchase-features/wave.png">
+            </div>
+        </div>
+        <div class="part">
+            <div class="wrapper-text">
+                <span class="title">Особенности закупки и доставки питьевой воды</span>
+                <span class="description-1">Воспользоваться услугой доставки чистой воды Suyum (в офис или на дом) могут жители Москвы и Московской области. Товар поставляется на наших грузовых автомобилях, которые были специально оборудованы для этих целей.</span>
+                <span class="description-2">Для удобства потребителей питьевая вода «Suyum» реализуется в бутылях. Цены зависят от приобретаемого количества.</span>
+                <button class="btn">Заказать доставку</button>
+            </div>
+        </div>
+
+    </div>
 
 </section>
-<section class="wrapper-">
+<section class="wrapper-articles">
 
-</section>
-<section class="wrapper-">
+    <div class="wrapper">
 
-</section>
-<section class="wrapper-">
+        <span class="article-text">Статьи</span>
 
-</section>
-<section class="wrapper-">
+        <div class="articles">
+            <div class="wrapper-article">
+                <div class="article">
+                    <img class="image" src="images/article/1.png">
+                    <div class="wrapper-date">
+                        <img src="images/article/calendar.svg" alt="" class="image">
+                        <span class="date">20 января 2022</span>
+                    </div>
+                    <a href="/" class="title">Откуда берутся цветные дожди</a>
+                    <span class="description">Еще из уроков по биологии и географии мы знаем о цветных дождях – интересном, а порой и пугающем природном явлении. </span>
+                </div>
+            </div>
+            <div class="wrapper-article center">
+                <div class="article">
+                    <img class="image" src="images/article/1.png">
+                    <div class="wrapper-date">
+                        <img src="images/article/calendar.svg" alt="" class="image">
+                        <span class="date">18 января 2022</span>
+                    </div>
+                    <a href="/" class="title">Что такое память воды</a>
+                    <span class="description">По результатам многолетних исследований удалось выяснить, что живая вода обладает памятью и способностью носить информацию.</span>
+                </div>
+            </div>
+            <div class="wrapper-article">
+                <div class="article">
+                    <img class="image" src="images/article/1.png">
+                    <div class="wrapper-date">
+                        <img src="images/article/calendar.svg" alt="" class="image">
+                        <span class="date">16 января 2022</span>
+                    </div>
+                    <a href="/" class="title">Зачем нужен микробиологический анализ воды</a>
+                    <span class="description">В воде, подающейся через системы центрального или автономного водоснабжения, кроме природных загрязнений, извести или ржавчины могут </span>
+                </div>
+            </div>
+        </div>
 
-</section>
-<section class="wrapper-">
 
-</section>
-<section class="wrapper-">
+    </div>
 
 </section>
 
 <footer>
+    <img class="border-1" src="images/footer/border-1.svg">
+    <img class="border-2" src="images/footer/border-2.svg">
+    <div class="wrapper">
+        <div class="item">
+            <img class="logo" src="images/header/logo.svg">
+        </div>
+        <div class="center">
+            <div class="item">
+                <div class="double">
+                    <img class="double-image" src="images/header/catalog.svg">
+                    <span class="double-text">Каталог</span>
+                </div>
+                <div class="double">
+                    <img class="double-image" src="images/header/delivery.svg">
+                    <span class="double-text">Доставка</span>
+                </div>
+                <span class="delivery">Доставка воды в офис</span>
+                <span class="delivery">Доставка воды на дом</span>
+            </div>
+            <div class="item">
+                <span class="text">О компании</span>
+                <span class="text">Статьи</span>
+                <span class="text">Отзывы</span>
+                <span class="text">Фирменные павильоны</span>
+                <span class="text">Контакты</span>
+            </div>
+        </div>
+        <div class="item item-bottom">
+            <div class="telephones">
+                <span class="telephones-description">Телефоны для заказа</span>
+                <span class="telephones-text">+7 (916) 171-27-67</span>
+                <span class="telephones-text">+7 (968) 721-22-51</span>
+                <span class="telephones-text">+7 (903) 739-72-46</span>
+                <span class="telephones-text">+7 (917) 528-41-57</span>
+            </div>
+            <div class="email">
+                <span class="email-description">Электронная почта</span>
+                <span class="email-text">frolova.antonina.voda@yandex.ru</span>
+            </div>
+        </div>
 
-
+    </div>
 </footer>
+
 <script src="scripts.js"></script></body>
 </html>

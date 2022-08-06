@@ -9,7 +9,9 @@ const imageminGifsicle = require("imagemin-gifsicle");
 const imageminJpegtran = require("imagemin-jpegtran");
 const imageminOptipng = require("imagemin-optipng");
 const imageminSvgo = require("imagemin-svgo");
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 module.exports = {
     mode: 'development',
     entry: './src/index.js',
@@ -20,7 +22,7 @@ module.exports = {
     },
     module: {
         rules: [
-            {test: /.(s*)css$/, use: [miniCss.loader,  {
+            {test: /.(s*)css$/, use: [MiniCssExtractPlugin.loader,  {
                     loader: 'css-loader',
                     options: { url: false, importLoaders: 1 }
                 }, 'sass-loader',]},
@@ -30,7 +32,8 @@ module.exports = {
     },
     optimization: {
         minimizer: [
-            new minify({})
+            new minify({}),
+            new CssMinimizerPlugin(),
         ],
     },
     plugins: [
@@ -56,25 +59,28 @@ module.exports = {
                 ]
             }
         ),
-        // new ImageminPlugin({
-        //     bail: false,
-        //     imageminOptions: {
-        //         plugins: [
-        //             imageminGifsicle({
-        //                 interlaced: true
-        //             }),
-        //             imageminJpegtran({
-        //                 progressive: true
-        //             }),
-        //             imageminOptipng({
-        //                 optimizationLevel: 5
-        //             }),
-        //             imageminSvgo({
-        //                 removeViewBox: true
-        //             })
-        //         ]
-        //     }
-        // }),
+        new MiniCssExtractPlugin(),
+        new ImageMinimizerPlugin({
+            minimizer: {
+                implementation: ImageMinimizerPlugin.squooshMinify,
+                options: {
+                    encodeOptions: {
+                        mozjpeg: {
+                            // That setting might be close to lossless, but it’s not guaranteed
+                            // https://github.com/GoogleChromeLabs/squoosh/issues/85
+                            quality: 100,
+                        },
+                        webp: {
+                            lossless: 1,
+                        },
+                        avif: {
+                            // https://github.com/GoogleChromeLabs/squoosh/blob/dev/codecs/avif/enc/README.md
+                            cqLevel: 0,
+                        },
+                    },
+                },
+            },
+        }),
     ],
     watch: true,
 };

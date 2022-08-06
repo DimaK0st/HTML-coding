@@ -16,7 +16,7 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_reset_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/reset.scss */ \"./src/styles/reset.scss\");\n/* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/main.scss */ \"./src/styles/main.scss\");\n/* harmony import */ var _styles_header_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/header.scss */ \"./src/styles/header.scss\");\n/* harmony import */ var _styles_water_suyum_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/water-suyum.scss */ \"./src/styles/water-suyum.scss\");\n/* harmony import */ var _styles_footer_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/footer.scss */ \"./src/styles/footer.scss\");\n/* harmony import */ var _scripts_main__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./scripts/main */ \"./src/scripts/main.js\");\n/* harmony import */ var _scripts_main__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_scripts_main__WEBPACK_IMPORTED_MODULE_5__);\n\n\n\n\n\n\nconsole.log('hui2');\n\n//# sourceURL=webpack://fourth/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_reset_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/reset.scss */ \"./src/styles/reset.scss\");\n/* harmony import */ var _scripts_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/main */ \"./src/scripts/main.js\");\n/* harmony import */ var _scripts_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_scripts_main__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/main.scss */ \"./src/styles/main.scss\");\n/* harmony import */ var _styles_header_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/header.scss */ \"./src/styles/header.scss\");\n/* harmony import */ var _styles_water_suyum_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/water-suyum.scss */ \"./src/styles/water-suyum.scss\");\n/* harmony import */ var _styles_accessories_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/accessories.scss */ \"./src/styles/accessories.scss\");\n/* harmony import */ var _styles_healthy_water_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/healthy-water.scss */ \"./src/styles/healthy-water.scss\");\n/* harmony import */ var _styles_suyum_blob_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/suyum-blob.scss */ \"./src/styles/suyum-blob.scss\");\n/* harmony import */ var _styles_manufacturing_process_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/manufacturing-process.scss */ \"./src/styles/manufacturing-process.scss\");\n/* harmony import */ var _styles_water_sales_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/water-sales.scss */ \"./src/styles/water-sales.scss\");\n/* harmony import */ var _styles_delivery_regions_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./styles/delivery-regions.scss */ \"./src/styles/delivery-regions.scss\");\n/* harmony import */ var _styles_purchase_features_scss__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./styles/purchase-features.scss */ \"./src/styles/purchase-features.scss\");\n/* harmony import */ var _styles_article_scss__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./styles/article.scss */ \"./src/styles/article.scss\");\n/* harmony import */ var _styles_footer_scss__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./styles/footer.scss */ \"./src/styles/footer.scss\");\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n//# sourceURL=webpack://fourth/./src/index.js?");
 
 /***/ }),
 
@@ -27,6 +27,39 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 /***/ (() => {
 
 eval("console.log('hui1');\n\n//# sourceURL=webpack://fourth/./src/scripts/main.js?");
+
+/***/ }),
+
+/***/ "./src/styles/accessories.scss":
+/*!*************************************!*\
+  !*** ./src/styles/accessories.scss ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://fourth/./src/styles/accessories.scss?");
+
+/***/ }),
+
+/***/ "./src/styles/article.scss":
+/*!*********************************!*\
+  !*** ./src/styles/article.scss ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://fourth/./src/styles/article.scss?");
+
+/***/ }),
+
+/***/ "./src/styles/delivery-regions.scss":
+/*!******************************************!*\
+  !*** ./src/styles/delivery-regions.scss ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://fourth/./src/styles/delivery-regions.scss?");
 
 /***/ }),
 
@@ -52,6 +85,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 /***/ }),
 
+/***/ "./src/styles/healthy-water.scss":
+/*!***************************************!*\
+  !*** ./src/styles/healthy-water.scss ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://fourth/./src/styles/healthy-water.scss?");
+
+/***/ }),
+
 /***/ "./src/styles/main.scss":
 /*!******************************!*\
   !*** ./src/styles/main.scss ***!
@@ -63,6 +107,28 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 /***/ }),
 
+/***/ "./src/styles/manufacturing-process.scss":
+/*!***********************************************!*\
+  !*** ./src/styles/manufacturing-process.scss ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://fourth/./src/styles/manufacturing-process.scss?");
+
+/***/ }),
+
+/***/ "./src/styles/purchase-features.scss":
+/*!*******************************************!*\
+  !*** ./src/styles/purchase-features.scss ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://fourth/./src/styles/purchase-features.scss?");
+
+/***/ }),
+
 /***/ "./src/styles/reset.scss":
 /*!*******************************!*\
   !*** ./src/styles/reset.scss ***!
@@ -71,6 +137,28 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://fourth/./src/styles/reset.scss?");
+
+/***/ }),
+
+/***/ "./src/styles/suyum-blob.scss":
+/*!************************************!*\
+  !*** ./src/styles/suyum-blob.scss ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://fourth/./src/styles/suyum-blob.scss?");
+
+/***/ }),
+
+/***/ "./src/styles/water-sales.scss":
+/*!*************************************!*\
+  !*** ./src/styles/water-sales.scss ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://fourth/./src/styles/water-sales.scss?");
 
 /***/ }),
 
