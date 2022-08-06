@@ -3,7 +3,7 @@
 
 
 .wrapper-healthy-water {
-  height: 510px;
+  min-height: 510px;
   background-image: url("/images/healthy-water/bg-healthy-water.png");
   position: relative;
 
@@ -21,6 +21,10 @@
     max-height: 510px;
     min-height: 510px;
     z-index: 1;
+
+    @include _979{
+      max-height: none;
+    }
   }
 
   .wrapper {
@@ -30,20 +34,50 @@
     padding: 0;
     z-index: 5;
 
+    @include _979{
+      flex-direction: column-reverse;
+    }
+
     .half {
       width: 50%;
+      @include _979{
+        width: 100%;
+      }
+    }
+
+    .left{
+      @include _979{
+        height: 400px;
+        background-image: url("/images/healthy-water/bg-healthy-water.png");
+        background-position: left;
+        background-size: cover;
+      }
     }
 
     .right {
       position: relative;
 
+      @include _979{
+        height: 550px;
+        background-image: url("/images/healthy-water/left-bg.png");
+        background-position: left;
+        background-size: cover;
+      }
+
       .blob {
         position: absolute;
         max-height: 510px;
         margin: auto;
-        top: 0px;
-        left: 150px;
+        top: 0;
+        left:50%;
+        transform:translate(-50%);
         z-index: 2;
+
+        @include _979{
+          top:50%;
+          left:50%;
+          transform:translate(-50%, -50%);
+        }
       }
 
 
@@ -54,6 +88,13 @@
         flex-direction: column;
         padding-top: 70px;
         padding-left: 120px;
+
+        @include _979{
+          justify-content: center;
+          max-width: 400px;
+          margin: auto;
+          padding: 70px 5px 5px 5px;
+        }
 
         .title {
           @include font-roboto;

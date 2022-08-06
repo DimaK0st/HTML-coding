@@ -3,34 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <header>
-    <img class="logo" src="images/header/logo.svg" alt="Слава Україні">
-    <div class="double left">
-        <img src="images/header/catalog.svg" alt="Слава Україні">
-        <span>Каталог</span>
-    </div>
-    <div class="double right">
-        <img src="images/header/delivery.svg" alt="Слава Україні">
-        <span>Доставка</span>
-    </div>
-    <div class="order">
-        <span>Быстрый заказ</span>
-    </div>
-    <div class="phone-number">
-        +7 (916) 171-27-67
-        <img src="images/header/polygon.svg">
-    </div>
-    <div class="basket-wrapper">
-        <img class="basket" src="images/header/basket.svg" alt="Слава Україні">
-        <div class="count">
-            <span>1</span>
+    <div class="wrapper-header">
+        <img class="logo" src="images/header/logo.svg" alt="Слава Україні">
+        <div class="double left">
+            <img src="images/header/catalog.svg" alt="Слава Україні">
+            <span>Каталог</span>
         </div>
+        <div class="double right">
+            <img src="images/header/delivery.svg" alt="Слава Україні">
+            <span>Доставка</span>
+        </div>
+        <div class="order">
+            <span>Быстрый заказ</span>
+        </div>
+        <div class="phone-number">
+            +7 (916) 171-27-67
+            <img src="images/header/polygon.svg">
+        </div>
+        <div class="basket-wrapper">
+            <img class="basket" src="images/header/basket.svg" alt="Слава Україні">
+            <div class="count">
+                <span>1</span>
+            </div>
+        </div>
+        <img class="main" src="images/header/menu.svg" alt="Слава Україні">
     </div>
-    <img class="main" src="images/header/menu.svg" alt="Слава Україні">
+    <div class="hamburger-menu">
+        <input id="menu__toggle" type="checkbox"/>
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
 
-
+        <ul class="menu__box">
+            <li><a class="menu__item" href="#">Главная</a></li>
+            <li><a class="menu__item" href="#">Проекты</a></li>
+            <li><a class="menu__item" href="#">Команда</a></li>
+            <li><a class="menu__item" href="#">Блог</a></li>
+            <li><a class="menu__item" href="#">Контакты</a></li>
+        </ul>
+    </div>
 </header>
 <section class="wrapper-water-suyum">
     <img class="border" src="images/water-suyum/border.svg">
@@ -74,7 +89,7 @@
     <img class="border" src="images/healthy-water/border.svg">
     <img class="left-bg" src="images/healthy-water/left-bg.png">
     <div class="wrapper">
-        <div class="half">
+        <div class="left half">
 
         </div>
         <div class="right half">
@@ -130,7 +145,7 @@
         </div>
 
 
-        <div class="part">
+        <div class="part mobile-bottom">
             <div class="item">
                 <img class="image" src="images/suyum-blob/4.svg">
                 <div class="text-block text-block-4">
@@ -377,26 +392,28 @@
         <div class="item">
             <img class="logo" src="images/header/logo.svg">
         </div>
-        <div class="item">
-            <div class="double">
-                <img class="double-image" src="images/header/catalog.svg">
-                <span class="double-text">Каталог</span>
+        <div class="center">
+            <div class="item">
+                <div class="double">
+                    <img class="double-image" src="images/header/catalog.svg">
+                    <span class="double-text">Каталог</span>
+                </div>
+                <div class="double">
+                    <img class="double-image" src="images/header/delivery.svg">
+                    <span class="double-text">Доставка</span>
+                </div>
+                <span class="delivery">Доставка воды в офис</span>
+                <span class="delivery">Доставка воды на дом</span>
             </div>
-            <div class="double">
-                <img class="double-image" src="images/header/delivery.svg">
-                <span class="double-text">Доставка</span>
+            <div class="item">
+                <span class="text">О компании</span>
+                <span class="text">Статьи</span>
+                <span class="text">Отзывы</span>
+                <span class="text">Фирменные павильоны</span>
+                <span class="text">Контакты</span>
             </div>
-            <span class="delivery">Доставка воды в офис</span>
-            <span class="delivery">Доставка воды на дом</span>
         </div>
-        <div class="item">
-            <span class="text">О компании</span>
-            <span class="text">Статьи</span>
-            <span class="text">Отзывы</span>
-            <span class="text">Фирменные павильоны</span>
-            <span class="text">Контакты</span>
-        </div>
-        <div class="item">
+        <div class="item item-bottom">
             <div class="telephones">
                 <span class="telephones-description">Телефоны для заказа</span>
                 <span class="telephones-text">+7 (916) 171-27-67</span>

@@ -1,4 +1,5 @@
 @import "const";
+@import "media_mixin";
 
 .wrapper-suyum-blob {
   background: #E8F2FF;
@@ -10,9 +11,33 @@
     max-width: 1170px;
     max-height: 550px;
 
+    @include _979 {
+      flex-direction: column;
+      max-height: none;
+    }
+
+    .mobile-bottom {
+      @include _979 {
+        margin-top: 60px !important;
+      }
+      @include _480 {
+        margin-top: 90px !important;
+      }
+    }
+
     .part {
       position: relative;
       flex-basis: 400px;
+
+      @include _979 {
+        flex-basis: 0;
+        margin: 0 auto;
+        width: 360px;
+      }
+
+      @include _480 {
+        width: 100%;
+      }
 
       .o2 {
         position: absolute;
@@ -32,10 +57,13 @@
         position: relative;
         margin-bottom: 90px;
 
+        @include _979 {
+          margin-bottom: 10px;
+        }
 
         .image {
           max-height: 90px;
-          width: 90px;
+          width: 76px;
           margin-right: 15px;
         }
 

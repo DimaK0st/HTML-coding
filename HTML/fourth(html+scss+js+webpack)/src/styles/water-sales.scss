@@ -8,11 +8,22 @@
   background-size: cover;
   padding-top: 50px;
 
+  @include _979 {
+    height: auto;
+    padding-bottom: 20px;
+  }
+
   .wrapper {
     height: 100%;
 
     .half {
       flex-basis: 600px;
+      width: 610px;
+
+      @include _979 {
+        flex-basis: auto;
+        width: auto;
+      }
 
       .wrapper-half {
         display: flex;
@@ -25,6 +36,11 @@
           font-size: 48px;
           line-height: 54px;
           color: white;
+
+          @include _480 {
+            font-size: 30px;
+            line-height: 35px;
+          }
         }
 
         .description{
@@ -53,12 +69,7 @@
           border: #10EBF8 solid 2px;
           color: white;
         }
-
       }
-
     }
-
   }
-
-
 }

@@ -14,6 +14,10 @@
       justify-content: space-around;
       padding-bottom: 70px;
 
+      @include _768 {
+        flex-wrap: wrap;
+      }
+
       .wrapper-item {
         display: flex;
         flex-basis: 250px;
@@ -58,13 +62,15 @@
   }
 
   .bottom {
-
     display: flex;
     flex-direction: column;
     padding-bottom: 70px;
-
     position: relative;
     z-index: 15;
+
+    @include _768 {
+      padding-top: 10px;
+    }
 
     .background{
       position: absolute;
@@ -103,6 +109,11 @@
         display: flex;
         flex-basis: 268px;
         justify-content: space-around;
+
+        @include _600 {
+          flex-basis: auto;
+          flex-direction: column;
+        }
 
         .region {
           display: flex;

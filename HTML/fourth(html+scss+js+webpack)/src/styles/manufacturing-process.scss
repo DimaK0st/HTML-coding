@@ -1,14 +1,23 @@
 @import "const";
+@import "media_mixin";
 
 .wrapper-manufacturing-process {
   position: relative;
   height: 600px;
   padding-bottom: 40px;
 
+  @include _979 {
+    height: auto;
+  }
+
   .water {
     position: absolute;
     top: -118px;
     left: 0;
+
+    @include _979{
+      display: none;
+    }
   }
 
   .wrapper {
@@ -18,7 +27,6 @@
     padding-top: 80px;
 
     .title {
-
       text-align: center;
       margin-bottom: 60px;
       @include font-roboto;
@@ -26,20 +34,38 @@
       font-weight: 700;
       font-size: 48px;
       line-height: 54px;
+      @include _480 {
+        font-size: 30px;
+        line-height: 35px;
+      }
     }
 
     .items {
       display: flex;
       flex-direction: row;
 
+      @include _979 {
+        flex-wrap:wrap;
+        justify-content: center;
+      }
+
       .wrapper-item {
         display: flex;
         flex-basis: 300px;
         justify-content: center;
 
+        @include _768 {
+          flex-basis: auto;
+          width: 150px;
+        }
+
         .item {
           display: flex;
           flex-direction: column;
+
+          @include _768 {
+            margin: 10px;
+          }
 
           .wrapper-image {
             position: relative;

@@ -1,5 +1,6 @@
 @import "const";
 @import "components";
+@import "media_mixin";
 
 .wrapper-purchase-features {
   height: 658px;
@@ -7,16 +8,36 @@
   position: relative;
   z-index: 15;
 
+  @include _979{
+    height: auto;
+    padding-bottom: 40px;
+  }
+
   .wrapper {
+    display: flex;
+
+    @include _979{
+      flex-direction: column-reverse;
+      justify-content: center;
+    }
 
     .part {
       flex-basis: 550px;
+
+      @include _979{
+        flex-basis: 0;
+      }
 
       .wrapper-chel {
         position: relative;
         z-index: 15;
         width: auto;
         padding-top: 40px;
+
+        @include _979{
+          width: 450px;
+          margin: auto;
+        }
 
         .chel {
           position: relative;

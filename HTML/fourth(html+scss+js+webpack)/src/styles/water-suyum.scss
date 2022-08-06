@@ -10,6 +10,11 @@
   background-size: cover;
   position: relative;
 
+  @include _768{
+    padding-top: 0;
+    height: 500px;
+  }
+
   .border {
     position: absolute;
     bottom: 0;

@@ -23,13 +23,35 @@
       flex-direction: row;
       margin-top: 40px;
 
+      @include _768{
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      @include _480{
+        flex-direction: column;
+      }
+
       .center {
         border-left: 1px solid rgba(204, 204, 204, 0.93);
         border-right: 1px solid rgba(204, 204, 204, 0.93);
+
+        @include _480{
+          border: 0 solid white;
+        }
       }
 
       .wrapper-article {
         width: 33.333%;
+
+        @include _768{
+          width: 50%;
+          padding-bottom: 10px;
+        }
+
+        @include _480{
+          width: 100%;
+        }
 
         .article {
 
@@ -88,14 +110,8 @@
             line-height: 20px;
             color: #585858;
           }
-
-
         }
-
-
       }
     }
-
-
   }
 }

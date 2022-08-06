@@ -1,47 +1,63 @@
 @import "const";
 @import "components";
 
-footer{
+footer {
 
   background-image: url("/images/footer/bg.png");
   height: 500px;
   position: relative;
 
-  .border-1{
+  @include _768{
+    height: auto;
+  }
+
+  .border-1 {
     position: absolute;
     width: 100%;
-    top:-5px;
+    top: -5px;
     z-index: 11;
   }
-  .border-2{
+
+  .border-2 {
     position: absolute;
     width: 100%;
     top: 4px;
     z-index: 10;
   }
 
-  .wrapper{
+  .wrapper {
     padding-top: 145px;
     display: flex;
     flex-direction: row;
-    .item{
+
+    @include _768{
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 60px;
+    }
+
+    .item {
       display: flex;
       flex-direction: column;
       width: 25%;
 
-      .logo{
+      .logo {
         width: 160px;
+
+        @include _768{
+          margin-bottom: 20px;
+        }
       }
 
-      .double{
+      .double {
         display: flex;
         margin-bottom: 24px;
 
-        .double-image{
+        .double-image {
           width: 22px;
         }
 
-        .double-text{
+        .double-text {
           margin-left: 10px;
           @include font-roboto;
           font-style: normal;
@@ -52,7 +68,7 @@ footer{
         }
       }
 
-      .delivery{
+      .delivery {
         margin-bottom: 10px;
         @include font-roboto;
         font-style: normal;
@@ -62,7 +78,7 @@ footer{
         color: $white;
       }
 
-      .text{
+      .text {
         margin-bottom: 16px;
         @include font-roboto;
         font-style: normal;
@@ -72,16 +88,19 @@ footer{
         color: $white;
       }
 
-      .telephones, .email{
+      .telephones, .email {
         display: flex;
         flex-direction: column;
+        @include _768{
+          width: 50%;
+        }
       }
 
-      .telephones{
+      .telephones {
         margin-bottom: 36px;
       }
 
-      .telephones-description, .email-description{
+      .telephones-description, .email-description {
         margin-bottom: 7px;
         @include font-roboto;
         font-style: normal;
@@ -92,7 +111,7 @@ footer{
         color: $white;
       }
 
-      .telephones-text{
+      .telephones-text {
         margin-bottom: 5px;
         @include font-roboto;
         font-style: normal;
@@ -102,13 +121,34 @@ footer{
         color: $white;
       }
 
-      .email-text{
+      .email-text {
         @include font-roboto;
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
         line-height: 19px;
         color: $white;
+        word-break: break-word;
+      }
+
+      &-bottom{
+        @include _768{
+          flex-direction: row;
+          width: 100%;
+        }
+      }
+    }
+
+    .center {
+      width: 50%;
+      display: flex;
+
+      @include _768{
+        width: 100%;
+      }
+
+      .item {
+        width: 50%;
       }
     }
   }
