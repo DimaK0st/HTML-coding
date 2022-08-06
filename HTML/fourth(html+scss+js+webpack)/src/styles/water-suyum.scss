@@ -35,6 +35,11 @@
       max-width: 650px;
       font-style: normal;
       font-weight: 700;
+
+      @include _480{
+        font-size: 30px;
+        line-height: 35px;
+      }
     }
 
     .description {
@@ -60,6 +65,11 @@
       width: 123px;
       background-image: url("images/water-suyum/year.svg");
       position: absolute;
+
+      @include _480{
+        top: 376px;
+        right: 35%;
+      }
 
       .year-title {
         @include font-roboto;

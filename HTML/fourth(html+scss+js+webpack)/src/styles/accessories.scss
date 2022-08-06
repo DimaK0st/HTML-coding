@@ -10,7 +10,7 @@
     padding-top: 40px;
     padding-bottom: 45px;
     justify-content: space-between;
-
+    overflow: hidden;
     @include _1170 {
       flex-direction: column;
     }
@@ -93,6 +93,13 @@
         position: absolute;
         left: 120px;
         top: -16px;
+
+        @include _480{
+          left: 80px;
+        }
+        @include _350{
+
+        }
       }
 
       .cooler-img {
