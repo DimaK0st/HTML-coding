@@ -18,6 +18,7 @@
     @content;
   }
 }
+
 @mixin _600 {
   @media (max-width: 600px){
     @content;

@@ -4,7 +4,7 @@
 
 .wrapper-healthy-water {
   min-height: 510px;
-  background-image: url("/images/healthy-water/bg-healthy-water.png");
+  background-image: url("images/healthy-water/bg-healthy-water.png");
   position: relative;
 
   .border {
@@ -48,7 +48,7 @@
     .left{
       @include _979{
         height: 400px;
-        background-image: url("/images/healthy-water/bg-healthy-water.png");
+        background-image: url("images/healthy-water/bg-healthy-water.png");
         background-position: left;
         background-size: cover;
       }
@@ -59,7 +59,7 @@
 
       @include _979{
         height: 550px;
-        background-image: url("/images/healthy-water/left-bg.png");
+        background-image: url("images/healthy-water/left-bg.png");
         background-position: left;
         background-size: cover;
       }

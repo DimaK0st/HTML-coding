@@ -479,7 +479,7 @@ header {
   \****************************************************************************************************************************************************/
 .wrapper-healthy-water {
   min-height: 510px;
-  background-image: url("/images/healthy-water/bg-healthy-water.png");
+  background-image: url("images/healthy-water/bg-healthy-water.png");
   position: relative; }
   .wrapper-healthy-water .border {
     position: absolute;
@@ -513,7 +513,7 @@ header {
     @media (max-width: 979px) {
       .wrapper-healthy-water .wrapper .left {
         height: 400px;
-        background-image: url("/images/healthy-water/bg-healthy-water.png");
+        background-image: url("images/healthy-water/bg-healthy-water.png");
         background-position: left;
         background-size: cover; } }
     .wrapper-healthy-water .wrapper .right {
@@ -521,7 +521,7 @@ header {
       @media (max-width: 979px) {
         .wrapper-healthy-water .wrapper .right {
           height: 550px;
-          background-image: url("/images/healthy-water/left-bg.png");
+          background-image: url("images/healthy-water/left-bg.png");
           background-position: left;
           background-size: cover; } }
       .wrapper-healthy-water .wrapper .right .blob {
@@ -818,7 +818,7 @@ header {
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/styles/water-sales.scss ***!
   \**************************************************************************************************************************************************/
 .wrapper-water-sales {
-  background-image: url("/images/water-sales/bg.png");
+  background-image: url("images/water-sales/bg.png");
   height: 650px;
   background-position: center;
   background-size: cover;
@@ -1252,7 +1252,7 @@ header {
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/styles/footer.scss ***!
   \*********************************************************************************************************************************************/
 footer {
-  background-image: url("/images/footer/bg.png");
+  background-image: url("images/footer/bg.png");
   height: 500px;
   position: relative; }
   @media (max-width: 768px) {
