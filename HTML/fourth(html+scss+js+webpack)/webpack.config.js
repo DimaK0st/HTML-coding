@@ -22,10 +22,12 @@ module.exports = {
     },
     module: {
         rules: [
-            {test: /.(s*)css$/, use: [MiniCssExtractPlugin.loader,  {
+            {
+                test: /.(s*)css$/, use: [MiniCssExtractPlugin.loader, {
                     loader: 'css-loader',
-                    options: { url: false, importLoaders: 1 }
-                }, 'sass-loader',]},
+                    options: {url: false, importLoaders: 1}
+                }, 'sass-loader',]
+            },
             // {test: /\.(jpg|png|svg)$/, loader: 'file-loader', options: {name: '[path][name].[ext]', emitFile: false}},
             {test: /\.js$/, exclude: /node_modules/, use: ['babel-loader'],},
         ]

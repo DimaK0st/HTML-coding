@@ -7,7 +7,7 @@ footer {
   height: 500px;
   position: relative;
 
-  @include _768{
+  @include _768 {
     height: auto;
   }
 
@@ -30,7 +30,7 @@ footer {
     display: flex;
     flex-direction: row;
 
-    @include _768{
+    @include _768 {
       flex-direction: column;
       justify-content: center;
       padding-top: 60px;
@@ -44,7 +44,7 @@ footer {
       .logo {
         width: 160px;
 
-        @include _768{
+        @include _768 {
           margin-bottom: 20px;
         }
       }
@@ -91,7 +91,7 @@ footer {
       .telephones, .email {
         display: flex;
         flex-direction: column;
-        @include _768{
+        @include _768 {
           width: 50%;
         }
       }
@@ -131,8 +131,8 @@ footer {
         word-break: break-word;
       }
 
-      &-bottom{
-        @include _768{
+      &-bottom {
+        @include _768 {
           flex-direction: row;
           width: 100%;
         }
@@ -143,7 +143,7 @@ footer {
       width: 50%;
       display: flex;
 
-      @include _768{
+      @include _768 {
         width: 100%;
       }
 

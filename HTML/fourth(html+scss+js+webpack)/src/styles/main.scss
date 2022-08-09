@@ -1,15 +1,14 @@
-html{
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-body{
-    //background: #8d8d8d;
-    box-sizing: border-box;
+body {
+  box-sizing: border-box;
 
-    .wrapper{
-        max-width: 1170px;
-        margin: auto;
-        padding: 0 5px;
-    }
+  .wrapper {
+    max-width: 1170px;
+    margin: auto;
+    padding: 0 5px;
+  }
 }

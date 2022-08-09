@@ -8,7 +8,7 @@
   position: relative;
   z-index: 15;
 
-  @include _979{
+  @include _979 {
     height: auto;
     padding-bottom: 40px;
   }
@@ -16,7 +16,7 @@
   .wrapper {
     display: flex;
 
-    @include _979{
+    @include _979 {
       flex-direction: column-reverse;
       justify-content: center;
     }
@@ -24,7 +24,7 @@
     .part {
       flex-basis: 550px;
 
-      @include _979{
+      @include _979 {
         flex-basis: 0;
       }
 
@@ -34,12 +34,12 @@
         width: auto;
         padding-top: 40px;
 
-        @include _979{
+        @include _979 {
           width: 450px;
           margin: auto;
         }
 
-        @include _480{
+        @include _480 {
           width: 100%;
         }
 
@@ -62,7 +62,7 @@
           left: 100px;
           z-index: 10;
 
-          @include _768{
+          @include _768 {
             display: none;
           }
         }
@@ -82,7 +82,7 @@
           color: white;
           margin-bottom: 20px;
 
-          @include _350{
+          @include _350 {
             font-size: 30px;
             line-height: 35px;
           }

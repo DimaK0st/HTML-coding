@@ -1,42 +1,45 @@
-._anim-left, ._anim-right, ._anim-top, ._anim-bottom{
+._anim-left, ._anim-right, ._anim-top, ._anim-bottom {
   opacity: 0;
   transition: all 0.8s ease 0s;
 }
 
-._anim-rotate-left{
+._anim-rotate-left {
   transform: rotateY(180deg);
   transition: all 0.8s ease 0s;
 }
 
-._anim-rotate-left-360{
+._anim-rotate-left-360 {
   transform: rotate(200deg);
   transition: all 0.8s ease 0s;
 }
 
-._anim-rotate-right{
+._anim-rotate-right {
   transform: rotateY(-180deg);
   transition: all 0.8s ease 0s;
 }
 
-._anim-rotate-top{
+._anim-rotate-top {
   transform: rotateX(-180deg);
   transition: all 0.8s ease 0s;
 }
 
 ._anim-left {
-  transform: translate(-100%,0);
-}
-._anim-right {
-  transform: translate(100%,0);
-}
-._anim-top {
-  transform: translate(0,-100%);
-}
-._anim-bottom{
-  transform: translate(0,100%);
+  transform: translate(-100%, 0);
 }
 
-._active{
-  transform: translate(0,0);
+._anim-right {
+  transform: translate(100%, 0);
+}
+
+._anim-top {
+  transform: translate(0, -100%);
+}
+
+._anim-bottom {
+  transform: translate(0, 100%);
+}
+
+._active {
+  transform: translate(0, 0);
   opacity: 1;
 }

@@ -10,7 +10,7 @@
   background-size: cover;
   position: relative;
 
-  @include _768{
+  @include _768 {
     padding-top: 0;
     height: 500px;
   }
@@ -36,7 +36,7 @@
       font-style: normal;
       font-weight: 700;
 
-      @include _480{
+      @include _480 {
         font-size: 30px;
         line-height: 35px;
       }
@@ -66,7 +66,7 @@
       background-image: url("images/water-suyum/year.svg");
       position: absolute;
 
-      @include _480{
+      @include _480 {
         top: 376px;
         right: 35%;
       }

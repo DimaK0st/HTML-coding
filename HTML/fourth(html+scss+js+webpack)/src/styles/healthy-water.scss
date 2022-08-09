@@ -22,7 +22,7 @@
     min-height: 510px;
     z-index: 1;
 
-    @include _979{
+    @include _979 {
       max-height: none;
     }
   }
@@ -34,19 +34,19 @@
     padding: 0;
     z-index: 5;
 
-    @include _979{
+    @include _979 {
       flex-direction: column-reverse;
     }
 
     .half {
       width: 50%;
-      @include _979{
+      @include _979 {
         width: 100%;
       }
     }
 
-    .left{
-      @include _979{
+    .left {
+      @include _979 {
         height: 400px;
         background-image: url("images/healthy-water/bg-healthy-water.png");
         background-position: left;
@@ -57,7 +57,7 @@
     .right {
       position: relative;
 
-      @include _979{
+      @include _979 {
         height: 550px;
         background-image: url("images/healthy-water/left-bg.png");
         background-position: left;
@@ -69,14 +69,14 @@
         max-height: 510px;
         margin: auto;
         top: 0;
-        left:50%;
-        transform:translate(-50%);
+        left: 50%;
+        transform: translate(-50%);
         z-index: 2;
 
-        @include _979{
-          top:50%;
-          left:50%;
-          transform:translate(-50%, -50%);
+        @include _979 {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
         }
       }
 
@@ -89,7 +89,7 @@
         padding-top: 70px;
         padding-left: 120px;
 
-        @include _979{
+        @include _979 {
           justify-content: center;
           max-width: 400px;
           margin: auto;

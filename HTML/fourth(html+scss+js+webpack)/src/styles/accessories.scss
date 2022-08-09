@@ -94,10 +94,10 @@
         left: 120px;
         top: -16px;
 
-        @include _480{
+        @include _480 {
           left: 80px;
         }
-        @include _350{
+        @include _350 {
 
         }
       }
