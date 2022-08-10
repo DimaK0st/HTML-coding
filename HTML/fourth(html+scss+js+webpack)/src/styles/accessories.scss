@@ -50,8 +50,6 @@
 
         span {
           @include font-roboto;
-          font-style: normal;
-          font-weight: 700;
           font-size: 30px;
           line-height: 30px;
           color: $text-blue;
@@ -118,8 +116,6 @@
 
         span {
           @include font-roboto;
-          font-style: normal;
-          font-weight: 700;
           font-size: 30px;
           line-height: 30px;
           color: $text-blue;

@@ -4,7 +4,6 @@
 
 @mixin button {
   @include font-roboto;
-  font-style: normal;
   font-weight: 800;
   font-size: 15px;
   line-height: 18px;

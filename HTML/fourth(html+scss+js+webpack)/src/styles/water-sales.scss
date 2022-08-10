@@ -31,8 +31,6 @@
 
         .title {
           @include font-roboto;
-          font-style: normal;
-          font-weight: 700;
           font-size: 48px;
           line-height: 54px;
           color: white;
@@ -51,9 +49,7 @@
         .description {
           &-1, &-2 {
             @include font-roboto;
-            font-style: normal;
             font-weight: 500;
-            line-height: 22px;
             color: white;
           }
 

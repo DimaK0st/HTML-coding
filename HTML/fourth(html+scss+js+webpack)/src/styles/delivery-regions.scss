@@ -36,7 +36,6 @@
 
           .title, .description {
             @include font-roboto;
-            font-style: normal;
             text-align: center;
           }
 
@@ -46,7 +45,6 @@
             margin: 15px auto;
             font-weight: 800;
             font-size: 24px;
-            line-height: 22px;
           }
 
           .description {
@@ -85,8 +83,6 @@
 
     .region-delivery-title {
       @include font-roboto;
-      font-style: normal;
-      font-weight: 700;
       font-size: 48px;
       line-height: 54px;
       color: black;
@@ -121,7 +117,6 @@
 
           .region-name {
             @include font-roboto;
-            font-style: normal;
             font-weight: 400;
             font-size: 24px;
             line-height: 28px;

@@ -75,8 +75,6 @@
 
         .title {
           @include font-roboto;
-          font-style: normal;
-          font-weight: 700;
           font-size: 43px;
           line-height: 54px;
           color: white;
@@ -91,17 +89,14 @@
         .description {
           &-1 {
             @include font-roboto;
-            font-style: normal;
             font-weight: 400;
             font-size: 16px;
-            line-height: 22px;
             color: white;
             margin-bottom: 15px;
           }
 
           &-2 {
             @include font-roboto;
-            font-style: normal;
             font-weight: 500;
             font-size: 22px;
             line-height: 26px;

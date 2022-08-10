@@ -60,10 +60,8 @@ footer {
         .double-text {
           margin-left: 10px;
           @include font-roboto;
-          font-style: normal;
           font-weight: 600;
           font-size: 18px;
-          line-height: 22px;
           color: $white;
         }
       }
@@ -71,20 +69,16 @@ footer {
       .delivery {
         margin-bottom: 10px;
         @include font-roboto;
-        font-style: normal;
         font-weight: 400;
         font-size: 17px;
-        line-height: 22px;
         color: $white;
       }
 
       .text {
         margin-bottom: 16px;
         @include font-roboto;
-        font-style: normal;
         font-weight: 400;
         font-size: 17px;
-        line-height: 22px;
         color: $white;
       }
 
@@ -103,10 +97,8 @@ footer {
       .telephones-description, .email-description {
         margin-bottom: 7px;
         @include font-roboto;
-        font-style: normal;
         font-weight: 500;
         font-size: 12px;
-        line-height: 22px;
         text-transform: uppercase;
         color: $white;
       }
@@ -114,7 +106,6 @@ footer {
       .telephones-text {
         margin-bottom: 5px;
         @include font-roboto;
-        font-style: normal;
         font-weight: 500;
         font-size: 17px;
         line-height: 20px;
@@ -123,7 +114,6 @@ footer {
 
       .email-text {
         @include font-roboto;
-        font-style: normal;
         font-weight: 400;
         font-size: 16px;
         line-height: 19px;

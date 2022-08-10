@@ -33,8 +33,6 @@
       line-height: 57px;
       color: #FFFFFF;
       max-width: 650px;
-      font-style: normal;
-      font-weight: 700;
 
       @include _480 {
         font-size: 30px;
@@ -44,7 +42,6 @@
 
     .description {
       @include font-roboto;
-      font-style: normal;
       max-width: 252px;
       font-weight: 400;
       font-size: 16px;
@@ -83,8 +80,6 @@
         left: 50%;
         transform: translate(-50%, -50%);
         @include font-roboto;
-        font-style: normal;
-        font-weight: 700;
         font-size: 55px;
         line-height: 64px;
         text-align: center;
