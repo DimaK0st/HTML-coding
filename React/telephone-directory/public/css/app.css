@@ -10337,29 +10337,53 @@ header {
   padding: 0 30px 20px 70px;
   border-radius: 0 0 30px 30px;
 }
-header img {
+@media (max-width: 768px) {
+  header {
+    padding: 0 5px 20px 5px;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    justify-content: center;
+    height: 90px;
+    padding: 5px;
+  }
+}
+
+.logo {
   height: 50px;
   filter: invert(1);
   transform: scaleX(-1);
   cursor: pointer;
 }
-header .input-wrapper {
-  width: 60%;
+@media (max-width: 600px) {
+  .logo {
+    display: none;
+  }
+}
+
+.number {
+  width: 450px;
   display: flex;
   justify-content: center;
   position: relative;
 }
-header .input-wrapper span {
+.number__code {
   position: absolute;
-  left: 12%;
+  left: 5%;
   font-size: 35px;
   font-family: inherit;
   color: gray;
   top: 3px;
 }
-header .input-wrapper input {
+@media (max-width: 350px) {
+  .number__code {
+    font-size: 28px;
+  }
+}
+.number__input {
   height: 60px;
-  width: 80%;
+  width: 100%;
   margin: auto;
   border: seashell solid 0;
   border-radius: 40px;
@@ -10367,13 +10391,48 @@ header .input-wrapper input {
   font-size: 35px;
   text-align: center;
 }
-header .input-wrapper img {
+@media (max-width: 480px) {
+  .number__input[type=text] {
+    padding-left: 20%;
+  }
+}
+@media (max-width: 350px) {
+  .number__input {
+    font-size: 28px;
+    height: 50px;
+  }
+  .number__input[type=text] {
+    padding-left: 20%;
+  }
+}
+.number__search {
+  height: 50px;
   padding: 14px;
   border-radius: 40px;
   background: #00dc05;
   position: absolute;
   top: 5px;
-  right: 12%;
+  right: 5%;
   cursor: pointer;
   filter: invert(1);
+}
+@media (max-width: 480px) {
+  .number__search {
+    height: 40px;
+    top: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .number__search {
+    display: none;
+  }
+}
+
+.todo {
+  visibility: hidden;
+}
+@media (max-width: 600px) {
+  .todo {
+    display: none;
+  }
 }

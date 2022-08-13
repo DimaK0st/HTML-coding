@@ -5,14 +5,14 @@ import './header.scss'
 const Header = () => {
 
     return(
-        <header>
-            <img  alt={'Слава Україні'} src={phone}/>
-            <form className={'input-wrapper'}>
-                <span>+38</span>
-                <img src={search}/>
-                <input placeholder={'097-123-45-67'}/>
+        <header className={'header'}>
+            <img className='logo'  alt={'Слава Україні'} src={phone}/>
+            <form className={'number header__number'}>
+                <span className={'number__code'}>+38</span>
+                <img className={'number__search'} src={search}/>
+                <input type="text" className={'number__input'} placeholder={'097-123-45-67'}/>
             </form>
-            <span style={{visibility: 'hidden'}}>TODO...</span>
+            <span className={'todo'}>TODO...</span>
         </header>
     )
 }

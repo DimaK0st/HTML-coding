@@ -5526,22 +5526,26 @@ __webpack_require__.r(__webpack_exports__);
 
 var Header = function Header() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("header", {
+    className: 'header',
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+      className: "logo",
       alt: 'Слава Україні',
       src: _assets_phone_svg__WEBPACK_IMPORTED_MODULE_0__["default"]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
-      className: 'input-wrapper',
+      className: 'number header__number',
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        className: 'number__code',
         children: "+38"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+        className: 'number__search',
         src: _assets_search_svg__WEBPACK_IMPORTED_MODULE_1__["default"]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "text",
+        className: 'number__input',
         placeholder: '097-123-45-67'
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-      style: {
-        visibility: 'hidden'
-      },
+      className: 'todo',
       children: "TODO..."
     })]
   });
@@ -10619,7 +10623,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "header {\n  height: 130px;\n  background: #663ef5;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 30px 20px 70px;\n  border-radius: 0 0 30px 30px;\n}\nheader img {\n  height: 50px;\n  filter: invert(1);\n  transform: scaleX(-1);\n  cursor: pointer;\n}\nheader .input-wrapper {\n  width: 60%;\n  display: flex;\n  justify-content: center;\n  position: relative;\n}\nheader .input-wrapper span {\n  position: absolute;\n  left: 12%;\n  font-size: 35px;\n  font-family: inherit;\n  color: gray;\n  top: 3px;\n}\nheader .input-wrapper input {\n  height: 60px;\n  width: 80%;\n  margin: auto;\n  border: seashell solid 0;\n  border-radius: 40px;\n  font-family: inherit;\n  font-size: 35px;\n  text-align: center;\n}\nheader .input-wrapper img {\n  padding: 14px;\n  border-radius: 40px;\n  background: #00dc05;\n  position: absolute;\n  top: 5px;\n  right: 12%;\n  cursor: pointer;\n  filter: invert(1);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "header {\n  height: 130px;\n  background: #663ef5;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 30px 20px 70px;\n  border-radius: 0 0 30px 30px;\n}\n@media (max-width: 768px) {\n  header {\n    padding: 0 5px 20px 5px;\n  }\n}\n@media (max-width: 600px) {\n  header {\n    justify-content: center;\n    height: 90px;\n    padding: 5px;\n  }\n}\n\n.logo {\n  height: 50px;\n  filter: invert(1);\n  transform: scaleX(-1);\n  cursor: pointer;\n}\n@media (max-width: 600px) {\n  .logo {\n    display: none;\n  }\n}\n\n.number {\n  width: 450px;\n  display: flex;\n  justify-content: center;\n  position: relative;\n}\n.number__code {\n  position: absolute;\n  left: 5%;\n  font-size: 35px;\n  font-family: inherit;\n  color: gray;\n  top: 3px;\n}\n@media (max-width: 350px) {\n  .number__code {\n    font-size: 28px;\n  }\n}\n.number__input {\n  height: 60px;\n  width: 100%;\n  margin: auto;\n  border: seashell solid 0;\n  border-radius: 40px;\n  font-family: inherit;\n  font-size: 35px;\n  text-align: center;\n}\n@media (max-width: 480px) {\n  .number__input[type=text] {\n    padding-left: 20%;\n  }\n}\n@media (max-width: 350px) {\n  .number__input {\n    font-size: 28px;\n    height: 50px;\n  }\n  .number__input[type=text] {\n    padding-left: 20%;\n  }\n}\n.number__search {\n  height: 50px;\n  padding: 14px;\n  border-radius: 40px;\n  background: #00dc05;\n  position: absolute;\n  top: 5px;\n  right: 5%;\n  cursor: pointer;\n  filter: invert(1);\n}\n@media (max-width: 480px) {\n  .number__search {\n    height: 40px;\n    top: 10px;\n  }\n}\n@media (max-width: 480px) {\n  .number__search {\n    display: none;\n  }\n}\n\n.todo {\n  visibility: hidden;\n}\n@media (max-width: 600px) {\n  .todo {\n    display: none;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
