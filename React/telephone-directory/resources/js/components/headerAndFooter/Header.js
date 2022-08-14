@@ -1,12 +1,11 @@
 import phone from '/assets/phone.svg'
 import search from '/assets/search.svg'
-import './header.scss'
 
 const Header = () => {
 
-    return(
+    return (
         <header className={'header'}>
-            <img className='logo'  alt={'Слава Україні'} src={phone}/>
+            <img className='logo' alt={'Слава Україні'} src={phone}/>
             <form className={'number header__number'}>
                 <span className={'number__code'}>+38</span>
                 <img className={'number__search'} src={search}/>

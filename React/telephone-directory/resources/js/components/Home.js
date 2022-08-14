@@ -1,4 +1,5 @@
 import React from 'react';
+import Stars from "./rating/stars/Stars";
 
 function Home(props) {
     {console.log('asdfasdf')}
@@ -21,6 +22,11 @@ function Home(props) {
                 <div>
                     {/*{props.children}*/}
                 </div>
+                <Stars count={5}/>
+                <Stars count={4}/>
+                <Stars count={3}/>
+                <Stars count={2}/>
+                <Stars count={1}/>
             </div>
         )
 }

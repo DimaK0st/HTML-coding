@@ -1,0 +1,22 @@
+@import './resources/sass/_variables.scss';
+//@import '';
+
+.stars{
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+   &__item{
+       width: auto;
+       right: 0;
+       color: white;
+       font-size: 20px;
+       text-align: right;
+
+
+   }
+    .five{color: $color-five-stars}
+    .four{color: $color-four-stars}
+    .three{color: $color-three-stars}
+    .two{color: $color-two-stars}
+    .one{color: $color-one-stars}
+}
