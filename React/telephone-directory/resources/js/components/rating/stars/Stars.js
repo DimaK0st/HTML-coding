@@ -2,16 +2,10 @@ import phone from '/assets/phone.svg'
 import search from '/assets/search.svg'
 import './stars.scss'
 import {useState} from "react";
+import NUMBER_CLASS_NAME from "../../../_CONST";
 
 const Stars = (props) => {
-    const count = props.count?? 1;
-    const [classStar, setClassStar] = useState([
-        'one',
-        'two',
-        'three',
-        'four',
-        'five',
-    ]);
+    const {count, className} = props;
 
     let starsContent = '';
 
@@ -21,7 +15,7 @@ const Stars = (props) => {
 
     return (
         <div className={'stars'}>
-            <span className={`stars__item ${classStar[count-1]}`}>{starsContent}</span>
+            <span className={`stars__item ${className} ${NUMBER_CLASS_NAME[count-1]}`}>{starsContent}</span>
         </div>
     )
 }

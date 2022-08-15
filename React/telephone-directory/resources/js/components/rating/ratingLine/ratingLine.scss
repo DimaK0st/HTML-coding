@@ -1,0 +1,12 @@
+@import './resources/sass/_variables.scss';
+
+.rating-line{
+    background: $color-rating-line-bg;
+    height: 16px;
+    border-radius: 15px;
+
+    &__item{
+        height: 16px;
+        border-radius: 15px;
+    }
+}

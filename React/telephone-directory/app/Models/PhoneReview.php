@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @property int $number_id
  * @property string $review
- * @property int $rating
+ * @property int $ratingLine
  * @property int $ip
  */
 class PhoneReview extends Model
@@ -19,7 +19,7 @@ class PhoneReview extends Model
     protected $fillable = [
         'number_id',
         'review',
-        'rating',
+        'ratingLine',
         'ip',
         ];
 

@@ -16,3 +16,20 @@ $color-four-stars: #89a25b;
 $color-three-stars: #d3b04d;
 $color-two-stars: #de8e4e;
 $color-one-stars: #e76c53;
+
+//Rating Line
+$color-rating-line-bg: #CED8E866;
+
+
+
+.five{color: $color-five-stars}
+.four{color: $color-four-stars}
+.three{color: $color-three-stars}
+.two{color: $color-two-stars}
+.one{color: $color-one-stars}
+
+.bg-five{background: $color-five-stars}
+.bg-four{background: $color-four-stars}
+.bg-three{background: $color-three-stars}
+.bg-two{background: $color-two-stars}
+.bg-one{background: $color-one-stars}

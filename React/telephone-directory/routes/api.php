@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Phone\Controllers\PhoneController;
+use App\Http\Controllers\Phone\Controllers\PhoneRating;
 use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['prefix'=>'v1'], function () {
     Route::post('/view', [PhoneController::class, 'index']);
+    Route::post('number-rating', [PhoneRating::class, 'getPhoneRating']);
 //        function (Request $request) {
 //        dump($request->getClientIp());
 //        $review = new PhoneReview();

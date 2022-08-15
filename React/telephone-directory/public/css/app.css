@@ -1,5 +1,45 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 @charset "UTF-8";
+.five {
+  color: #26948b;
+}
+
+.four {
+  color: #89a25b;
+}
+
+.three {
+  color: #d3b04d;
+}
+
+.two {
+  color: #de8e4e;
+}
+
+.one {
+  color: #e76c53;
+}
+
+.bg-five {
+  background: #26948b;
+}
+
+.bg-four {
+  background: #89a25b;
+}
+
+.bg-three {
+  background: #d3b04d;
+}
+
+.bg-two {
+  background: #de8e4e;
+}
+
+.bg-one {
+  background: #e76c53;
+}
+
 *,
 *::before,
 *::after {
@@ -10327,6 +10367,46 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.five {
+  color: #26948b;
+}
+
+.four {
+  color: #89a25b;
+}
+
+.three {
+  color: #d3b04d;
+}
+
+.two {
+  color: #de8e4e;
+}
+
+.one {
+  color: #e76c53;
+}
+
+.bg-five {
+  background: #26948b;
+}
+
+.bg-four {
+  background: #89a25b;
+}
+
+.bg-three {
+  background: #d3b04d;
+}
+
+.bg-two {
+  background: #de8e4e;
+}
+
+.bg-one {
+  background: #e76c53;
+}
+
 header {
   height: 130px;
   background: #663ef5;

@@ -7,7 +7,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter as Router, Route, Routes,} from "react-router-dom";
 
-import Home from './components/Home';
+import Home from './components/home/Home';
 import CreateItem from './components/CreateItem';
 import Footer from "./components/headerAndFooter/Footer";
 
@@ -20,7 +20,7 @@ root.render(
             <Router>
 
                 <Routes>
-                    <Route path="/" element={<Home/>}/>
+                    <Route path="/:number" element={<Home/>}/>
                     <Route path="/add-item" element={<CreateItem/>}/>
 
                 </Routes>

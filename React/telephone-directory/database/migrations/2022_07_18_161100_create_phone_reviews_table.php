@@ -17,7 +17,7 @@ class CreatePhoneReviewsTable extends Migration
             $table->id();
             $table->foreignId('number_id')->constrained('phone_numbers');
             $table->string('review')->nullable();
-            $table->integer('rating')->nullable();
+            $table->integer('ratingLine')->nullable();
             $table->integer('ip')->unsigned();
         });
     }
