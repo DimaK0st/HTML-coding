@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix'=>'v1'], function () {
+Route::group(['prefix'=>'v1', 'middleware'=>['cors']], function () {
     Route::post('/view', [PhoneController::class, 'index']);
     Route::post('number-rating', [PhoneRating::class, 'getPhoneRating']);
 //        function (Request $request) {

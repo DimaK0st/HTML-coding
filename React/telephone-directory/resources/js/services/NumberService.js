@@ -31,6 +31,11 @@ const usePhoneService = () => {
     axios.post(_apiBase + 'number-rating', { number: number }, {headers: {
             'Content-Type':  'application/json',
             'Accept':        'application/json',
+            'Access-Control-Allow-Headers': 'Content-Type, X-Auth-Token, Origin',
+            'Access-Control-Allow-Origin': '*',
+
+            mode: 'no-cors',
+            credentials: 'same-origin',
         }})
         .then(res => {
             console.log(res);

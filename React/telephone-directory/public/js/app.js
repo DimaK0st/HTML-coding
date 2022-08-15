@@ -5756,7 +5756,11 @@ var usePhoneService = function usePhoneService() {
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Access-Control-Allow-Headers': 'Content-Type, X-Auth-Token, Origin',
+        'Access-Control-Allow-Origin': '*',
+        mode: 'no-cors',
+        credentials: 'same-origin'
       }
     }).then(function (res) {
       console.log(res);
