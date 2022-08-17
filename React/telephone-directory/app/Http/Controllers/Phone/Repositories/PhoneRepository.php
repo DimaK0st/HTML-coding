@@ -8,11 +8,11 @@ class PhoneRepository
 {
 
 
-    public function getIdByPhone(string $region, string $digital)
+    public function getPhone(string $region, string $digital)
     {
         return $this->query()
             ->            join('regions', 'numbers.region_id', '=', 'regions.id')
-            ->where('region', $region)->where('digital', $digital)->get()->toArray();
+            ->where('region', $region)->where('digital', $digital)->get();
 
     }
 
