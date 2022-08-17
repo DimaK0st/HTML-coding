@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Phone\Requests;
+namespace App\Http\Controllers\Rating\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GetPhoneRatingRequest extends FormRequest
+class GetRatingRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.

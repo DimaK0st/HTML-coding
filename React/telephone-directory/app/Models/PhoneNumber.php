@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $region_id
  * @property int $digital_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PhoneNumber query()
  */
 class PhoneNumber extends Model
 {
