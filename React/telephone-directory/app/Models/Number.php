@@ -10,11 +10,14 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property int $region_id
- * @property int $digital_id
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PhoneNumber query()
+ * @property int $digital
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Number query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Number find()
  */
-class PhoneNumber extends Model
+class Number extends Model
 {
+    use HasFactory;
+
     public $timestamps = false;
 
     protected $fillable = [
@@ -27,7 +30,7 @@ class PhoneNumber extends Model
      */
     public function regions(): HasMany
     {
-        return $this->hasMany(PhoneRegion::class, 'id', 'digital_id');
+        return $this->hasMany(Region::class, 'id', 'region_id');
     }
 
 }

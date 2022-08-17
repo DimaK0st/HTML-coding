@@ -2,42 +2,63 @@
 
 namespace App\Http\Controllers\Phone\Services;
 
-use App\Models\PhoneNumber;
+use App\Http\Controllers\Phone\Repositories\PhoneRepository;
+use App\Models\Number;
 
 class PhoneService
 {
 
-    public function createNewPhone()
+    private PhoneRepository $phoneRepository;
+
+    public function __construct(PhoneRepository $phoneRepository)
     {
-
-    }
-
-    public function checkPhone()
-    {
-
+        $this->phoneRepository = $phoneRepository;
     }
 
     public function getPhone()
     {
-        ddh($this->getRegionAndDigitals('+380971281678'));
+        $validatePhone='';
+
+        if (!$validatePhone = $this->getRegionAndDigitals('971281678')){
+            return null;
+        }
+        if (!$this->phoneRepository->getIdByPhone($validatePhone['region'], $validatePhone['digital'])){
+            $this->createNewPhone($validatePhone['region'], $validatePhone['digital']);
+        }
+
         return $this->query()->where();
     }
 
+    public function createNewPhone(string $region, string $digital)
+    {
+
+    }
+
+    public function checkRegion(){
+
+    }
+
+
     private function getRegionAndDigitals(string $phone)
     {
-//        $pattern = '/\+380\d{9}/';
-        $patternOne = '/(\+380|)(\d{9})/';
-        $valideOne = preg_match($patternOne, $phone, $matchesOne);
-//        $valideTwo = preg_match($patternTwo, $phone, $matchesTwo);
+        if (strlen($phone) > 13 || strlen($phone) < 9) {
+            return null;
+        }
 
-        ddh($matchesOne);
+        $pattern = '/(\+380|)(\d{9}$)/';
 
-        return $valideOne;
+        preg_match($pattern, $phone, $matchesOne);
+        $fullPhone = array_pop($matchesOne);
+
+        if (strlen($fullPhone) === 9) {
+            return [
+                'region' => substr($fullPhone, 0, 2),
+                'digital' => substr($fullPhone, 2),
+            ];
+        } else {
+            return null;
+        }
     }
 
-    private function query(): \Illuminate\Database\Eloquent\Builder
-    {
-        return PhoneNumber::query();
-    }
 
 }

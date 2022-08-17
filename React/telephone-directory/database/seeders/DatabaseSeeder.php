@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\PhoneDigital;
-use App\Models\PhoneRegion;
+use App\Models\Region;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

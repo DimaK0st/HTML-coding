@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $ratingLine
  * @property int $ip
  */
-class PhoneReview extends Model
+class Review extends Model
 {
     public $timestamps = false;
 
@@ -28,7 +28,7 @@ class PhoneReview extends Model
      */
     public function numbers(): HasMany
     {
-        return $this->hasMany(PhoneNumber::class, 'id', 'number_id');
+        return $this->hasMany(Number::class, 'id', 'number_id');
     }
 
 

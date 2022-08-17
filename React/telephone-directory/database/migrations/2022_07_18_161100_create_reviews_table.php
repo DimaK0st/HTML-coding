@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePhoneRegionsTable extends Migration
+class CreateReviewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreatePhoneRegionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('phone_regions', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->string('code', 2);
-            $table->string('description');
+            $table->foreignId('number_id')->constrained('numbers');
+            $table->string('review')->nullable();
+            $table->integer('ratingLine')->nullable();
+            $table->integer('ip')->unsigned();
         });
     }
 
@@ -27,6 +29,6 @@ class CreatePhoneRegionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('phone_regions');
+        Schema::dropIfExists('reviews');
     }
 }
