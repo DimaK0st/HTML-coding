@@ -2,19 +2,26 @@
 
 namespace App\Http\Controllers\Rating\Services;
 
+use App\Http\Controllers\Phone\Repositories\PhoneRepository;
+use App\Http\Controllers\Phone\Services\PhoneService;
 use App\Http\Controllers\Rating\Repositories\RatingRepository;
 
 class RatingService
 {
-    private RatingRepository $phoneRatingRepositories;
+    private RatingRepository $ratingRepository;
+    private PhoneService $phoneService;
 
-    public function __construct(RatingRepository $phoneRatingRepositories)
+    public function __construct(RatingRepository $ratingRepository, PhoneService $phoneService)
     {
-        $this->phoneRatingRepositories = $phoneRatingRepositories;
+        $this->ratingRepository = $ratingRepository;
+        $this->phoneService = $phoneService;
     }
 
-    public function getPhoneRating(){
+    public function getRating(string $phoneStr){
+        $phone = $this->phoneService->getPhone($phoneStr);
 
+        $rating = $this->ratingRepository->getRatingByPhoneId($phone->id);
+        ddh($rating);
     }
 
 

@@ -11,10 +11,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $region_id
  * @property int $digital
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Number query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Number find()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Phone query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Phone find()
  */
-class Number extends Model
+class Phone extends Model
 {
     use HasFactory;
 

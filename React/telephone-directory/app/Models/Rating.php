@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * @property int $number_id
+ * @property int $phone_id
  * @property string $review
  * @property int $ratingLine
  * @property int $ip
  */
-class Review extends Model
+class Rating extends Model
 {
     public $timestamps = false;
 
     protected $fillable = [
-        'number_id',
+        'phone_id',
         'review',
         'ratingLine',
         'ip',
@@ -26,9 +26,9 @@ class Review extends Model
     /**
      * @return HasMany
      */
-    public function numbers(): HasMany
+    public function phones(): HasMany
     {
-        return $this->hasMany(Number::class, 'id', 'number_id');
+        return $this->hasMany(Phone::class, 'id', 'phone_id');
     }
 
 

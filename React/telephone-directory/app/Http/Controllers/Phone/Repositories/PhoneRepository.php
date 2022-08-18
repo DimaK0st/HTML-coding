@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Phone\Repositories;
 
-use App\Models\Number;
+use App\Models\Phone;
+use Illuminate\Support\Facades\DB;
 
 class PhoneRepository
 {
@@ -11,13 +12,13 @@ class PhoneRepository
     public function getPhone(string $region, string $digital)
     {
         return $this->query()
-            ->            join('regions', 'numbers.region_id', '=', 'regions.id')
-            ->where('region', $region)->where('digital', $digital)->get();
+            ->join('regions', 'phones.region_id', '=', 'regions.id')
+            ->where('region', $region)->where('digital', $digital)->select('phones.id as id', DB::raw('CONCAT(regions.region, \'\',  phones.digital) as phone'))->first();
 
     }
 
     private function query(): \Illuminate\Database\Eloquent\Builder
     {
-        return Number::query();
+        return Phone::query();
     }
 }

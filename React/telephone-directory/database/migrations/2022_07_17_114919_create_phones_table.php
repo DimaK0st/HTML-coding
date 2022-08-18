@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReviewsTable extends Migration
+class CreatePhonesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class CreateReviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
+
+        Schema::disableForeignKeyConstraints();
+
+        Schema::create('phones', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('number_id')->constrained('numbers');
-            $table->string('review')->nullable();
-            $table->integer('ratingLine')->nullable();
-            $table->integer('ip')->unsigned();
+            $table->foreignId('region_id')->constrained('regions')->cascadeOnDelete();
+            $table->string('digital',7);
         });
+
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -29,6 +32,6 @@ class CreateReviewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('phones');
     }
 }

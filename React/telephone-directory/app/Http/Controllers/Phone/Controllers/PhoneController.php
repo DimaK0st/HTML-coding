@@ -20,6 +20,6 @@ class PhoneController extends Controller
     }
 
     public function getPhone(){
-        $this->phoneService->getPhone();
+//        $this->phoneService->getPhone();
     }
 }

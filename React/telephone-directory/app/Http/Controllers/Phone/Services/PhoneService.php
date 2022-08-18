@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Phone\Services;
 use App\Http\Controllers\Phone\Repositories\PhoneRepository;
 use App\Http\Controllers\Region\Repositories\RegionRepository;
 use App\Http\Controllers\Region\Services\RegionService;
-use App\Models\Number;
+use App\Models\Phone;
 
 class PhoneService
 {
@@ -19,26 +19,27 @@ class PhoneService
         $this->regionService = $regionService;
     }
 
-    public function getPhone()
+    public function getPhone(string $phone)
     {
-        $validatePhone = '';
-
-        if (!$validatePhone = $this->getRegionAndDigitals('071281679')) {
+        if (!$validatePhone = $this->getRegionAndDigitals($phone)) {
             return null;
         }
 
-        if (!$this->phoneRepository->getPhone($validatePhone['region'], $validatePhone['digital'])->count()) {
-            $this->createNewPhone($validatePhone['region'], $validatePhone['digital']);
+        $phone = $this->phoneRepository->getPhone($validatePhone['region'], $validatePhone['digital']);
+
+        if (!$phone) {
+            return $this->createNewPhone($validatePhone['region'], $validatePhone['digital']);
+        } else {
+            return $phone;
         }
-        ddh('hui');
-        return $this->query()->where();
+
     }
 
     public function createNewPhone(string $region, string $digital)
     {
 
         if ($regionObj = $this->regionService->getOrCreateRegion($region)) {
-            $phone = new Number();
+            $phone = new Phone();
             $phone->region_id = $regionObj->id;
             $phone->digital = $digital;
             $phone->save();
@@ -47,7 +48,6 @@ class PhoneService
             return null;
         }
     }
-
 
     private function getRegionAndDigitals(string $phone)
     {
