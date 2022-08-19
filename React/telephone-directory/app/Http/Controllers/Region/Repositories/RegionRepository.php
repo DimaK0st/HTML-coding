@@ -23,9 +23,7 @@ class RegionRepository
 
     public function getRegion(string $region)
     {
-        $regionObj = $this->query()->where('region', $region)->first();
-
-        return $regionObj->count() ? $regionObj: null;
+        return $this->query()->where('region', $region)->first();
     }
 
     public function query()

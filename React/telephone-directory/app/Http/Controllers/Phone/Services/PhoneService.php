@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Phone\Services;
 
 use App\Http\Controllers\Phone\Repositories\PhoneRepository;
+use App\Http\Controllers\Rating\Requests\GetRatingRequest;
 use App\Http\Controllers\Region\Repositories\RegionRepository;
 use App\Http\Controllers\Region\Services\RegionService;
 use App\Models\Phone;
@@ -19,9 +20,9 @@ class PhoneService
         $this->regionService = $regionService;
     }
 
-    public function getPhone(string $phone)
+    public function getPhone(GetRatingRequest $request)
     {
-        if (!$validatePhone = $this->getRegionAndDigitals($phone)) {
+        if (!$validatePhone = $this->getRegionAndDigitals($request->getNumber())) {
             return null;
         }
 

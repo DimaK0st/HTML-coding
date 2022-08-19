@@ -10,17 +10,17 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $phone_id
  * @property string $review
  * @property int $ratingLine
- * @property int $ip
+ * @property int $ip_id
  */
 class Rating extends Model
 {
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = [
         'phone_id',
         'review',
         'ratingLine',
-        'ip',
+        'ip_id',
         ];
 
     /**
@@ -32,4 +32,8 @@ class Rating extends Model
     }
 
 
+    public function ips(): HasMany
+    {
+        return $this->hasMany(Ip::class, 'id', 'ip_id');
+    }
 }
