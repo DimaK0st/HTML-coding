@@ -1,18 +1,17 @@
 import React, {useEffect} from 'react';
 import Stars from "../rating/stars/Stars";
 import RatingLine from "../rating/ratingLine/RatingLine";
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
+
 import usePhoneService from "../../services/NumberService";
 
 function Home(props) {
     const {number} = useParams()
     const numberService = usePhoneService()
 
-
-
     useEffect(() => {
 
-        numberService.getNumberRating(12341234);
+        numberService.getNumberRating(number);
 
     }, []);
 

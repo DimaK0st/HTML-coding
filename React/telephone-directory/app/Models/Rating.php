@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @property int $phone_id
  * @property string $review
- * @property int $ratingLine
+ * @property int $rating
  * @property int $ip_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rating find()
  */
 class Rating extends Model
 {
@@ -19,7 +20,7 @@ class Rating extends Model
     protected $fillable = [
         'phone_id',
         'review',
-        'ratingLine',
+        'rating',
         'ip_id',
         ];
 
