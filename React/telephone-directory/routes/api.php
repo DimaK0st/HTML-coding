@@ -28,7 +28,7 @@ Route::group(['prefix'=>'v1', 'middleware'=>['cors']], function () {
 
     Route::post('test', [RatingController::class, 'getRating']);
     Route::post('test-set', [RatingController::class, 'setReviewAndRating']);
-    Route::post('test-get', [RatingController::class, 'getAllInfoAboutPhone']);
+    Route::post('get-all-info-about-phone', [RatingController::class, 'getAllInfoAboutPhone']);
 
 
 });

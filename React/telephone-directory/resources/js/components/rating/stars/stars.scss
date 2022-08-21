@@ -3,15 +3,14 @@
 
 .stars{
     display: flex;
-    flex-direction: column;
-    width: 90px;
+    flex-direction: row;
+    justify-content: right;
+    //width: 90px;
    &__item{
        width: auto;
        right: 0;
        color: white;
        font-size: 20px;
        text-align: right;
-
-
    }
 }

@@ -11,6 +11,7 @@ $gradient-up-header: #663ef5;;
 $gradient-down-header: linear-gradient(0deg,#be2ef8,#663ef5);
 
 //Stars
+$color-five-gray: #9296ae;;
 $color-five-stars: #26948b;
 $color-four-stars: #89a25b;
 $color-three-stars: #d3b04d;
@@ -22,6 +23,7 @@ $color-rating-line-bg: #CED8E866;
 
 
 
+.gray{color: $color-five-gray}
 .five{color: $color-five-stars}
 .four{color: $color-four-stars}
 .three{color: $color-three-stars}

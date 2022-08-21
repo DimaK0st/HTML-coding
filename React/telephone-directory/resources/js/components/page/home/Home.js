@@ -1,28 +1,28 @@
-import React, {useEffect} from 'react';
-import Stars from "../rating/stars/Stars";
-import RatingLine from "../rating/ratingLine/RatingLine";
+import React, {useEffect, useLayoutEffect, useState} from 'react';
+import Stars from "../../rating/stars/Stars";
+import RatingLine from "../../rating/ratingLine/RatingLine";
 import {useParams, useNavigate} from "react-router-dom";
 
-import usePhoneService from "../../services/NumberService";
+import usePhoneService from "../../../services/NumberService";
+import Rating from "../../rating/Rating";
+import useTraceUpdate from "use-trace-update";
 
 function Home(props) {
     const {number} = useParams()
+    const [data, setData] = useState([]);
     const numberService = usePhoneService()
+    let navigate = useNavigate();
+
+    useTraceUpdate(props)
 
     useEffect(() => {
-
-        numberService.getNumberRating(number);
-
+        console.log(data.length)
+        console.log([].length)
+        if(data.length === 0){
+            numberService.getNumberRating(number,setData, navigate)
+            console.error('render')
+        }
     }, []);
-
-
-
-
-
-
-
-
-
 
     return (
         <div className="container">
@@ -42,19 +42,9 @@ function Home(props) {
             <div>
                 {/*{props.children}*/}
             </div>
-            <Stars count={5}/>
-            <Stars count={4}/>
-            <Stars count={3}/>
-            <Stars count={2}/>
-            <Stars count={1}/>
 
-            <div style={{width: '400px'}}>
-                <RatingLine count={5} current={14} total={36}/>
-                <RatingLine count={4} current={0} total={36}/>
-                <RatingLine count={3} current={7} total={36}/>
-                <RatingLine count={2} current={0} total={36}/>
-                <RatingLine count={1} current={15} total={36}/>
-            </div>
+            {data.length!=0?<Rating data={data}/>:null}
+
         </div>
     )
 }

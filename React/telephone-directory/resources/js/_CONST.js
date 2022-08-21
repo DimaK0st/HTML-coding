@@ -4,6 +4,7 @@ const NUMBER_CLASS_NAME=[
     'three',
     'four',
     'five',
+    'gray',
 ]
 ;
 export default NUMBER_CLASS_NAME
