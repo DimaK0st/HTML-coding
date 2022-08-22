@@ -21,14 +21,15 @@ class Cors
 //        // ALLOW OPTIONS METHOD
 //        $headers = [
 //        ];
-//        if($request->getMethod() == "OPTIONS") {
-//            // The client-side application can set only headers allowed in Access-Control-Allow-Headers
-//            return Response::make('OK', 200, $headers);
-//        }
+        if($request->getMethod() == "OPTIONS") {
+            // The client-side application can set only headers allowed in Access-Control-Allow-Headers
+            return Response::make('OK', 200);
+        }
 
         $response = $next($request);
-//        foreach($headers as $key => $value)
-//            $response->header($key, $value);
-        return $response;
+        return $response->header('Access-Control-Allow-Origin' , '*')
+            ->header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE')
+            ->header('Access-Control-Allow-Headers', 'Content-Type, X-Auth-Token, Origin');
+
     }
 }

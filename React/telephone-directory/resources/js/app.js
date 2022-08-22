@@ -17,7 +17,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <>
         <Header/>
-        <React.StrictMode>
             <Router>
 
                 <Routes>
@@ -26,7 +25,6 @@ root.render(
                     <Route path="*" element={<Page404 />} />
                 </Routes>
             </Router>
-        </React.StrictMode>
         <Footer/>
     </>
 );

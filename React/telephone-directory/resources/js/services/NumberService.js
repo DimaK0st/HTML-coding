@@ -7,39 +7,38 @@ const usePhoneService = () => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Access-Control-Allow-Headers': 'Content-Type, X-Auth-Token, Origin',
             'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Content-Type',
-            'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
+
+            mode: 'no-cors',
+            credentials: 'same-origin',
         },
 
     };
 
-    const getNumberRating =  (number,setData,navigate) => {
+    const getNumberRating = (number, setData, navigate) => {
         let result = number.replace(/(380|)/, '')
         console.log('---------------------------')
-        if (result.length !== 9){
+        if (result.length !== 9) {
             navigate("/404");
         }
         console.log('+++++++++++++++++++++++++++')
 
         // number.match('/(\+380|)(\d{9}$)/')
 
-          axios.post(_apiBase + 'get-all-info-about-phone', { number: result }, {headers: {
-            'Content-Type':  'application/json',
-            'Accept':        'application/json',
-            'Access-Control-Allow-Headers': 'Content-Type, X-Auth-Token, Origin',
-            'Access-Control-Allow-Origin': '*',
-
-            mode: 'no-cors',
-            credentials: 'same-origin',
-        }})
-        .then(res => {
-            console.log(res.data)
-            setData(res.data);
-            return res.data
+        return axios.post(_apiBase + 'get-all-info-about-phone', {number: result}, {
+            headers: {
+                ...postRequest.headers
+            }
         })
+            .then(res => {
+                // setData(res.data);
+                return res.data
+            })
 
     }
+
     return {
         getNumberRating,
     }
