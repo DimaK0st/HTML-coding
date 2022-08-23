@@ -14,7 +14,7 @@ function AddRating(props) {
 
             <span className={'rating-form__title'}>Який досвід Ви маєте з цим номером?</span>
 
-            <form className={"rating-area bg-" + NUMBER_CLASS_NAME[post.rating - 1]}
+            <form className={"rating-form__area bg-" + NUMBER_CLASS_NAME[post.rating - 1]}
                   onChange={(e, post) => setPost({...post, rating: e.target.value})}>
                 <input type="radio" id="star-5" name="rating" value="5"/>
                 <label htmlFor="star-5" title="Оценка «5»"></label>
@@ -28,10 +28,13 @@ function AddRating(props) {
                 <label htmlFor="star-1" title="Оценка «1»"></label>
             </form>
 
-            <textarea className={'rating-form'}></textarea>
-            <label htmlFor="check1"><input id="check1" type="checkbox"/> <span>Я погоджуюся з </span> <a href={'https://www.callinsider.com.ua/p/umovy-dodavannya-komentariv'}>Умовами додавання коментарів</a></label>
-            <button>Выдправити</button>
-            <span>Допоможіть іншим відвідувачам форуму тим, що поділитеся своїм досвідом з цим номером телефону. Цей номер безпечний чи докучливий? Ви очікували дзвінка з цього номера ({number}), чи це був небажаний дзвінок?</span>
+            <textarea className={'rating-form__review'} placeholder={'Тут напишіть свою оцінку цього номера телефону'}></textarea>
+            <label htmlFor="check1" className={'rating-form__check'}>
+                <input id="check1" type="checkbox"/>
+                <span className={'rating-form__check-text'}>Я погоджуюся з </span> <a className={'rating-form__check-url'} href={'https://www.callinsider.com.ua/p/umovy-dodavannya-komentariv'}>Умовами додавання коментарів</a>
+            </label>
+            <button className={'rating-form__button'}>Відправити</button>
+            <span className={'rating-form__bottom-text'}>Допоможіть іншим відвідувачам форуму тим, що поділитеся своїм досвідом з цим номером телефону. Цей номер безпечний чи докучливий? Ви очікували дзвінка з цього номера (<span className={'rating-form__bottom-text-phone'}>{number}</span>), чи це був небажаний дзвінок?</span>
         </div>
     )
 

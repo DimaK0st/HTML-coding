@@ -5535,7 +5535,7 @@ function AddRating(props) {
       className: 'rating-form__title',
       children: "\u042F\u043A\u0438\u0439 \u0434\u043E\u0441\u0432\u0456\u0434 \u0412\u0438 \u043C\u0430\u0454\u0442\u0435 \u0437 \u0446\u0438\u043C \u043D\u043E\u043C\u0435\u0440\u043E\u043C?"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
-      className: "rating-area bg-" + _CONST__WEBPACK_IMPORTED_MODULE_2__["default"][post.rating - 1],
+      className: "rating-form__area bg-" + _CONST__WEBPACK_IMPORTED_MODULE_2__["default"][post.rating - 1],
       onChange: function onChange(e, post) {
         return setPost(_objectSpread(_objectSpread({}, post), {}, {
           rating: e.target.value
@@ -5584,22 +5584,31 @@ function AddRating(props) {
         title: "\u041E\u0446\u0435\u043D\u043A\u0430 \xAB1\xBB"
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
-      className: 'rating-form'
+      className: 'rating-form__review',
+      placeholder: 'Тут напишіть свою оцінку цього номера телефону'
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
       htmlFor: "check1",
+      className: 'rating-form__check',
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         id: "check1",
         type: "checkbox"
-      }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        className: 'rating-form__check-text',
         children: "\u042F \u043F\u043E\u0433\u043E\u0434\u0436\u0443\u044E\u0441\u044F \u0437 "
       }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+        className: 'rating-form__check-url',
         href: 'https://www.callinsider.com.ua/p/umovy-dodavannya-komentariv',
         children: "\u0423\u043C\u043E\u0432\u0430\u043C\u0438 \u0434\u043E\u0434\u0430\u0432\u0430\u043D\u043D\u044F \u043A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u0456\u0432"
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-      children: "\u0412\u044B\u0434\u043F\u0440\u0430\u0432\u0438\u0442\u0438"
+      className: 'rating-form__button',
+      children: "\u0412\u0456\u0434\u043F\u0440\u0430\u0432\u0438\u0442\u0438"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-      children: ["\u0414\u043E\u043F\u043E\u043C\u043E\u0436\u0456\u0442\u044C \u0456\u043D\u0448\u0438\u043C \u0432\u0456\u0434\u0432\u0456\u0434\u0443\u0432\u0430\u0447\u0430\u043C \u0444\u043E\u0440\u0443\u043C\u0443 \u0442\u0438\u043C, \u0449\u043E \u043F\u043E\u0434\u0456\u043B\u0438\u0442\u0435\u0441\u044F \u0441\u0432\u043E\u0457\u043C \u0434\u043E\u0441\u0432\u0456\u0434\u043E\u043C \u0437 \u0446\u0438\u043C \u043D\u043E\u043C\u0435\u0440\u043E\u043C \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0443. \u0426\u0435\u0439 \u043D\u043E\u043C\u0435\u0440 \u0431\u0435\u0437\u043F\u0435\u0447\u043D\u0438\u0439 \u0447\u0438 \u0434\u043E\u043A\u0443\u0447\u043B\u0438\u0432\u0438\u0439? \u0412\u0438 \u043E\u0447\u0456\u043A\u0443\u0432\u0430\u043B\u0438 \u0434\u0437\u0432\u0456\u043D\u043A\u0430 \u0437 \u0446\u044C\u043E\u0433\u043E \u043D\u043E\u043C\u0435\u0440\u0430 (", number, "), \u0447\u0438 \u0446\u0435 \u0431\u0443\u0432 \u043D\u0435\u0431\u0430\u0436\u0430\u043D\u0438\u0439 \u0434\u0437\u0432\u0456\u043D\u043E\u043A?"]
+      className: 'rating-form__bottom-text',
+      children: ["\u0414\u043E\u043F\u043E\u043C\u043E\u0436\u0456\u0442\u044C \u0456\u043D\u0448\u0438\u043C \u0432\u0456\u0434\u0432\u0456\u0434\u0443\u0432\u0430\u0447\u0430\u043C \u0444\u043E\u0440\u0443\u043C\u0443 \u0442\u0438\u043C, \u0449\u043E \u043F\u043E\u0434\u0456\u043B\u0438\u0442\u0435\u0441\u044F \u0441\u0432\u043E\u0457\u043C \u0434\u043E\u0441\u0432\u0456\u0434\u043E\u043C \u0437 \u0446\u0438\u043C \u043D\u043E\u043C\u0435\u0440\u043E\u043C \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0443. \u0426\u0435\u0439 \u043D\u043E\u043C\u0435\u0440 \u0431\u0435\u0437\u043F\u0435\u0447\u043D\u0438\u0439 \u0447\u0438 \u0434\u043E\u043A\u0443\u0447\u043B\u0438\u0432\u0438\u0439? \u0412\u0438 \u043E\u0447\u0456\u043A\u0443\u0432\u0430\u043B\u0438 \u0434\u0437\u0432\u0456\u043D\u043A\u0430 \u0437 \u0446\u044C\u043E\u0433\u043E \u043D\u043E\u043C\u0435\u0440\u0430 (", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        className: 'rating-form__bottom-text-phone',
+        children: number
+      }), "), \u0447\u0438 \u0446\u0435 \u0431\u0443\u0432 \u043D\u0435\u0431\u0430\u0436\u0430\u043D\u0438\u0439 \u0434\u0437\u0432\u0456\u043D\u043E\u043A?"]
     })]
   });
 }
@@ -11367,7 +11376,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.rating-area {\n  box-sizing: content-box;\n  overflow: hidden;\n  width: 267px;\n  margin: 0 auto;\n  padding: 10px;\n  border-radius: 40px;\n}\n.rating-area:not(:checked) > input {\n  display: none;\n}\n.rating-area:not(:checked) > label {\n  float: right;\n  padding: 0;\n  cursor: pointer;\n  font-size: 64px;\n  line-height: 40px;\n  color: #a2a2a2;\n}\n.rating-area:not(:checked) > label:before {\n  content: \"★\";\n  line-height: 50px;\n}\n.rating-area:not(:checked) > label:hover, .rating-area:not(:checked):not(:checked) > label:hover ~ label {\n  color: white;\n}\n.rating-area > input:checked ~ label {\n  color: white;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.rating-form {\n  width: 100%;\n  padding: 60px 80px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  background-color: #282d4f;\n}\n.rating-form__area {\n  box-sizing: content-box;\n  overflow: hidden;\n  width: 267px;\n  margin: 0 auto 40px auto;\n  padding: 10px;\n  border-radius: 40px;\n}\n.rating-form__area:not(:checked) > input {\n  display: none;\n}\n.rating-form__area:not(:checked) > label {\n  float: right;\n  padding: 0;\n  cursor: pointer;\n  font-size: 64px;\n  line-height: 40px;\n  color: #a2a2a2;\n}\n.rating-form__area:not(:checked) > label:before {\n  content: \"★\";\n  line-height: 50px;\n}\n.rating-form__area:not(:checked) > label:hover, .rating-form__area:not(:checked):not(:checked) > label:hover ~ label {\n  color: white;\n}\n.rating-form__area > input:checked ~ label {\n  color: white;\n}\n.rating-form__title {\n  color: #fff;\n  font-size: 40px;\n  font-family: Roboto, sans-serif;\n  margin-bottom: 32px;\n  font-weight: 700;\n}\n.rating-form__review {\n  width: 100%;\n  height: 120px;\n  padding: 12px 16px;\n  margin-bottom: 15px;\n}\n.rating-form__check {\n  font-family: Roboto, sans-serif;\n  font-size: 13px;\n  margin-bottom: 20px;\n}\n.rating-form__check-text {\n  color: #afb4bc;\n  margin-right: 4px;\n}\n.rating-form__check-url {\n  color: #ab9aff;\n  font-weight: 700;\n}\n.rating-form__button {\n  width: 224px;\n  box-sizing: border-box;\n  background-color: #ab9aff;\n  color: #fff;\n  font-weight: 700;\n  align-items: center;\n  text-transform: uppercase;\n  border-radius: 40px;\n  padding: 16px 44px;\n  font-family: Roboto, sans-serif;\n  font-size: 21px;\n  border: 0 solid #663ef5;\n  transition: 0.2s;\n  margin: 0 auto 40px auto;\n}\n.rating-form__button:hover {\n  background-color: #f884ff;\n}\n.rating-form__bottom-text {\n  font-family: Roboto, sans-serif;\n  font-size: 13px;\n  color: #afb4bc;\n  text-align: center;\n}\n.rating-form__bottom-text-phone {\n  color: white;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
