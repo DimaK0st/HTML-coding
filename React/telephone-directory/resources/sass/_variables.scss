@@ -11,7 +11,7 @@ $gradient-up-header: #663ef5;;
 $gradient-down-header: linear-gradient(0deg,#be2ef8,#663ef5);
 
 //Stars
-$color-five-gray: #9296ae;;
+$color-star-gray: #9296ae;;
 $color-five-stars: #26948b;
 $color-four-stars: #89a25b;
 $color-three-stars: #d3b04d;
@@ -20,16 +20,18 @@ $color-one-stars: #e76c53;
 
 //Rating Line
 $color-rating-line-bg: #CED8E866;
+$color-background-for-post-rating: #4a5079;
 
 
 
-.gray{color: $color-five-gray}
+.gray{color: $color-star-gray}
 .five{color: $color-five-stars}
 .four{color: $color-four-stars}
 .three{color: $color-three-stars}
 .two{color: $color-two-stars}
 .one{color: $color-one-stars}
 
+.bg-gray{background: $color-background-for-post-rating}
 .bg-five{background: $color-five-stars}
 .bg-four{background: $color-four-stars}
 .bg-three{background: $color-three-stars}

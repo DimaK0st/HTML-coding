@@ -24,6 +24,10 @@
   color: #e76c53;
 }
 
+.bg-gray {
+  background: #4a5079;
+}
+
 .bg-five {
   background: #26948b;
 }
@@ -11043,6 +11047,10 @@ textarea.form-control-lg {
 
 .one {
   color: #e76c53;
+}
+
+.bg-gray {
+  background: #4a5079;
 }
 
 .bg-five {

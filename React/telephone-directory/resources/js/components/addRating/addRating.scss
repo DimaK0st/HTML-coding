@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: center;
     background-color: #282d4f;
+    border-radius: 40px;
 
     &__area {
         box-sizing: content-box;
@@ -43,13 +44,21 @@
             color: white;
         }
 
+
     }
 
-    &__title{
+     &__title {
         color: #fff;
-font-size: 40px;
-        font-family: Roboto,sans-serif;
-        margin-bottom: 32px;font-weight: 700;
+        font-size: 40px;
+        font-family: Roboto, sans-serif;
+        margin-bottom: 32px;
+        font-weight: 700;
+    }
+
+    &__post-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     &__review {
@@ -63,15 +72,24 @@ font-size: 40px;
         font-family: Roboto, sans-serif;
         font-size: 13px;
         margin-bottom: 20px;
+        display: flex;
+
+        &-input {
+            height: 20px;
+            width: 20px;
+            margin-right: 4px;
+        }
 
         &-text {
             color: #afb4bc;
             margin-right: 4px;
+            user-select: none;
         }
 
         &-url {
             color: #ab9aff;
             font-weight: 700;
+            user-select: none;
         }
     }
 
@@ -97,14 +115,18 @@ font-size: 40px;
     }
 
     &__bottom-text {
-        font-family: Roboto,sans-serif;
+        font-family: Roboto, sans-serif;
         font-size: 13px;
         color: #afb4bc;
         text-align: center;
 
-        &-phone{
+        &-phone {
             color: white;
         }
+    }
+
+    &__hidden{
+        display: none;
     }
 }
 

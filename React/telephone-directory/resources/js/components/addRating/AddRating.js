@@ -6,7 +6,7 @@ import {useParams} from "react-router-dom";
 function AddRating(props) {
     const {number} = useParams()
     const [post, setPost] = useState({
-        rating: 3
+        rating: 6
     })
 
     return (
@@ -20,21 +20,27 @@ function AddRating(props) {
                 <label htmlFor="star-5" title="Оценка «5»"></label>
                 <input type="radio" id="star-4" name="rating" value="4"/>
                 <label htmlFor="star-4" title="Оценка «4»"></label>
-                <input type="radio" id="star-3" name="rating" checked={post.rating === 3} value="3"/>
+                <input type="radio" id="star-3" name="rating" value="3"/>
                 <label htmlFor="star-3" title="Оценка «3»"></label>
                 <input type="radio" id="star-2" name="rating" value="2"/>
                 <label htmlFor="star-2" title="Оценка «2»"></label>
                 <input type="radio" id="star-1" name="rating" value="1"/>
                 <label htmlFor="star-1" title="Оценка «1»"></label>
             </form>
-
-            <textarea className={'rating-form__review'} placeholder={'Тут напишіть свою оцінку цього номера телефону'}></textarea>
-            <label htmlFor="check1" className={'rating-form__check'}>
-                <input id="check1" type="checkbox"/>
-                <span className={'rating-form__check-text'}>Я погоджуюся з </span> <a className={'rating-form__check-url'} href={'https://www.callinsider.com.ua/p/umovy-dodavannya-komentariv'}>Умовами додавання коментарів</a>
-            </label>
-            <button className={'rating-form__button'}>Відправити</button>
-            <span className={'rating-form__bottom-text'}>Допоможіть іншим відвідувачам форуму тим, що поділитеся своїм досвідом з цим номером телефону. Цей номер безпечний чи докучливий? Ви очікували дзвінка з цього номера (<span className={'rating-form__bottom-text-phone'}>{number}</span>), чи це був небажаний дзвінок?</span>
+            <div className={`rating-form__post-wrapper ${post.rating === 6 ? 'rating-form__hidden': ''}`}>
+                <textarea className={'rating-form__review'}
+                          placeholder={'Тут напишіть свою оцінку цього номера телефону'}></textarea>
+                <label htmlFor="check1" className={'rating-form__check'}>
+                    <input className={'rating-form__check-input'} id="check1" type="checkbox"/>
+                    <span className={'rating-form__check-text'}>Я погоджуюся з </span> <a
+                    className={'rating-form__check-url'}
+                    href={'https://www.callinsider.com.ua/p/umovy-dodavannya-komentariv'}>Умовами додавання
+                    коментарів</a>
+                </label>
+                <button className={'rating-form__button'}>Відправити</button>
+            </div>
+            <span className={'rating-form__bottom-text'}>Допоможіть іншим відвідувачам форуму тим, що поділитеся своїм досвідом з цим номером телефону. Цей номер безпечний чи докучливий? Ви очікували дзвінка з цього номера (<span
+                className={'rating-form__bottom-text-phone'}>{number}</span>), чи це був небажаний дзвінок?</span>
         </div>
     )
 
