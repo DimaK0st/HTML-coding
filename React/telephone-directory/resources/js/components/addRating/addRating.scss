@@ -1,11 +1,13 @@
+@import "./resources/sass/_variables.scss";
+
 .rating-form {
     width: 100%;
     padding: 60px 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #282d4f;
-    border-radius: 40px;
+    background-color: $bg-div-wrapper;
+    border-radius: 20px;
 
     &__area {
         box-sizing: content-box;
@@ -53,6 +55,7 @@
         font-family: Roboto, sans-serif;
         margin-bottom: 32px;
         font-weight: 700;
+         text-align: center;
     }
 
     &__post-wrapper {
@@ -66,6 +69,7 @@
         height: 120px;
         padding: 12px 16px;
         margin-bottom: 15px;
+        border-radius: 10px;
     }
 
     &__check {

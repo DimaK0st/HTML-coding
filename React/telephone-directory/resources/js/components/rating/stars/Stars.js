@@ -5,22 +5,31 @@ import {useState} from "react";
 import NUMBER_CLASS_NAME from "../../../_CONST";
 
 const Stars = (props) => {
-    const {count, className, gray} = props;
+    const {count, className, gray, bg} = props;
 
     let starsContent = [];
+    let bgClassName;
 
-    for (let i=0; i<count;i++){
-        starsContent.push(<span className={`stars__item ${className} ${NUMBER_CLASS_NAME[count-1]}`}>★</span>);
+    for (let i = 0; i < count; i++) {
+        starsContent.push(<span
+            className={`stars__item ${className}
+            ${bg ? 'stars-white' : null}
+            ${NUMBER_CLASS_NAME[count - 1]}`}
+        >★</span>);
     }
 
-    if (gray === true){
-        for (let i=0; i<5-count;i++){
+    if (gray) {
+        for (let i = 0; i < 5 - count; i++) {
             starsContent.push(<span className={`stars__item ${className} gray`}>★</span>);
         }
     }
 
+    if (bg) {
+        bgClassName = 'stars-bg bg-' + NUMBER_CLASS_NAME[count - 1]
+    }
+
     return (
-        <div className={`stars ${className}`}>
+        <div className={`stars ${className} ${bgClassName}`}>
             {starsContent}
         </div>
     )

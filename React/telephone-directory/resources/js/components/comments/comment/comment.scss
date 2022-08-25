@@ -1,0 +1,38 @@
+@import "./resources/sass/_variables.scss";
+
+.comment{
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border-radius: 20px;
+    background-color: $bg-div-wrapper;
+
+    &__top-content{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &-stars{
+            width: 141px;
+            font-size: 28px;
+            line-height: 36px;
+        }
+
+        &-date, &-city{
+            font-family: Roboto,sans-serif;
+            font-size: 15px;
+            color: #afb4bc;
+            margin: 0 12px;
+        }
+
+
+    }
+
+    &__bottom-text{
+        margin-top: 16px;
+        font-family: Roboto,sans-serif;
+        font-size: 15px;
+        color: #afb4bc;
+    }
+
+}

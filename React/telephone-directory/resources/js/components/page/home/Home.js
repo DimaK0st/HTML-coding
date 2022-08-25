@@ -7,6 +7,7 @@ import usePhoneService from "../../../services/NumberService";
 import Rating from "../../rating/Rating";
 import useTraceUpdate from "use-trace-update";
 import AddRating from "../../addRating/AddRating";
+import Comment from "../../comments/comment/Comment";
 
 function Home(props) {
     const {number} = useParams()
@@ -51,6 +52,8 @@ function Home(props) {
 
             {data.length!=0?<Rating data={data}/>:null}
             <AddRating/>
+
+            <Comment id={3} review={'asdf asdfasd afs dsaf dfs'} rating={3} city={'Dnepr'} created_at={'2022-08-20T12:05:17.000000Z'}/>
         </div>
     )
 }
