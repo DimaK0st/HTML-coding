@@ -30,6 +30,7 @@ class RatingsSeeder extends Seeder
                 'review' => (string)addslashes($this->faker->realText()),
                 'rating' => $this->faker->numberBetween(1,5),
                 'ip_id' => $i,
+                'created_at' => $this->faker->date
             ];
         }
 

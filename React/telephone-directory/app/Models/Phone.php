@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
@@ -31,6 +32,11 @@ class Phone extends Model
     public function regions(): HasMany
     {
         return $this->hasMany(Region::class, 'id', 'region_id');
+    }
+
+    public function rating(): BelongsTo
+    {
+        return $this->belongsTo(Rating::class, 'phone_id', 'id');
     }
 
 }

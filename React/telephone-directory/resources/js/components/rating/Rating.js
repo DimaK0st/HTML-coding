@@ -6,13 +6,18 @@ import NUMBER_CLASS_NAME from "../../_CONST";
 
 function Rating(props) {
     const {data}=props
+    console.log('data.averageRating', data.averageRating)
+    console.log(' typeof', typeof data.averageRating)
 
+    console.log('parseInt(data.averageRating)',parseFloat(data.averageRating))
+    console.log('parseInt(data.averageRating).toFixed(1)',parseFloat(data.averageRating).toFixed(1))
+    console.log('Math.round(parseInt(data.averageRating))',Math.round(parseFloat(data.averageRating)))
     return (
         <div className="rating">
 
             <div className={'rating__number'}>
-                <span className={`rating__number-title ${NUMBER_CLASS_NAME[4]}`}>{data.averageRating}</span>
-                <Stars className={'rating__number-stars'} count={data.averageRating} gray={true}/>
+                <span className={`rating__number-title ${NUMBER_CLASS_NAME[4]}`}>{parseFloat(data.averageRating).toFixed(1)}</span>
+                <Stars className={'rating__number-stars'} count={Math.round(parseFloat(data.averageRating))} gray={true}/>
                 <span className={'rating__number-comment'}>Кількість коментарів: {data.allRating.length}</span>
             </div>
 

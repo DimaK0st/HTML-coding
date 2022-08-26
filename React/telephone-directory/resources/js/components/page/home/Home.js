@@ -8,22 +8,30 @@ import Rating from "../../rating/Rating";
 import useTraceUpdate from "use-trace-update";
 import AddRating from "../../addRating/AddRating";
 import Comment from "../../comments/comment/Comment";
+import Comments from "../../comments/Comments";
 
 function Home(props) {
     const {number} = useParams()
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(
+        {
+            sortedList: [],
+            loading: false,
+        }
+    );
     const numberService = usePhoneService()
     let navigate = useNavigate();
 
 
     useEffect(() => {
         console.log(data.length)
-            if(data.length === 0){
-                numberService.getNumberRating(number,setData, navigate).then((data)=>{
-                    setData(data)
-                })
-                console.error('render1')
-            }
+        if (!data.loaded) {
+            numberService.getNumberRating(number, setData, navigate).then((value) => {
+                console.log('asdfasdfasd')
+                console.log(value)
+                setData({...data, loaded: true, ...value})
+            })
+            console.error('render1')
+        }
         console.error('render2')
     }, []);
 
@@ -31,29 +39,28 @@ function Home(props) {
     //     data.allRating.map((item)=>console.log())
     // },[data])
 
+    if (data.loaded) {
+        console.log(data.userRating.updated_at)
+
+        var now = new Date(data.userRating.updated_at);
+
+// например, выведем текущую дату в консоль
+
+    }
+
     return (
         <div className="container">
-            <nav className="navbar navbar-default">
-                <div className="container-fluid">
-                    <div className="navbar-header">
-                        <a className="navbar-brand" href="resources/js/components/home/Home#">AppDividend</a>
-                    </div>
-                    <ul className="nav navbar-nav">
-                        <li className="active"><a href="resources/js/components/home/Home#">Home</a></li>
-                        <li><a href="resources/js/components/home/Home#">Page 1</a></li>
-                        <li><a href="resources/js/components/home/Home#">Page 2</a></li>
-                        <li><a href="resources/js/components/home/Home#">Page 3</a></li>
-                    </ul>
-                </div>
-            </nav>
+
             <div>
                 {/*{props.children}*/}
             </div>
 
-            {data.length!=0?<Rating data={data}/>:null}
+            {data.loaded ? <Rating data={data}/> : null}
+
             <AddRating/>
 
-            <Comment id={3} review={'asdf asdfasd afs dsaf dfs'} rating={3} city={'Dnepr'} created_at={'2022-08-20T12:05:17.000000Z'}/>
+            {data.loaded ? <Comments data={data} setData={setData}/> : null}
+
         </div>
     )
 }

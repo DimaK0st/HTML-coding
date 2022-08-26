@@ -40,7 +40,8 @@ class RatingService
 
         return [
             'userRating' => $this->getRatingByIp($iP, $phone),
-            'allRating' => $this->getAllReviewAndRating($iP, $phone),
+            'allRating' => $this->getAllRating($iP, $phone),
+            'allReview' => $this->getAllReview($iP, $phone),
             'averageRating' => $this->getAverageRatingPhone($phone),
             'countViews' => $this->getCountViewsPhone($phone),
         ];
@@ -54,9 +55,14 @@ class RatingService
         return $this->ratingRepository->getRatingByIp($ip, $phone);
     }
 
-    public function getAllReviewAndRating(Ip $ip, Phone $phone)
+    public function getAllReview(Ip $ip, Phone $phone)
     {
-        return $this->ratingRepository->getAllReviewAndRating($ip, $phone);
+        return $this->ratingRepository->getAllReview($ip, $phone);
+    }
+
+    public function getAllRating(Ip $ip, Phone $phone)
+    {
+        return $this->ratingRepository->getAllRating($ip, $phone);
     }
 
     public function getAverageRatingPhone(Phone $phone)

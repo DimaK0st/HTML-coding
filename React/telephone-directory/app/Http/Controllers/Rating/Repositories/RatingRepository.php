@@ -24,9 +24,9 @@ class RatingRepository
 
     public function getRatingByIp(Ip $ip, Phone $phone)
     {
-        $rating = $this->query()->where('phone_id', $phone->id)->where('ip_id', $ip->id)->get();
+        $rating = $this->query()->where('phone_id', $phone->id)->where('ip_id', $ip->id)->first();
 
-        if (!$rating->count()) {
+        if (!$rating) {
             return $this->addViewRating($ip, $phone);
         } else {
             return $rating;
@@ -56,10 +56,22 @@ class RatingRepository
         return $rating;
     }
 
-    public function getAllReviewAndRating(Ip $ip, Phone $phone)
+    public function getAllReview(Ip $ip, Phone $phone)
     {
-        $rating = $this->query()->where('phone_id', $phone->id)->where('ip_id','!=', $ip->id)
-            ->join('ips', 'ratings.ip_id','=','ips.id')
+        $rating = $this->query()->where('phone_id', $phone->id)->where('ip_id', '!=', $ip->id)
+            ->where('review', '!=', 'null')
+            ->where('rating', '!=', 'null')
+            ->join('ips', 'ratings.ip_id', '=', 'ips.id')
+            ->select('ratings.id', 'review', 'rating', 'ips.city', 'created_at')
+            ->get();
+
+        return $rating;
+    }
+
+    public function getAllRating(Ip $ip, Phone $phone)
+    {
+        $rating = $this->query()->where('phone_id', $phone->id)->where('ip_id', '!=', $ip->id)->where('rating', '!=', 'null')
+            ->join('ips', 'ratings.ip_id', '=', 'ips.id')
             ->select('ratings.id', 'review', 'rating', 'ips.city', 'created_at')
             ->get();
 
