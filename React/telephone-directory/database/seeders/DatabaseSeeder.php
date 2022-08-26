@@ -16,7 +16,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            PhoneRegionSeeder::class,
+//            PhoneRegionSeeder::class,
+//IpsSeeder::class,
+//PhonesSeeder::class,
+RatingsSeeder::class,
+
+
+
+
+
 //            PhoneDigitalSeeder::class,
 //            PhoneNumberSeeder::class,
         ]);
