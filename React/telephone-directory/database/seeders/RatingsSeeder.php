@@ -27,7 +27,7 @@ class RatingsSeeder extends Seeder
 
         for ($i = 1; $i <= 100; $i++) {
             $this->ratingList[] = ['phone_id' => 1,
-                'review' => (string)addslashes($this->faker->realText()),
+                'review' => (string)$this->faker->realText(),
                 'rating' => $this->faker->numberBetween(1,5),
                 'ip_id' => $i,
                 'created_at' => $this->faker->date

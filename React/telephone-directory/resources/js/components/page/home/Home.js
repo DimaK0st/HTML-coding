@@ -1,13 +1,9 @@
-import React, {useEffect, useLayoutEffect, useState} from 'react';
-import Stars from "../../rating/stars/Stars";
-import RatingLine from "../../rating/ratingLine/RatingLine";
+import React, {useEffect, useState} from 'react';
 import {useParams, useNavigate} from "react-router-dom";
 
 import usePhoneService from "../../../services/NumberService";
 import Rating from "../../rating/Rating";
-import useTraceUpdate from "use-trace-update";
 import AddRating from "../../addRating/AddRating";
-import Comment from "../../comments/comment/Comment";
 import Comments from "../../comments/Comments";
 
 function Home(props) {
@@ -18,35 +14,27 @@ function Home(props) {
             loading: false,
         }
     );
-    const numberService = usePhoneService()
+    const numberService = usePhoneService(number)
     let navigate = useNavigate();
 
 
     useEffect(() => {
         console.log(data.length)
         if (!data.loaded) {
-            numberService.getNumberRating(number, setData, navigate).then((value) => {
-                console.log('asdfasdfasd')
+            numberService.getNumberRating(navigate).then((value) => {
+
                 console.log(value)
-                setData({...data, loaded: true, ...value})
+
+                setData({
+                    ...data,
+                    loaded: true, ...value,
+                    'countReview': value.allReview.length,
+                    'averageRating': parseFloat(value.averageRating),
+                })
             })
-            console.error('render1')
         }
-        console.error('render2')
     }, []);
 
-    // useEffect(()=>{
-    //     data.allRating.map((item)=>console.log())
-    // },[data])
-
-    if (data.loaded) {
-        console.log(data.userRating.updated_at)
-
-        var now = new Date(data.userRating.updated_at);
-
-// например, выведем текущую дату в консоль
-
-    }
 
     return (
         <div className="container">
@@ -59,7 +47,12 @@ function Home(props) {
 
             <AddRating/>
 
-            {data.loaded ? <Comments data={data} setData={setData}/> : null}
+            {data.loaded ? <Comments sortedList={data?.sortedList}
+                                     countReview={data?.reviewInfo?.total}
+                                     numberService={numberService}
+                                     data={data}
+                                     setData={setData}
+                                     paginateUrl={data?.reviewInfo?.total}/> : null}
 
         </div>
     )

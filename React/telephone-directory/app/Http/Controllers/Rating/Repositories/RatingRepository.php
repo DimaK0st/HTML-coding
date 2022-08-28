@@ -68,6 +68,16 @@ class RatingRepository
         return $rating;
     }
 
+    public function getReviewPaginate(Ip $ip, Phone $phone)
+    {
+        return $this->query()->where('phone_id', $phone->id)->where('ip_id', '!=', $ip->id)
+            ->where('review', '!=', 'null')
+            ->where('rating', '!=', 'null')
+            ->join('ips', 'ratings.ip_id', '=', 'ips.id')
+            ->select('ratings.id', 'review', 'rating', 'ips.city', 'created_at')
+            ->paginate(10);
+    }
+
     public function getAllRating(Ip $ip, Phone $phone)
     {
         $rating = $this->query()->where('phone_id', $phone->id)->where('ip_id', '!=', $ip->id)->where('rating', '!=', 'null')
@@ -82,6 +92,16 @@ class RatingRepository
     {
         $rating = $this->query()->where('phone_id', $phone->id)
             ->avg('rating');
+
+        return $rating;
+    }
+
+    public function getCountAllReviewsPhone(Phone $phone)
+    {
+        $rating = $this->query()->where('phone_id', $phone->id)
+            ->where('review', '!=', 'null')
+            ->where('rating', '!=', 'null')
+            ->count();
 
         return $rating;
     }

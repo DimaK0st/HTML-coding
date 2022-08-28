@@ -38,13 +38,34 @@ class RatingService
     {
         list($iP, $phone) = $this->getPhoneAndIp($request);
 
+        if (!is_null(request('page'))){
+        }
+
+        $reviewPaginate = $this->getReviewPaginate($iP, $phone);
+
         return [
             'userRating' => $this->getRatingByIp($iP, $phone),
             'allRating' => $this->getAllRating($iP, $phone),
-            'allReview' => $this->getAllReview($iP, $phone),
+            'allReview' => $reviewPaginate->items(),
+            'allReview1' => count($reviewPaginate->items()),
+            'reviewInfo' => [
+                'total'=>$reviewPaginate->total(),
+                'currentPage'=>$reviewPaginate->nextPageUrl()
+            ],
             'averageRating' => $this->getAverageRatingPhone($phone),
             'countViews' => $this->getCountViewsPhone($phone),
         ];
+//        return [
+//            'userRating' => $this->getRatingByIp($iP, $phone),
+//            'allRating' => $this->getAllRating($iP, $phone),
+//            'allReview' => $reviewPaginate->items(),
+//            'reviewInfo' => [
+//                'total'=>$reviewPaginate->total(),
+//                'currentPage'=>$reviewPaginate->nextPageUrl()
+//            ],
+//            'averageRating' => $this->getAverageRatingPhone($phone),
+//            'countViews' => $this->getCountViewsPhone($phone),
+//        ];
     }
 
     /**
@@ -60,6 +81,11 @@ class RatingService
         return $this->ratingRepository->getAllReview($ip, $phone);
     }
 
+    public function getReviewPaginate(Ip $ip, Phone $phone)
+    {
+        return $this->ratingRepository->getReviewPaginate($ip, $phone);
+    }
+
     public function getAllRating(Ip $ip, Phone $phone)
     {
         return $this->ratingRepository->getAllRating($ip, $phone);
@@ -68,6 +94,11 @@ class RatingService
     public function getAverageRatingPhone(Phone $phone)
     {
         return $this->ratingRepository->getAverageRatingPhone($phone);
+    }
+
+    public function getCountAllReviewsPhone(Phone $phone)
+    {
+        return $this->ratingRepository->getCountAllReviewsPhone($phone);
     }
 
     public function getCountViewsPhone(Phone $phone)

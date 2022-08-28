@@ -5645,22 +5645,37 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Comments(props) {
+  var sortedList = props.sortedList,
+      countReview = props.countReview,
+      data = props.data,
+      numberService = props.numberService;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: 'comments',
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
       className: 'comments-title',
-      children: "\u041A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u0456 ()"
+      children: "\u041A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u0456 "
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+      className: 'comments-count',
+      children: ["(", countReview, ")"]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_filter_Filter__WEBPACK_IMPORTED_MODULE_2__["default"], {
       setData: props.setData,
-      data: props.data
+      data: data
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: 'comments',
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_comment_Comment__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        id: 3,
-        review: 'asdf asdfasd afs dsaf dfs',
-        rating: 3,
-        city: 'Dnepr',
-        created_at: '2022-08-20T12:05:17.000000Z'
+      children: sortedList.map(function (item) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_comment_Comment__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          id: item.id,
+          review: item.review,
+          rating: item.rating,
+          city: item.city,
+          created_at: item.created_at
+        });
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        onClick: function onClick() {
+          return numberService.getNumberRatingPaginate();
+        }
       })
     })]
   });
@@ -5747,7 +5762,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _filter_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./filter.scss */ "./resources/js/components/comments/filter/filter.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _assets_order_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../assets/order.svg */ "./public/assets/order.svg");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -5765,6 +5781,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -5802,13 +5819,6 @@ function Filter(props) {
     'key': '5',
     'name': '5 ★'
   }];
-  var timeList = [{
-    'key': 'З найдавніших',
-    'name': 'З найдавніших'
-  }, {
-    'key': '5',
-    'name': '5 ★'
-  }];
 
   var filterComments = function filterComments(type) {
     switch (type) {
@@ -5824,20 +5834,28 @@ function Filter(props) {
       case '3':
       case '4':
       case '5':
+        props.setData(_objectSpread(_objectSpread({}, props.data), {}, {
+          sortedList: sortNewOrOld(time, props.data.allReview.filter(function (item) {
+            return item.rating === parseInt(type);
+          })),
+          sortedBy: type
+        }));
         break;
 
       case 'positive':
-        setTime(true);
         props.setData(_objectSpread(_objectSpread({}, props.data), {}, {
-          sortedList: sortNewOrOld(true, props.data.allReview),
+          sortedList: sortNewOrOld(time, props.data.allReview.filter(function (item) {
+            return item.rating === parseInt('5') || item.rating === parseInt('4');
+          })),
           sortedBy: type
         }));
         break;
 
       case 'negative':
-        setTime(false);
         props.setData(_objectSpread(_objectSpread({}, props.data), {}, {
-          sortedList: sortNewOrOld(false, props.data.allReview),
+          sortedList: sortNewOrOld(time, props.data.allReview.filter(function (item) {
+            return item.rating === parseInt('1') || item.rating === parseInt('2') || item.rating === parseInt('3');
+          })),
           sortedBy: type
         }));
         break;
@@ -5847,6 +5865,9 @@ function Filter(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     filterComments(props.data.sortedBy);
   }, [time]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    filterComments('all');
+  }, []);
 
   var sortNewOrOld = function sortNewOrOld(sort, arr) {
     if (sort) {
@@ -5860,28 +5881,33 @@ function Filter(props) {
     }
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: 'filter',
     children: [filterList.map(function (item) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
         className: 'filter-item',
         onClick: function onClick() {
           return filterComments(item.key);
         },
         children: item.name
       });
-    }), time ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-      className: 'filter-item',
+    }), time ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+      className: 'filter-item right',
       onClick: function onClick() {
         return setTime(false);
       },
-      children: "\u0417 \u043D\u0430\u0439\u043D\u043E\u0432\u0456\u0448\u0438\u0445"
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-      className: 'filter-item',
+      children: ["\u0417 \u043D\u0430\u0439\u043D\u043E\u0432\u0456\u0448\u0438\u0445", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+        src: _assets_order_svg__WEBPACK_IMPORTED_MODULE_2__["default"]
+      })]
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+      className: 'filter-item right',
       onClick: function onClick() {
         return setTime(true);
       },
-      children: "\u0417 \u043D\u0430\u0439\u0434\u0430\u0432\u043D\u0456\u0448\u0438\u0445"
+      children: ["\u0417 \u043D\u0430\u0439\u0434\u0430\u0432\u043D\u0456\u0448\u0438\u0445", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+        className: 'rotate',
+        src: _assets_order_svg__WEBPACK_IMPORTED_MODULE_2__["default"]
+      })]
     })]
   });
 }
@@ -6025,17 +6051,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _rating_stars_Stars__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../rating/stars/Stars */ "./resources/js/components/rating/stars/Stars.js");
-/* harmony import */ var _rating_ratingLine_RatingLine__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../rating/ratingLine/RatingLine */ "./resources/js/components/rating/ratingLine/RatingLine.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var _services_NumberService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/NumberService */ "./resources/js/services/NumberService.js");
-/* harmony import */ var _rating_Rating__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../rating/Rating */ "./resources/js/components/rating/Rating.js");
-/* harmony import */ var use_trace_update__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! use-trace-update */ "./node_modules/use-trace-update/use-trace-update.js");
-/* harmony import */ var use_trace_update__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(use_trace_update__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _addRating_AddRating__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../addRating/AddRating */ "./resources/js/components/addRating/AddRating.js");
-/* harmony import */ var _comments_comment_Comment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../comments/comment/Comment */ "./resources/js/components/comments/comment/Comment.js");
-/* harmony import */ var _comments_Comments__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../comments/Comments */ "./resources/js/components/comments/Comments.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var _services_NumberService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/NumberService */ "./resources/js/services/NumberService.js");
+/* harmony import */ var _rating_Rating__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../rating/Rating */ "./resources/js/components/rating/Rating.js");
+/* harmony import */ var _addRating_AddRating__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../addRating/AddRating */ "./resources/js/components/addRating/AddRating.js");
+/* harmony import */ var _comments_Comments__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../comments/Comments */ "./resources/js/components/comments/Comments.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -6063,12 +6084,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
-
-
-
 function Home(props) {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_10__.useParams)(),
+  var _data$reviewInfo, _data$reviewInfo2;
+
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useParams)(),
       number = _useParams.number;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
@@ -6079,39 +6098,34 @@ function Home(props) {
       data = _useState2[0],
       setData = _useState2[1];
 
-  var numberService = (0,_services_NumberService__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_10__.useNavigate)();
+  var numberService = (0,_services_NumberService__WEBPACK_IMPORTED_MODULE_1__["default"])(number);
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useNavigate)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     console.log(data.length);
 
     if (!data.loaded) {
-      numberService.getNumberRating(number, setData, navigate).then(function (value) {
-        console.log('asdfasdfasd');
+      numberService.getNumberRating(navigate).then(function (value) {
         console.log(value);
-        setData(_objectSpread(_objectSpread({}, data), {}, {
+        setData(_objectSpread(_objectSpread(_objectSpread({}, data), {}, {
           loaded: true
-        }, value));
+        }, value), {}, {
+          'countReview': value.allReview.length,
+          'averageRating': parseFloat(value.averageRating)
+        }));
       });
-      console.error('render1');
     }
-
-    console.error('render2');
-  }, []); // useEffect(()=>{
-  //     data.allRating.map((item)=>console.log())
-  // },[data])
-
-  if (data.loaded) {
-    console.log(data.userRating.updated_at);
-    var now = new Date(data.userRating.updated_at); // например, выведем текущую дату в консоль
-  }
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {}), data.loaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_rating_Rating__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {}), data.loaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_rating_Rating__WEBPACK_IMPORTED_MODULE_2__["default"], {
       data: data
-    }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_addRating_AddRating__WEBPACK_IMPORTED_MODULE_6__["default"], {}), data.loaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_comments_Comments__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_addRating_AddRating__WEBPACK_IMPORTED_MODULE_3__["default"], {}), data.loaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_comments_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      sortedList: data === null || data === void 0 ? void 0 : data.sortedList,
+      countReview: data === null || data === void 0 ? void 0 : (_data$reviewInfo = data.reviewInfo) === null || _data$reviewInfo === void 0 ? void 0 : _data$reviewInfo.total,
+      numberService: numberService,
       data: data,
-      setData: setData
+      setData: setData,
+      paginateUrl: data === null || data === void 0 ? void 0 : (_data$reviewInfo2 = data.reviewInfo) === null || _data$reviewInfo2 === void 0 ? void 0 : _data$reviewInfo2.total
     }) : null]
   });
 }
@@ -6138,7 +6152,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _stars_Stars__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./stars/Stars */ "./resources/js/components/rating/stars/Stars.js");
 /* harmony import */ var _CONST__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../_CONST */ "./resources/js/_CONST.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -6150,64 +6174,55 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
 function Rating(props) {
   var data = props.data;
-  console.log('data.averageRating', data.averageRating);
-  console.log(' typeof', _typeof(data.averageRating));
-  console.log('parseInt(data.averageRating)', parseFloat(data.averageRating));
-  console.log('parseInt(data.averageRating).toFixed(1)', parseFloat(data.averageRating).toFixed(1));
-  console.log('Math.round(parseInt(data.averageRating))', Math.round(parseFloat(data.averageRating)));
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+      _useState2 = _slicedToArray(_useState, 2),
+      total = _useState2[0],
+      setTotal = _useState2[1];
+
+  var starsContent = [],
+      ratingLineContent = [];
+
+  var getCurrentRating = function getCurrentRating(rating) {
+    return props.data.allRating.filter(function (item) {
+      return item.rating === rating;
+    }).length;
+  };
+
+  for (var i = 5; i > 0; i--) {
+    starsContent.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_stars_Stars__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      count: i
+    }));
+    ratingLineContent.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ratingLine_RatingLine__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      count: i,
+      current: getCurrentRating(i),
+      total: data.countReview
+    }));
+  }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "rating",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: 'rating__number',
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
         className: "rating__number-title ".concat(_CONST__WEBPACK_IMPORTED_MODULE_4__["default"][4]),
-        children: parseFloat(data.averageRating).toFixed(1)
+        children: data.averageRating.toFixed(1)
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_stars_Stars__WEBPACK_IMPORTED_MODULE_3__["default"], {
         className: 'rating__number-stars',
-        count: Math.round(parseFloat(data.averageRating)),
+        count: Math.round(data.averageRating),
         gray: true
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
         className: 'rating__number-comment',
-        children: ["\u041A\u0456\u043B\u044C\u043A\u0456\u0441\u0442\u044C \u043A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u0456\u0432: ", data.allRating.length]
+        children: ["\u041A\u0456\u043B\u044C\u043A\u0456\u0441\u0442\u044C \u043A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u0456\u0432: ", data.countReview]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: 'rating__line',
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: 'rating__line-stars',
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_stars_Stars__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          count: 5
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_stars_Stars__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          count: 4
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_stars_Stars__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          count: 3
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_stars_Stars__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          count: 2
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_stars_Stars__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          count: 1
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        children: starsContent
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: 'rating__line-line',
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ratingLine_RatingLine__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          count: 5,
-          current: 14,
-          total: 36
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ratingLine_RatingLine__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          count: 4,
-          current: 0,
-          total: 36
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ratingLine_RatingLine__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          count: 3,
-          current: 7,
-          total: 36
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ratingLine_RatingLine__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          count: 2,
-          current: 0,
-          total: 36
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ratingLine_RatingLine__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          count: 1,
-          current: 15,
-          total: 36
-        })]
+        children: ratingLineContent
       })]
     })]
   });
@@ -6356,7 +6371,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var usePhoneService = function usePhoneService() {
+var usePhoneService = function usePhoneService(phone) {
+  var result = phone.replace(/(380|)/, '');
   var _apiBase = 'http://127.0.0.1:8000/api/v1/';
   var _apiKey = 'apikey=d8d91bcae31f6e159f05936ba0ff51d4';
   var _baseOffset = 210;
@@ -6372,28 +6388,33 @@ var usePhoneService = function usePhoneService() {
     }
   };
 
-  var getNumberRating = function getNumberRating(number, setData, navigate) {
-    var result = number.replace(/(380|)/, '');
-    console.log('---------------------------');
-
+  var getNumberRating = function getNumberRating(navigate) {
     if (result.length !== 9) {
       navigate("/404");
     }
-
-    console.log('+++++++++++++++++++++++++++'); // number.match('/(\+380|)(\d{9}$)/')
 
     return axios.post(_apiBase + 'get-all-info-about-phone', {
       number: result
     }, {
       headers: _objectSpread({}, postRequest.headers)
     }).then(function (res) {
-      // setData(res.data);
+      return res.data;
+    });
+  };
+
+  var getNumberRatingPaginate = function getNumberRatingPaginate(url) {
+    return axios.post(url, {
+      number: result
+    }, {
+      headers: _objectSpread({}, postRequest.headers)
+    }).then(function (res) {
       return res.data;
     });
   };
 
   return {
-    getNumberRating: getNumberRating
+    getNumberRating: getNumberRating,
+    getNumberRatingPaginate: getNumberRatingPaginate
   };
 };
 
@@ -11650,7 +11671,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.gray {\n  color: #9296ae;\n}\n\n.five {\n  color: #26948b;\n}\n\n.four {\n  color: #89a25b;\n}\n\n.three {\n  color: #d3b04d;\n}\n\n.two {\n  color: #de8e4e;\n}\n\n.one {\n  color: #e76c53;\n}\n\n.bg-gray {\n  background: #4a5079;\n}\n\n.bg-five {\n  background: #26948b;\n}\n\n.bg-four {\n  background: #89a25b;\n}\n\n.bg-three {\n  background: #d3b04d;\n}\n\n.bg-two {\n  background: #de8e4e;\n}\n\n.bg-one {\n  background: #e76c53;\n}\n\n.rating-form {\n  width: 100%;\n  padding: 60px 80px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  background-color: #282d4f;\n  border-radius: 20px;\n}\n.rating-form__area {\n  box-sizing: content-box;\n  overflow: hidden;\n  width: 267px;\n  margin: 0 auto 40px auto;\n  padding: 10px;\n  border-radius: 40px;\n}\n.rating-form__area:not(:checked) > input {\n  display: none;\n}\n.rating-form__area:not(:checked) > label {\n  float: right;\n  padding: 0;\n  cursor: pointer;\n  font-size: 64px;\n  line-height: 40px;\n  color: #a2a2a2;\n}\n.rating-form__area:not(:checked) > label:before {\n  content: \"★\";\n  line-height: 50px;\n}\n.rating-form__area:not(:checked) > label:hover, .rating-form__area:not(:checked):not(:checked) > label:hover ~ label {\n  color: white;\n}\n.rating-form__area > input:checked ~ label {\n  color: white;\n}\n.rating-form__title {\n  color: #fff;\n  font-size: 40px;\n  font-family: Roboto, sans-serif;\n  margin-bottom: 32px;\n  font-weight: 700;\n  text-align: center;\n}\n.rating-form__post-wrapper {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.rating-form__review {\n  width: 100%;\n  height: 120px;\n  padding: 12px 16px;\n  margin-bottom: 15px;\n  border-radius: 10px;\n}\n.rating-form__check {\n  font-family: Roboto, sans-serif;\n  font-size: 13px;\n  margin-bottom: 20px;\n  display: flex;\n}\n.rating-form__check-input {\n  height: 20px;\n  width: 20px;\n  margin-right: 4px;\n}\n.rating-form__check-text {\n  color: #afb4bc;\n  margin-right: 4px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.rating-form__check-url {\n  color: #ab9aff;\n  font-weight: 700;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.rating-form__button {\n  width: 224px;\n  box-sizing: border-box;\n  background-color: #ab9aff;\n  color: #fff;\n  font-weight: 700;\n  align-items: center;\n  text-transform: uppercase;\n  border-radius: 40px;\n  padding: 16px 44px;\n  font-family: Roboto, sans-serif;\n  font-size: 21px;\n  border: 0 solid #663ef5;\n  transition: 0.2s;\n  margin: 0 auto 40px auto;\n}\n.rating-form__button:hover {\n  background-color: #f884ff;\n}\n.rating-form__bottom-text {\n  font-family: Roboto, sans-serif;\n  font-size: 13px;\n  color: #afb4bc;\n  text-align: center;\n}\n.rating-form__bottom-text-phone {\n  color: white;\n}\n.rating-form__hidden {\n  display: none;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.gray {\n  color: #9296ae;\n}\n\n.five {\n  color: #26948b;\n}\n\n.four {\n  color: #89a25b;\n}\n\n.three {\n  color: #d3b04d;\n}\n\n.two {\n  color: #de8e4e;\n}\n\n.one {\n  color: #e76c53;\n}\n\n.bg-gray {\n  background: #4a5079;\n}\n\n.bg-five {\n  background: #26948b;\n}\n\n.bg-four {\n  background: #89a25b;\n}\n\n.bg-three {\n  background: #d3b04d;\n}\n\n.bg-two {\n  background: #de8e4e;\n}\n\n.bg-one {\n  background: #e76c53;\n}\n\n.rating-form {\n  width: 100%;\n  padding: 60px 80px;\n  margin: 0 0 48px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  background-color: #282d4f;\n  border-radius: 20px;\n}\n.rating-form__area {\n  box-sizing: content-box;\n  overflow: hidden;\n  width: 267px;\n  margin: 0 auto 40px auto;\n  padding: 10px;\n  border-radius: 40px;\n}\n.rating-form__area:not(:checked) > input {\n  display: none;\n}\n.rating-form__area:not(:checked) > label {\n  float: right;\n  padding: 0;\n  cursor: pointer;\n  font-size: 64px;\n  line-height: 40px;\n  color: #a2a2a2;\n}\n.rating-form__area:not(:checked) > label:before {\n  content: \"★\";\n  line-height: 50px;\n}\n.rating-form__area:not(:checked) > label:hover, .rating-form__area:not(:checked):not(:checked) > label:hover ~ label {\n  color: white;\n}\n.rating-form__area > input:checked ~ label {\n  color: white;\n}\n.rating-form__title {\n  color: #fff;\n  font-size: 40px;\n  font-family: Roboto, sans-serif;\n  margin-bottom: 32px;\n  font-weight: 700;\n  text-align: center;\n}\n.rating-form__post-wrapper {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.rating-form__review {\n  width: 100%;\n  height: 120px;\n  padding: 12px 16px;\n  margin-bottom: 15px;\n  border-radius: 10px;\n}\n.rating-form__check {\n  font-family: Roboto, sans-serif;\n  font-size: 13px;\n  margin-bottom: 20px;\n  display: flex;\n}\n.rating-form__check-input {\n  height: 20px;\n  width: 20px;\n  margin-right: 4px;\n}\n.rating-form__check-text {\n  color: #afb4bc;\n  margin-right: 4px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.rating-form__check-url {\n  color: #ab9aff;\n  font-weight: 700;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.rating-form__button {\n  width: 224px;\n  box-sizing: border-box;\n  background-color: #ab9aff;\n  color: #fff;\n  font-weight: 700;\n  align-items: center;\n  text-transform: uppercase;\n  border-radius: 40px;\n  padding: 16px 44px;\n  font-family: Roboto, sans-serif;\n  font-size: 21px;\n  border: 0 solid #663ef5;\n  transition: 0.2s;\n  margin: 0 auto 40px auto;\n}\n.rating-form__button:hover {\n  background-color: #f884ff;\n}\n.rating-form__bottom-text {\n  font-family: Roboto, sans-serif;\n  font-size: 13px;\n  color: #afb4bc;\n  text-align: center;\n}\n.rating-form__bottom-text-phone {\n  color: white;\n}\n.rating-form__hidden {\n  display: none;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11674,7 +11695,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".gray {\n  color: #9296ae;\n}\n\n.five {\n  color: #26948b;\n}\n\n.four {\n  color: #89a25b;\n}\n\n.three {\n  color: #d3b04d;\n}\n\n.two {\n  color: #de8e4e;\n}\n\n.one {\n  color: #e76c53;\n}\n\n.bg-gray {\n  background: #4a5079;\n}\n\n.bg-five {\n  background: #26948b;\n}\n\n.bg-four {\n  background: #89a25b;\n}\n\n.bg-three {\n  background: #d3b04d;\n}\n\n.bg-two {\n  background: #de8e4e;\n}\n\n.bg-one {\n  background: #e76c53;\n}\n\n.comment {\n  display: flex;\n  flex-direction: column;\n  padding: 24px;\n  border-radius: 20px;\n  background-color: #282d4f;\n}\n.comment__top-content {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  position: relative;\n}\n.comment__top-content-stars {\n  width: 141px;\n  font-size: 28px;\n  line-height: 36px;\n}\n.comment__top-content-date, .comment__top-content-city {\n  font-family: Roboto, sans-serif;\n  font-size: 15px;\n  color: #afb4bc;\n  margin: 0 12px;\n}\n.comment__top-content-nav {\n  position: absolute;\n  right: 0;\n}\n.comment__top-content-nav-image {\n  width: 25px;\n  cursor: pointer;\n}\n.comment__bottom-text {\n  margin-top: 16px;\n  font-family: Roboto, sans-serif;\n  font-size: 15px;\n  color: #afb4bc;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".gray {\n  color: #9296ae;\n}\n\n.five {\n  color: #26948b;\n}\n\n.four {\n  color: #89a25b;\n}\n\n.three {\n  color: #d3b04d;\n}\n\n.two {\n  color: #de8e4e;\n}\n\n.one {\n  color: #e76c53;\n}\n\n.bg-gray {\n  background: #4a5079;\n}\n\n.bg-five {\n  background: #26948b;\n}\n\n.bg-four {\n  background: #89a25b;\n}\n\n.bg-three {\n  background: #d3b04d;\n}\n\n.bg-two {\n  background: #de8e4e;\n}\n\n.bg-one {\n  background: #e76c53;\n}\n\n.comment {\n  display: flex;\n  flex-direction: column;\n  padding: 24px;\n  margin: 10px 0;\n  border-radius: 20px;\n  background-color: #282d4f;\n}\n.comment__top-content {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  position: relative;\n}\n.comment__top-content-stars {\n  width: 141px;\n  font-size: 28px;\n  line-height: 36px;\n}\n.comment__top-content-date, .comment__top-content-city {\n  font-family: Roboto, sans-serif;\n  font-size: 15px;\n  color: #afb4bc;\n  margin: 0 12px;\n}\n.comment__top-content-nav {\n  position: absolute;\n  right: 0;\n}\n.comment__top-content-nav-image {\n  width: 25px;\n  cursor: pointer;\n}\n.comment__bottom-text {\n  margin-top: 16px;\n  font-family: Roboto, sans-serif;\n  font-size: 15px;\n  color: #afb4bc;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11698,7 +11719,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".comments-title, .comments-count {\n  font-family: Roboto, sans-serif;\n  font-weight: 700;\n  font-size: 24px;\n  color: white;\n}\n.comments-count {\n  color: rgba(255, 255, 255, 0.4);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11722,7 +11743,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".filter {\n  margin: 40px 0;\n}\n.filter-item {\n  font-family: Roboto, sans-serif;\n  font-weight: 600;\n  font-size: 14px;\n  padding: 3px 10px;\n  border-radius: 40px;\n  border: 1px solid #ced8e8;\n  background: none;\n  color: #ced8e8;\n  margin-right: 5px;\n  margin-bottom: 5px;\n}\n\n.right {\n  display: flex;\n  float: right;\n}\n.right img {\n  margin-left: 5px;\n}\n.right .rotate {\n  transform: scale(1, -1);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11922,6 +11943,21 @@ module.exports = function (cssWithMappingToString) {
 
   return list;
 };
+
+/***/ }),
+
+/***/ "./public/assets/order.svg":
+/*!*********************************!*\
+  !*** ./public/assets/order.svg ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/order.svg?758a6e64917bd664e702dd551bab0675");
 
 /***/ }),
 
@@ -66883,53 +66919,6 @@ module.exports = function (list, options) {
     lastIdentifiers = newLastIdentifiers;
   };
 };
-
-/***/ }),
-
-/***/ "./node_modules/use-trace-update/use-trace-update.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/use-trace-update/use-trace-update.js ***!
-  \***********************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __read = (this && this.__read) || function (o, n) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator];
-    if (!m) return o;
-    var i = m.call(o), r, ar = [], e;
-    try {
-        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-    }
-    catch (error) { e = { error: error }; }
-    finally {
-        try {
-            if (r && !r.done && (m = i["return"])) m.call(i);
-        }
-        finally { if (e) throw e.error; }
-    }
-    return ar;
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-function useTraceUpdate(props) {
-    var prev = react_1.useRef(props);
-    react_1.useEffect(function () {
-        var changedProps = Object.entries(props).reduce(function (lookup, _a) {
-            var _b = __read(_a, 2), key = _b[0], value = _b[1];
-            if (prev.current[key] !== value) {
-                lookup[key] = [prev.current[key], value];
-            }
-            return lookup;
-        }, {});
-        if (Object.keys(changedProps).length > 0) {
-            console.log("Changed props:", changedProps);
-        }
-        prev.current = props;
-    });
-}
-exports["default"] = useTraceUpdate;
-
 
 /***/ }),
 

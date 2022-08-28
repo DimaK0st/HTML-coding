@@ -1,5 +1,6 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import './filter.scss'
+import order from '/assets/order.svg'
 
 function Filter(props) {
 
@@ -40,21 +41,10 @@ function Filter(props) {
         },
     ]
 
-    const timeList=[
-        {
-            'key': 'З найдавніших',
-            'name': 'З найдавніших',
-        },
-        {
-            'key': '5',
-            'name': '5 ★',
-        },
-    ]
-
     const filterComments = (type) => {
         switch (type) {
             case 'all':
-                props.setData({...props.data, sortedList: sortNewOrOld(time,props.data.allReview),sortedBy:type})
+                props.setData({...props.data, sortedList: sortNewOrOld(time, props.data.allReview), sortedBy: type})
                 break
 
             case '1':
@@ -62,31 +52,47 @@ function Filter(props) {
             case '3':
             case '4':
             case '5':
-
+                props.setData({
+                    ...props.data,
+                    sortedList: sortNewOrOld(time, props.data.allReview.filter((item) => {
+                        return item.rating === parseInt(type)
+                    })),
+                    sortedBy: type
+                })
                 break
 
             case 'positive':
-                setTime(true)
-                props.setData({...props.data, sortedList: sortNewOrOld(true,props.data.allReview),sortedBy:type})
+                props.setData({
+                    ...props.data, sortedList: sortNewOrOld(time, props.data.allReview.filter((item) => {
+                        return item.rating === parseInt('5') || item.rating === parseInt('4')
+                    })), sortedBy: type
+                })
                 break
 
             case 'negative':
-                setTime(false)
-                props.setData({...props.data, sortedList: sortNewOrOld(false,props.data.allReview),sortedBy:type})
+                props.setData({
+                    ...props.data, sortedList: sortNewOrOld(time, props.data.allReview.filter((item) => {
+                        return item.rating === parseInt('1') || item.rating === parseInt('2') || item.rating === parseInt('3')
+                    })), sortedBy: type
+                })
                 break
         }
     }
 
     useEffect(() => {
         filterComments(props.data.sortedBy)
-    },[time])
+    }, [time])
 
-        const sortNewOrOld= (sort, arr)=>{
-        if (sort){
+    useEffect(() => {
+        filterComments('all')
+    }, [])
+
+    const sortNewOrOld = (sort, arr) => {
+        if (sort) {
             return arr.sort(function (a, b) {
                 return (new Date(b.created_at)) - (new Date(a.created_at));
             })
-        }else {
+        } else {
             return arr.sort(function (a, b) {
                 return (new Date(a.created_at)) - (new Date(b.created_at));
             })
@@ -96,12 +102,12 @@ function Filter(props) {
     return (
         <div className={'filter'}>
             {filterList.map((item) => {
-                return <button className={'filter-item'} onClick={()=>filterComments(item.key)}>{item.name}</button>
+                return <button className={'filter-item'} onClick={() => filterComments(item.key)}>{item.name}</button>
             })}
 
-            {time?
-                <button className={'filter-item'} onClick={()=>setTime(false)}>З найновіших</button>:
-                <button className={'filter-item'} onClick={()=>setTime(true)}>З найдавніших</button>
+            {time ?
+                <button className={'filter-item right'} onClick={() => setTime(false)}>З найновіших<img src={order}/></button> :
+                <button className={'filter-item right'} onClick={() => setTime(true)}>З найдавніших<img className={'rotate'} src={order}/></button>
             }
 
         </div>

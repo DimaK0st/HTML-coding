@@ -1,5 +1,34 @@
 .filter{
 
 
+    margin: 40px 0;
 
+    &-item{
+
+        font-family: Roboto,sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 3px 10px;
+        border-radius: 40px;
+        border: 1px solid #ced8e8;
+        background: none;
+        color: #ced8e8;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+
+
+}
+
+.right{
+    display: flex;
+    float: right;
+
+    img{
+        margin-left: 5px;
+    }
+
+    .rotate{
+        transform: scale(1, -1)
+    }
 }
