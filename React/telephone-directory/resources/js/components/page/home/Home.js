@@ -14,7 +14,7 @@ function Home(props) {
             loading: false,
         }
     );
-    const numberService = usePhoneService(number)
+    const numberService = usePhoneService(number, data,setData)
     let navigate = useNavigate();
 
 
@@ -27,9 +27,8 @@ function Home(props) {
 
                 setData({
                     ...data,
-                    loaded: true, ...value,
-                    'countReview': value.allReview.length,
-                    'averageRating': parseFloat(value.averageRating),
+                    loaded: true,
+                    ...value,
                 })
             })
         }
@@ -38,21 +37,21 @@ function Home(props) {
 
     return (
         <div className="container">
-
+            {console.error('RENDER')}
             <div>
                 {/*{props.children}*/}
             </div>
 
-            {data.loaded ? <Rating data={data}/> : null}
+            {data.loaded ? <Rating rating={data.rating}/> : null}
 
             <AddRating/>
 
             {data.loaded ? <Comments sortedList={data?.sortedList}
-                                     countReview={data?.reviewInfo?.total}
+                                     countReview={data?.review?.total}
                                      numberService={numberService}
                                      data={data}
                                      setData={setData}
-                                     paginateUrl={data?.reviewInfo?.total}/> : null}
+                                     paginateUrl={data?.review?.nextPage}/> : null}
 
         </div>
     )

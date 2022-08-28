@@ -3,7 +3,7 @@ import './filter.scss'
 import order from '/assets/order.svg'
 
 function Filter(props) {
-
+    const {review}=props.data
     const [time, setTime] = useState(true)
 
     const filterList = [
@@ -44,7 +44,7 @@ function Filter(props) {
     const filterComments = (type) => {
         switch (type) {
             case 'all':
-                props.setData({...props.data, sortedList: sortNewOrOld(time, props.data.allReview), sortedBy: type})
+                props.setData({...props.data, sortedList: sortNewOrOld(time, review.value), sortedBy: type})
                 break
 
             case '1':
@@ -54,7 +54,7 @@ function Filter(props) {
             case '5':
                 props.setData({
                     ...props.data,
-                    sortedList: sortNewOrOld(time, props.data.allReview.filter((item) => {
+                    sortedList: sortNewOrOld(time, review.value.filter((item) => {
                         return item.rating === parseInt(type)
                     })),
                     sortedBy: type
@@ -63,7 +63,7 @@ function Filter(props) {
 
             case 'positive':
                 props.setData({
-                    ...props.data, sortedList: sortNewOrOld(time, props.data.allReview.filter((item) => {
+                    ...props.data, sortedList: sortNewOrOld(time, review.value.filter((item) => {
                         return item.rating === parseInt('5') || item.rating === parseInt('4')
                     })), sortedBy: type
                 })
@@ -71,7 +71,7 @@ function Filter(props) {
 
             case 'negative':
                 props.setData({
-                    ...props.data, sortedList: sortNewOrOld(time, props.data.allReview.filter((item) => {
+                    ...props.data, sortedList: sortNewOrOld(time, review.value.filter((item) => {
                         return item.rating === parseInt('1') || item.rating === parseInt('2') || item.rating === parseInt('3')
                     })), sortedBy: type
                 })
@@ -81,7 +81,7 @@ function Filter(props) {
 
     useEffect(() => {
         filterComments(props.data.sortedBy)
-    }, [time])
+    }, [time,review])
 
     useEffect(() => {
         filterComments('all')
@@ -101,6 +101,10 @@ function Filter(props) {
 
     return (
         <div className={'filter'}>
+
+            {console.error('Filter')}
+            {console.error(review)}
+
             {filterList.map((item) => {
                 return <button className={'filter-item'} onClick={() => filterComments(item.key)}>{item.name}</button>
             })}

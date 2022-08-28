@@ -37,22 +37,29 @@ class RatingService
     public function getAllInfoAboutPhone(GetRatingRequest $request)
     {
         list($iP, $phone) = $this->getPhoneAndIp($request);
-
-        if (!is_null(request('page'))){
-        }
-
         $reviewPaginate = $this->getReviewPaginate($iP, $phone);
 
+        if (!is_null(request('page'))) {
+            return ['review' => [
+                'value' => $reviewPaginate->items(),
+                'total' => $reviewPaginate->total(),
+                'nextPage' => $reviewPaginate->nextPageUrl()
+            ]];
+        }
+
+
         return [
-            'userRating' => $this->getRatingByIp($iP, $phone),
-            'allRating' => $this->getAllRating($iP, $phone),
-            'allReview' => $reviewPaginate->items(),
-            'allReview1' => count($reviewPaginate->items()),
-            'reviewInfo' => [
-                'total'=>$reviewPaginate->total(),
-                'currentPage'=>$reviewPaginate->nextPageUrl()
+            'userReview' => $this->getReviewByIp($iP, $phone),
+            'rating' => [
+                'group' => $this->getAllGroupRating($iP, $phone),
+                'average' => $this->getAverageRatingPhone($phone),
+                'count' => $this->getCountRatingPhone($phone),
             ],
-            'averageRating' => $this->getAverageRatingPhone($phone),
+            'review' => [
+                'value' => $reviewPaginate->items(),
+                'total' => $reviewPaginate->total(),
+                'nextPage' => $reviewPaginate->nextPageUrl()
+            ],
             'countViews' => $this->getCountViewsPhone($phone),
         ];
 //        return [
@@ -71,9 +78,9 @@ class RatingService
     /**
      * @throws \Exception
      */
-    public function getRatingByIp(Ip $ip, Phone $phone)
+    public function getReviewByIp(Ip $ip, Phone $phone)
     {
-        return $this->ratingRepository->getRatingByIp($ip, $phone);
+        return $this->ratingRepository->getReviewByIp($ip, $phone);
     }
 
     public function getAllReview(Ip $ip, Phone $phone)
@@ -86,14 +93,22 @@ class RatingService
         return $this->ratingRepository->getReviewPaginate($ip, $phone);
     }
 
-    public function getAllRating(Ip $ip, Phone $phone)
+    public function getAllGroupRating(Ip $ip, Phone $phone)
     {
-        return $this->ratingRepository->getAllRating($ip, $phone);
+        $allGroupRating = $this->ratingRepository->getAllGroupRating($ip, $phone);
+
+        return $allGroupRating;
+
     }
 
     public function getAverageRatingPhone(Phone $phone)
     {
         return $this->ratingRepository->getAverageRatingPhone($phone);
+    }
+
+    public function getCountRatingPhone(Phone $phone)
+    {
+        return $this->ratingRepository->getCountRatingPhone($phone);
     }
 
     public function getCountAllReviewsPhone(Phone $phone)
@@ -114,7 +129,7 @@ class RatingService
         return [
             $this->iPService->getOrCreateIp(geoip()->getLocation($request->ip())),
             $this->phoneService->getPhone($request),
-            ];
+        ];
 
     }
 

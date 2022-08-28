@@ -8,6 +8,7 @@ use App\Models\Ip;
 use App\Models\Phone;
 use App\Models\Rating;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Torann\GeoIP\GeoIP;
 
 class RatingRepository
@@ -22,7 +23,7 @@ class RatingRepository
         }
     }
 
-    public function getRatingByIp(Ip $ip, Phone $phone)
+    public function getReviewByIp(Ip $ip, Phone $phone)
     {
         $rating = $this->query()->where('phone_id', $phone->id)->where('ip_id', $ip->id)->first();
 
@@ -78,12 +79,14 @@ class RatingRepository
             ->paginate(10);
     }
 
-    public function getAllRating(Ip $ip, Phone $phone)
+    public function getAllGroupRating(Ip $ip, Phone $phone)
     {
         $rating = $this->query()->where('phone_id', $phone->id)->where('ip_id', '!=', $ip->id)->where('rating', '!=', 'null')
-            ->join('ips', 'ratings.ip_id', '=', 'ips.id')
-            ->select('ratings.id', 'review', 'rating', 'ips.city', 'created_at')
+            ->select('rating', DB::raw('count(\'rating\') as rating_count'))
+            ->groupBy('rating')
+            ->orderBy('rating', 'desc')
             ->get();
+
 
         return $rating;
     }
@@ -93,6 +96,13 @@ class RatingRepository
         $rating = $this->query()->where('phone_id', $phone->id)
             ->avg('rating');
 
+        return $rating;
+    }
+
+    public function getCountRatingPhone(Phone $phone)
+    {
+        $rating = $this->query()->where('phone_id', $phone->id)->where('rating', '!=', 'null')
+            ->count();
         return $rating;
     }
 

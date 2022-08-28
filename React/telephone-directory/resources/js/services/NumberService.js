@@ -1,8 +1,9 @@
-const usePhoneService = (phone) => {
+import {value} from "lodash/seq";
+
+const usePhoneService = (phone, state, setState) => {
     let result = phone.replace(/(380|)/, '')
     const _apiBase = 'http://127.0.0.1:8000/api/v1/'
-    const _apiKey = 'apikey=d8d91bcae31f6e159f05936ba0ff51d4'
-    const _baseOffset = 210
+
 
     const postRequest = {
         method: 'POST',
@@ -41,8 +42,19 @@ const usePhoneService = (phone) => {
             }
         })
             .then(res => {
-                return res.data
+                return res.data.review
+            }).then(review=>{
+                setState({
+                    ...state,
+                    'review': {
+                        'value': [...state.review.value, ...review.value],
+                        'total': review.total,
+                        'nextPage': review.nextPage,
+                    }
+                })
+
             })
+
     }
 
     return {

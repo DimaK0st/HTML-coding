@@ -2,11 +2,17 @@ import React, {useEffect, useLayoutEffect, useState} from 'react';
 import './comments.scss'
 import Filter from "./filter/Filter";
 import Comment from "./comment/Comment";
+import rating from "../rating/Rating";
+import {useParams} from "react-router-dom";
+import usePhoneService from "../../services/NumberService";
 
 function Comments(props) {
-    const {sortedList, countReview, data, numberService}=props
+    const {sortedList, countReview, data, numberService, paginateUrl}=props
     return (
         <div className={'comments'}>
+
+            {console.error("Comments")}
+
             <span className={'comments-title'}>Коментарі </span><span className={'comments-count'}>({countReview})</span>
             <Filter setData={props.setData} data={data}/>
 
@@ -17,7 +23,7 @@ function Comments(props) {
 
             </div>
             <div>
-                <button onClick={()=>numberService.getNumberRatingPaginate()}></button>
+                <button onClick={()=>numberService.getNumberRatingPaginate(paginateUrl)}>ІНШІ КОМЕНТАРІ</button>
             </div>
         </div>
     )

@@ -25,7 +25,7 @@ class RatingController
      */
     public function getRating(GetRatingRequest $request)
     {
-        return $this->ratingService->getRatingByIp($request);
+        return $this->ratingService->getReviewByIp($request);
     }
 
     public function setReviewAndRating(SetReviewAndRatingRequest $request)
