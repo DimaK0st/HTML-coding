@@ -1,29 +1,42 @@
-import React, {useEffect, useLayoutEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './comments.scss'
 import Filter from "./filter/Filter";
 import Comment from "./comment/Comment";
-import rating from "../rating/Rating";
 import {useParams} from "react-router-dom";
 import usePhoneService from "../../services/NumberService";
 
 function Comments(props) {
-    const {sortedList, countReview, data, numberService, paginateUrl}=props
+
+    const {number} = useParams()
+    const [data, setData] = useState({
+        loaded:false,
+        sort: 'all',
+        order: 1,
+    });
+    const numberService = usePhoneService(number, data,setData)
+
+    useEffect(() => {
+            numberService.getComments(data.sort, data.order)
+    }, [data.order, data.sort]);
+
+
+
     return (
         <div className={'comments'}>
 
-            {console.error("Comments")}
 
-            <span className={'comments-title'}>Коментарі </span><span className={'comments-count'}>({countReview})</span>
-            <Filter setData={props.setData} data={data}/>
+            <span className={'comments-title'}>Коментарі </span><span className={'comments-count'}>({data.total})</span>
+
+            <Filter setData={setData} data={data} numberService={numberService}/>
 
             <div className={'comments'}>
-                {sortedList.map((item)=>{
+                {data?.comments?.map((item)=>{
                     return <Comment id={item.id} review={item.review} rating={item.rating} city={item.city} created_at={item.created_at}/>
                 })}
 
             </div>
             <div>
-                <button onClick={()=>numberService.getNumberRatingPaginate(paginateUrl)}>ІНШІ КОМЕНТАРІ</button>
+                <button onClick={()=>numberService.getCommentsByPaginate(data.sort, data.nextPage)}>ІНШІ КОМЕНТАРІ</button>
             </div>
         </div>
     )

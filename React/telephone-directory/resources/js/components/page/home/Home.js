@@ -22,9 +22,7 @@ function Home(props) {
         console.log(data.length)
         if (!data.loaded) {
             numberService.getNumberRating(navigate).then((value) => {
-
                 console.log(value)
-
                 setData({
                     ...data,
                     loaded: true,
@@ -37,7 +35,7 @@ function Home(props) {
 
     return (
         <div className="container">
-            {console.error('RENDER')}
+
             <div>
                 {/*{props.children}*/}
             </div>
@@ -46,12 +44,7 @@ function Home(props) {
 
             <AddRating/>
 
-            {data.loaded ? <Comments sortedList={data?.sortedList}
-                                     countReview={data?.review?.total}
-                                     numberService={numberService}
-                                     data={data}
-                                     setData={setData}
-                                     paginateUrl={data?.review?.nextPage}/> : null}
+            {<Comments />}
 
         </div>
     )

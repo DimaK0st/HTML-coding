@@ -69,11 +69,13 @@ class RatingRepository
         return $rating;
     }
 
-    public function getReviewPaginate(Ip $ip, Phone $phone)
+    public function getReviewPaginate(Ip $ip, Phone $phone, array $sort, string $order)
     {
         return $this->query()->where('phone_id', $phone->id)->where('ip_id', '!=', $ip->id)
             ->where('review', '!=', 'null')
             ->where('rating', '!=', 'null')
+            ->whereIn('rating', $sort)
+            ->orderBy('created_at', $order)
             ->join('ips', 'ratings.ip_id', '=', 'ips.id')
             ->select('ratings.id', 'review', 'rating', 'ips.city', 'created_at')
             ->paginate(10);

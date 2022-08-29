@@ -37,16 +37,6 @@ class RatingService
     public function getAllInfoAboutPhone(GetRatingRequest $request)
     {
         list($iP, $phone) = $this->getPhoneAndIp($request);
-        $reviewPaginate = $this->getReviewPaginate($iP, $phone);
-
-        if (!is_null(request('page'))) {
-            return ['review' => [
-                'value' => $reviewPaginate->items(),
-                'total' => $reviewPaginate->total(),
-                'nextPage' => $reviewPaginate->nextPageUrl()
-            ]];
-        }
-
 
         return [
             'userReview' => $this->getReviewByIp($iP, $phone),
@@ -55,24 +45,45 @@ class RatingService
                 'average' => $this->getAverageRatingPhone($phone),
                 'count' => $this->getCountRatingPhone($phone),
             ],
-            'review' => [
-                'value' => $reviewPaginate->items(),
-                'total' => $reviewPaginate->total(),
-                'nextPage' => $reviewPaginate->nextPageUrl()
-            ],
             'countViews' => $this->getCountViewsPhone($phone),
         ];
-//        return [
-//            'userRating' => $this->getRatingByIp($iP, $phone),
-//            'allRating' => $this->getAllRating($iP, $phone),
-//            'allReview' => $reviewPaginate->items(),
-//            'reviewInfo' => [
-//                'total'=>$reviewPaginate->total(),
-//                'currentPage'=>$reviewPaginate->nextPageUrl()
-//            ],
-//            'averageRating' => $this->getAverageRatingPhone($phone),
-//            'countViews' => $this->getCountViewsPhone($phone),
-//        ];
+    }
+
+
+    public function getCommentsByPhoneWithPaginate(GetRatingRequest $request)
+    {
+        list($iP, $phone) = $this->getPhoneAndIp($request);
+        $sort = [];
+
+        switch ($request->getSort()) {
+
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+                $sort[] = $request->getSort();
+                break;
+
+            case 'positive':
+                $sort = [4, 5];
+                break;
+
+            case 'negative':
+                $sort = [1, 2, 3];
+                break;
+            default:
+                $sort = [1, 2, 3, 4, 5];
+                break;
+
+        }
+        $reviewPaginate = $this->getReviewPaginate($iP, $phone, $sort, $request->getOrder());
+
+        return ['review' => [
+            'comments' => $reviewPaginate->items(),
+            'total' => $reviewPaginate->total(),
+            'nextPage' => $reviewPaginate->nextPageUrl()
+        ]];
     }
 
     /**
@@ -88,9 +99,9 @@ class RatingService
         return $this->ratingRepository->getAllReview($ip, $phone);
     }
 
-    public function getReviewPaginate(Ip $ip, Phone $phone)
+    public function getReviewPaginate(Ip $ip, Phone $phone, array $sort, string $order)
     {
-        return $this->ratingRepository->getReviewPaginate($ip, $phone);
+        return $this->ratingRepository->getReviewPaginate($ip, $phone, $sort, $order);
     }
 
     public function getAllGroupRating(Ip $ip, Phone $phone)

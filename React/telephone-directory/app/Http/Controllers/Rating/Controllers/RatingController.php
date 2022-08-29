@@ -38,4 +38,9 @@ class RatingController
     {
         return $this->ratingService->getAllInfoAboutPhone($request);
     }
+
+    public function getCommentsByPhoneWithPaginate(GetRatingRequest $request){
+        return $this->ratingService->getCommentsByPhoneWithPaginate($request);
+    }
+
 }

@@ -5636,9 +5636,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _comments_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./comments.scss */ "./resources/js/components/comments/comments.scss");
 /* harmony import */ var _filter_Filter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./filter/Filter */ "./resources/js/components/comments/filter/Filter.js");
 /* harmony import */ var _comment_Comment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./comment/Comment */ "./resources/js/components/comments/comment/Comment.js");
-/* harmony import */ var _rating_Rating__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../rating/Rating */ "./resources/js/components/rating/Rating.js");
-/* harmony import */ var _services_NumberService__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/NumberService */ "./resources/js/services/NumberService.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var _services_NumberService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/NumberService */ "./resources/js/services/NumberService.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -5650,26 +5661,40 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Comments(props) {
-  var sortedList = props.sortedList,
-      countReview = props.countReview,
-      data = props.data,
-      numberService = props.numberService,
-      paginateUrl = props.paginateUrl;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  var _data$comments;
+
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useParams)(),
+      number = _useParams.number;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    loaded: false,
+    sort: 'all',
+    order: 1
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      data = _useState2[0],
+      setData = _useState2[1];
+
+  var numberService = (0,_services_NumberService__WEBPACK_IMPORTED_MODULE_4__["default"])(number, data, setData);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    numberService.getComments(data.sort, data.order);
+  }, [data.order, data.sort]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: 'comments',
-    children: [console.error("Comments"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
       className: 'comments-title',
       children: "\u041A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u0456 "
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
       className: 'comments-count',
-      children: ["(", countReview, ")"]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_filter_Filter__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      setData: props.setData,
-      data: data
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      children: ["(", data.total, ")"]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_filter_Filter__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      setData: setData,
+      data: data,
+      numberService: numberService
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: 'comments',
-      children: sortedList.map(function (item) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_comment_Comment__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      children: data === null || data === void 0 ? void 0 : (_data$comments = data.comments) === null || _data$comments === void 0 ? void 0 : _data$comments.map(function (item) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_comment_Comment__WEBPACK_IMPORTED_MODULE_3__["default"], {
           id: item.id,
           review: item.review,
           rating: item.rating,
@@ -5677,10 +5702,10 @@ function Comments(props) {
           created_at: item.created_at
         });
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
         onClick: function onClick() {
-          return numberService.getNumberRatingPaginate(paginateUrl);
+          return numberService.getCommentsByPaginate(data.sort, data.nextPage);
         },
         children: "\u0406\u041D\u0428\u0406 \u041A\u041E\u041C\u0415\u041D\u0422\u0410\u0420\u0406"
       })
@@ -5777,18 +5802,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 
 
 
@@ -5796,13 +5809,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Filter(props) {
-  var review = props.data.review;
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-      _useState2 = _slicedToArray(_useState, 2),
-      time = _useState2[0],
-      setTime = _useState2[1];
-
+  var data = props.data;
   var filterList = [{
     'key': 'all',
     'name': 'Всі'
@@ -5829,81 +5836,27 @@ function Filter(props) {
     'name': '5 ★'
   }];
 
-  var filterComments = function filterComments(type) {
-    switch (type) {
-      case 'all':
-        props.setData(_objectSpread(_objectSpread({}, props.data), {}, {
-          sortedList: sortNewOrOld(time, review.value),
-          sortedBy: type
-        }));
-        break;
-
-      case '1':
-      case '2':
-      case '3':
-      case '4':
-      case '5':
-        props.setData(_objectSpread(_objectSpread({}, props.data), {}, {
-          sortedList: sortNewOrOld(time, review.value.filter(function (item) {
-            return item.rating === parseInt(type);
-          })),
-          sortedBy: type
-        }));
-        break;
-
-      case 'positive':
-        props.setData(_objectSpread(_objectSpread({}, props.data), {}, {
-          sortedList: sortNewOrOld(time, review.value.filter(function (item) {
-            return item.rating === parseInt('5') || item.rating === parseInt('4');
-          })),
-          sortedBy: type
-        }));
-        break;
-
-      case 'negative':
-        props.setData(_objectSpread(_objectSpread({}, props.data), {}, {
-          sortedList: sortNewOrOld(time, review.value.filter(function (item) {
-            return item.rating === parseInt('1') || item.rating === parseInt('2') || item.rating === parseInt('3');
-          })),
-          sortedBy: type
-        }));
-        break;
-    }
-  };
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    filterComments(props.data.sortedBy);
-  }, [time, review]);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    filterComments('all');
-  }, []);
-
-  var sortNewOrOld = function sortNewOrOld(sort, arr) {
-    if (sort) {
-      return arr.sort(function (a, b) {
-        return new Date(b.created_at) - new Date(a.created_at);
-      });
-    } else {
-      return arr.sort(function (a, b) {
-        return new Date(a.created_at) - new Date(b.created_at);
-      });
-    }
+  var filterComments = function filterComments(sort, order) {
+    props.setData(_objectSpread(_objectSpread({}, data), {}, {
+      sort: sort,
+      order: order
+    }));
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: 'filter',
-    children: [console.error('Filter'), console.error(review), filterList.map(function (item) {
+    children: [filterList.map(function (item) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
         className: 'filter-item',
         onClick: function onClick() {
-          return filterComments(item.key);
+          return filterComments(item.key, data.order);
         },
         children: item.name
       });
-    }), time ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+    }), data.order ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
       className: 'filter-item right',
       onClick: function onClick() {
-        return setTime(false);
+        return filterComments(data.sort, 0);
       },
       children: ["\u0417 \u043D\u0430\u0439\u043D\u043E\u0432\u0456\u0448\u0438\u0445", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
         src: _assets_order_svg__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -5911,7 +5864,7 @@ function Filter(props) {
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
       className: 'filter-item right',
       onClick: function onClick() {
-        return setTime(true);
+        return filterComments(data.sort, 1);
       },
       children: ["\u0417 \u043D\u0430\u0439\u0434\u0430\u0432\u043D\u0456\u0448\u0438\u0445", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
         className: 'rotate',
@@ -6094,8 +6047,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Home(props) {
-  var _data$review, _data$review2;
-
   var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useParams)(),
       number = _useParams.number;
 
@@ -6123,16 +6074,9 @@ function Home(props) {
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "container",
-    children: [console.error('RENDER'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {}), data.loaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_rating_Rating__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {}), data.loaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_rating_Rating__WEBPACK_IMPORTED_MODULE_2__["default"], {
       rating: data.rating
-    }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_addRating_AddRating__WEBPACK_IMPORTED_MODULE_3__["default"], {}), data.loaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_comments_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      sortedList: data === null || data === void 0 ? void 0 : data.sortedList,
-      countReview: data === null || data === void 0 ? void 0 : (_data$review = data.review) === null || _data$review === void 0 ? void 0 : _data$review.total,
-      numberService: numberService,
-      data: data,
-      setData: setData,
-      paginateUrl: data === null || data === void 0 ? void 0 : (_data$review2 = data.review) === null || _data$review2 === void 0 ? void 0 : _data$review2.nextPage
-    }) : null]
+    }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_addRating_AddRating__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_comments_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
   });
 }
 
@@ -6399,6 +6343,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var usePhoneService = function usePhoneService(phone, state, setState) {
   var result = phone.replace(/(380|)/, '');
   var _apiBase = 'http://127.0.0.1:8000/api/v1/';
+  var varState = state;
+  var varSetState = setState;
   var postRequest = {
     method: 'POST',
     headers: {
@@ -6425,6 +6371,37 @@ var usePhoneService = function usePhoneService(phone, state, setState) {
     });
   };
 
+  var getComments = function getComments(sort, order) {
+    return axios.post(_apiBase + 'get-comments-phone', {
+      number: result,
+      sort: sort,
+      order: order
+    }, {
+      headers: _objectSpread({}, postRequest.headers)
+    }).then(function (res) {
+      return res.data.review;
+    }).then(function (value) {
+      varSetState(_objectSpread(_objectSpread({}, varState), {}, {
+        loaded: true
+      }, value));
+    });
+  };
+
+  var getCommentsByPaginate = function getCommentsByPaginate(type, url) {
+    return axios.post(url, {
+      number: result,
+      type: type
+    }, {
+      headers: _objectSpread({}, postRequest.headers)
+    }).then(function (res) {
+      return res.data;
+    }).then(function (value) {
+      setData(_objectSpread(_objectSpread({}, data), {}, {
+        loaded: true
+      }, value));
+    });
+  };
+
   var getNumberRatingPaginate = function getNumberRatingPaginate(url) {
     return axios.post(url, {
       number: result
@@ -6445,7 +6422,9 @@ var usePhoneService = function usePhoneService(phone, state, setState) {
 
   return {
     getNumberRating: getNumberRating,
-    getNumberRatingPaginate: getNumberRatingPaginate
+    getNumberRatingPaginate: getNumberRatingPaginate,
+    getCommentsByPaginate: getCommentsByPaginate,
+    getComments: getComments
   };
 };
 
