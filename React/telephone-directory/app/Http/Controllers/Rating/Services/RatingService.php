@@ -39,6 +39,7 @@ class RatingService
         list($iP, $phone) = $this->getPhoneAndIp($request);
 
         return [
+            'idPhone' => $phone->id,
             'userReview' => $this->getReviewByIp($iP, $phone),
             'rating' => [
                 'group' => $this->getAllGroupRating($iP, $phone),

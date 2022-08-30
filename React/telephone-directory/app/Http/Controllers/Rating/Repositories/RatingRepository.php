@@ -7,6 +7,8 @@ use App\Http\Controllers\Rating\Requests\SetReviewAndRatingRequest;
 use App\Models\Ip;
 use App\Models\Phone;
 use App\Models\Rating;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Torann\GeoIP\GeoIP;
@@ -69,7 +71,14 @@ class RatingRepository
         return $rating;
     }
 
-    public function getReviewPaginate(Ip $ip, Phone $phone, array $sort, string $order)
+    /**
+     * @param Ip $ip
+     * @param Phone $phone
+     * @param array $sort
+     * @param string $order
+     * @return LengthAwarePaginator
+     */
+    public function getReviewPaginate(Ip $ip, Phone $phone, array $sort, string $order): LengthAwarePaginator
     {
         return $this->query()->where('phone_id', $phone->id)->where('ip_id', '!=', $ip->id)
             ->where('review', '!=', 'null')
@@ -81,31 +90,42 @@ class RatingRepository
             ->paginate(10);
     }
 
-    public function getAllGroupRating(Ip $ip, Phone $phone)
+    /**
+     * @param Ip $ip
+     * @param Phone $phone
+     * @return Collection|array
+     */
+    public function getAllGroupRating(Ip $ip, Phone $phone): Collection|array
     {
-        $rating = $this->query()->where('phone_id', $phone->id)->where('ip_id', '!=', $ip->id)->where('rating', '!=', 'null')
+        return $this->query()->where('phone_id', $phone->id)->where('ip_id', '!=', $ip->id)->where('rating', '!=', 'null')
             ->select('rating', DB::raw('count(\'rating\') as rating_count'))
             ->groupBy('rating')
             ->orderBy('rating', 'desc')
             ->get();
-
-
-        return $rating;
     }
 
-    public function getAverageRatingPhone(Phone $phone)
+    /**
+     * @param Phone $phone
+     * @return int
+     */
+    public function getAverageRatingPhone(Phone $phone): int
     {
-        $rating = $this->query()->where('phone_id', $phone->id)
+        $avg = $this->query()->where('phone_id', $phone->id)
             ->avg('rating');
 
-        return $rating;
+        return $avg? $avg: 0;
     }
 
-    public function getCountRatingPhone(Phone $phone)
+    /**
+     * @param Phone $phone
+     * @return int
+     */
+    public function getCountRatingPhone(Phone $phone): int
     {
-        $rating = $this->query()->where('phone_id', $phone->id)->where('rating', '!=', 'null')
+        $count = $this->query()->where('phone_id', $phone->id)->where('rating', '!=', 'null')
             ->count();
-        return $rating;
+
+        return $count? $count: 0;
     }
 
     public function getCountAllReviewsPhone(Phone $phone)

@@ -5,6 +5,7 @@ import usePhoneService from "../../../services/NumberService";
 import Rating from "../../rating/Rating";
 import AddRating from "../../addRating/AddRating";
 import Comments from "../../comments/Comments";
+import LastVisitedNumbers from "../../lastVisitedNumbers/LastVisitedNumbers";
 
 function Home(props) {
     const {number} = useParams()
@@ -45,6 +46,8 @@ function Home(props) {
             <AddRating/>
 
             {<Comments />}
+
+            <LastVisitedNumbers/>
 
         </div>
     )

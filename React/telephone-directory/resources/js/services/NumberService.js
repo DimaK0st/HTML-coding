@@ -31,6 +31,7 @@ const usePhoneService = (phone, state, setState) => {
             }
         })
             .then(res => {
+                setLastVisitedNumbers(res.data.idPhone)
                 return res.data
             })
     }
@@ -65,12 +66,14 @@ const usePhoneService = (phone, state, setState) => {
             }
         })
             .then(res => {
-                return res.data
+                return res.data.review
             }).then((value) => {
-                setData({
-                    ...data,
+
+                varSetState({
+                    ...varState,
                     loaded: true,
                     ...value,
+                    'comments': [...varState.comments, ...value.comments],
                 })
             })
     }
@@ -95,6 +98,28 @@ const usePhoneService = (phone, state, setState) => {
                 })
 
             })
+
+    }
+
+    const setLastVisitedNumbers = (phoneId)=>{
+        let getItem = JSON.parse(localStorage.getItem('lastVisitedNumbers'))
+        console.log(typeof getItem)
+
+        console.log(typeof getItem ==='object')
+        console.log(getItem.length>0)
+        if (typeof getItem ==='object' && getItem?.length>0){
+
+            if (getItem.filter((item)=>item===phoneId)){
+                return
+            }
+
+            localStorage.setItem('lastVisitedNumbers', JSON.stringify([phoneId, ...getItem]));
+
+        }else {
+            console.log('hui')
+            localStorage.setItem('lastVisitedNumbers', JSON.stringify([phoneId]));
+        }
+
 
     }
 
