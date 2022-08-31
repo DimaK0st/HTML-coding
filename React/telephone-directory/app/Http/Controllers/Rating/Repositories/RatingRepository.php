@@ -146,6 +146,10 @@ class RatingRepository
         return $rating;
     }
 
+    public function getLastVisitedNumber(){
+
+    }
+
     public function query()
     {
         return Rating::query();
