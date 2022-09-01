@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,17 +16,21 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $digital
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Phone query()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Phone find()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Phone whereIn()
+ * @property Collection|Rating[] $rating
  */
 class Phone extends Model
 {
     use HasFactory;
 
+    public $table = 'phones';
     public $timestamps = false;
 
     protected $fillable = [
         'region_id',
         'digital',
     ];
+
 
     /**
      * @return HasMany
@@ -36,7 +42,20 @@ class Phone extends Model
 
     public function rating(): BelongsTo
     {
-        return $this->belongsTo(Rating::class, 'phone_id', 'id');
+        return $this->belongsTo(Rating::class, 'id', 'phone_id');
     }
+
+//    public function getLastReview(){
+//        if (!array_key_exists('ratings', $this->relations)) {
+//            $this->load([
+//                'ratings' => function (BelongsTo $builder) {
+//                    $builder;
+//                },
+//            ]);
+//        }
+//
+//        $related = $this->getRelation('ratings');
+//        dd($related);
+//    }
 
 }

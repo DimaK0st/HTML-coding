@@ -20,9 +20,9 @@ class PhoneService
         $this->regionService = $regionService;
     }
 
-    public function getPhone(GetRatingRequest $request)
+    public function getPhone(string $phone)
     {
-        if (!$validatePhone = $this->getRegionAndDigitals($request->getNumber())) {
+        if (!$validatePhone = $this->getRegionAndDigitals($phone)) {
             return null;
         }
 

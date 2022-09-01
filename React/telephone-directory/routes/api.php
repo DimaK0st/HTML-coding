@@ -30,6 +30,7 @@ Route::group(['prefix'=>'v1', 'middleware'=>['cors']], function () {
     Route::post('test-set', [RatingController::class, 'setReviewAndRating']);
     Route::post('get-all-info-about-phone', [RatingController::class, 'getAllInfoAboutPhone']);
     Route::post('get-comments-phone', [RatingController::class, 'getCommentsByPhoneWithPaginate']);
+    Route::post('get-last-phones', [RatingController::class, 'getLastVisitedNumber']);
 
 
 });

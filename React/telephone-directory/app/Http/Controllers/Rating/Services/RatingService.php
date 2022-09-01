@@ -6,10 +6,12 @@ use App\Http\Controllers\IP\Services\IPService;
 use App\Http\Controllers\Phone\Repositories\PhoneRepository;
 use App\Http\Controllers\Phone\Services\PhoneService;
 use App\Http\Controllers\Rating\Repositories\RatingRepository;
+use App\Http\Controllers\Rating\Requests\GetLastVisitedPhones;
 use App\Http\Controllers\Rating\Requests\GetRatingRequest;
 use App\Http\Controllers\Rating\Requests\SetReviewAndRatingRequest;
 use App\Models\Ip;
 use App\Models\Phone;
+use App\Models\User;
 
 class RatingService
 {
@@ -36,7 +38,7 @@ class RatingService
 
     public function getAllInfoAboutPhone(GetRatingRequest $request)
     {
-        list($iP, $phone) = $this->getPhoneAndIp($request);
+        list($iP, $phone) = $this->getPhoneAndIp($request->ip(),$request->getNumber());
 
         return [
             'idPhone' => $phone->id,
@@ -50,10 +52,15 @@ class RatingService
         ];
     }
 
+    public function getLastVisitedNumber(GetLastVisitedPhones $request)
+    {
+        return  Phone::whereIn('id',$request->getPhones())->with('rating')->get()->keyBy('id')->toArray();
+    }
+
 
     public function getCommentsByPhoneWithPaginate(GetRatingRequest $request)
     {
-        list($iP, $phone) = $this->getPhoneAndIp($request);
+        list($iP, $phone) = $this->getPhoneAndIp($request->ip(),$request->getNumber());
         $sort = [];
 
         switch ($request->getSort()) {
@@ -136,11 +143,11 @@ class RatingService
     /**
      * @throws \Exception
      */
-    public function getPhoneAndIp(GetRatingRequest $request)
+    public function getPhoneAndIp(string $ip, string $phone)
     {
         return [
-            $this->iPService->getOrCreateIp(geoip()->getLocation($request->ip())),
-            $this->phoneService->getPhone($request),
+            $this->iPService->getOrCreateIp(geoip()->getLocation($ip)),
+            $this->phoneService->getPhone($phone),
         ];
 
     }

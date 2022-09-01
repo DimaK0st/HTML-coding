@@ -12,9 +12,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $rating
  * @property int $ip_id
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rating find()
+ *
  */
 class Rating extends Model
 {
+    public $table = 'ratings';
     public $timestamps = true;
 
     protected $fillable = [
