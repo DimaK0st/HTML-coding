@@ -5967,7 +5967,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _lastVisitedPhones_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lastVisitedPhones.scss */ "./resources/js/components/lastVisitedPhones/lastVisitedPhones.scss");
 /* harmony import */ var _lastPhone_LastPhone__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lastPhone/LastPhone */ "./resources/js/components/lastVisitedPhones/lastPhone/LastPhone.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _services_NumberService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/NumberService */ "./resources/js/services/NumberService.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
 
 
 
@@ -5975,54 +5991,42 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function LastVisitedPhones(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  var _data$sortBy;
+
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)(),
+      number = _useParams.number;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      data = _useState2[0],
+      setData = _useState2[1];
+
+  var numberService = (0,_services_NumberService__WEBPACK_IMPORTED_MODULE_3__["default"])(number, data, setData);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    numberService.getLastVisitedNumbers();
+  }, []);
+  var content = (_data$sortBy = data.sortBy) === null || _data$sortBy === void 0 ? void 0 : _data$sortBy.map(function (item) {
+    var temp = data.data[item];
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_lastPhone_LastPhone__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      avg: parseFloat(temp.rating_avg_rating).toFixed(1),
+      phone: temp.phone,
+      description: temp.rating.review
+    });
+  });
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log('data', data);
+  }, [data]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: 'last-numbers',
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
       className: 'last-numbers-title',
       children: "\u041E\u0441\u0442\u0430\u043D\u043D\u0456 \u0432\u0456\u0434\u0432\u0456\u0434\u0430\u043D\u0456 \u043D\u043E\u043C\u0435\u0440\u0438"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: 'last-numbers-items',
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_lastPhone_LastPhone__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        avg: 1.3,
-        phone: +380971281678,
-        description: 'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_lastPhone_LastPhone__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        avg: 2.3,
-        phone: +380971281678,
-        description: 'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_lastPhone_LastPhone__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        avg: 3.3,
-        phone: +380971281678,
-        description: 'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_lastPhone_LastPhone__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        avg: 4.3,
-        phone: +380971281678,
-        description: 'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_lastPhone_LastPhone__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        avg: 5,
-        phone: +380971281678,
-        description: 'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_lastPhone_LastPhone__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        avg: 1.6,
-        phone: +380971281678,
-        description: 'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_lastPhone_LastPhone__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        avg: 2.6,
-        phone: +380971281678,
-        description: 'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_lastPhone_LastPhone__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        avg: 3.6,
-        phone: +380971281678,
-        description: 'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_lastPhone_LastPhone__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        avg: 4.6,
-        phone: +380971281678,
-        description: 'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_lastPhone_LastPhone__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        avg: 5,
-        phone: +380971281678,
-        description: 'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '
-      })]
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: 'last-numbers-items-wrapper',
+        children: content
+      })
     })]
   });
 }
@@ -6046,7 +6050,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _lastPhone_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lastPhone.scss */ "./resources/js/components/lastVisitedPhones/lastPhone/lastPhone.scss");
 /* harmony import */ var _CONST__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../_CONST */ "./resources/js/_CONST.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -6057,22 +6064,22 @@ function LastPhone(props) {
   var avg = props.avg,
       phone = props.phone,
       description = props.description;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: 'last-number',
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: 'last-number-avg bg-' + _CONST__WEBPACK_IMPORTED_MODULE_2__["default"][Math.round(avg) - 1],
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "last-number-avg bg-".concat(isNaN(avg) ? _CONST__WEBPACK_IMPORTED_MODULE_2__["default"][5] : _CONST__WEBPACK_IMPORTED_MODULE_2__["default"][Math.round(avg) - 1]),
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
         className: 'last-number-avg-text',
-        children: avg
+        children: isNaN(avg) ? '0.0' : avg
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: 'last-number-text',
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
         className: 'last-number-text-number',
         children: phone
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
         className: 'last-number-text-review',
-        children: description
+        children: (0,lodash__WEBPACK_IMPORTED_MODULE_3__.isNull)(description) ? 'Nothing :(' : description
       })]
     })]
   });
@@ -6206,7 +6213,9 @@ function Home(props) {
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_lastVisitedPhones_LastVisitedPhones__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {}), data.loaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_rating_Rating__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      rating: data.rating
+    }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_addRating_AddRating__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_comments_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_lastVisitedPhones_LastVisitedPhones__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
   });
 }
 
@@ -6557,29 +6566,44 @@ var usePhoneService = function usePhoneService(phone, state, setState) {
 
   var setLastVisitedNumbers = function setLastVisitedNumbers(phoneId) {
     var getItem = JSON.parse(localStorage.getItem('lastVisitedNumbers'));
-    console.log(_typeof(getItem));
-    console.log(_typeof(getItem) === 'object');
-    console.log(getItem.length > 0);
 
     if (_typeof(getItem) === 'object' && (getItem === null || getItem === void 0 ? void 0 : getItem.length) > 0) {
       if (getItem.filter(function (item) {
         return item === phoneId;
-      })) {
+      }).length) {
         return;
       }
 
       localStorage.setItem('lastVisitedNumbers', JSON.stringify([phoneId].concat(_toConsumableArray(getItem))));
     } else {
-      console.log('hui');
       localStorage.setItem('lastVisitedNumbers', JSON.stringify([phoneId]));
     }
+  };
+
+  var getLastVisitedNumbers = function getLastVisitedNumbers() {
+    var getItem = JSON.parse(localStorage.getItem('lastVisitedNumbers'));
+    return axios.post(_apiBase + 'get-last-phones', {
+      phones: getItem
+    }, {
+      headers: _objectSpread({}, postRequest.headers)
+    }).then(function (res) {
+      return res.data;
+    }).then(function (value) {
+      console.log('value', value);
+      varSetState({
+        data: value,
+        sortBy: getItem
+      });
+      console.log('varState', varState);
+    });
   };
 
   return {
     getNumberRating: getNumberRating,
     getNumberRatingPaginate: getNumberRatingPaginate,
     getCommentsByPaginate: getCommentsByPaginate,
-    getComments: getComments
+    getComments: getComments,
+    getLastVisitedNumbers: getLastVisitedNumbers
   };
 };
 
@@ -11980,7 +12004,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".last-numbers-items {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 24px;\n  border: 1px solid rgba(85, 90, 129, 0.64);\n  border-radius: 18px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".gray {\n  color: #9296ae;\n}\n\n.five {\n  color: #26948b;\n}\n\n.four {\n  color: #89a25b;\n}\n\n.three {\n  color: #d3b04d;\n}\n\n.two {\n  color: #de8e4e;\n}\n\n.one {\n  color: #e76c53;\n}\n\n.bg-gray {\n  background: #4a5079;\n}\n\n.bg-five {\n  background: #26948b;\n}\n\n.bg-four {\n  background: #89a25b;\n}\n\n.bg-three {\n  background: #d3b04d;\n}\n\n.bg-two {\n  background: #de8e4e;\n}\n\n.bg-one {\n  background: #e76c53;\n}\n\n.last-numbers {\n  display: flex;\n  flex-direction: column;\n}\n.last-numbers-title {\n  font-family: Roboto, sans-serif;\n  font-size: 20px;\n  color: white;\n  margin: 46px 0 20px 0;\n}\n.last-numbers-items {\n  padding: 24px 0;\n  border: 1px solid rgba(85, 90, 129, 0.64);\n  border-radius: 18px;\n}\n.last-numbers-items-wrapper {\n  max-height: 200px;\n  display: flex;\n  flex-wrap: wrap;\n  overflow: auto;\n  padding: 0 24px;\n}\n.last-numbers-items-wrapper::-webkit-scrollbar-track {\n  border-radius: 4px;\n}\n.last-numbers-items-wrapper::-webkit-scrollbar {\n  padding-top: 20px;\n  width: 6px;\n  overflow: hidden;\n}\n.last-numbers-items-wrapper::-webkit-scrollbar-thumb {\n  border-radius: 4px;\n  background: #6a7d9b;\n}\n.last-numbers-items-wrapper:hover::-webkit-scrollbar-thumb {\n  background: #f0f2f5;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -1,11 +1,47 @@
-.last-numbers {
+@import "./resources/sass/_variables.scss";
 
+.last-numbers {
+    display: flex;
+    flex-direction: column;
+
+    &-title {
+        font-family: Roboto, sans-serif;
+        font-size: 20px;
+        color: white;
+        margin: 46px 0 20px 0;
+    }
 
     &-items {
-        display: flex;
-        flex-wrap: wrap;
-        padding: 24px;
+        padding: 24px 0;
         border: 1px solid rgba(85, 90, 129, .64);
         border-radius: 18px;
+
+        &-wrapper {
+            max-height: 200px;
+            display: flex;
+            flex-wrap: wrap;
+            overflow: auto;
+            padding: 0 24px;
+
+            &::-webkit-scrollbar-track {
+                border-radius: 4px;
+            }
+
+            &::-webkit-scrollbar {
+                padding-top: 20px;
+                width: 6px;
+                overflow: hidden
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 4px;
+                background: #6a7d9b;
+            }
+
+            &:hover::-webkit-scrollbar-thumb {
+                background: #f0f2f5;
+            }
+        }
+
     }
 }

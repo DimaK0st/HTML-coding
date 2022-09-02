@@ -1,8 +1,31 @@
 import React, {useEffect, useState} from 'react';
 import './lastVisitedPhones.scss'
 import LastPhone from "./lastPhone/LastPhone";
+import usePhoneService from "../../services/NumberService";
+import {useParams} from "react-router-dom";
 
 function LastVisitedPhones(props) {
+    const {number} = useParams()
+    const [data, setData] = useState([])
+
+    const numberService = usePhoneService(number, data, setData)
+
+    useEffect(() => {
+        numberService.getLastVisitedNumbers();
+    }, [])
+
+    let content = data.sortBy?.map((item) => {
+        const temp = data.data[item]
+
+        return <LastPhone avg={parseFloat(temp.rating_avg_rating).toFixed(1)} phone={temp.phone}
+                          description={temp.rating.review}/>
+
+    })
+
+    useEffect(() => {
+
+        console.log('data', data)
+    }, [data])
 
     return (
         <div className={'last-numbers'}>
@@ -10,17 +33,10 @@ function LastVisitedPhones(props) {
             <span className={'last-numbers-title'}>Останні відвідані номери</span>
 
             <div className={'last-numbers-items'}>
-                <LastPhone avg={1.3} phone={+380971281678} description={'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '}/>
-                <LastPhone avg={2.3} phone={+380971281678} description={'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '}/>
-                <LastPhone avg={3.3} phone={+380971281678} description={'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '}/>
-                <LastPhone avg={4.3} phone={+380971281678} description={'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '}/>
-                <LastPhone avg={5} phone={+380971281678} description={'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '}/>
-                <LastPhone avg={1.6} phone={+380971281678} description={'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '}/>
-                <LastPhone avg={2.6} phone={+380971281678} description={'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '}/>
-                <LastPhone avg={3.6} phone={+380971281678} description={'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '}/>
-                <LastPhone avg={4.6} phone={+380971281678} description={'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '}/>
-                <LastPhone avg={5} phone={+380971281678} description={'asdfasd fas dfasd fas dfa sdfa sdf as df as df asdfasd fas dfasd fas dfa sdfa sdf as df as df '}/>
-             </div>
+                <div className={'last-numbers-items-wrapper'}>
+                    {content}
+                </div>
+            </div>
 
         </div>
     )

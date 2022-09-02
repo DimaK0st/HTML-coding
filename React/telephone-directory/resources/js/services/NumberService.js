@@ -103,28 +103,39 @@ const usePhoneService = (phone, state, setState) => {
 
     const setLastVisitedNumbers = (phoneId)=>{
         let getItem = JSON.parse(localStorage.getItem('lastVisitedNumbers'))
-        console.log(typeof getItem)
 
-        console.log(typeof getItem ==='object')
-        console.log(getItem.length>0)
         if (typeof getItem ==='object' && getItem?.length>0){
-
-            if (getItem.filter((item)=>item===phoneId)){
+            if (getItem.filter((item)=>item===phoneId).length){
                 return
             }
 
             localStorage.setItem('lastVisitedNumbers', JSON.stringify([phoneId, ...getItem]));
-
         }else {
-            console.log('hui')
             localStorage.setItem('lastVisitedNumbers', JSON.stringify([phoneId]));
         }
+            }
+
+const getLastVisitedNumbers = ()=>{
+
+    let getItem = JSON.parse(localStorage.getItem('lastVisitedNumbers'))
+    return axios.post(_apiBase + 'get-last-phones', {phones: getItem}, {
+        headers: {
+            ...postRequest.headers
+        }
+    }).then(res => {
+        return res.data
+    }).then((value)=>{
+        console.log('value', value)
+        varSetState({data: value, sortBy: getItem})
+        console.log('varState', varState)
+    })
 
 
-    }
+}
+
 
     return {
-        getNumberRating,getNumberRatingPaginate, getCommentsByPaginate, getComments,
+        getNumberRating,getNumberRatingPaginate, getCommentsByPaginate, getComments,getLastVisitedNumbers,
     }
 }
 

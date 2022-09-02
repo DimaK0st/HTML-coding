@@ -12,6 +12,7 @@ use App\Http\Controllers\Rating\Requests\SetReviewAndRatingRequest;
 use App\Models\Ip;
 use App\Models\Phone;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class RatingService
 {
@@ -38,7 +39,7 @@ class RatingService
 
     public function getAllInfoAboutPhone(GetRatingRequest $request)
     {
-        list($iP, $phone) = $this->getPhoneAndIp($request->ip(),$request->getNumber());
+        list($iP, $phone) = $this->getPhoneAndIp($request->ip(), $request->getNumber());
 
         return [
             'idPhone' => $phone->id,
@@ -54,13 +55,18 @@ class RatingService
 
     public function getLastVisitedNumber(GetLastVisitedPhones $request)
     {
-        return  Phone::whereIn('id',$request->getPhones())->with('rating')->get()->keyBy('id')->toArray();
+        return Phone::whereIn('phones.id', $request->getPhones())->with('rating')->join('regions', 'phones.region_id', '=', 'regions.id')
+
+            ->select('phones.id',
+                DB::raw('CONCAT(+380,\'\',regions.region, \'\',  phones.digital) as phone')
+            )->withAvg('rating', 'rating')
+            ->get()->keyBy('id')->toArray();
     }
 
 
     public function getCommentsByPhoneWithPaginate(GetRatingRequest $request)
     {
-        list($iP, $phone) = $this->getPhoneAndIp($request->ip(),$request->getNumber());
+        list($iP, $phone) = $this->getPhoneAndIp($request->ip(), $request->getNumber());
         $sort = [];
 
         switch ($request->getSort()) {
