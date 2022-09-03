@@ -9,16 +9,15 @@ function Comments(props) {
 
     const {number} = useParams()
     const [data, setData] = useState({
-        loaded:false,
+        loaded: false,
         sort: 'all',
         order: 1,
     });
-    const numberService = usePhoneService(number, data,setData)
+    const numberService = usePhoneService(number, data, setData)
 
     useEffect(() => {
-            numberService.getComments(data.sort, data.order)
+        numberService.getComments(data.sort, data.order)
     }, [data.order, data.sort]);
-
 
 
     return (
@@ -30,13 +29,17 @@ function Comments(props) {
             <Filter setData={setData} data={data} numberService={numberService}/>
 
             <div className={'comments'}>
-                {data?.comments?.map((item)=>{
-                    return <Comment id={item.id} review={item.review} rating={item.rating} city={item.city} created_at={item.created_at}/>
+                {data?.comments?.map((item) => {
+                    return <Comment id={item.id} review={item.review} rating={item.rating} city={item.city}
+                                    created_at={item.created_at}/>
                 })}
 
             </div>
-            <div>
-                <button onClick={()=>numberService.getCommentsByPaginate(data.sort, data.nextPage)}>ІНШІ КОМЕНТАРІ</button>
+            <div className={'comments-paginate'}>
+                <button className={'comments-paginate-btn'}
+                        onClick={() => numberService.getCommentsByPaginate(data.sort, data.nextPage)}
+                >ІНШІ КОМЕНТАРІ
+                </button>
             </div>
         </div>
     )

@@ -5703,7 +5703,9 @@ function Comments(props) {
         });
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: 'comments-paginate',
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+        className: 'comments-paginate-btn',
         onClick: function onClick() {
           return numberService.getCommentsByPaginate(data.sort, data.nextPage);
         },
@@ -6150,13 +6152,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var _services_NumberService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/NumberService */ "./resources/js/services/NumberService.js");
 /* harmony import */ var _rating_Rating__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../rating/Rating */ "./resources/js/components/rating/Rating.js");
 /* harmony import */ var _addRating_AddRating__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../addRating/AddRating */ "./resources/js/components/addRating/AddRating.js");
 /* harmony import */ var _comments_Comments__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../comments/Comments */ "./resources/js/components/comments/Comments.js");
 /* harmony import */ var _lastVisitedPhones_LastVisitedPhones__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lastVisitedPhones/LastVisitedPhones */ "./resources/js/components/lastVisitedPhones/LastVisitedPhones.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _recommendedArticles_RecommendedArticles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../recommendedArticles/RecommendedArticles */ "./resources/js/components/recommendedArticles/RecommendedArticles.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -6185,8 +6188,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function Home(props) {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useParams)(),
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useParams)(),
       number = _useParams.number;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
@@ -6198,7 +6202,7 @@ function Home(props) {
       setData = _useState2[1];
 
   var numberService = (0,_services_NumberService__WEBPACK_IMPORTED_MODULE_1__["default"])(number, data, setData);
-  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useNavigate)();
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useNavigate)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     console.log(data.length);
 
@@ -6211,11 +6215,9 @@ function Home(props) {
       });
     }
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
     className: "container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {}), data.loaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_rating_Rating__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      rating: data.rating
-    }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_addRating_AddRating__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_comments_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_lastVisitedPhones_LastVisitedPhones__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_recommendedArticles_RecommendedArticles__WEBPACK_IMPORTED_MODULE_6__["default"], {})]
   });
 }
 
@@ -6443,6 +6445,109 @@ var Stars = function Stars(props) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Stars);
+
+/***/ }),
+
+/***/ "./resources/js/components/recommendedArticles/RecommendedArticle/RecommendedArticle.js":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/recommendedArticles/RecommendedArticle/RecommendedArticle.js ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _recommendedArticle_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./recommendedArticle.scss */ "./resources/js/components/recommendedArticles/RecommendedArticle/recommendedArticle.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+function RecommendedArticle(props) {
+  var url = props.url,
+      domain = props.domain,
+      title = props.title,
+      date = props.date;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: 'recommended-article',
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+      className: 'recommended-article-title',
+      href: url,
+      target: "_blank",
+      children: title
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "recommended-article-info",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        className: 'recommended-article-info-date',
+        children: date
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        className: 'recommended-article-info-domain',
+        children: domain
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+      className: 'recommended-article-description',
+      children: props.children
+    })]
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RecommendedArticle);
+
+/***/ }),
+
+/***/ "./resources/js/components/recommendedArticles/RecommendedArticles.js":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/recommendedArticles/RecommendedArticles.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _recommendedArticles_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./recommendedArticles.scss */ "./resources/js/components/recommendedArticles/recommendedArticles.scss");
+/* harmony import */ var _RecommendedArticle_RecommendedArticle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RecommendedArticle/RecommendedArticle */ "./resources/js/components/recommendedArticles/RecommendedArticle/RecommendedArticle.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+function RecommendedArticles(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: 'recommended-articles',
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+      className: 'recommended-articles-title',
+      children: "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u043E\u0432\u0430\u043D\u0456 \u0441\u0442\u0430\u0442\u0442\u0456"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: 'recommended-articles-items',
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_RecommendedArticle_RecommendedArticle__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        url: 'https://promo.bank.gov.ua/stopfraud/',
+        domain: 'promo.bank.gov.ua',
+        title: 'Телефонне шахрайство',
+        date: '30 серпня 2022 р.',
+        children: "UKRSIBBANK BNP Paribas Group \u043F\u0440\u043E\u0434\u043E\u0432\u0436\u0443\u0454 \u043D\u0430\u0433\u0430\u0434\u0443\u0432\u0430\u0442\u0438 \u043F\u0440\u043E \u043F\u0440\u0438\u043D\u0446\u0438\u043F\u0438 \u043F\u043B\u0430\u0442\u0456\u0436\u043D\u043E\u0457 \u0431\u0435\u0437\u043F\u0435\u043A\u0438 \u0442\u0430 \u0441\u043F\u043E\u0441\u043E\u0431\u0438 \u043F\u0440\u043E\u0442\u0438\u0434\u0456\u0457 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u043D\u043E\u043C\u0443 \u0448\u0430\u0445\u0440\u0430\u0439\u0441\u0442\u0432\u0443, \u043F\u0456\u0434\u0442\u0440\u0438\u043C\u0443\u044E\u0447\u0438 \u0412\u0441\u0435\u0443\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0443 \u0456\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0456\u0439\u043D\u0443 \u043A\u0430\u043C\u043F\u0430\u043D\u0456\u044E \u0437 \u043F\u0440\u043E\u0442\u0438\u0434\u0456\u0457 \u043F\u043B\u0430\u0442\u0456\u0436\u043D\u043E\u043C\u0443 \u0448\u0430\u0445\u0440\u0430\u0439\u0441\u0442\u0432\u0443 \u0432\u0456\u0434 \u041D\u0411\u0423. \u0422\u0435\u043B\u0435\u0444\u043E\u043D\u043D\u0435 \u0448\u0430\u0445\u0440\u0430\u0439\u0441\u0442\u0432\u043E \u2014 \u0446\u0435 \u0432\u0438\u0434 \u0448\u0430\u0445\u0440\u0430\u0439\u0441\u0442\u0432\u0430, \u043A\u043E\u043B\u0438 \u0448\u0430\u0445\u0440\u0430\u0439 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0443\u0454 \u0456 \u043F\u0435\u0440\u0435\u043A\u043E\u043D\u0443\u0454 \u0436\u0435\u0440\u0442\u0432\u0443 \u043F\u043E\u0432\u0456\u0434\u043E\u043C\u0438\u0442\u0438 \u043E\u0441\u043E\u0431\u0438\u0441\u0442\u0443, \u0444\u0456\u043D\u0430\u043D\u0441\u043E\u0432\u0443 \u0447\u0438 \u043A\u043E\u043D\u0444\u0456\u0434\u0435\u043D\u0446\u0456\u0439\u043D\u0443 \u0456\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0456\u044E \u0430\u0431\u043E \u043F\u0435\u0440\u0435\u043A\u0430\u0437\u0430\u0442\u0438 \u0433\u0440\u043E\u0448\u0456. \u0428\u0430\u0445\u0440\u0430\u0439 \u043C\u043E\u0436\u0435 \u043D\u0430\u0437\u0432\u0430\u0442\u0438\u0441\u044F \u0431\u0443\u0434\u044C-\u043A\u0438\u043C: \u043F\u0440\u0430\u0446\u0456\u0432\u043D\u0438\u043A\u043E\u043C \u0431\u0430\u043D\u043A\u0443, \u043F\u0440\u0430\u0446\u0456\u0432\u043D\u0438\u043A\u043E\u043C \u041D\u0411\u0423, \u043F\u0435\u043D\u0441\u0456\u0439\u043D\u043E\u0433\u043E \u0444\u043E\u043D\u0434\u0443, \u0444\u0456\u0441\u043A\u0430\u043B\u044C\u043D\u043E\u0457 \u0441\u043B\u0443\u0436\u0431\u0438, \u043F\u0440\u0430\u0446\u0456\u0432\u043D\u0438\u043A\u043E\u043C \u043F\u043E\u043B\u0456\u0446\u0456\u0457, \u043F\u0440\u0430\u0446\u0456\u0432\u043D\u0438\u043A\u043E\u043C \u043A\u043E\u043C\u0443\u043D\u0430\u043B\u044C\u043D\u0438\u0445 \u0441\u043B\u0443\u0436\u0431, \u043F\u0440\u0430\u0446\u0456\u0432\u043D\u0438\u043A\u043E\u043C \u043C\u043E\u0431\u0456\u043B\u044C\u043D\u043E\u0433\u043E \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u0430, \u043F\u043E\u043A\u0443\u043F\u0446\u0435\u043C \u0432\u0430\u0448\u043E\u0433\u043E \u0442\u043E\u0432\u0430\u0440\u0443 \u0442\u043E\u0449\u043E."
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_RecommendedArticle_RecommendedArticle__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        url: 'https://zaxid.net/dvoye_lvivyan_vid_imeni_politsiyi_vimagali_groshi_u_meshkantsiv_ivano_frankivska_n1528370',
+        domain: 'zaxid.net',
+        title: 'Двоє львів\'ян від імені поліції вимагали...',
+        date: '3 вересня 2022 р.',
+        children: "\u0414\u0432\u043E\u0445 \u043C\u0435\u0448\u043A\u0430\u043D\u0446\u0456\u0432 \u041B\u044C\u0432\u0456\u0432\u0449\u0438\u043D\u0438 \u0437\u0430\u0442\u0440\u0438\u043C\u0430\u043B\u0438 \u0437\u0430 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u043D\u0435 \u0448\u0430\u0445\u0440\u0430\u0439\u0441\u0442\u0432\u043E \u043D\u0430 \u041F\u0440\u0438\u043A\u0430\u0440\u043F\u0430\u0442\u0442\u0456. \u0417\u0430\u0442\u0440\u0438\u043C\u0430\u043D\u0456 \u043F\u0456\u0434 \u0432\u0438\u0433\u043B\u044F\u0434\u043E\u043C \u043F\u043E\u043B\u0456\u0446\u0435\u0439\u0441\u044C\u043A\u0438\u0445 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0443\u0432\u0430\u043B\u0438 \u043F\u0435\u0440\u0435\u0432\u0430\u0436\u043D\u043E \u043B\u0456\u0442\u043D\u0456\u043C \u043B\u044E\u0434\u044F\u043C \u0442\u0430 \u0432\u0438\u043C\u0430\u0433\u0430\u043B\u0438 \u0433\u0440\u043E\u0448\u0456 \u0437\u0430 \u043D\u0435\u043F\u0440\u0438\u0442\u044F\u0433\u043D\u0435\u043D\u043D\u044F \u0457\u0445\u043D\u0456\u0445 \u0440\u043E\u0434\u0438\u0447\u0456\u0432 \u0434\u043E \u043A\u0440\u0438\u043C\u0456\u043D\u0430\u043B\u044C\u043D\u043E\u0457 \u0432\u0456\u0434\u043F\u043E\u0432\u0456\u0434\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u0456. \u0412 \u0442\u0430\u043A\u0438\u0439 \u0441\u043F\u043E\u0441\u0456\u0431 \u0448\u0430\u0445\u0440\u0430\u044F\u043C \u0432\u0434\u0430\u043B\u043E\u0441\u044F \u0432\u0438\u043C\u0430\u043D\u0438\u0442\u0438 \u0432 \u043F\u043E\u0441\u0442\u0440\u0430\u0436\u0434\u0430\u043B\u0438\u0445 \u0431\u043B\u0438\u0437\u044C\u043A\u043E 100 \u0442\u0438\u0441. \u0433\u0440\u043D."
+      })]
+    })]
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RecommendedArticles);
 
 /***/ }),
 
@@ -11908,7 +12013,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".comments-title, .comments-count {\n  font-family: Roboto, sans-serif;\n  font-weight: 700;\n  font-size: 24px;\n  color: white;\n}\n.comments-count {\n  color: rgba(255, 255, 255, 0.4);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".comments-title, .comments-count {\n  font-family: Roboto, sans-serif;\n  font-weight: 700;\n  font-size: 24px;\n  color: white;\n}\n.comments-count {\n  color: rgba(255, 255, 255, 0.4);\n}\n.comments-paginate {\n  display: flex;\n  width: 100%;\n}\n.comments-paginate-btn {\n  padding: 10px 20px;\n  justify-content: center;\n  text-transform: uppercase;\n  font-size: 13px;\n  font-weight: 700;\n  margin: 48px auto 0 auto;\n  border: 2px solid #ab9aff;\n  background-color: transparent;\n  border-radius: 44px;\n  color: #ab9aff;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12101,6 +12206,54 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".gray {\n  color: #9296ae;\n}\n\n.five {\n  color: #26948b;\n}\n\n.four {\n  color: #89a25b;\n}\n\n.three {\n  color: #d3b04d;\n}\n\n.two {\n  color: #de8e4e;\n}\n\n.one {\n  color: #e76c53;\n}\n\n.bg-gray {\n  background: #4a5079;\n}\n\n.bg-five {\n  background: #26948b;\n}\n\n.bg-four {\n  background: #89a25b;\n}\n\n.bg-three {\n  background: #d3b04d;\n}\n\n.bg-two {\n  background: #de8e4e;\n}\n\n.bg-one {\n  background: #e76c53;\n}\n\n.stars {\n  display: flex;\n  flex-direction: row;\n  justify-content: right;\n}\n.stars__item {\n  width: auto;\n  right: 0;\n  color: white;\n  font-size: 20px;\n  text-align: right;\n}\n.stars-bg {\n  border-radius: 40px;\n  padding: 0 12px;\n}\n.stars-white {\n  color: white !important;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/recommendedArticles/RecommendedArticle/recommendedArticle.scss":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/recommendedArticles/RecommendedArticle/recommendedArticle.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".recommended-article {\n  display: flex;\n  flex-direction: column;\n  font-family: Roboto, sans-serif;\n  color: #afb4bc;\n  padding: 24px;\n  border: 1px solid rgba(85, 90, 129, 0.64);\n  border-radius: 18px;\n  margin-bottom: 8px;\n}\n.recommended-article-title {\n  font-weight: 400;\n  font-size: 16px;\n  margin-bottom: 12px;\n  color: #afb4bc;\n  text-decoration: none;\n}\n.recommended-article-info {\n  color: hsla(0deg, 0%, 100%, 0.4);\n  font-size: 13px;\n  margin-bottom: 10px;\n}\n.recommended-article-info-date {\n  margin-right: 16px;\n}\n.recommended-article-info-domain {\n  padding: 2px 8px;\n  border: 1px solid rgba(206, 216, 232, 0.16);\n  border-radius: 40px;\n}\n.recommended-article-description {\n  display: -webkit-box;\n  -webkit-line-clamp: 4;\n  -webkit-box-orient: vertical;\n  overflow: hidden;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/recommendedArticles/recommendedArticles.scss":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/recommendedArticles/recommendedArticles.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".gray {\n  color: #9296ae;\n}\n\n.five {\n  color: #26948b;\n}\n\n.four {\n  color: #89a25b;\n}\n\n.three {\n  color: #d3b04d;\n}\n\n.two {\n  color: #de8e4e;\n}\n\n.one {\n  color: #e76c53;\n}\n\n.bg-gray {\n  background: #4a5079;\n}\n\n.bg-five {\n  background: #26948b;\n}\n\n.bg-four {\n  background: #89a25b;\n}\n\n.bg-three {\n  background: #d3b04d;\n}\n\n.bg-two {\n  background: #de8e4e;\n}\n\n.bg-one {\n  background: #e76c53;\n}\n\n.recommended-articles {\n  display: flex;\n  flex-direction: column;\n}\n.recommended-articles-title {\n  font-family: Roboto, sans-serif;\n  font-size: 20px;\n  color: white;\n  margin: 46px 0 20px 0;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71402,6 +71555,66 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_stars_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/components/recommendedArticles/RecommendedArticle/recommendedArticle.scss":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/recommendedArticles/RecommendedArticle/recommendedArticle.scss ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_recommendedArticle_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./recommendedArticle.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/recommendedArticles/RecommendedArticle/recommendedArticle.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_recommendedArticle_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_recommendedArticle_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/components/recommendedArticles/recommendedArticles.scss":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/recommendedArticles/recommendedArticles.scss ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_recommendedArticles_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./recommendedArticles.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/recommendedArticles/recommendedArticles.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_recommendedArticles_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_recommendedArticles_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

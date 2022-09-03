@@ -1,0 +1,44 @@
+.recommended-article{
+    display: flex;
+    flex-direction: column;
+    font-family: Roboto,sans-serif;
+    color: #afb4bc;
+padding: 24px;
+    border: 1px solid rgba(85, 90, 129, .64);
+    border-radius: 18px;
+    margin-bottom: 8px;
+
+    &-title{
+        font-weight: 400;
+        font-size: 16px;
+        margin-bottom: 12px;    color: #afb4bc;
+        text-decoration: none;
+    }
+
+    &-info{
+        color: hsla(0,0%,100%,.4);
+        font-size: 13px;
+margin-bottom: 10px;
+
+        &-date{
+            margin-right: 16px;
+
+        }
+
+        &-domain{
+            padding: 2px 8px;
+            border: 1px solid rgba(206,216,232,.16);
+            border-radius: 40px;
+        }
+
+    }
+
+    &-description{
+
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+}

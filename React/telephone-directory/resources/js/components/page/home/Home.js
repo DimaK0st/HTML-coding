@@ -6,6 +6,7 @@ import Rating from "../../rating/Rating";
 import AddRating from "../../addRating/AddRating";
 import Comments from "../../comments/Comments";
 import LastVisitedPhones from "../../lastVisitedPhones/LastVisitedPhones";
+import RecommendedArticles from "../../recommendedArticles/RecommendedArticles";
 
 function Home(props) {
     const {number} = useParams()
@@ -41,13 +42,15 @@ function Home(props) {
                 {/*{props.children}*/}
             </div>
 
-            {data.loaded ? <Rating rating={data.rating}/> : null}
+            {/*{data.loaded ? <Rating rating={data.rating}/> : null}*/}
 
-            <AddRating/>
+            {/*<AddRating/>*/}
 
-            {<Comments />}
+            {/*{<Comments />}*/}
 
-            <LastVisitedPhones/>
+            {/*<LastVisitedPhones/>*/}
+
+            <RecommendedArticles/>
 
         </div>
     )

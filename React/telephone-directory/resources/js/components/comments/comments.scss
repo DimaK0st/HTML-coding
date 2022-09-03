@@ -1,14 +1,32 @@
-.comments{
+.comments {
 
-    &-title, &-count{
-        font-family: Roboto,sans-serif;
+    &-title, &-count {
+        font-family: Roboto, sans-serif;
         font-weight: 700;
         font-size: 24px;
         color: white;
     }
 
-    &-count{
+    &-count {
         color: #FFFFFF66;
+    }
+
+    &-paginate {
+        display: flex;
+    width: 100%;
+
+    &-btn {
+        padding: 10px 20px;
+        justify-content: center;
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: 700;
+        margin: 48px auto 0 auto;
+        border: 2px solid #ab9aff;
+        background-color: transparent;
+        border-radius: 44px;
+        color: #ab9aff;
+    }
     }
 
 }
