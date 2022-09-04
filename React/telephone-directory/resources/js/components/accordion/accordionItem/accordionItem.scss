@@ -1,0 +1,101 @@
+.accordion-wrapper {
+    display: flex;
+    flex-direction: column;
+    color: #afb4bc;
+
+    .hidden {
+        display: none;
+    }
+
+    .selected {
+        color: #ab9aff;
+
+        .accordion-wrapper-title-img {
+            transform: translate(0, -50%) rotate(180deg);
+        }
+    }
+
+    &-title {
+        cursor: pointer;
+        position: relative;
+        padding: 16px 56px 16px 24px;
+
+        font-family: Roboto, sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        text-align: left;
+        transition: .4s;
+
+        &:hover {
+            color: #ab9aff;
+        }
+
+        &-img {
+            position: absolute;
+            right: 10px;
+
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+    }
+
+    &-content {
+        display: flex;
+        flex-direction: column;
+        font-family: Roboto, sans-serif;
+        font-size: 13px;
+        padding: 0 24px 32px;
+        color: #afb4bc;
+
+        span {
+            margin-bottom: 20px;
+        }
+
+        &-wrapper {
+
+            &-btn {
+                width: auto;
+                font-family: Roboto, sans-serif;
+                font-size: 13px;
+                background-color: #424664;
+                border: 2px solid transparent;
+                color: #fff;
+                border-radius: 44px;
+                padding: 5px 15px;
+                margin-top: 10px;
+                text-transform: uppercase;
+            }
+        }
+
+        ol {
+            position: relative;
+            padding: 0;
+            list-style: none;
+            counter-reset: i;
+            li {
+                position: relative;
+                font-family: Roboto,sans-serif;
+                padding: 12px 0 12px 45px;
+                &:before {
+                    position: absolute;
+                    display:flex;
+                    background-color: #ab9aff;
+                    border-radius: 50%;
+                    color: #fff;
+                    content: counter(i);
+                    counter-increment: i;
+                    font-size: 13px;
+                    font-weight: 700;
+                    height: 22px;
+                    width: 22px;
+                    line-height: 13px;
+                    align-items: center;
+                    justify-content: center;
+                    top: 10px;
+                    left: 10px;
+                }
+            }
+        }
+    }
+
+}

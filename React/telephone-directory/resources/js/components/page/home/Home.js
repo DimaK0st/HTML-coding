@@ -7,6 +7,7 @@ import AddRating from "../../addRating/AddRating";
 import Comments from "../../comments/Comments";
 import LastVisitedPhones from "../../lastVisitedPhones/LastVisitedPhones";
 import RecommendedArticles from "../../recommendedArticles/RecommendedArticles";
+import Accordion from "../../accordion/Accordion";
 
 function Home(props) {
     const {number} = useParams()
@@ -50,7 +51,9 @@ function Home(props) {
 
             {/*<LastVisitedPhones/>*/}
 
-            <RecommendedArticles/>
+            {/*<RecommendedArticles/>*/}
+
+            <Accordion/>
 
         </div>
     )

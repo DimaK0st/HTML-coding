@@ -5476,6 +5476,163 @@ function CreateItem() {
 
 /***/ }),
 
+/***/ "./resources/js/components/accordion/Accordion.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/accordion/Accordion.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _accordion_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./accordion.scss */ "./resources/js/components/accordion/accordion.scss");
+/* harmony import */ var _accordionItem_AccordionItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./accordionItem/AccordionItem */ "./resources/js/components/accordion/accordionItem/AccordionItem.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+function Accordion(props) {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(3),
+      _useState2 = _slicedToArray(_useState, 2),
+      data = _useState2[0],
+      setData = _useState2[1];
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: 'accordion',
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+      className: 'accordion-title'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: 'accordion-items',
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_accordionItem_AccordionItem__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        id: 1,
+        data: data,
+        setData: setData,
+        title: 'Хто створює базу даних та як гарантовано достовірність коментарів?',
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          children: "\u0411\u0430\u0437\u0443 \u0434\u0430\u043D\u0438\u0445 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u043D\u0438\u0445 \u043D\u043E\u043C\u0435\u0440\u0456\u0432 \u0442\u0430 \u043A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u0456\u0432 \u0441\u0442\u0432\u043E\u0440\u044E\u044E\u0442\u044C \u0441\u0430\u043C\u0456 \u043A\u043E\u0440\u0438\u0441\u0442\u0443\u0432\u0430\u0447\u0456 \u0447\u0435\u0440\u0435\u0437 \u0432\u0435\u0431-\u0441\u0430\u0439\u0442."
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          children: "\u041A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u0456 \u043C\u043E\u0436\u0443\u0442\u044C \u0434\u043E\u0434\u0430\u0432\u0430\u0442\u0438 \u0437\u0430\u0440\u0435\u0454\u0441\u0442\u0440\u043E\u0432\u0430\u043D\u0456 \u043A\u043E\u0440\u0438\u0441\u0442\u0443\u0432\u0430\u0447\u0456 \u0430\u0431\u043E \u0439 \u0430\u043D\u043E\u043D\u0456\u043C\u043D\u043E. \u042F\u043A \u0456 \u0432 \u043A\u043E\u0436\u043D\u043E\u043C\u0443 \u043E\u0431\u0433\u043E\u0432\u043E\u0440\u0435\u043D\u043D\u0456, \u0430\u043D\u0456 \u043D\u0430 \u043D\u0430\u0448\u043E\u043C\u0443 \u0432\u0435\u0431-\u0441\u0430\u0439\u0442\u0456 \u043D\u0435\u043C\u043E\u0436\u043B\u0438\u0432\u043E \u043D\u0430 100% \u0433\u0430\u0440\u0430\u043D\u0442\u0443\u0432\u0430\u0442\u0438 \u0434\u043E\u0441\u0442\u043E\u0432\u0456\u0440\u043D\u0456\u0441\u0442\u044C \u043A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u0456\u0432. \u0422\u043E\u043C\u0443 \u043C\u0438 \u0437\u0430\u043B\u0438\u0448\u0430\u0454\u043C\u043E \u0437\u0430 \u0441\u043E\u0431\u043E\u044E \u043F\u0440\u0430\u0432\u043E \u0432\u0438\u0434\u0430\u043B\u044F\u0442\u0438 \u043A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u0456 \u0430\u0431\u043E \u043D\u0430\u0432\u0456\u0442\u044C \u0431\u043B\u043E\u043A\u0443\u0432\u0430\u0442\u0438 \u0432\u0441\u044E \u0434\u0438\u0441\u043A\u0443\u0441\u0456\u044E \u0441\u0442\u043E\u0441\u043E\u0432\u043D\u043E \u043D\u043E\u043C\u0435\u0440\u0430 0963133333."
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          children: "\u041A\u043E\u0436\u0435\u043D \u043A\u043E\u0440\u0438\u0441\u0442\u0443\u0432\u0430\u0447 \u043C\u0430\u0454 \u043C\u043E\u0436\u043B\u0438\u0432\u0456\u0441\u0442\u044C \u0431\u0443\u0434\u044C-\u043A\u043E\u043B\u0438 \u043A\u043E\u043C\u0435\u043D\u0442\u0430\u0440 \u043D\u0435\u0433\u0430\u0439\u043D\u043E \u0434\u0435\u0437\u0430\u043A\u0442\u0438\u0432\u0443\u0432\u0430\u0442\u0438 \u0434\u043E \u043C\u043E\u043C\u0435\u043D\u0442\u0443, \u0434\u043E\u043A\u0438 \u0439\u043E\u0433\u043E \u0440\u043E\u0437\u0433\u043B\u044F\u043D\u0443\u0442\u044C \u043C\u043E\u0434\u0435\u0440\u0430\u0442\u043E\u0440\u0438. \u041F\u0440\u043E\u0441\u0442\u043E \u043D\u0430\u0442\u0438\u0441\u043D\u0456\u0442\u044C \u043A\u043D\u043E\u043F\u043A\u0443 \u0412\u0438\u0434\u0430\u043B\u0438\u0442\u0438 \u0432 \u043C\u0435\u043D\u044E, \u044F\u043A\u0435 \u0437\u2019\u044F\u0432\u043B\u044F\u0454\u0442\u044C\u0441\u044F \u0431\u0456\u043B\u044F \u043A\u043E\u0436\u043D\u043E\u0433\u043E \u043A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u044F. \u041F\u043E\u0442\u0456\u043C \u043A\u043E\u0440\u0438\u0441\u0442\u0443\u0432\u0430\u0447\u0430 \u043F\u0435\u0440\u0435\u0441\u043F\u0440\u044F\u043C\u043E\u0432\u0443\u044E\u0442\u044C \u043D\u0430 \u043A\u043E\u0440\u043E\u0442\u043A\u0443 \u0444\u043E\u0440\u043C\u0443, \u0434\u0435 \u0432\u0456\u043D \u043C\u043E\u0436\u0435 \u043E\u043F\u0438\u0441\u0430\u0442\u0438 \u043C\u043E\u0434\u0435\u0440\u0430\u0442\u043E\u0440\u0430\u043C, \u0447\u043E\u043C\u0443 \u0441\u0430\u043C\u0435 \u0432\u0432\u0430\u0436\u0430\u0454 \u043A\u043E\u043C\u0435\u043D\u0442\u0430\u0440 \u0448\u043A\u0456\u0434\u043B\u0438\u0432\u0438\u043C."
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_accordionItem_AccordionItem__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        id: 2,
+        data: data,
+        setData: setData,
+        title: 'Чи форум модерується?',
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          children: "\u0424\u043E\u0440\u0443\u043C \u0447\u0430\u0441\u0442\u043A\u043E\u0432\u043E \u043C\u043E\u0434\u0435\u0440\u0443\u0454\u0442\u044C\u0441\u044F. \u0429\u043E\u0434\u043D\u044F \u043D\u0430 \u0441\u0430\u0439\u0442 \u0434\u043E\u0434\u0430\u044E\u0442\u044C\u0441\u044F \u0442\u0438\u0441\u044F\u0447\u0456 \u043A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u0456\u0432, \u0442\u043E\u043C\u0443 \u043F\u0435\u0440\u0435\u0432\u0456\u0440\u0438\u0442\u0438 \u0457\u0445 \u0443\u0441\u0456 \u2013 \u043D\u0435 \u0432 \u043D\u0430\u0448\u0438\u0445 \u0441\u0438\u043B\u0430\u0445. \u0422\u043E\u043C\u0443 \u043C\u0438 \u0440\u043E\u0437\u0433\u043B\u044F\u0434\u0430\u0454\u043C\u043E \u043F\u0435\u0440\u0435\u0432\u0430\u0436\u043D\u043E \u043F\u0456\u0434\u043E\u0437\u0440\u0456\u043B\u0456 \u0442\u0430 \u0437\u0430\u044F\u0432\u043B\u0435\u043D\u0456 \u043A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u0456."
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_accordionItem_AccordionItem__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        id: 3,
+        data: data,
+        setData: setData,
+        title: 'Які переваги реєстрації на Call Insider',
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          children: "\u0420\u0435\u0454\u0441\u0442\u0440\u0430\u0446\u0456\u044F \u0432 \u0441\u0435\u0440\u0432\u0456\u0441\u0456 Call Insider \u0431\u0435\u0437\u043A\u043E\u0448\u0442\u043E\u0432\u043D\u0430. \u0421\u0442\u0432\u043E\u0440\u0435\u043D\u043D\u044F \u043E\u0431\u043B\u0456\u043A\u043E\u0432\u043E\u0433\u043E \u0437\u0430\u043F\u0438\u0441\u0443 \u0434\u0430\u0454 \u0432\u0430\u043C \u0440\u044F\u0434 \u043F\u0435\u0440\u0435\u0432\u0430\u0433:"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ol", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+            children: "\u041C\u0435\u043D\u0448\u0435 \u0440\u0435\u043A\u043B\u0430\u043C\u0438."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+            children: "\u041E\u0433\u043B\u044F\u0434 \u0432\u043B\u0430\u0441\u043D\u0438\u0445 \u043E\u0446\u0456\u043D\u043E\u043A, \u044F\u043A\u0456 \u043C\u043E\u0436\u043D\u0430 \u0440\u0435\u0434\u0430\u0433\u0443\u0432\u0430\u0442\u0438 \u0442\u0430 \u0432\u0438\u0434\u0430\u043B\u044F\u0442\u0438."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+            children: "\u041C\u043E\u0436\u043B\u0438\u0432\u0456\u0441\u0442\u044C \u043D\u0430\u043B\u0430\u0448\u0442\u0443\u0432\u0430\u043D\u043D\u044F \u0441\u043F\u043E\u0432\u0456\u0449\u0435\u043D\u044C, \u043A\u043E\u043B\u0438 \u0445\u0442\u043E\u0441\u044C \u0432\u0456\u0434\u043F\u043E\u0432\u0456\u0434\u0430\u0454 \u043D\u0430 \u0432\u0430\u0448 \u043A\u043E\u043C\u0435\u043D\u0442\u0430\u0440."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+            children: "\u041F\u0440\u0438 \u0434\u043E\u0434\u0430\u0432\u0430\u043D\u043D\u0456 \u043A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u044F \u043D\u0435\u043C\u0430\u0454 \u043D\u0435\u043E\u0431\u0445\u0456\u0434\u043D\u043E\u0441\u0442\u0456 \u0437\u0430\u043F\u043E\u0432\u043D\u044E\u0432\u0430\u0442\u0438 reCaptch (\u0437\u0430\u0445\u0438\u0441\u0442 \u0432\u0456\u0434 \u0421\u041F\u0410\u041C-\u0431\u043E\u0442\u0456\u0432)."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+            children: "\u041C\u043E\u0436\u043B\u0438\u0432\u0456\u0441\u0442\u044C \u0434\u043E\u0434\u0430\u0432\u0430\u0442\u0438 \u0431\u0456\u043B\u044C\u0448\u0435 \u043A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u0456\u0432 \u043D\u0430 \u0434\u0435\u043D\u044C."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+            children: "\u041F\u0440\u043E\u0441\u0442\u0456\u0448\u0435 \u043F\u043E\u0432\u0456\u0434\u043E\u043C\u043B\u044F\u0442\u0438 \u043F\u0440\u043E \u043D\u0435\u043F\u0440\u0438\u0439\u043D\u044F\u0442\u043D\u0456 \u043A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u0456."
+          })]
+        })]
+      })]
+    })]
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Accordion);
+
+/***/ }),
+
+/***/ "./resources/js/components/accordion/accordionItem/AccordionItem.js":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/accordion/accordionItem/AccordionItem.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _accordionItem_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./accordionItem.scss */ "./resources/js/components/accordion/accordionItem/accordionItem.scss");
+/* harmony import */ var _assets_chevron_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../assets/chevron.svg */ "./public/assets/chevron.svg");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+function AccordionItem(props) {
+  var title = props.title,
+      className = props.className,
+      data = props.data,
+      id = props.id,
+      setData = props.setData;
+  var selected = data === id;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: 'accordion-wrapper',
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
+      className: "accordion-wrapper-title ".concat(selected ? 'selected' : ''),
+      onClick: function onClick() {
+        return setData(selected ? '' : id);
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        className: 'accordion-wrapper-title-text',
+        children: title
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+        className: 'accordion-wrapper-title-img',
+        src: _assets_chevron_svg__WEBPACK_IMPORTED_MODULE_2__["default"]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "accordion-wrapper-content ".concat(className, " ").concat(selected ? 'hui da' : 'hidden'),
+      children: [props.children, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: 'accordion-wrapper-content-wrapper',
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: 'accordion-wrapper-content-wrapper-btn',
+          children: "\u0427\u0430\u0441\u0442\u0456 \u043F\u0438\u0442\u0430\u043D\u043D\u044F"
+        })
+      })]
+    })]
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AccordionItem);
+
+/***/ }),
+
 /***/ "./resources/js/components/addRating/AddRating.js":
 /*!********************************************************!*\
   !*** ./resources/js/components/addRating/AddRating.js ***!
@@ -6152,14 +6309,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var _services_NumberService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/NumberService */ "./resources/js/services/NumberService.js");
 /* harmony import */ var _rating_Rating__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../rating/Rating */ "./resources/js/components/rating/Rating.js");
 /* harmony import */ var _addRating_AddRating__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../addRating/AddRating */ "./resources/js/components/addRating/AddRating.js");
 /* harmony import */ var _comments_Comments__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../comments/Comments */ "./resources/js/components/comments/Comments.js");
 /* harmony import */ var _lastVisitedPhones_LastVisitedPhones__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../lastVisitedPhones/LastVisitedPhones */ "./resources/js/components/lastVisitedPhones/LastVisitedPhones.js");
 /* harmony import */ var _recommendedArticles_RecommendedArticles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../recommendedArticles/RecommendedArticles */ "./resources/js/components/recommendedArticles/RecommendedArticles.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _accordion_Accordion__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../accordion/Accordion */ "./resources/js/components/accordion/Accordion.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -6189,8 +6347,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function Home(props) {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useParams)(),
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.useParams)(),
       number = _useParams.number;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
@@ -6202,7 +6361,7 @@ function Home(props) {
       setData = _useState2[1];
 
   var numberService = (0,_services_NumberService__WEBPACK_IMPORTED_MODULE_1__["default"])(number, data, setData);
-  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useNavigate)();
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.useNavigate)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     console.log(data.length);
 
@@ -6215,9 +6374,9 @@ function Home(props) {
       });
     }
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
     className: "container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_recommendedArticles_RecommendedArticles__WEBPACK_IMPORTED_MODULE_6__["default"], {})]
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_accordion_Accordion__WEBPACK_IMPORTED_MODULE_7__["default"], {})]
   });
 }
 
@@ -11948,6 +12107,54 @@ defineJQueryPlugin(Toast);
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/accordion/accordion.scss":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/accordion/accordion.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".accordion-items {\n  border: 1px solid rgba(85, 90, 129, 0.64);\n  border-radius: 15px;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/accordion/accordionItem/accordionItem.scss":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/accordion/accordionItem/accordionItem.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".accordion-wrapper {\n  display: flex;\n  flex-direction: column;\n  color: #afb4bc;\n}\n.accordion-wrapper .hidden {\n  display: none;\n}\n.accordion-wrapper .selected {\n  color: #ab9aff;\n}\n.accordion-wrapper .selected .accordion-wrapper-title-img {\n  transform: translate(0, -50%) rotate(180deg);\n}\n.accordion-wrapper-title {\n  cursor: pointer;\n  position: relative;\n  padding: 16px 56px 16px 24px;\n  font-family: Roboto, sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  text-align: left;\n  transition: 0.4s;\n}\n.accordion-wrapper-title:hover {\n  color: #ab9aff;\n}\n.accordion-wrapper-title-img {\n  position: absolute;\n  right: 10px;\n  top: 50%;\n  transform: translate(0, -50%);\n}\n.accordion-wrapper-content {\n  display: flex;\n  flex-direction: column;\n  font-family: Roboto, sans-serif;\n  font-size: 13px;\n  padding: 0 24px 32px;\n  color: #afb4bc;\n}\n.accordion-wrapper-content span {\n  margin-bottom: 20px;\n}\n.accordion-wrapper-content-wrapper-btn {\n  width: auto;\n  font-family: Roboto, sans-serif;\n  font-size: 13px;\n  background-color: #424664;\n  border: 2px solid transparent;\n  color: #fff;\n  border-radius: 44px;\n  padding: 5px 15px;\n  margin-top: 10px;\n  text-transform: uppercase;\n}\n.accordion-wrapper-content ol {\n  position: relative;\n  padding: 0;\n  list-style: none;\n  counter-reset: i;\n}\n.accordion-wrapper-content ol li {\n  position: relative;\n  font-family: Roboto, sans-serif;\n  padding: 12px 0 12px 45px;\n}\n.accordion-wrapper-content ol li:before {\n  position: absolute;\n  display: flex;\n  background-color: #ab9aff;\n  border-radius: 50%;\n  color: #fff;\n  content: counter(i);\n  counter-increment: i;\n  font-size: 13px;\n  font-weight: 700;\n  height: 22px;\n  width: 22px;\n  line-height: 13px;\n  align-items: center;\n  justify-content: center;\n  top: 10px;\n  left: 10px;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/addRating/addRating.scss":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/addRating/addRating.scss ***!
@@ -12333,6 +12540,21 @@ module.exports = function (cssWithMappingToString) {
 
   return list;
 };
+
+/***/ }),
+
+/***/ "./public/assets/chevron.svg":
+/*!***********************************!*\
+  !*** ./public/assets/chevron.svg ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/chevron.svg?5b8955e7c37bb182899abf5ce37d8d43");
 
 /***/ }),
 
@@ -71225,6 +71447,66 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/scheduler.development.js */ "./node_modules/scheduler/cjs/scheduler.development.js");
 }
 
+
+/***/ }),
+
+/***/ "./resources/js/components/accordion/accordion.scss":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/accordion/accordion.scss ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_accordion_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./accordion.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/accordion/accordion.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_accordion_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_accordion_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/components/accordion/accordionItem/accordionItem.scss":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/accordion/accordionItem/accordionItem.scss ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_accordionItem_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./accordionItem.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/accordion/accordionItem/accordionItem.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_accordionItem_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_accordionItem_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
