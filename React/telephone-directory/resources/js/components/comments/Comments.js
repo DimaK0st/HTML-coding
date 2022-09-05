@@ -4,6 +4,7 @@ import Filter from "./filter/Filter";
 import Comment from "./comment/Comment";
 import {useParams} from "react-router-dom";
 import usePhoneService from "../../services/NumberService";
+import {isNull} from "lodash";
 
 function Comments(props) {
 
@@ -36,7 +37,7 @@ function Comments(props) {
 
             </div>
             <div className={'comments-paginate'}>
-                <button className={'comments-paginate-btn'}
+                <button className={`comments-paginate-btn ${isNull(data.nextPage)?'hidden':''}`}
                         onClick={() => numberService.getCommentsByPaginate(data.sort, data.nextPage)}
                 >ІНШІ КОМЕНТАРІ
                 </button>

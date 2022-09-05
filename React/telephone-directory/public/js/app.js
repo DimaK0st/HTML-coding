@@ -5511,7 +5511,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Accordion(props) {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(3),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState2 = _slicedToArray(_useState, 2),
       data = _useState2[0],
       setData = _useState2[1];
@@ -5793,9 +5793,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _comments_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./comments.scss */ "./resources/js/components/comments/comments.scss");
 /* harmony import */ var _filter_Filter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./filter/Filter */ "./resources/js/components/comments/filter/Filter.js");
 /* harmony import */ var _comment_Comment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./comment/Comment */ "./resources/js/components/comments/comment/Comment.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var _services_NumberService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/NumberService */ "./resources/js/services/NumberService.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -5817,10 +5819,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function Comments(props) {
   var _data$comments;
 
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useParams)(),
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useParams)(),
       number = _useParams.number;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
@@ -5836,22 +5839,22 @@ function Comments(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     numberService.getComments(data.sort, data.order);
   }, [data.order, data.sort]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: 'comments',
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
       className: 'comments-title',
       children: "\u041A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u0456 "
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
       className: 'comments-count',
       children: ["(", data.total, ")"]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_filter_Filter__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_filter_Filter__WEBPACK_IMPORTED_MODULE_2__["default"], {
       setData: setData,
       data: data,
       numberService: numberService
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: 'comments',
       children: data === null || data === void 0 ? void 0 : (_data$comments = data.comments) === null || _data$comments === void 0 ? void 0 : _data$comments.map(function (item) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_comment_Comment__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_comment_Comment__WEBPACK_IMPORTED_MODULE_3__["default"], {
           id: item.id,
           review: item.review,
           rating: item.rating,
@@ -5859,10 +5862,10 @@ function Comments(props) {
           created_at: item.created_at
         });
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: 'comments-paginate',
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-        className: 'comments-paginate-btn',
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+        className: "comments-paginate-btn ".concat((0,lodash__WEBPACK_IMPORTED_MODULE_5__.isNull)(data.nextPage) ? 'hidden' : ''),
         onClick: function onClick() {
           return numberService.getCommentsByPaginate(data.sort, data.nextPage);
         },
@@ -6376,7 +6379,9 @@ function Home(props) {
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
     className: "container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_accordion_Accordion__WEBPACK_IMPORTED_MODULE_7__["default"], {})]
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {}), data.loaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_rating_Rating__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      rating: data.rating
+    }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_addRating_AddRating__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_comments_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_lastVisitedPhones_LastVisitedPhones__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_recommendedArticles_RecommendedArticles__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_accordion_Accordion__WEBPACK_IMPORTED_MODULE_7__["default"], {})]
   });
 }
 
@@ -6796,7 +6801,7 @@ var usePhoneService = function usePhoneService(phone, state, setState) {
   var getCommentsByPaginate = function getCommentsByPaginate(type, url) {
     return axios.post(url, {
       number: result,
-      type: type
+      sort: type
     }, {
       headers: _objectSpread({}, postRequest.headers)
     }).then(function (res) {
@@ -12220,7 +12225,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".comments-title, .comments-count {\n  font-family: Roboto, sans-serif;\n  font-weight: 700;\n  font-size: 24px;\n  color: white;\n}\n.comments-count {\n  color: rgba(255, 255, 255, 0.4);\n}\n.comments-paginate {\n  display: flex;\n  width: 100%;\n}\n.comments-paginate-btn {\n  padding: 10px 20px;\n  justify-content: center;\n  text-transform: uppercase;\n  font-size: 13px;\n  font-weight: 700;\n  margin: 48px auto 0 auto;\n  border: 2px solid #ab9aff;\n  background-color: transparent;\n  border-radius: 44px;\n  color: #ab9aff;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".comments-title, .comments-count {\n  font-family: Roboto, sans-serif;\n  font-weight: 700;\n  font-size: 24px;\n  color: white;\n}\n.comments-count {\n  color: rgba(255, 255, 255, 0.4);\n}\n.comments-paginate {\n  display: flex;\n  width: 100%;\n}\n.comments-paginate .hidden {\n  display: none;\n}\n.comments-paginate-btn {\n  padding: 10px 20px;\n  justify-content: center;\n  text-transform: uppercase;\n  font-size: 13px;\n  font-weight: 700;\n  margin: 48px auto 0 auto;\n  border: 2px solid #ab9aff;\n  background-color: transparent;\n  border-radius: 44px;\n  color: #ab9aff;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

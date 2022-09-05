@@ -80,6 +80,8 @@ class RatingRepository
      */
     public function getReviewPaginate(Ip $ip, Phone $phone, array $sort, string $order): LengthAwarePaginator
     {
+
+
         return $this->query()->where('phone_id', $phone->id)->where('ip_id', '!=', $ip->id)
             ->where('review', '!=', 'null')
             ->where('rating', '!=', 'null')

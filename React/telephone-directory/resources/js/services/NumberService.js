@@ -60,7 +60,7 @@ const usePhoneService = (phone, state, setState) => {
 
     const getCommentsByPaginate = (type, url)=>{
 
-        return axios.post(url, {number: result, type: type}, {
+        return axios.post(url, {number: result, sort: type}, {
             headers: {
                 ...postRequest.headers
             }

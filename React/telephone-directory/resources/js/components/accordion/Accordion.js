@@ -4,7 +4,7 @@ import AccordionItem from "./accordionItem/AccordionItem";
 
 function Accordion(props) {
 
-    const [data, setData] = useState(3)
+    const [data, setData] = useState()
 
     return (
         <div className={'accordion'}>

@@ -91,11 +91,14 @@ class RatingService
                 break;
 
         }
+
         $reviewPaginate = $this->getReviewPaginate($iP, $phone, $sort, $request->getOrder());
 
         return ['review' => [
             'comments' => $reviewPaginate->items(),
             'total' => $reviewPaginate->total(),
+            'lastPage' => $reviewPaginate->lastPage(),
+            'currentPage' => $reviewPaginate->currentPage(),
             'nextPage' => $reviewPaginate->nextPageUrl()
         ]];
     }
