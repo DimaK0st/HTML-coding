@@ -1,13 +1,19 @@
+@import "./resources/sass/component_mixin.scss";
+
 .accordion{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 80px;
 
     &-title{
-
+        @include title-block;
     }
 
     &-items{
 
         border: 1px solid rgba(85,90,129,.64);
         border-radius: 15px;
+        overflow: hidden;
 
     }
 }

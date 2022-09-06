@@ -1,10 +1,11 @@
+@import "./resources/sass/component_mixin.scss";
+
 .comments {
 
     &-title, &-count {
-        font-family: Roboto, sans-serif;
+        @include title-block;
         font-weight: 700;
-        font-size: 24px;
-        color: white;
+        font-size: 31px;
     }
 
     &-count {

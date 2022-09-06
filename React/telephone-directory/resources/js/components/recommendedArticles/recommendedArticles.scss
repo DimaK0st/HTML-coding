@@ -1,19 +1,19 @@
 @import "./resources/sass/_variables.scss";
+@import "./resources/sass/component_mixin.scss";
 
 .recommended-articles {
     display: flex;
     flex-direction: column;
 
     &-title {
-        font-family: Roboto, sans-serif;
-        font-size: 20px;
-        color: white;
-        margin: 46px 0 20px 0;
+        @include title-block;
     }
 
     &-items {
-
-
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
 
 
     }

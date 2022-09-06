@@ -8,7 +8,7 @@ function AccordionItem (props) {
     let selected = data===id;
 
     return (
-        <div className={'accordion-wrapper'} >
+        <div className={'accordion-wrapper border-bot'} >
             <label className={`accordion-wrapper-title ${selected?'selected':''}`} onClick={()=>setData(selected?'':id)}>
                 <span className={'accordion-wrapper-title-text'}>{title}</span>
                 <img className={'accordion-wrapper-title-img'} src={chevron}/>

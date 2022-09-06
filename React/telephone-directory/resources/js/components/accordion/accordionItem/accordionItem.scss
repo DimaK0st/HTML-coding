@@ -2,18 +2,7 @@
     display: flex;
     flex-direction: column;
     color: #afb4bc;
-
-    .hidden {
-        display: none;
-    }
-
-    .selected {
-        color: #ab9aff;
-
-        .accordion-wrapper-title-img {
-            transform: translate(0, -50%) rotate(180deg);
-        }
-    }
+    margin-bottom: -1px;
 
     &-title {
         cursor: pointer;
@@ -98,4 +87,19 @@
         }
     }
 
+    .hidden {
+        display: none;
+    }
+
+    .selected {
+        color: #ab9aff;
+
+        .accordion-wrapper-title-img {
+            transform: translate(0, -50%) rotate(180deg);
+        }
+    }
+
+}
+.border-bot{
+    border-bottom: 1px solid rgba(85,90,129,.64);
 }

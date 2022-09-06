@@ -5519,7 +5519,8 @@ function Accordion(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: 'accordion',
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-      className: 'accordion-title'
+      className: 'accordion-title',
+      children: "\u0420\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u043E\u0432\u0430\u043D\u0456 \u0441\u0442\u0430\u0442\u0442\u0456"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: 'accordion-items',
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_accordionItem_AccordionItem__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -5603,7 +5604,7 @@ function AccordionItem(props) {
       setData = props.setData;
   var selected = data === id;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: 'accordion-wrapper',
+    className: 'accordion-wrapper border-bot',
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
       className: "accordion-wrapper-title ".concat(selected ? 'selected' : ''),
       onClick: function onClick() {
@@ -6379,9 +6380,7 @@ function Home(props) {
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
     className: "container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {}), data.loaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_rating_Rating__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      rating: data.rating
-    }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_addRating_AddRating__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_comments_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_lastVisitedPhones_LastVisitedPhones__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_recommendedArticles_RecommendedArticles__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_accordion_Accordion__WEBPACK_IMPORTED_MODULE_7__["default"], {})]
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_accordion_Accordion__WEBPACK_IMPORTED_MODULE_7__["default"], {})]
   });
 }
 
@@ -12129,7 +12128,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".accordion-items {\n  border: 1px solid rgba(85, 90, 129, 0.64);\n  border-radius: 15px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".accordion {\n  display: flex;\n  flex-direction: column;\n  padding-bottom: 80px;\n}\n.accordion-title {\n  font-family: Roboto, sans-serif;\n  font-size: 20px;\n  color: white;\n  margin: 46px 0 20px 0;\n}\n.accordion-items {\n  border: 1px solid rgba(85, 90, 129, 0.64);\n  border-radius: 15px;\n  overflow: hidden;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12153,7 +12152,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".accordion-wrapper {\n  display: flex;\n  flex-direction: column;\n  color: #afb4bc;\n}\n.accordion-wrapper .hidden {\n  display: none;\n}\n.accordion-wrapper .selected {\n  color: #ab9aff;\n}\n.accordion-wrapper .selected .accordion-wrapper-title-img {\n  transform: translate(0, -50%) rotate(180deg);\n}\n.accordion-wrapper-title {\n  cursor: pointer;\n  position: relative;\n  padding: 16px 56px 16px 24px;\n  font-family: Roboto, sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  text-align: left;\n  transition: 0.4s;\n}\n.accordion-wrapper-title:hover {\n  color: #ab9aff;\n}\n.accordion-wrapper-title-img {\n  position: absolute;\n  right: 10px;\n  top: 50%;\n  transform: translate(0, -50%);\n}\n.accordion-wrapper-content {\n  display: flex;\n  flex-direction: column;\n  font-family: Roboto, sans-serif;\n  font-size: 13px;\n  padding: 0 24px 32px;\n  color: #afb4bc;\n}\n.accordion-wrapper-content span {\n  margin-bottom: 20px;\n}\n.accordion-wrapper-content-wrapper-btn {\n  width: auto;\n  font-family: Roboto, sans-serif;\n  font-size: 13px;\n  background-color: #424664;\n  border: 2px solid transparent;\n  color: #fff;\n  border-radius: 44px;\n  padding: 5px 15px;\n  margin-top: 10px;\n  text-transform: uppercase;\n}\n.accordion-wrapper-content ol {\n  position: relative;\n  padding: 0;\n  list-style: none;\n  counter-reset: i;\n}\n.accordion-wrapper-content ol li {\n  position: relative;\n  font-family: Roboto, sans-serif;\n  padding: 12px 0 12px 45px;\n}\n.accordion-wrapper-content ol li:before {\n  position: absolute;\n  display: flex;\n  background-color: #ab9aff;\n  border-radius: 50%;\n  color: #fff;\n  content: counter(i);\n  counter-increment: i;\n  font-size: 13px;\n  font-weight: 700;\n  height: 22px;\n  width: 22px;\n  line-height: 13px;\n  align-items: center;\n  justify-content: center;\n  top: 10px;\n  left: 10px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".accordion-wrapper {\n  display: flex;\n  flex-direction: column;\n  color: #afb4bc;\n  margin-bottom: -1px;\n}\n.accordion-wrapper-title {\n  cursor: pointer;\n  position: relative;\n  padding: 16px 56px 16px 24px;\n  font-family: Roboto, sans-serif;\n  font-weight: 400;\n  font-size: 16px;\n  text-align: left;\n  transition: 0.4s;\n}\n.accordion-wrapper-title:hover {\n  color: #ab9aff;\n}\n.accordion-wrapper-title-img {\n  position: absolute;\n  right: 10px;\n  top: 50%;\n  transform: translate(0, -50%);\n}\n.accordion-wrapper-content {\n  display: flex;\n  flex-direction: column;\n  font-family: Roboto, sans-serif;\n  font-size: 13px;\n  padding: 0 24px 32px;\n  color: #afb4bc;\n}\n.accordion-wrapper-content span {\n  margin-bottom: 20px;\n}\n.accordion-wrapper-content-wrapper-btn {\n  width: auto;\n  font-family: Roboto, sans-serif;\n  font-size: 13px;\n  background-color: #424664;\n  border: 2px solid transparent;\n  color: #fff;\n  border-radius: 44px;\n  padding: 5px 15px;\n  margin-top: 10px;\n  text-transform: uppercase;\n}\n.accordion-wrapper-content ol {\n  position: relative;\n  padding: 0;\n  list-style: none;\n  counter-reset: i;\n}\n.accordion-wrapper-content ol li {\n  position: relative;\n  font-family: Roboto, sans-serif;\n  padding: 12px 0 12px 45px;\n}\n.accordion-wrapper-content ol li:before {\n  position: absolute;\n  display: flex;\n  background-color: #ab9aff;\n  border-radius: 50%;\n  color: #fff;\n  content: counter(i);\n  counter-increment: i;\n  font-size: 13px;\n  font-weight: 700;\n  height: 22px;\n  width: 22px;\n  line-height: 13px;\n  align-items: center;\n  justify-content: center;\n  top: 10px;\n  left: 10px;\n}\n.accordion-wrapper .hidden {\n  display: none;\n}\n.accordion-wrapper .selected {\n  color: #ab9aff;\n}\n.accordion-wrapper .selected .accordion-wrapper-title-img {\n  transform: translate(0, -50%) rotate(180deg);\n}\n\n.border-bot {\n  border-bottom: 1px solid rgba(85, 90, 129, 0.64);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12225,7 +12224,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".comments-title, .comments-count {\n  font-family: Roboto, sans-serif;\n  font-weight: 700;\n  font-size: 24px;\n  color: white;\n}\n.comments-count {\n  color: rgba(255, 255, 255, 0.4);\n}\n.comments-paginate {\n  display: flex;\n  width: 100%;\n}\n.comments-paginate .hidden {\n  display: none;\n}\n.comments-paginate-btn {\n  padding: 10px 20px;\n  justify-content: center;\n  text-transform: uppercase;\n  font-size: 13px;\n  font-weight: 700;\n  margin: 48px auto 0 auto;\n  border: 2px solid #ab9aff;\n  background-color: transparent;\n  border-radius: 44px;\n  color: #ab9aff;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".comments-title, .comments-count {\n  font-family: Roboto, sans-serif;\n  font-size: 20px;\n  color: white;\n  margin: 46px 0 20px 0;\n  font-weight: 700;\n  font-size: 31px;\n}\n.comments-count {\n  color: rgba(255, 255, 255, 0.4);\n}\n.comments-paginate {\n  display: flex;\n  width: 100%;\n}\n.comments-paginate .hidden {\n  display: none;\n}\n.comments-paginate-btn {\n  padding: 10px 20px;\n  justify-content: center;\n  text-transform: uppercase;\n  font-size: 13px;\n  font-weight: 700;\n  margin: 48px auto 0 auto;\n  border: 2px solid #ab9aff;\n  background-color: transparent;\n  border-radius: 44px;\n  color: #ab9aff;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12441,7 +12440,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".recommended-article {\n  display: flex;\n  flex-direction: column;\n  font-family: Roboto, sans-serif;\n  color: #afb4bc;\n  padding: 24px;\n  border: 1px solid rgba(85, 90, 129, 0.64);\n  border-radius: 18px;\n  margin-bottom: 8px;\n}\n.recommended-article-title {\n  font-weight: 400;\n  font-size: 16px;\n  margin-bottom: 12px;\n  color: #afb4bc;\n  text-decoration: none;\n}\n.recommended-article-info {\n  color: hsla(0deg, 0%, 100%, 0.4);\n  font-size: 13px;\n  margin-bottom: 10px;\n}\n.recommended-article-info-date {\n  margin-right: 16px;\n}\n.recommended-article-info-domain {\n  padding: 2px 8px;\n  border: 1px solid rgba(206, 216, 232, 0.16);\n  border-radius: 40px;\n}\n.recommended-article-description {\n  display: -webkit-box;\n  -webkit-line-clamp: 4;\n  -webkit-box-orient: vertical;\n  overflow: hidden;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".recommended-article {\n  display: flex;\n  flex-direction: column;\n  font-family: Roboto, sans-serif;\n  color: #afb4bc;\n  padding: 24px;\n  border: 1px solid rgba(85, 90, 129, 0.64);\n  border-radius: 18px;\n  margin-bottom: 8px;\n  width: 49%;\n}\n.recommended-article-title {\n  font-weight: 400;\n  font-size: 16px;\n  margin-bottom: 12px;\n  color: #afb4bc;\n  text-decoration: none;\n}\n.recommended-article-info {\n  color: hsla(0deg, 0%, 100%, 0.4);\n  font-size: 13px;\n  margin-bottom: 10px;\n}\n.recommended-article-info-date {\n  margin-right: 16px;\n}\n.recommended-article-info-domain {\n  padding: 2px 8px;\n  border: 1px solid rgba(206, 216, 232, 0.16);\n  border-radius: 40px;\n}\n.recommended-article-description {\n  display: -webkit-box;\n  -webkit-line-clamp: 4;\n  -webkit-box-orient: vertical;\n  overflow: hidden;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12465,7 +12464,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".gray {\n  color: #9296ae;\n}\n\n.five {\n  color: #26948b;\n}\n\n.four {\n  color: #89a25b;\n}\n\n.three {\n  color: #d3b04d;\n}\n\n.two {\n  color: #de8e4e;\n}\n\n.one {\n  color: #e76c53;\n}\n\n.bg-gray {\n  background: #4a5079;\n}\n\n.bg-five {\n  background: #26948b;\n}\n\n.bg-four {\n  background: #89a25b;\n}\n\n.bg-three {\n  background: #d3b04d;\n}\n\n.bg-two {\n  background: #de8e4e;\n}\n\n.bg-one {\n  background: #e76c53;\n}\n\n.recommended-articles {\n  display: flex;\n  flex-direction: column;\n}\n.recommended-articles-title {\n  font-family: Roboto, sans-serif;\n  font-size: 20px;\n  color: white;\n  margin: 46px 0 20px 0;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".gray {\n  color: #9296ae;\n}\n\n.five {\n  color: #26948b;\n}\n\n.four {\n  color: #89a25b;\n}\n\n.three {\n  color: #d3b04d;\n}\n\n.two {\n  color: #de8e4e;\n}\n\n.one {\n  color: #e76c53;\n}\n\n.bg-gray {\n  background: #4a5079;\n}\n\n.bg-five {\n  background: #26948b;\n}\n\n.bg-four {\n  background: #89a25b;\n}\n\n.bg-three {\n  background: #d3b04d;\n}\n\n.bg-two {\n  background: #de8e4e;\n}\n\n.bg-one {\n  background: #e76c53;\n}\n\n.recommended-articles {\n  display: flex;\n  flex-direction: column;\n}\n.recommended-articles-title {\n  font-family: Roboto, sans-serif;\n  font-size: 20px;\n  color: white;\n  margin: 46px 0 20px 0;\n}\n.recommended-articles-items {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  width: 100%;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

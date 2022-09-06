@@ -8,7 +8,7 @@ function Accordion(props) {
 
     return (
         <div className={'accordion'}>
-            <span className={'accordion-title'}></span>
+            <span className={'accordion-title'}>Рекомендовані статті</span>
 
             <div className={'accordion-items'}>
 

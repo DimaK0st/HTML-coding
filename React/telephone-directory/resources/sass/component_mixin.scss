@@ -1,0 +1,7 @@
+@mixin title-block {
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    color: white;
+    margin: 46px 0 20px 0;
+    @content;
+}
