@@ -37,9 +37,9 @@ const usePhoneService = (phone, state, setState) => {
     }
 
 
-    const getComments = (sort,order)=>{
+    const getComments = (sort, order) => {
 
-        return axios.post(_apiBase + 'get-comments-phone', {number: result, sort:sort, order:order}, {
+        return axios.post(_apiBase + 'get-comments-phone', {number: result, sort: sort, order: order}, {
             headers: {
                 ...postRequest.headers
             }
@@ -58,7 +58,7 @@ const usePhoneService = (phone, state, setState) => {
     }
 
 
-    const getCommentsByPaginate = (type, url)=>{
+    const getCommentsByPaginate = (type, url) => {
 
         return axios.post(url, {number: result, sort: type}, {
             headers: {
@@ -87,7 +87,7 @@ const usePhoneService = (phone, state, setState) => {
         })
             .then(res => {
                 return res.data.review
-            }).then(review=>{
+            }).then(review => {
                 setState({
                     ...state,
                     'review': {
@@ -101,41 +101,53 @@ const usePhoneService = (phone, state, setState) => {
 
     }
 
-    const setLastVisitedNumbers = (phoneId)=>{
+    const setLastVisitedNumbers = (phoneId) => {
         let getItem = JSON.parse(localStorage.getItem('lastVisitedNumbers'))
 
-        if (typeof getItem ==='object' && getItem?.length>0){
-            if (getItem.filter((item)=>item===phoneId).length){
+        if (typeof getItem === 'object' && getItem?.length > 0) {
+            if (getItem.filter((item) => item === phoneId).length) {
                 return
             }
 
             localStorage.setItem('lastVisitedNumbers', JSON.stringify([phoneId, ...getItem]));
-        }else {
+        } else {
             localStorage.setItem('lastVisitedNumbers', JSON.stringify([phoneId]));
         }
+    }
+
+    const getLastVisitedNumbers = () => {
+
+        let getItem = JSON.parse(localStorage.getItem('lastVisitedNumbers'))
+        return axios.post(_apiBase + 'get-last-phones', {phones: getItem}, {
+            headers: {
+                ...postRequest.headers
             }
+        }).then(res => {
+            return res.data
+        }).then((value) => {
+            console.log('value', value)
+            varSetState({data: value, sortBy: getItem})
+            console.log('varState', varState)
+        })
+    }
 
-const getLastVisitedNumbers = ()=>{
+    const addRating = () => {
 
-    let getItem = JSON.parse(localStorage.getItem('lastVisitedNumbers'))
-    return axios.post(_apiBase + 'get-last-phones', {phones: getItem}, {
-        headers: {
-            ...postRequest.headers
-        }
-    }).then(res => {
-        return res.data
-    }).then((value)=>{
-        console.log('value', value)
-        varSetState({data: value, sortBy: getItem})
-        console.log('varState', varState)
-    })
+        return axios.post(_apiBase + 'add-rating', {...varState}, {
+            headers: {
+                ...postRequest.headers
+            }
+        }).then(res => {
+            console.log(res)
+            // return res.data
+        }).then((value) => {
 
-
-}
+        })
+    }
 
 
     return {
-        getNumberRating,getNumberRatingPaginate, getCommentsByPaginate, getComments,getLastVisitedNumbers,
+        getNumberRating, getNumberRatingPaginate, getCommentsByPaginate, getComments, getLastVisitedNumbers,addRating,
     }
 }
 

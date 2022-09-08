@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Rating\Repositories;
 
+use App\Http\Controllers\IP\Services\IPService;
 use App\Http\Controllers\Rating\Requests\GetRatingRequest;
 use App\Http\Controllers\Rating\Requests\SetReviewAndRatingRequest;
 use App\Models\Ip;
@@ -10,11 +11,18 @@ use App\Models\Rating;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Torann\GeoIP\GeoIP;
 
 class RatingRepository
 {
+    private IPService $iPService;
+
+    public function __construct(IPService $iPService)
+    {
+        $this->iPService = $iPService;
+    }
 
     public function getRatingByPhoneId(int $phoneId)
     {
@@ -51,9 +59,21 @@ class RatingRepository
 
     public function setRating(SetReviewAndRatingRequest $request)
     {
-        $rating = Rating::find($request->getId());
+        $ip = $this->iPService->getOrCreateIp(geoip()->getLocation($request->ip()));
+        $rating = Rating::where('phone_id', $request->getId())
+            ->where('ip_id', $ip->id)
+            ->first();
+
+        if (is_null($rating)) {
+            $rating = new Rating();
+        }
+
+
+        $rating->phone_id = $request->getId();
+        $rating->ip_id = $ip->id;
         $rating->review = $request->getReview();
-        $rating->rating = $request->getRating();
+        $rating->rating = (int)$request->getRating();
+
         $rating->save();
 
         return $rating;
@@ -115,7 +135,7 @@ class RatingRepository
         $avg = $this->query()->where('phone_id', $phone->id)
             ->avg('rating');
 
-        return $avg? $avg: 0;
+        return $avg ? $avg : 0;
     }
 
     /**
@@ -127,7 +147,7 @@ class RatingRepository
         $count = $this->query()->where('phone_id', $phone->id)->where('rating', '!=', 'null')
             ->count();
 
-        return $count? $count: 0;
+        return $count ? $count : 0;
     }
 
     public function getCountAllReviewsPhone(Phone $phone)
@@ -148,7 +168,8 @@ class RatingRepository
         return $rating;
     }
 
-    public function getLastVisitedNumber(){
+    public function getLastVisitedNumber()
+    {
 
     }
 

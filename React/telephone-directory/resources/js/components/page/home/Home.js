@@ -43,15 +43,15 @@ function Home(props) {
                 {/*{props.children}*/}
             </div>
 
-            {/*{data.loaded ? <Rating rating={data.rating}/> : null}*/}
+            {data.loaded ? <Rating rating={data.rating}/> : null}
 
-            {/*<AddRating/>*/}
+            {data.loaded ?<AddRating idPhone={data.idPhone}/>: null}
 
-            {/*{<Comments />}*/}
+            {<Comments />}
 
-            {/*<LastVisitedPhones/>*/}
+            <LastVisitedPhones/>
 
-            {/*<RecommendedArticles/>*/}
+            <RecommendedArticles/>
 
             <Accordion/>
 

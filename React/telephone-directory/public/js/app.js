@@ -5649,8 +5649,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _addRating_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addRating.scss */ "./resources/js/components/addRating/addRating.scss");
 /* harmony import */ var _CONST__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_CONST */ "./resources/js/_CONST.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var _services_NumberService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/NumberService */ "./resources/js/services/NumberService.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -5676,97 +5677,117 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function AddRating(props) {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)(),
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)(),
       number = _useParams.number;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-    rating: 6
+    rating: 6,
+    review: '',
+    id: props.idPhone
   }),
       _useState2 = _slicedToArray(_useState, 2),
       post = _useState2[0],
       setPost = _useState2[1];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  var numberService = (0,_services_NumberService__WEBPACK_IMPORTED_MODULE_3__["default"])(number, post, setPost);
+
+  var handleSubmit = function handleSubmit(event) {
+    event.preventDefault();
+    numberService.addRating();
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
     className: 'rating-form',
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+    onSubmit: handleSubmit,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
       className: 'rating-form__title',
       children: "\u042F\u043A\u0438\u0439 \u0434\u043E\u0441\u0432\u0456\u0434 \u0412\u0438 \u043C\u0430\u0454\u0442\u0435 \u0437 \u0446\u0438\u043C \u043D\u043E\u043C\u0435\u0440\u043E\u043C?"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
       className: "rating-form__area bg-" + _CONST__WEBPACK_IMPORTED_MODULE_2__["default"][post.rating - 1],
-      onChange: function onChange(e, post) {
+      onChange: function onChange(e) {
         return setPost(_objectSpread(_objectSpread({}, post), {}, {
           rating: e.target.value
         }));
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
         type: "radio",
         id: "star-5",
         name: "rating",
         value: "5"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
         htmlFor: "star-5",
         title: "\u041E\u0446\u0435\u043D\u043A\u0430 \xAB5\xBB"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
         type: "radio",
         id: "star-4",
         name: "rating",
         value: "4"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
         htmlFor: "star-4",
         title: "\u041E\u0446\u0435\u043D\u043A\u0430 \xAB4\xBB"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
         type: "radio",
         id: "star-3",
         name: "rating",
         value: "3"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
         htmlFor: "star-3",
         title: "\u041E\u0446\u0435\u043D\u043A\u0430 \xAB3\xBB"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
         type: "radio",
         id: "star-2",
         name: "rating",
         value: "2"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
         htmlFor: "star-2",
         title: "\u041E\u0446\u0435\u043D\u043A\u0430 \xAB2\xBB"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
         type: "radio",
         id: "star-1",
         name: "rating",
         value: "1"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
         htmlFor: "star-1",
         title: "\u041E\u0446\u0435\u043D\u043A\u0430 \xAB1\xBB"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "rating-form__post-wrapper ".concat(post.rating === 6 ? 'rating-form__hidden' : ''),
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("textarea", {
+        onChange: function onChange(e) {
+          setPost(_objectSpread(_objectSpread({}, post), {}, {
+            review: e.target.value
+          }));
+        },
+        required: true,
         className: 'rating-form__review',
-        placeholder: 'Тут напишіть свою оцінку цього номера телефону'
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
+        placeholder: 'Тут напишіть свою оцінку цього номера телефону',
+        children: post.review
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
         htmlFor: "check1",
         className: 'rating-form__check',
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+          required: true,
           className: 'rating-form__check-input',
           id: "check1",
           type: "checkbox"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
           className: 'rating-form__check-text',
           children: "\u042F \u043F\u043E\u0433\u043E\u0434\u0436\u0443\u044E\u0441\u044F \u0437 "
-        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
           className: 'rating-form__check-url',
           href: 'https://www.callinsider.com.ua/p/umovy-dodavannya-komentariv',
           children: "\u0423\u043C\u043E\u0432\u0430\u043C\u0438 \u0434\u043E\u0434\u0430\u0432\u0430\u043D\u043D\u044F \u043A\u043E\u043C\u0435\u043D\u0442\u0430\u0440\u0456\u0432"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        type: "submit",
         className: 'rating-form__button',
         children: "\u0412\u0456\u0434\u043F\u0440\u0430\u0432\u0438\u0442\u0438"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
       className: 'rating-form__bottom-text',
-      children: ["\u0414\u043E\u043F\u043E\u043C\u043E\u0436\u0456\u0442\u044C \u0456\u043D\u0448\u0438\u043C \u0432\u0456\u0434\u0432\u0456\u0434\u0443\u0432\u0430\u0447\u0430\u043C \u0444\u043E\u0440\u0443\u043C\u0443 \u0442\u0438\u043C, \u0449\u043E \u043F\u043E\u0434\u0456\u043B\u0438\u0442\u0435\u0441\u044F \u0441\u0432\u043E\u0457\u043C \u0434\u043E\u0441\u0432\u0456\u0434\u043E\u043C \u0437 \u0446\u0438\u043C \u043D\u043E\u043C\u0435\u0440\u043E\u043C \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0443. \u0426\u0435\u0439 \u043D\u043E\u043C\u0435\u0440 \u0431\u0435\u0437\u043F\u0435\u0447\u043D\u0438\u0439 \u0447\u0438 \u0434\u043E\u043A\u0443\u0447\u043B\u0438\u0432\u0438\u0439? \u0412\u0438 \u043E\u0447\u0456\u043A\u0443\u0432\u0430\u043B\u0438 \u0434\u0437\u0432\u0456\u043D\u043A\u0430 \u0437 \u0446\u044C\u043E\u0433\u043E \u043D\u043E\u043C\u0435\u0440\u0430 (", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+      children: ["\u0414\u043E\u043F\u043E\u043C\u043E\u0436\u0456\u0442\u044C \u0456\u043D\u0448\u0438\u043C \u0432\u0456\u0434\u0432\u0456\u0434\u0443\u0432\u0430\u0447\u0430\u043C \u0444\u043E\u0440\u0443\u043C\u0443 \u0442\u0438\u043C, \u0449\u043E \u043F\u043E\u0434\u0456\u043B\u0438\u0442\u0435\u0441\u044F \u0441\u0432\u043E\u0457\u043C \u0434\u043E\u0441\u0432\u0456\u0434\u043E\u043C \u0437 \u0446\u0438\u043C \u043D\u043E\u043C\u0435\u0440\u043E\u043C \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0443. \u0426\u0435\u0439 \u043D\u043E\u043C\u0435\u0440 \u0431\u0435\u0437\u043F\u0435\u0447\u043D\u0438\u0439 \u0447\u0438 \u0434\u043E\u043A\u0443\u0447\u043B\u0438\u0432\u0438\u0439? \u0412\u0438 \u043E\u0447\u0456\u043A\u0443\u0432\u0430\u043B\u0438 \u0434\u0437\u0432\u0456\u043D\u043A\u0430 \u0437 \u0446\u044C\u043E\u0433\u043E \u043D\u043E\u043C\u0435\u0440\u0430 (", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
         className: 'rating-form__bottom-text-phone',
         children: number
       }), "), \u0447\u0438 \u0446\u0435 \u0431\u0443\u0432 \u043D\u0435\u0431\u0430\u0436\u0430\u043D\u0438\u0439 \u0434\u0437\u0432\u0456\u043D\u043E\u043A?"]
@@ -6380,7 +6401,11 @@ function Home(props) {
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
     className: "container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_accordion_Accordion__WEBPACK_IMPORTED_MODULE_7__["default"], {})]
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {}), data.loaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_rating_Rating__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      rating: data.rating
+    }) : null, data.loaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_addRating_AddRating__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      idPhone: data.idPhone
+    }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_comments_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_lastVisitedPhones_LastVisitedPhones__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_recommendedArticles_RecommendedArticles__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_accordion_Accordion__WEBPACK_IMPORTED_MODULE_7__["default"], {})]
   });
 }
 
@@ -6866,12 +6891,21 @@ var usePhoneService = function usePhoneService(phone, state, setState) {
     });
   };
 
+  var addRating = function addRating() {
+    return axios.post(_apiBase + 'add-rating', _objectSpread({}, varState), {
+      headers: _objectSpread({}, postRequest.headers)
+    }).then(function (res) {
+      console.log(res); // return res.data
+    }).then(function (value) {});
+  };
+
   return {
     getNumberRating: getNumberRating,
     getNumberRatingPaginate: getNumberRatingPaginate,
     getCommentsByPaginate: getCommentsByPaginate,
     getComments: getComments,
-    getLastVisitedNumbers: getLastVisitedNumbers
+    getLastVisitedNumbers: getLastVisitedNumbers,
+    addRating: addRating
   };
 };
 

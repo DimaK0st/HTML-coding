@@ -31,7 +31,6 @@ class RatingController
 
     public function setReviewAndRating(SetReviewAndRatingRequest $request)
     {
-
         return $this->ratingService->setReviewAndRating($request);
     }
 

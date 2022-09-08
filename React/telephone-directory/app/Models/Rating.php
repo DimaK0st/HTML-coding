@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $rating
  * @property int $ip_id
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rating find()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rating where()
  *
  */
 class Rating extends Model

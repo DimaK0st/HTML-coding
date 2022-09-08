@@ -33,7 +33,6 @@ class RatingService
      */
     public function setReviewAndRating(SetReviewAndRatingRequest $request)
     {
-
         return $this->ratingRepository->setRating($request);
     }
 
