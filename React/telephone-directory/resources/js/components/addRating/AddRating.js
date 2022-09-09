@@ -16,7 +16,7 @@ function AddRating(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        numberService.addRating()
+        numberService.addRating(props.reloadComponent)
 
     };
 

@@ -102,7 +102,7 @@ class RatingRepository
     {
 
 
-        return $this->query()->where('phone_id', $phone->id)->where('ip_id', '!=', $ip->id)
+        return $this->query()->where('phone_id', $phone->id)
             ->where('review', '!=', 'null')
             ->where('rating', '!=', 'null')
             ->whereIn('rating', $sort)
@@ -119,7 +119,7 @@ class RatingRepository
      */
     public function getAllGroupRating(Ip $ip, Phone $phone): Collection|array
     {
-        return $this->query()->where('phone_id', $phone->id)->where('ip_id', '!=', $ip->id)->where('rating', '!=', 'null')
+        return $this->query()->where('phone_id', $phone->id)->where('rating', '!=', 'null')
             ->select('rating', DB::raw('count(\'rating\') as rating_count'))
             ->groupBy('rating')
             ->orderBy('rating', 'desc')

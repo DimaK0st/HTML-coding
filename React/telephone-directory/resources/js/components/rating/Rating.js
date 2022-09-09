@@ -10,12 +10,18 @@ function Rating(props) {
     let starsContent = [], ratingLineContent = [];
 
 
-
     const getCurrentRating = (rate) => {
-
-        return rating.group.filter((item) => {
+        let totalRate = rating.group.filter((item) => {
+            console.log('item.rating ', item.rating)
             return item.rating === rate
-        })[0]['rating_count']
+        })
+
+        if (totalRate.length) {
+            return totalRate[0]['rating_count']
+        } else {
+            return '0'
+        }
+
     }
 
     for (let i = 5; i > 0; i--) {
@@ -31,7 +37,8 @@ function Rating(props) {
                     className={`rating__number-title ${NUMBER_CLASS_NAME[4]}`}>{parseFloat(rating.average).toFixed(1)}</span>
                 <Stars className={'rating__number-stars'} count={Math.round(parseFloat(rating.average))}
                        gray={true}/>
-                <span className={'rating__number-comment'}>Кількість оцінок: </span><span className={'rating__number-comment'}>{rating.count}</span>
+                <span className={'rating__number-comment'}>Кількість оцінок: </span><span
+                className={'rating__number-comment'}>{rating.count}</span>
             </div>
 
             <div className={'rating__line'}>

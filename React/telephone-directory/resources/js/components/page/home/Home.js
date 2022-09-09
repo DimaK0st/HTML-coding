@@ -15,6 +15,7 @@ function Home(props) {
         {
             sortedList: [],
             loading: false,
+            reload: false,
         }
     );
     const numberService = usePhoneService(number, data,setData)
@@ -22,19 +23,32 @@ function Home(props) {
 
 
     useEffect(() => {
-        console.log(data.length)
-        if (!data.loaded) {
-            numberService.getNumberRating(navigate).then((value) => {
-                console.log(value)
-                setData({
-                    ...data,
-                    loaded: true,
-                    ...value,
-                })
-            })
+        if (!data.loaded ) {
+            updateData()
         }
     }, []);
 
+    useEffect(() => {
+        if (data.reload===true) {
+            updateData()
+        }
+    }, [data.reload]);
+
+    const updateData=()=>{
+        numberService.getNumberRating(navigate).then((value) => {
+            console.log(value)
+            setData({
+                ...data,
+                loaded: true,
+                reload: false,
+                ...value,
+            })
+        })
+    }
+
+    const reloadComponent = ()=>{
+        setData({...data, reload: true})
+    }
 
     return (
         <div className="container">
@@ -45,9 +59,9 @@ function Home(props) {
 
             {data.loaded ? <Rating rating={data.rating}/> : null}
 
-            {data.loaded ?<AddRating idPhone={data.idPhone}/>: null}
+            {data.loaded ?<AddRating reloadComponent={reloadComponent} idPhone={data.idPhone}/>: null}
 
-            {<Comments />}
+            {<Comments reload={data.reload}/>}
 
             <LastVisitedPhones/>
 

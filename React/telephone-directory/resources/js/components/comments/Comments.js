@@ -18,7 +18,7 @@ function Comments(props) {
 
     useEffect(() => {
         numberService.getComments(data.sort, data.order)
-    }, [data.order, data.sort]);
+    }, [data.order, data.sort, props.reload]);
 
 
     return (

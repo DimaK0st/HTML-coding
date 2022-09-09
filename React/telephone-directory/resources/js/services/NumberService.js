@@ -131,14 +131,14 @@ const usePhoneService = (phone, state, setState) => {
         })
     }
 
-    const addRating = () => {
+    const addRating = (reloadComponent) => {
 
         return axios.post(_apiBase + 'add-rating', {...varState}, {
             headers: {
                 ...postRequest.headers
             }
         }).then(res => {
-            console.log(res)
+            reloadComponent()
             // return res.data
         }).then((value) => {
 

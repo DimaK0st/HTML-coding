@@ -5695,7 +5695,7 @@ function AddRating(props) {
 
   var handleSubmit = function handleSubmit(event) {
     event.preventDefault();
-    numberService.addRating();
+    numberService.addRating(props.reloadComponent);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
@@ -5860,7 +5860,7 @@ function Comments(props) {
   var numberService = (0,_services_NumberService__WEBPACK_IMPORTED_MODULE_4__["default"])(number, data, setData);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     numberService.getComments(data.sort, data.order);
-  }, [data.order, data.sort]);
+  }, [data.order, data.sort, props.reload]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: 'comments',
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
@@ -6379,7 +6379,8 @@ function Home(props) {
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     sortedList: [],
-    loading: false
+    loading: false,
+    reload: false
   }),
       _useState2 = _slicedToArray(_useState, 2),
       data = _useState2[0],
@@ -6388,24 +6389,42 @@ function Home(props) {
   var numberService = (0,_services_NumberService__WEBPACK_IMPORTED_MODULE_1__["default"])(number, data, setData);
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.useNavigate)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    console.log(data.length);
-
     if (!data.loaded) {
-      numberService.getNumberRating(navigate).then(function (value) {
-        console.log(value);
-        setData(_objectSpread(_objectSpread({}, data), {}, {
-          loaded: true
-        }, value));
-      });
+      updateData();
     }
   }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (data.reload === true) {
+      updateData();
+    }
+  }, [data.reload]);
+
+  var updateData = function updateData() {
+    numberService.getNumberRating(navigate).then(function (value) {
+      console.log(value);
+      setData(_objectSpread(_objectSpread({}, data), {}, {
+        loaded: true,
+        reload: false
+      }, value));
+    });
+  };
+
+  var reloadComponent = function reloadComponent() {
+    setData(_objectSpread(_objectSpread({}, data), {}, {
+      reload: true
+    }));
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
     className: "container",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {}), data.loaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_rating_Rating__WEBPACK_IMPORTED_MODULE_2__["default"], {
       rating: data.rating
     }) : null, data.loaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_addRating_AddRating__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      reloadComponent: reloadComponent,
       idPhone: data.idPhone
-    }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_comments_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_lastVisitedPhones_LastVisitedPhones__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_recommendedArticles_RecommendedArticles__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_accordion_Accordion__WEBPACK_IMPORTED_MODULE_7__["default"], {})]
+    }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_comments_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      reload: data.reload
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_lastVisitedPhones_LastVisitedPhones__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_recommendedArticles_RecommendedArticles__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_accordion_Accordion__WEBPACK_IMPORTED_MODULE_7__["default"], {})]
   });
 }
 
@@ -6463,9 +6482,16 @@ function Rating(props) {
       ratingLineContent = [];
 
   var getCurrentRating = function getCurrentRating(rate) {
-    return rating.group.filter(function (item) {
+    var totalRate = rating.group.filter(function (item) {
+      console.log('item.rating ', item.rating);
       return item.rating === rate;
-    })[0]['rating_count'];
+    });
+
+    if (totalRate.length) {
+      return totalRate[0]['rating_count'];
+    } else {
+      return '0';
+    }
   };
 
   for (var i = 5; i > 0; i--) {
@@ -6891,11 +6917,11 @@ var usePhoneService = function usePhoneService(phone, state, setState) {
     });
   };
 
-  var addRating = function addRating() {
+  var addRating = function addRating(reloadComponent) {
     return axios.post(_apiBase + 'add-rating', _objectSpread({}, varState), {
       headers: _objectSpread({}, postRequest.headers)
     }).then(function (res) {
-      console.log(res); // return res.data
+      reloadComponent(); // return res.data
     }).then(function (value) {});
   };
 
