@@ -11,42 +11,44 @@ import Accordion from "../../accordion/Accordion";
 
 function Home(props) {
     const {number} = useParams()
+    console.log(number)
     const [data, setData] = useState(
         {
             sortedList: [],
             loading: false,
-            reload: false,
         }
     );
-    const numberService = usePhoneService(number, data,setData)
+    const numberService = usePhoneService(number, data, setData)
     let navigate = useNavigate();
 
 
     useEffect(() => {
-        if (!data.loaded ) {
+        if (!data.loaded) {
             updateData()
         }
     }, []);
 
     useEffect(() => {
-        if (data.reload===true) {
-            updateData()
-        }
-    }, [data.reload]);
+            setData({
+                ...data,
+            })
+        updateData()
+        window.scrollTo(0, 0);
+    }, [number]);
 
-    const updateData=()=>{
+
+    const updateData = () => {
         numberService.getNumberRating(navigate).then((value) => {
             console.log(value)
             setData({
                 ...data,
                 loaded: true,
-                reload: false,
                 ...value,
             })
         })
     }
 
-    const reloadComponent = ()=>{
+    const reloadComponent = () => {
         setData({...data, reload: true})
     }
 
@@ -61,7 +63,7 @@ function Home(props) {
 
             {<AddRating reloadComponent={reloadComponent} idPhone={data.idPhone}/>}
 
-            {<Comments reload={data.reload}/>}
+            {<Comments data={data}/>}
 
             <LastVisitedPhones/>
 

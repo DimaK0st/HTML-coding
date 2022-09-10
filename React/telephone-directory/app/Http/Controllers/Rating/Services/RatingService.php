@@ -33,7 +33,9 @@ class RatingService
      */
     public function setReviewAndRating(SetReviewAndRatingRequest $request)
     {
-        return $this->ratingRepository->setRating($request);
+        list($iP, $phone) = $this->getPhoneAndIp($request->ip(), $request->getPhone());
+
+        return $this->ratingRepository->setRating($request, $iP, $phone);
     }
 
     public function getAllInfoAboutPhone(GetRatingRequest $request)

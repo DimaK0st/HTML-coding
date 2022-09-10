@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Rating\Repositories;
 
 use App\Http\Controllers\IP\Services\IPService;
+use App\Http\Controllers\Phone\Services\PhoneService;
 use App\Http\Controllers\Rating\Requests\GetRatingRequest;
 use App\Http\Controllers\Rating\Requests\SetReviewAndRatingRequest;
 use App\Models\Ip;
@@ -18,10 +19,12 @@ use Torann\GeoIP\GeoIP;
 class RatingRepository
 {
     private IPService $iPService;
+    private PhoneService $phoneService;
 
-    public function __construct(IPService $iPService)
+    public function __construct(IPService $iPService, PhoneService $phoneService)
     {
         $this->iPService = $iPService;
+        $this->phoneService = $phoneService;
     }
 
     public function getRatingByPhoneId(int $phoneId)
@@ -57,10 +60,11 @@ class RatingRepository
         return $rating;
     }
 
-    public function setRating(SetReviewAndRatingRequest $request)
+    public function setRating(SetReviewAndRatingRequest $request,Ip $ip, Phone $phone)
     {
-        $ip = $this->iPService->getOrCreateIp(geoip()->getLocation($request->ip()));
-        $rating = Rating::where('phone_id', $request->getId())
+        $this->phoneService->getPhone($request->getPhone());
+
+        $rating = Rating::where('phone_id', $this->phoneService->getPhone($request->getPhone())->id)
             ->where('ip_id', $ip->id)
             ->first();
 
@@ -69,7 +73,7 @@ class RatingRepository
         }
 
 
-        $rating->phone_id = $request->getId();
+        $rating->phone_id = $phone->id;
         $rating->ip_id = $ip->id;
         $rating->review = $request->getReview();
         $rating->rating = (int)$request->getRating();

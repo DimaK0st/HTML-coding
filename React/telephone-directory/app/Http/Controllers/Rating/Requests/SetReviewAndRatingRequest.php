@@ -14,7 +14,7 @@ class SetReviewAndRatingRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'int|required',
+            'phone' => 'int|string|required',
             'review' => 'string|required',
             'rating' => 'int|required',
         ];
@@ -23,9 +23,9 @@ class SetReviewAndRatingRequest extends FormRequest
     /**
      * @return string
      */
-    public function getId(): string
+    public function getPhone(): string
     {
-        return $this->input('id');
+        return $this->input('phone');
     }
 
     /**

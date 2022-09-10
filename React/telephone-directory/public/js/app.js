@@ -14611,7 +14611,7 @@ function Comments(props) {
   var numberService = (0,_services_NumberService__WEBPACK_IMPORTED_MODULE_4__["default"])(number, data, setData);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     numberService.getComments(data.sort, data.order);
-  }, [data.order, data.sort, props.reload]);
+  }, [data.order, data.sort, props.data]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: 'comments',
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
@@ -14987,7 +14987,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CONST__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../_CONST */ "./resources/js/_CONST.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -15009,7 +15011,8 @@ function LastPhone(props) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: 'last-number-text',
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+        to: '/phone/' + phone,
         className: 'last-number-text-number',
         children: phone
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
@@ -15128,10 +15131,11 @@ function Home(props) {
   var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.useParams)(),
       number = _useParams.number;
 
+  console.log(number);
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     sortedList: [],
-    loading: false,
-    reload: false
+    loading: false
   }),
       _useState2 = _slicedToArray(_useState, 2),
       data = _useState2[0],
@@ -15145,17 +15149,16 @@ function Home(props) {
     }
   }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (data.reload === true) {
-      updateData();
-    }
-  }, [data.reload]);
+    setData(_objectSpread({}, data));
+    updateData();
+    window.scrollTo(0, 0);
+  }, [number]);
 
   var updateData = function updateData() {
     numberService.getNumberRating(navigate).then(function (value) {
       console.log(value);
       setData(_objectSpread(_objectSpread({}, data), {}, {
-        loaded: true,
-        reload: false
+        loaded: true
       }, value));
     });
   };
@@ -15174,7 +15177,7 @@ function Home(props) {
       reloadComponent: reloadComponent,
       idPhone: data.idPhone
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_comments_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      reload: data.reload
+      data: data
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_lastVisitedPhones_LastVisitedPhones__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_recommendedArticles_RecommendedArticles__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_accordion_Accordion__WEBPACK_IMPORTED_MODULE_7__["default"], {})]
   });
 }
@@ -15669,7 +15672,9 @@ var usePhoneService = function usePhoneService(phone, state, setState) {
   };
 
   var addRating = function addRating(reloadComponent) {
-    return axios.post(_apiBase + 'add-rating', _objectSpread({}, varState), {
+    return axios.post(_apiBase + 'add-rating', _objectSpread(_objectSpread({}, varState), {}, {
+      phone: result
+    }), {
       headers: _objectSpread({}, postRequest.headers)
     }).then(function (res) {
       reloadComponent(); // return res.data
