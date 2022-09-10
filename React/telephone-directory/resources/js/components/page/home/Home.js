@@ -59,7 +59,7 @@ function Home(props) {
 
             {data.loaded ? <Rating rating={data.rating}/> : null}
 
-            {data.loaded ?<AddRating reloadComponent={reloadComponent} idPhone={data.idPhone}/>: null}
+            {<AddRating reloadComponent={reloadComponent} idPhone={data.idPhone}/>}
 
             {<Comments reload={data.reload}/>}
 

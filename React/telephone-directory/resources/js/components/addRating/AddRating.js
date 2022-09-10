@@ -3,6 +3,7 @@ import './addRating.scss'
 import NUMBER_CLASS_NAME from "../../_CONST";
 import {useParams} from "react-router-dom";
 import usePhoneService from "../../services/NumberService";
+import {data} from "autoprefixer";
 
 function AddRating(props) {
     const {number} = useParams()
@@ -12,13 +13,21 @@ function AddRating(props) {
         id: props.idPhone
     })
 
-    const numberService = usePhoneService(number, post,setPost)
+    const numberService = usePhoneService(number, post, setPost)
 
     const handleSubmit = (event) => {
         event.preventDefault();
         numberService.addRating(props.reloadComponent)
-
+        setPost({...post, rating: 6})
     };
+
+    let inputsContent = [];
+
+    for (let i = 5; i > 0; i--) {
+        inputsContent.push(<>
+            <input type="radio" id={"star-" + i} name="rating" defaultChecked={data.rating === i} value={i}/>
+            <label htmlFor={"star-" + i} title={"Оценка «" + i + "»"}></label></>)
+    }
 
     return (
         <form className={'rating-form'} onSubmit={handleSubmit}>
@@ -27,19 +36,12 @@ function AddRating(props) {
 
             <form className={"rating-form__area bg-" + NUMBER_CLASS_NAME[post.rating - 1]}
                   onChange={(e) => setPost({...post, rating: e.target.value})}>
-                <input type="radio" id="star-5" name="rating" value="5"/>
-                <label htmlFor="star-5" title="Оценка «5»"></label>
-                <input type="radio" id="star-4" name="rating" value="4"/>
-                <label htmlFor="star-4" title="Оценка «4»"></label>
-                <input type="radio" id="star-3" name="rating" value="3"/>
-                <label htmlFor="star-3" title="Оценка «3»"></label>
-                <input type="radio" id="star-2" name="rating" value="2"/>
-                <label htmlFor="star-2" title="Оценка «2»"></label>
-                <input type="radio" id="star-1" name="rating" value="1"/>
-                <label htmlFor="star-1" title="Оценка «1»"></label>
+                {inputsContent}
             </form>
-            <div className={`rating-form__post-wrapper ${post.rating === 6 ? 'rating-form__hidden': ''}`}>
-                <textarea onChange={(e)=>{setPost({...post, review: e.target.value})}} required className={'rating-form__review'}
+            <div className={`rating-form__post-wrapper ${post.rating === 6 ? 'rating-form__hidden' : ''}`}>
+                <textarea onChange={(e) => {
+                    setPost({...post, review: e.target.value})
+                }} required className={'rating-form__review'}
                           placeholder={'Тут напишіть свою оцінку цього номера телефону'}>{post.review}</textarea>
                 <label htmlFor="check1" className={'rating-form__check'}>
                     <input required className={'rating-form__check-input'} id="check1" type="checkbox"/>
