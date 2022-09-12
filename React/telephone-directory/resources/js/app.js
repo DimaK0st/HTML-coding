@@ -16,16 +16,17 @@ console.log('asdfasd')
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <>
-        <Header/>
             <Router>
 
+                <Header/>
                 <Routes>
+
                     <Route path="/phone/:number" element={<Home/>}/>
                     <Route path="/add-item" element={<CreateItem/>}/>
                     <Route path="*" element={<Page404 />} />
                 </Routes>
+                <Footer/>
             </Router>
-        <Footer/>
     </>
 );
 
