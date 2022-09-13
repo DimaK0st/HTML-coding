@@ -14829,8 +14829,45 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var Footer = function Footer() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("footer", {});
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("footer", {
+    className: 'footer',
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: 'footer-wrapper',
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+        className: 'footer-wrapper-item',
+        href: 'https://www.callinsider.com.ua/p/zahalni-umovy',
+        target: "_blank",
+        children: "\u0417\u0430\u0433\u0430\u043B\u044C\u043D\u0456 \u0443\u043C\u043E\u0432\u0438"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+        className: 'footer-wrapper-item',
+        href: 'https://www.callinsider.com.ua/p/pryntsypy-zakhystu-osobystykh-danykh',
+        target: "_blank",
+        children: "\u041E\u0445\u043E\u0440\u043E\u043D\u0430 \u043E\u0441\u043E\u0431\u0438\u0441\u0442\u0438\u0445 \u0434\u0430\u043D\u0438\u0445"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+        className: 'footer-wrapper-item',
+        href: 'https://www.callinsider.com.ua/statti',
+        target: "_blank",
+        children: "\u0421\u0442\u0430\u0442\u0442\u0456"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+        className: 'footer-wrapper-item',
+        href: 'https://www.callinsider.com.ua/p/chasti-pytannya',
+        target: "_blank",
+        children: "\u0427\u0430\u0441\u0442\u0456 \u043F\u0438\u0442\u0430\u043D\u043D\u044F"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+        className: 'footer-wrapper-item',
+        href: 'https://www.callinsider.com.ua/p/pro-nas',
+        target: "_blank",
+        children: "\u041F\u0440\u043E \u043D\u0430\u0441"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+        className: 'footer-wrapper-item',
+        href: 'https://www.callinsider.com.ua/p/kontakt',
+        target: "_blank",
+        children: "\u041A\u043E\u043D\u0442\u0430\u043A\u0442"
+      })]
+    })
+  });
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Footer);
@@ -30899,7 +30936,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".gray {\n  color: #9296ae;\n}\n\n.five {\n  color: #26948b;\n}\n\n.four {\n  color: #89a25b;\n}\n\n.three {\n  color: #d3b04d;\n}\n\n.two {\n  color: #de8e4e;\n}\n\n.one {\n  color: #e76c53;\n}\n\n.bg-gray {\n  background: #4a5079;\n}\n\n.bg-five {\n  background: #26948b;\n}\n\n.bg-four {\n  background: #89a25b;\n}\n\n.bg-three {\n  background: #d3b04d;\n}\n\n.bg-two {\n  background: #de8e4e;\n}\n\n.bg-one {\n  background: #e76c53;\n}\n\n.footer {\n  width: 100%;\n  display: flex;\n  background: linear-gradient(0deg, #be2ef8, #663ef5);\n  border-radius: 30px 30px 0 0;\n}\n.footer-wrapper {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  max-width: 1300px;\n  width: 100%;\n  height: 170px;\n  margin: auto;\n  padding: 0 20px;\n}\n.footer-wrapper-item {\n  font-family: Roboto, sans-serif;\n  font-size: 27px;\n  font-weight: 700;\n  color: white;\n  text-decoration: none;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
