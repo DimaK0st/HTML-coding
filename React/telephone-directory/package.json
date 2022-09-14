@@ -11,6 +11,7 @@
     },
     "devDependencies": {
         "@babel/preset-react": "^7.13.13",
+        "@faker-js/faker": "^7.5.0",
         "@popperjs/core": "^2.10.2",
         "autoprefixer": "10.4.5",
         "axios": "^0.21.4",
@@ -28,6 +29,9 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
+        "chart.js": "^3.9.1",
+        "faker": "^6.6.6",
+        "react-chartjs-2": "^4.3.1",
         "react-input-mask": "^2.0.4"
     }
 }
