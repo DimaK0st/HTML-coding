@@ -11,7 +11,10 @@ use App\Http\Controllers\Rating\Requests\GetRatingRequest;
 use App\Http\Controllers\Rating\Requests\SetReviewAndRatingRequest;
 use App\Models\Ip;
 use App\Models\Phone;
+use App\Models\Rating;
 use App\Models\User;
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 use Illuminate\Support\Facades\DB;
 
 class RatingService
@@ -42,6 +45,7 @@ class RatingService
     {
         list($iP, $phone) = $this->getPhoneAndIp($request->ip(), $request->getNumber());
 
+
         return [
             'idPhone' => $phone->id,
             'userReview' => $this->getReviewByIp($iP, $phone),
@@ -51,13 +55,13 @@ class RatingService
                 'count' => $this->getCountRatingPhone($phone),
             ],
             'countViews' => $this->getCountViewsPhone($phone),
+            'chart' => $this->getChartDataPhone($phone),
         ];
     }
 
     public function getLastVisitedNumber(GetLastVisitedPhones $request)
     {
         return Phone::whereIn('phones.id', $request->getPhones())->with('rating')->join('regions', 'phones.region_id', '=', 'regions.id')
-
             ->select('phones.id',
                 DB::raw('CONCAT(+380,\'\',regions.region, \'\',  phones.digital) as phone')
             )->withAvg('rating', 'rating')
@@ -148,6 +152,37 @@ class RatingService
     public function getCountViewsPhone(Phone $phone)
     {
         return $this->ratingRepository->getCountViewsPhone($phone);
+    }
+
+    public function getChartDataPhone(Phone $phone)
+    {
+        $result = [];
+
+        $start = Carbon::now()->toDateString();
+        $finish = Carbon::now()->subDays(30)->toDateString();
+
+        $chartData = Rating::whereBetween('created_at', [
+            $finish, $start
+        ])->where('phone_id', $phone->id)
+            ->selectRaw('date(created_at) as date, COUNT(*) as count')
+            ->groupBy('date')
+            ->orderBy('date', 'DESC')->get()->keyBy('date')->toArray();
+
+
+        $period = CarbonPeriod::create($finish, $start)->toArray();
+
+        foreach ($period as $item) {
+            $timeKey = $item->format('Y-m-d');
+            if (array_key_exists($timeKey, $chartData)) {
+                $result[$timeKey] = $chartData[$timeKey]['count'];
+            } else {
+                $result[$timeKey] = 0;
+            }
+
+        }
+
+        dd($result);
+
     }
 
     /**

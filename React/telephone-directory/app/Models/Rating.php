@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $ip_id
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rating find()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rating where()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rating whereBetween()
  *
  */
 class Rating extends Model
