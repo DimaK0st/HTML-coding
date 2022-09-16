@@ -1,7 +1,7 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import './comment.scss'
 import report from '/assets/report.svg'
-import Stars from "../../rating/stars/Stars";
+import Stars from "../../tab-rating-and-view/rating/stars/Stars";
 
 function Comment(props) {
     const {id, review, rating, city, created_at} = props

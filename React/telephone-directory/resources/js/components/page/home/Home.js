@@ -2,13 +2,14 @@ import React, {useEffect, useState} from 'react';
 import {useParams, useNavigate} from "react-router-dom";
 
 import usePhoneService from "../../../services/NumberService";
-import Rating from "../../rating/Rating";
+import Rating from "../../tab-rating-and-view/rating/Rating";
 import AddRating from "../../addRating/AddRating";
 import Comments from "../../comments/Comments";
 import LastVisitedPhones from "../../lastVisitedPhones/LastVisitedPhones";
 import RecommendedArticles from "../../recommendedArticles/RecommendedArticles";
 import Accordion from "../../accordion/Accordion";
-import Chart from "../../сhart/Chart";
+import Chart from "../../tab-rating-and-view/сhart/Chart";
+import Tab from "../../tab-rating-and-view/Tab";
 
 function Home(props) {
     const {number} = useParams()
@@ -71,8 +72,10 @@ function Home(props) {
             {/*<RecommendedArticles/>*/}
 
             {/*<Accordion/>*/}
+            {console.log('asdfasdasdasdasdf',data)}
+            {/*{data.loaded ? <Chart chart={data.chart}/> : null}*/}
 
-            <Chart/>
+            {data.loaded ? <Tab rating={data.rating} view={data.view}/> : null}
 
         </div>
     )

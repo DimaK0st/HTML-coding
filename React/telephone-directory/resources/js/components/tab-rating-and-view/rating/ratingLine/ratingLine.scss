@@ -1,0 +1,26 @@
+@import '../../../../../sass/variables';
+
+.rating-line{
+    display: flex;
+    flex-direction: row;
+
+    &__bg{
+        background: $color-rating-line-bg;
+        display: flex;
+        flex-direction: row;
+        height: 16px;
+        margin: 8px 12px;
+        border-radius: 15px;
+    }
+
+    &__item{
+        height: 16px;
+        border-radius: 15px;
+    }
+
+    &__text{
+        width: 40px;
+        color: hsla(0,0%,100%,.4);
+        font-size: 20px;
+    }
+}

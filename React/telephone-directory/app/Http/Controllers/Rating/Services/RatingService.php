@@ -54,8 +54,10 @@ class RatingService
                 'average' => $this->getAverageRatingPhone($phone),
                 'count' => $this->getCountRatingPhone($phone),
             ],
-            'countViews' => $this->getCountViewsPhone($phone),
-            'chart' => $this->getChartDataPhone($phone),
+            'view'=>[
+                'count' => $this->getCountViewsPhone($phone),
+                'chart' => $this->getChartDataPhone($phone),
+            ],
         ];
     }
 
@@ -181,7 +183,7 @@ class RatingService
 
         }
 
-        dd($result);
+        return $result;
 
     }
 
