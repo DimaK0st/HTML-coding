@@ -1,0 +1,50 @@
+@import "./resources/sass/variables";
+
+.tab {
+    border-radius: 15px;
+    background: $bg-div-wrapper;
+
+    .selected {
+        color: #ab9aff;
+        border-bottom: #ab9aff solid 2px;
+    }
+
+    &-menu {
+        height: 60px;
+        align-items: center;
+        border-bottom: rgba(85, 90, 129, .64) solid 2px;
+
+        &-btn {
+            height: 100%;
+            padding: 0 24px;
+
+            font-family: Roboto, sans-serif;
+            color: hsla(0, 0%, 100%, .4);
+            font-size: 16px;
+            background: transparent;
+            border: 0;
+            outline: none;
+            transition: 1s;
+        }
+    }
+
+    &-content {
+        padding: 24px;
+
+        @keyframes show {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .rating, .chart {
+            animation: show 2s;
+        }
+
+    }
+
+
+}
