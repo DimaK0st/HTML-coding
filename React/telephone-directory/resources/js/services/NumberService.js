@@ -31,7 +31,7 @@ const usePhoneService = (phone, state, setState) => {
             }
         })
             .then(res => {
-                setLastVisitedNumbers(res.data.idPhone)
+                setLastVisitedNumbers(res.data.currentPhone.id)
                 return res.data
             })
     }
@@ -102,6 +102,10 @@ const usePhoneService = (phone, state, setState) => {
     }
 
     const setLastVisitedNumbers = (phoneId) => {
+        if (!Number.isFinite(phoneId)){
+            return;
+        }
+
         let getItem = JSON.parse(localStorage.getItem('lastVisitedNumbers'))
 
         if (typeof getItem === 'object' && getItem?.length > 0) {

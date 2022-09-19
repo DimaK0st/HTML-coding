@@ -47,7 +47,7 @@ class RatingService
 
 
         return [
-            'idPhone' => $phone->id,
+            'currentPhone' => $phone->toArray(),
             'userReview' => $this->getReviewByIp($iP, $phone),
             'rating' => [
                 'group' => $this->getAllGroupRating($iP, $phone),

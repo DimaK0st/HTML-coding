@@ -61,21 +61,18 @@ function Home(props) {
                 {/*{props.children}*/}
             </div>
 
-            {/*{data.loaded ? <Rating rating={data.rating}/> : null}*/}
-
-            {/*{<AddRating reloadComponent={reloadComponent} idPhone={data.idPhone}/>}*/}
-
-            {/*{<Comments data={data}/>}*/}
-
-            {/*<LastVisitedPhones/>*/}
-
-            {/*<RecommendedArticles/>*/}
-
-            {/*<Accordion/>*/}
-            {console.log('asdfasdasdasdasdf',data)}
-            {/*{data.loaded ? <Chart chart={data.chart}/> : null}*/}
-
             {data.loaded ? <Tab rating={data.rating} view={data.view}/> : null}
+
+            {<AddRating reloadComponent={reloadComponent} idPhone={data.currentPhone?.id}/>}
+
+            {<Comments data={data}/>}
+
+            <LastVisitedPhones/>
+
+            <RecommendedArticles/>
+
+            <Accordion/>
+
 
         </div>
     )

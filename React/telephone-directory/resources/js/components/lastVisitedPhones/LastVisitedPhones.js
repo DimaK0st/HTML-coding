@@ -11,16 +11,20 @@ function LastVisitedPhones(props) {
     const numberService = usePhoneService(number, data, setData)
 
     useEffect(() => {
-        numberService.getLastVisitedNumbers();
+        numberService.getLastVisitedNumbers().then(()=>{
+        });
     }, [])
 
+
+
     let content = data.sortBy?.map((item) => {
-        const temp = data.data[item]
+            const temp = data.data[item]
+            console.log('testerest-----------', temp)
+            return <LastPhone avg={parseFloat(temp.rating_avg_rating).toFixed(1)} phone={temp.phone}
+                              description={temp.rating.review}/>
 
-        return <LastPhone avg={parseFloat(temp.rating_avg_rating).toFixed(1)} phone={temp.phone}
-                          description={temp.rating.review}/>
+        })
 
-    })
 
     useEffect(() => {
 
