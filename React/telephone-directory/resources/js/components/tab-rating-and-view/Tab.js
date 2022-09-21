@@ -3,22 +3,22 @@ import React, {useEffect, useState} from 'react';
 import './tab.scss'
 import Rating from "./rating/Rating";
 import Chart from "./сhart/Chart";
+import Skeleton from "react-loading-skeleton";
 
 const RATING = 'rating'
 const VIEW = 'view'
 
 function Tab(props) {
-    const {view, rating} = props
+    const {view, rating, loaded} = props
     const [tabType, setTabType] = useState(RATING)
     const [tabContent, setTabContent] = useState(<Rating rating={rating}/>)
-    let menuContent
-    let textMenuValue = [RATING,VIEW]
-
-    // useEffect(()=>{
-    //     showTab(RATING)
-    // }, [])
 
     useEffect(() => {
+
+        if (!loaded) {
+            return
+        }
+
         switch (tabType) {
 
             case RATING:
@@ -32,7 +32,7 @@ function Tab(props) {
                 break
 
         }
-    }, [tabType])
+    }, [tabType, props])
 
 
     return (
@@ -40,15 +40,19 @@ function Tab(props) {
         <div className={'tab'}>
 
             <div className={'tab-menu'}>
-                <button className={`tab-menu-btn ${RATING===tabType? 'selected':''}`} onClick={() => setTabType(RATING)}>
-                    {'Оцінка'} ({rating.count}×)
+                <button className={`tab-menu-btn ${RATING === tabType ? 'selected' : ''}`}
+                        onClick={() => setTabType(RATING)}>
+                    {'Оцінка'} ({rating?.count ??
+                    <Skeleton height={15} width={30} baseColor={'#663ef5'} inline={true}/>}×)
                 </button>
-                <button className={`tab-menu-btn ${VIEW===tabType? 'selected':''}`} onClick={() => setTabType(VIEW)}>
-                    {'Переглядів'} ({view.count}×)
+                <button className={`tab-menu-btn ${VIEW === tabType ? 'selected' : ''}`}
+                        onClick={() => setTabType(VIEW)}>
+                    {'Переглядів'} ({view?.count ??
+                    <Skeleton height={15} width={30} baseColor={'#663ef5'} inline={true}/>}×)
                 </button>
             </div>
 
-                    {tabContent}
+            {tabContent}
 
         </div>
 

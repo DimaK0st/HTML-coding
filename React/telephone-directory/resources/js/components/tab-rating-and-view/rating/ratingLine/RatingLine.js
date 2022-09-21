@@ -3,6 +3,7 @@ import search from '/assets/search.svg'
 import './ratingLine.scss'
 import {useState} from "react";
 import NUMBER_CLASS_NAME from "../../../../_CONST";
+import Skeleton from "react-loading-skeleton";
 
 const RatingLine = (props) => {
     const {count, current, total, width} = props;
@@ -18,7 +19,7 @@ const RatingLine = (props) => {
             <div className={'rating-line__bg'} style={{width: width ? `${width}px` : '100%'}}>
                 {content}
             </div>
-            <span className={'rating-line__text'}> {current}×</span>
+            <span className={'rating-line__text'}> {current ??<Skeleton height={15} width={30} baseColor={'#663ef5'} inline={true}/>}×</span>
         </div>
 
     )

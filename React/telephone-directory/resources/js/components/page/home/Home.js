@@ -10,6 +10,9 @@ import RecommendedArticles from "../../recommendedArticles/RecommendedArticles";
 import Accordion from "../../accordion/Accordion";
 import Chart from "../../tab-rating-and-view/сhart/Chart";
 import Tab from "../../tab-rating-and-view/Tab";
+import Skeleton, {SkeletonTheme} from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css'
+
 
 function Home(props) {
     const {number} = useParams()
@@ -61,18 +64,17 @@ function Home(props) {
                 {/*{props.children}*/}
             </div>
 
-            {data.loaded ? <Tab rating={data.rating} view={data.view}/> : null}
+             <Tab loaded={data.loaded} rating={data.rating} view={data.view}/>
 
             {<AddRating reloadComponent={reloadComponent} idPhone={data.currentPhone?.id}/>}
 
             {<Comments data={data}/>}
 
-            <LastVisitedPhones/>
+            {/*<LastVisitedPhones/>*/}
 
-            <RecommendedArticles/>
+            {/*<RecommendedArticles/>*/}
 
-            <Accordion/>
-
+            {/*<Accordion/>*/}
 
         </div>
     )

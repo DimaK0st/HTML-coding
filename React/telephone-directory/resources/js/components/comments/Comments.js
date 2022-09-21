@@ -13,6 +13,9 @@ function Comments(props) {
         loaded: false,
         sort: 'all',
         order: 1,
+        comments: [
+            [],[],[],[],[],[],[],[],[],[]
+        ]
     });
     const numberService = usePhoneService(number, data, setData)
 
@@ -31,8 +34,8 @@ function Comments(props) {
 
             <div className={'comments'}>
                 {data?.comments?.map((item) => {
-                    return <Comment id={item.id} review={item.review} rating={item.rating} city={item.city}
-                                    created_at={item.created_at}/>
+                    return <Comment id={item?.id} review={item?.review} rating={item?.rating} city={item?.city}
+                                    created_at={item?.created_at}/>
                 })}
 
             </div>

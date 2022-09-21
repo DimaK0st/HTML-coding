@@ -3,6 +3,7 @@ import './rating.scss'
 import RatingLine from "./ratingLine/RatingLine";
 import Stars from "./stars/Stars";
 import NUMBER_CLASS_NAME from "../../../_CONST";
+import Skeleton from "react-loading-skeleton";
 
 function Rating(props) {
     const {rating} = props
@@ -11,12 +12,12 @@ function Rating(props) {
 
 
     const getCurrentRating = (rate) => {
-        let totalRate = rating.group.filter((item) => {
+        let totalRate = rating?.group.filter((item) => {
             console.log('item.rating ', item.rating)
             return item.rating === rate
         })
 
-        if (totalRate.length) {
+        if (totalRate?.length) {
             return totalRate[0]['rating_count']
         } else {
             return '0'
@@ -26,7 +27,7 @@ function Rating(props) {
 
     for (let i = 5; i > 0; i--) {
         starsContent.push(<Stars count={i}/>)
-        ratingLineContent.push(<RatingLine count={i} current={getCurrentRating(i)} total={rating.count}/>)
+        ratingLineContent.push(<RatingLine count={i} current={getCurrentRating(i)} total={rating?.count ?? <Skeleton height={30} width={300} baseColor={'#663ef5'}/>}/>)
     }
 
     return (
@@ -34,21 +35,23 @@ function Rating(props) {
 
             <div className={'rating__number'}>
                 <span
-                    className={`rating__number-title ${NUMBER_CLASS_NAME[4]}`}>{parseFloat(rating.average).toFixed(1)}</span>
-                <Stars className={'rating__number-stars'} count={Math.round(parseFloat(rating.average))}
+                    className={`rating__number-title ${NUMBER_CLASS_NAME[4]}`}>{rating?.average ? parseFloat(rating?.average??0).toFixed(1) : <Skeleton height={80} width={60} baseColor={'#663ef5'}/>}</span>
+                <Stars className={'rating__number-stars'} count={Math.round(parseFloat(rating?.average??0))}
                        gray={true}/>
                 <span className={'rating__number-comment'}>Кількість оцінок: </span><span
-                className={'rating__number-comment'}>{rating.count}</span>
+                className={'rating__number-comment'}>{
+                rating?.count ?? <Skeleton className={'skeleton'} height={15} width={40} baseColor={'#663ef5'}/>
+            }</span>
             </div>
 
             <div className={'rating__line'}>
 
                 <div className={'rating__line-stars'}>
-                    {starsContent}
+                    {starsContent ?? <Skeleton height={30} width={300} baseColor={'#663ef5'}/>}
                 </div>
 
                 <div className={'rating__line-line'}>
-                    {ratingLineContent}
+                    {ratingLineContent ?? <Skeleton height={30} width={300} baseColor={'#663ef5'}/>}
                 </div>
             </div>
 
