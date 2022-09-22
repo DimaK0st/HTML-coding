@@ -6,7 +6,13 @@ import {useParams} from "react-router-dom";
 
 function LastVisitedPhones(props) {
     const {number} = useParams()
-    const [data, setData] = useState([])
+    const [data, setData] = useState({
+        sortBy: [1,2],
+        data: {
+            1: [],
+            2: [],
+        }
+    })
 
     const numberService = usePhoneService(number, data, setData)
 
@@ -15,13 +21,11 @@ function LastVisitedPhones(props) {
         });
     }, [])
 
-
-
     let content = data.sortBy?.map((item) => {
             const temp = data.data[item]
-            console.log('testerest-----------', temp)
+            console.log('testerest-----------', temp.rating_avg_rating)
             return <LastPhone avg={parseFloat(temp.rating_avg_rating).toFixed(1)} phone={temp.phone}
-                              description={temp.rating.review}/>
+                              description={temp?.rating?.review}/>
 
         })
 

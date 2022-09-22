@@ -70,7 +70,7 @@ function Home(props) {
 
             {<Comments data={data}/>}
 
-            {/*<LastVisitedPhones/>*/}
+            <LastVisitedPhones/>
 
             {/*<RecommendedArticles/>*/}
 

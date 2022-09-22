@@ -3,6 +3,7 @@ import './lastPhone.scss'
 import NUMBER_CLASS_NAME from "../../../_CONST";
 import {isNull} from "lodash";
 import {Link} from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
 
 function LastPhone(props) {
 
@@ -15,8 +16,12 @@ function LastPhone(props) {
                 <span className={'last-number-avg-text'}>{isNaN(avg) ? '0.0' : avg}</span>
             </div>
             <div className={'last-number-text'}>
-                <Link to={'/phone/' + phone} className={'last-number-text-number'}>{phone}</Link>
-                <span className={'last-number-text-review'}>{isNull(description)? 'Nothing :(' : description}</span>
+                <Link to={'/phone/' + phone} className={'last-number-text-number'}>{phone??  <Skeleton className={'skeleton'} height={15} width={100} baseColor={'#663ef5'} inline={true}/>}</Link>
+                {
+                    description===undefined?
+                        <span className={'last-number-text-review'}>{ <Skeleton className={'skeleton'} height={15} baseColor={'#663ef5'} inline={true}/>}</span>:
+                        <span className={'last-number-text-review'}>{isNull(description)? 'Nothing :(' : description}</span>
+                }
             </div>
         </div>
     )
