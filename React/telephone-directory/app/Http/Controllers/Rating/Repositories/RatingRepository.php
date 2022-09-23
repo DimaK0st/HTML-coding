@@ -132,9 +132,9 @@ class RatingRepository
 
     /**
      * @param Phone $phone
-     * @return int
+     * @return float
      */
-    public function getAverageRatingPhone(Phone $phone): int
+    public function getAverageRatingPhone(Phone $phone): float
     {
         $avg = $this->query()->where('phone_id', $phone->id)
             ->avg('rating');

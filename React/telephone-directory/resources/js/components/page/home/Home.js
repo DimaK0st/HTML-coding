@@ -16,7 +16,6 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 function Home(props) {
     const {number} = useParams()
-    console.log(number)
     const [data, setData] = useState(
         {
             sortedList: [],
@@ -27,16 +26,19 @@ function Home(props) {
     let navigate = useNavigate();
 
 
-    useEffect(() => {
-        if (!data.loaded) {
-            updateData()
-        }
-    }, []);
+    // useEffect(() => {
+    //     if (!data.loaded) {
+    //         updateData()
+    //     }
+    // }, []);
+
+    console.log('update data', number)
 
     useEffect(() => {
-            setData({
-                ...data,
-            })
+        console.log('update data effect', number)
+        // setData({
+        //     ...data,
+        // })
         updateData()
         window.scrollTo(0, 0);
     }, [number]);
@@ -44,7 +46,6 @@ function Home(props) {
 
     const updateData = () => {
         numberService.getNumberRating(navigate).then((value) => {
-            console.log(value)
             setData({
                 ...data,
                 loaded: true,
@@ -64,17 +65,17 @@ function Home(props) {
                 {/*{props.children}*/}
             </div>
 
-             <Tab loaded={data.loaded} rating={data.rating} view={data.view}/>
+            <Tab loaded={data.loaded} rating={data.rating} view={data.view}/>
 
-            {<AddRating reloadComponent={reloadComponent} idPhone={data.currentPhone?.id}/>}
+            <AddRating reloadComponent={reloadComponent} idPhone={data.currentPhone?.id}/>
 
-            {<Comments data={data}/>}
+            <Comments data={data}/>
 
             <LastVisitedPhones/>
 
-            {/*<RecommendedArticles/>*/}
+            <RecommendedArticles/>
 
-            {/*<Accordion/>*/}
+            <Accordion/>
 
         </div>
     )

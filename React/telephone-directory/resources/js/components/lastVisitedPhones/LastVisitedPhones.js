@@ -23,17 +23,9 @@ function LastVisitedPhones(props) {
 
     let content = data.sortBy?.map((item) => {
             const temp = data.data[item]
-            console.log('testerest-----------', temp.rating_avg_rating)
             return <LastPhone avg={parseFloat(temp.rating_avg_rating).toFixed(1)} phone={temp.phone}
-                              description={temp?.rating?.review}/>
-
+                              description={temp?.review}/>
         })
-
-
-    useEffect(() => {
-
-        console.log('data', data)
-    }, [data])
 
     return (
         <div className={'last-numbers'}>

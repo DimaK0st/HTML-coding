@@ -32,6 +32,7 @@ const usePhoneService = (phone, state, setState) => {
         })
             .then(res => {
                 setLastVisitedNumbers(res.data.currentPhone.id)
+                console.log('11111111111111111111111111111111111111111111111111111',res.data)
                 return res.data
             })
     }
@@ -129,9 +130,7 @@ const usePhoneService = (phone, state, setState) => {
         }).then(res => {
             return res.data
         }).then((value) => {
-            console.log('value', value)
             varSetState({data: value, sortBy: getItem})
-            console.log('varState', varState)
         })
     }
 

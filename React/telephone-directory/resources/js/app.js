@@ -12,7 +12,6 @@ import CreateItem from './components/CreateItem';
 import Footer from "./components/headerAndFooter/Footer";
 import Page404 from "./components/page/404/Page404";
 
-console.log('asdfasd')
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <>

@@ -20,7 +20,7 @@ function LastPhone(props) {
                 {
                     description===undefined?
                         <span className={'last-number-text-review'}>{ <Skeleton className={'skeleton'} height={15} baseColor={'#663ef5'} inline={true}/>}</span>:
-                        <span className={'last-number-text-review'}>{isNull(description)? 'Nothing :(' : description}</span>
+                        <span className={'last-number-text-review'}>{description? description : 'Nothing :('}</span>
                 }
             </div>
         </div>

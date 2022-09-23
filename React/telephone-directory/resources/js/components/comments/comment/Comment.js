@@ -8,10 +8,8 @@ import moment from "moment";
 function Comment(props) {
     const {id, review, rating, city, created_at, skeleton} = props
 
-
     let dtatat = moment('22-09-2022 00:43:45', 'DD-MM-YYYY HH:mm:ss').fromNow();
 
-    console.log('dtatat', dtatat)
     return (
         <div className={'comment'}>
             <div className={'comment__top-content'}>
