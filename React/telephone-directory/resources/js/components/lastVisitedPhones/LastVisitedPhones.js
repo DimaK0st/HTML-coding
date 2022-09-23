@@ -23,7 +23,8 @@ function LastVisitedPhones(props) {
 
     let content = data.sortBy?.map((item) => {
             const temp = data.data[item]
-            return <LastPhone avg={parseFloat(temp.rating_avg_rating).toFixed(1)} phone={temp.phone}
+        console.log('temp11111temp11111temp11111temp11111temp11111',temp)
+            return <LastPhone avg={parseFloat(temp?.rating_avg_rating).toFixed(1)} phone={temp?.phone}
                               description={temp?.review}/>
         })
 
