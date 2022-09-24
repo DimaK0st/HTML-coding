@@ -63,20 +63,11 @@ class RatingService
 
     public function getLastVisitedNumber(GetLastVisitedPhones $request)
     {
-
-//        return (Phone::whereIn('phones.id', $request->getPhones())
-//            ->with('rating')
-//            ->join('regions', 'phones.region_id', '=', 'regions.id')
-//            ->select('phones.id',
-//                DB::raw('CONCAT(+380,\'\',regions.region, \'\',  phones.digital) as phone')
-//            )->withAvg('rating', 'rating')
-//            ->get());
-
         return Phone::whereIn('phones.id', $request->getPhones())
             ->join('regions', 'phones.region_id', '=', 'regions.id')
-            ->join('ratings', 'phones.id', '=', 'ratings.phone_id')
-            ->select('phones.id','ratings.review',
-                DB::raw('CONCAT(+380,\'\',regions.region, \'\',  phones.digital) as phone')
+            ->select('phones.id',
+                DB::raw('CONCAT(+380,\'\',regions.region, \'\',  phones.digital) as phone'),
+                DB::raw('(select review from ratings where phone_id = phones.id and review !=\'\' order by created_at desc limit 1) as review')
             )->withAvg('rating', 'rating')
             ->get()->keyBy('id')->toArray();
     }
@@ -141,10 +132,7 @@ class RatingService
 
     public function getAllGroupRating(Ip $ip, Phone $phone)
     {
-        $allGroupRating = $this->ratingRepository->getAllGroupRating($ip, $phone);
-
-        return $allGroupRating;
-
+        return $this->ratingRepository->getAllGroupRating($ip, $phone);
     }
 
     public function getAverageRatingPhone(Phone $phone)

@@ -23,9 +23,10 @@ function LastVisitedPhones(props) {
 
     let content = data.sortBy?.map((item) => {
             const temp = data.data[item]
-        console.log('temp11111temp11111temp11111temp11111temp11111',temp)
+        console.log('asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf', temp)
+        if (temp){
             return <LastPhone avg={parseFloat(temp?.rating_avg_rating).toFixed(1)} phone={temp?.phone}
-                              description={temp?.review}/>
+                              description={temp?.review}/>}
         })
 
     return (
