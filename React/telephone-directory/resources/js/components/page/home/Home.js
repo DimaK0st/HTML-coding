@@ -12,6 +12,7 @@ import Chart from "../../tab-rating-and-view/сhart/Chart";
 import Tab from "../../tab-rating-and-view/Tab";
 import Skeleton, {SkeletonTheme} from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
+import PhoneTitle from "../../phoneTitle/PhoneTitle";
 
 
 function Home(props) {
@@ -64,6 +65,8 @@ function Home(props) {
             <div>
                 {/*{props.children}*/}
             </div>
+
+            <PhoneTitle currentPhone={data?.currentPhone} avg={data?.rating?.average} commentCount={data?.rating?.count}/>
 
             <Tab loaded={data.loaded} rating={data.rating} view={data.view}/>
 

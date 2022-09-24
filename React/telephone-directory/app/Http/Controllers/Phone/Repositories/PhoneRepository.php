@@ -13,7 +13,7 @@ class PhoneRepository
     {
         return $this->query()
             ->join('regions', 'phones.region_id', '=', 'regions.id')
-            ->where('region', $region)->where('digital', $digital)->select('phones.id as id', DB::raw('CONCAT(regions.region, \'\',  phones.digital) as phone'))->first();
+            ->where('region', $region)->where('digital', $digital)->select('phones.id as id', DB::raw('CONCAT(regions.region, \'\',  phones.digital) as phone'), 'regions.description')->first();
 
     }
 

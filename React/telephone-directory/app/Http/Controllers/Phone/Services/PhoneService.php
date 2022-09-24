@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Phone\Services;
 
 use App\Http\Controllers\Phone\Repositories\PhoneRepository;
-use App\Http\Controllers\Rating\Requests\GetRatingRequest;
-use App\Http\Controllers\Region\Repositories\RegionRepository;
 use App\Http\Controllers\Region\Services\RegionService;
 use App\Models\Phone;
 

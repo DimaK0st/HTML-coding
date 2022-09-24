@@ -5,7 +5,7 @@ import Stars from "../../tab-rating-and-view/rating/stars/Stars";
 import Skeleton from "react-loading-skeleton";
 import moment from "moment";
 
-function Comment(props) {
+function  Comment(props) {
     const {id, review, rating, city, created_at, skeleton} = props
 
     let dtatat = moment('22-09-2022 00:43:45', 'DD-MM-YYYY HH:mm:ss').fromNow();
@@ -28,8 +28,6 @@ function Comment(props) {
             </>}</span>
         </div>
     )
-
-
 }
 
 export default Comment;
