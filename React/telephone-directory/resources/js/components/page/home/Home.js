@@ -23,6 +23,7 @@ function Home(props) {
             loading: false,
         }
     );
+    const [comments, setComments] = useState(true);
     const numberService = usePhoneService(number, data, setData)
     let navigate = useNavigate();
 
@@ -36,10 +37,11 @@ function Home(props) {
     console.log('update data', number)
 
     useEffect(() => {
-        console.log('update data effect', number)
-        // setData({
-        //     ...data,
-        // })
+        setData((data)=> {
+            return {
+                reload: false,
+            }
+        })
         updateData()
         window.scrollTo(0, 0);
     }, [number]);
@@ -56,7 +58,7 @@ function Home(props) {
     }
 
     const reloadComponent = () => {
-        setData({...data, reload: true})
+        setComments(true)
     }
 
     return (
@@ -66,17 +68,17 @@ function Home(props) {
                 {/*{props.children}*/}
             </div>
 
-            <PhoneTitle currentPhone={data?.currentPhone} avg={data?.rating?.average} commentCount={data?.rating?.count}/>
+            {/*<PhoneTitle currentPhone={data?.currentPhone} avg={data?.rating?.average} commentCount={data?.rating?.count}/>*/}
 
-            <Tab loaded={data.loaded} rating={data.rating} view={data.view}/>
+            {/*<Tab loaded={data.loaded} rating={data.rating} view={data.view}/>*/}
 
-            <AddRating reloadComponent={reloadComponent} idPhone={data.currentPhone?.id}/>
+            <AddRating  reloadComponent={reloadComponent} idPhone={data.currentPhone?.id} review = {data?.userReview?.review}/>
 
-            <Comments data={data}/>
+            <Comments reload={{comments: comments, setComments:setComments}}/>
 
-            <LastVisitedPhones/>
+            {/*<LastVisitedPhones/>*/}
 
-            <RecommendedArticles/>
+            {/*<RecommendedArticles/>*/}
 
             <Accordion/>
 

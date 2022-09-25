@@ -45,7 +45,6 @@ class RatingService
     {
         list($iP, $phone) = $this->getPhoneAndIp($request->ip(), $request->getNumber());
 
-
         return [
             'currentPhone' => $phone->toArray(),
             'userReview' => $this->getReviewByIp($iP, $phone),

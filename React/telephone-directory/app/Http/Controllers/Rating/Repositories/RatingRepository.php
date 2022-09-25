@@ -9,6 +9,7 @@ use App\Http\Controllers\Rating\Requests\SetReviewAndRatingRequest;
 use App\Models\Ip;
 use App\Models\Phone;
 use App\Models\Rating;
+use Carbon\Carbon;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
@@ -77,6 +78,7 @@ class RatingRepository
         $rating->ip_id = $ip->id;
         $rating->review = $request->getReview();
         $rating->rating = (int)$request->getRating();
+        $rating->created_at = Carbon::now();
 
         $rating->save();
 

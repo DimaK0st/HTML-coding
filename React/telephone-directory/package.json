@@ -32,6 +32,7 @@
         "chart.js": "^3.9.1",
         "faker": "^6.6.6",
         "moment": "^2.29.4",
+        "moment-timezone": "^0.5.37",
         "react-chartjs-2": "^4.3.1",
         "react-input-mask": "^2.0.4",
         "react-loading-skeleton": "^3.1.0"

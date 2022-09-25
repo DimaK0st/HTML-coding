@@ -15,6 +15,13 @@ function AddRating(props) {
 
     const numberService = usePhoneService(number, post, setPost)
 
+    useEffect(() => {
+        setPost({
+            ...post,
+            review: props?.review
+        })
+    }, [props?.review])
+
     const handleSubmit = (event) => {
         event.preventDefault();
         numberService.addRating(props.reloadComponent)
@@ -42,7 +49,8 @@ function AddRating(props) {
                 <textarea onChange={(e) => {
                     setPost({...post, review: e.target.value})
                 }} required className={'rating-form__review'}
-                          placeholder={'Тут напишіть свою оцінку цього номера телефону'}>{post.review}</textarea>
+                          placeholder={'Тут напишіть свою оцінку цього номера телефону'}
+                          value={post.review}/>
                 <label htmlFor="check1" className={'rating-form__check'}>
                     <input required className={'rating-form__check-input'} id="check1" type="checkbox"/>
                     <span className={'rating-form__check-text'}>Я погоджуюся з </span> <a

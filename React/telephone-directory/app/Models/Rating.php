@@ -26,6 +26,7 @@ class Rating extends Model
         'review',
         'rating',
         'ip_id',
+        'created_at'
         ];
 
     /**

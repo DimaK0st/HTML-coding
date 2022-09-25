@@ -19,7 +19,6 @@ root.render(
 
                 <Header/>
                 <Routes>
-
                     <Route path="/phone/:number" element={<Home/>}/>
                     <Route path="/add-item" element={<CreateItem/>}/>
                     <Route path="*" element={<Page404 />} />

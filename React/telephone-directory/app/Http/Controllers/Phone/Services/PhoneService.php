@@ -27,14 +27,14 @@ class PhoneService
         $phone = $this->phoneRepository->getPhone($validatePhone['region'], $validatePhone['digital']);
 
         if (!$phone) {
-            return $this->createNewPhone($validatePhone['region'], $validatePhone['digital']);
+            return $this->phoneRepository->getPhoneById($this->createNewPhone($validatePhone['region'], $validatePhone['digital']));
         } else {
             return $phone;
         }
 
     }
 
-    public function createNewPhone(string $region, string $digital)
+    public function createNewPhone(string $region, string $digital): int|null
     {
 
         if ($regionObj = $this->regionService->getOrCreateRegion($region)) {
@@ -42,7 +42,7 @@ class PhoneService
             $phone->region_id = $regionObj->id;
             $phone->digital = $digital;
             $phone->save();
-            return $phone;
+            return $phone->id;
         } else {
             return null;
         }
