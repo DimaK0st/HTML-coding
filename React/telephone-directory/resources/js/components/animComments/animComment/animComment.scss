@@ -1,0 +1,37 @@
+@import "./resources/sass/variables";
+
+.anim-comment {
+
+    width: 370px;
+    height: 108px;
+    padding: 24px;
+    background: $bg-div-wrapper;
+    border-radius: 15px;
+    box-sizing: content-box;
+
+    font-size: 13px;
+    font-family: Roboto, sans-serif;
+    color: #afb4bc;
+
+    &-up {
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+
+
+        &-stars{
+        }
+
+        &-phone {
+            font-weight: 700;
+            padding-left: 12px;
+        }
+    }
+
+    &-description {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
