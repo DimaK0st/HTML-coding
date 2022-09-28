@@ -1,7 +1,5 @@
 import search from "../../../../public/assets/search.svg";
 import InputMask from "react-input-mask";
-
-
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 

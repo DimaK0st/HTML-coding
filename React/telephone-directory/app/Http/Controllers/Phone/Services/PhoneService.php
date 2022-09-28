@@ -36,7 +36,6 @@ class PhoneService
 
     public function createNewPhone(string $region, string $digital): int|null
     {
-
         if ($regionObj = $this->regionService->getOrCreateRegion($region)) {
             $phone = new Phone();
             $phone->region_id = $regionObj->id;

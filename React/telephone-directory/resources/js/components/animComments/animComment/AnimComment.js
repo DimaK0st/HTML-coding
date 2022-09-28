@@ -7,7 +7,6 @@ import Skeleton from "react-loading-skeleton";
 
 function AnimComment(props) {
 
-
     return (
         <div className={'anim-comment'} style={{direction: 'ltr'}}>
 
