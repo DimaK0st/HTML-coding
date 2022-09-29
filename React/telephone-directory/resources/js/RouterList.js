@@ -9,7 +9,7 @@ import Footer from "./components/headerAndFooter/Footer";
 import Page404 from "./components/page/404/Page404";
 
 function RouterList(props){
-    return <BrowserRouter>
+    return <Router >
         <Header/>
         <Routes>
             <Route path="/phone/:number" element={<Home/>}/>
@@ -19,7 +19,7 @@ function RouterList(props){
         </Routes>
         <Footer/>
 
-    </BrowserRouter>
+    </Router >
 }
 
 export default RouterList
