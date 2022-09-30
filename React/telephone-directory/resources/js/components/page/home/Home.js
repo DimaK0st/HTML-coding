@@ -68,17 +68,17 @@ function Home(props) {
                 {/*{props.children}*/}
             </div>
 
-            {/*<PhoneTitle currentPhone={data?.currentPhone} avg={data?.rating?.average} commentCount={data?.rating?.count}/>*/}
+            <PhoneTitle currentPhone={data?.currentPhone} avg={data?.rating?.average} commentCount={data?.rating?.count}/>
 
-            {/*<Tab loaded={data.loaded} rating={data.rating} view={data.view}/>*/}
+            <Tab loaded={data.loaded} rating={data.rating} view={data.view}/>
 
             <AddRating  reloadComponent={reloadComponent} idPhone={data.currentPhone?.id} review = {data?.userReview?.review}/>
 
             <Comments reload={{comments: comments, setComments:setComments}}/>
 
-            {/*<LastVisitedPhones/>*/}
+            <LastVisitedPhones/>
 
-            {/*<RecommendedArticles/>*/}
+            <RecommendedArticles/>
 
             <Accordion/>
 

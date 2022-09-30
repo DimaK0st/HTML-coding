@@ -32,23 +32,19 @@ const usePhoneService = (phone, state, setState) => {
         })
             .then(res => {
                 setLastVisitedNumbers(res.data.currentPhone.id)
-                console.log('11111111111111111111111111111111111111111111111111111',res.data)
+                console.log('11111111111111111111111111111111111111111111111111111', res.data)
                 return res.data
             })
     }
 
-
     const getComments = (sort, order) => {
-
         return axios.post(_apiBase + 'get-comments-phone', {number: result, sort: sort, order: order}, {
             headers: {
                 ...postRequest.headers
             }
         })
             .then(res => {
-
                 return res.data.review
-
             }).then((value) => {
                 varSetState({
                     ...varState,
@@ -59,9 +55,8 @@ const usePhoneService = (phone, state, setState) => {
     }
 
 
-    const getCommentsByPaginate = (type,order, url) => {
-
-        return axios.post(url, {number: result, sort: type, order:order}, {
+    const getCommentsByPaginate = (type, order, url) => {
+        return axios.post(url, {number: result, sort: type, order: order}, {
             headers: {
                 ...postRequest.headers
             }
@@ -69,7 +64,6 @@ const usePhoneService = (phone, state, setState) => {
             .then(res => {
                 return res.data.review
             }).then((value) => {
-
                 varSetState({
                     ...varState,
                     loaded: true,
@@ -103,7 +97,7 @@ const usePhoneService = (phone, state, setState) => {
     }
 
     const setLastVisitedNumbers = (phoneId) => {
-        if (!Number.isFinite(phoneId)){
+        if (!Number.isFinite(phoneId)) {
             return;
         }
 
@@ -148,9 +142,26 @@ const usePhoneService = (phone, state, setState) => {
         })
     }
 
+    const getCarouselCommentsForMainPage= ()=>{
+        return axios.post(_apiBase + 'get-carousel-comments', {}, {
+            headers: {
+                ...postRequest.headers
+            }
+        }).then(res => {
+            varSetState({
+                comments: res.data
+            })
+        })
+    }
 
     return {
-        getNumberRating, getNumberRatingPaginate, getCommentsByPaginate, getComments, getLastVisitedNumbers,addRating,
+        getNumberRating,
+        getNumberRatingPaginate,
+        getCommentsByPaginate,
+        getComments,
+        getLastVisitedNumbers,
+        addRating,
+        getCarouselCommentsForMainPage,
     }
 }
 

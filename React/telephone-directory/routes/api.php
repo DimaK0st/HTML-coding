@@ -34,6 +34,8 @@ Route::group(['prefix'=>'v1', 'middleware'=>['cors']], function () {
     Route::post('get-comments-phone', [RatingController::class, 'getCommentsByPhoneWithPaginate']);
     Route::post('get-last-phones', [RatingController::class, 'getLastVisitedNumber']);
 
+    Route::post('get-carousel-comments', [PhoneController::class, 'getCarouselCommentsForMainPage']);
+
 
 });
 

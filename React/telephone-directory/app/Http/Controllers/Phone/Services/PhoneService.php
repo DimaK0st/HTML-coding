@@ -68,5 +68,11 @@ class PhoneService
         }
     }
 
+    public function getCarouselCommentsForMainPage(){
+        return [
+            'positive' => $this->phoneRepository->getCarouselCommentsByType('positive'),
+            'negative' => $this->phoneRepository->getCarouselCommentsByType('negative'),
+        ];
+    }
 
 }

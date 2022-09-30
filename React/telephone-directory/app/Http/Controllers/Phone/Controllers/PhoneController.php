@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Phone\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Phone\Services\PhoneService;
+use App\Models\Phone;
+use App\Models\Rating;
 
 class PhoneController extends Controller
 {
@@ -15,11 +17,19 @@ class PhoneController extends Controller
 
     }
 
-    public function index(){
+    public function index()
+    {
 
     }
 
-    public function getPhone(){
+    public function getPhone()
+    {
 //        $this->phoneService->getPhone();
+    }
+
+
+    public function getCarouselCommentsForMainPage(Rating $request)
+    {
+        return $this->phoneService->getCarouselCommentsForMainPage();
     }
 }

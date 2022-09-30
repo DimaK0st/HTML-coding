@@ -62,13 +62,7 @@ class RatingService
 
     public function getLastVisitedNumber(GetLastVisitedPhones $request)
     {
-        return Phone::whereIn('phones.id', $request->getPhones())
-            ->join('regions', 'phones.region_id', '=', 'regions.id')
-            ->select('phones.id',
-                DB::raw('CONCAT(+380,\'\',regions.region, \'\',  phones.digital) as phone'),
-                DB::raw('(select review from ratings where phone_id = phones.id and review !=\'\' order by created_at desc limit 1) as review')
-            )->withAvg('rating', 'rating')
-            ->get()->keyBy('id')->toArray();
+        return $this->ratingRepository->getLastVisitedNumber($request);
     }
 
 
@@ -161,13 +155,7 @@ class RatingService
         $start = Carbon::now()->toDateString();
         $finish = Carbon::now()->subDays(30)->toDateString();
 
-        $chartData = Rating::whereBetween('created_at', [
-            $finish, $start
-        ])->where('phone_id', $phone->id)
-            ->selectRaw('date(created_at) as date, COUNT(*) as count')
-            ->groupBy('date')
-            ->orderBy('date', 'DESC')->get()->keyBy('date')->toArray();
-
+        $chartData = $this->ratingRepository->getChartDataPhone($phone->id, $start, $finish);
 
         $period = CarbonPeriod::create($finish, $start)->toArray();
 
@@ -178,11 +166,9 @@ class RatingService
             } else {
                 $result[$timeKey] = 0;
             }
-
         }
 
         return $result;
-
     }
 
     /**
@@ -194,7 +180,5 @@ class RatingService
             $this->iPService->getOrCreateIp(geoip()->getLocation($ip)),
             $this->phoneService->getPhone($phone),
         ];
-
     }
-
 }

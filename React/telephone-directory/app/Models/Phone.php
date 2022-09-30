@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $region_id
  * @property int $digital
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Phone query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Phone with()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Phone all()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Phone find()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Phone whereIn()
  * @property Collection|Rating[] $rating
@@ -57,5 +59,12 @@ class Phone extends Model
 //        $related = $this->getRelation('ratings');
 //        dd($related);
 //    }
+
+
+    public function lastComment()
+    {
+        return $this->hasOne('App\Models\Rating','phone_id', 'id')->orderBy('created_at','desc')
+            ->latest();
+    }
 
 }

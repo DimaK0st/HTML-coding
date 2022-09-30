@@ -11,12 +11,15 @@ function Main(props) {
     let navigate = useNavigate();
     const [data, setData] = useState(
         {
-            sortedList: [],
-            loading: false,
+            comments: [],
         }
     );
 
     const numberService = usePhoneService(null, data, setData)
+
+    useEffect(()=>{
+        numberService.getCarouselCommentsForMainPage()
+    }, [])
 
     const redirect = (phone)=>{
         navigate('/phone/'+phone)
@@ -43,12 +46,9 @@ function Main(props) {
             </div>
 
             <div className={'main-comments'}>
-                <AnimComments rtl={true}/>
-                <AnimComments rtl={false}/>
+                <AnimComments commentList={data.comments?.positive} rtl={true}/>
+                <AnimComments commentList={data.comments?.negative} rtl={false}/>
             </div>
-
-            {/*<AnimComment avg={4} description={'hueta asdfasdf asdfasdf asdfa sdf asd fas df a sdf as dfhueta asdfasdf asdfasdf asdfa sdf asd fas df a sdf as dfhueta asdfasdf asdfasdf asdfa sdf asd fas df a sdf as dfhueta asdfasdf asdfasdf asdfa sdf asd fas df a sdf as dfhueta asdfasdf asdfasdf asdfa sdf asd fas df a sdf as dfhueta asdfasdf asdfasdf asdfa sdf asd fas df a sdf as dfhueta asdfasdf asdfasdf asdfa sdf asd fas df a sdf as dfhueta asdfasdf asdfasdf asdfa sdf asd fas df a sdf as dfhueta asdfasdf asdfasdf asdfa sdf asd fas df a sdf as dfhueta asdfasdf asdfasdf asdfa sdf asd fas df a sdf as dfhueta asdfasdf asdfasdf asdfa sdf asd fas df a sdf as dfhueta asdfasdf asdfasdf asdfa sdf asd fas df a sdf as dfhueta asdfasdf asdfasdf asdfa sdf asd fas df a sdf as dfhueta asdfasdf asdfasdf asdfa sdf asd fas df a sdf as dfhueta asdfasdf asdfasdf asdfa sdf asd fas df a sdf as dfhueta asdfasdf asdfasdf asdfa sdf asd fas df a sdf as dfhueta asdfasdf asdfasdf asdfa sdf asd fas df a sdf as df'} phone={380971281678}/>*/}
-            {/*<AnimComment/>*/}
 
         </div>
     )

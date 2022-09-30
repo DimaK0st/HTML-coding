@@ -8,16 +8,24 @@ import AnimComment from "./animComment/AnimComment";
 function AnimComments(props) {
 
     const {commentList} = props
-    const [comments, setComments] = useState([[], [], [], [], [], [], [], [], [], []])
+    const [comments, setComments] = useState({
+        data: [[], [], [], [], [], [], [], [], [], []
+        ],
+        loaded: false
+    })
 
     useEffect(() => {
         if (commentList !== undefined) {
-            setComments(commentList)
+            setComments({
+                data: commentList,
+                loaded: true
+            })
         }
     }, [commentList])
 
-    let contentComments = comments.map((item) => {
-        return <AnimComment avg={item.avg} description={item?.description} phone={item?.phone}/>
+    let contentComments = comments.data.map((item) => {
+        return <AnimComment avg={item?.last_comment?.rating} description={item?.last_comment?.review}
+                            phone={item?.phone}/>
     })
 
     return (
@@ -25,7 +33,7 @@ function AnimComments(props) {
 
             <Carousel
                 additionalTransfrom={0}
-                autoPlay
+                autoPlay={comments.loaded}
                 autoPlaySpeed={1}
                 centerMode={false}
                 customTransition="all 2s linear"
@@ -51,6 +59,7 @@ function AnimComments(props) {
         </div>
     )
 }
+
 const responsiveSetting = {
     desktop: {
         breakpoint: {
