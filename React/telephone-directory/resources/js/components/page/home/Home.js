@@ -44,7 +44,7 @@ function Home(props) {
         })
         updateData()
         window.scrollTo(0, 0);
-    }, [number]);
+    }, [number,comments]);
 
 
     const updateData = () => {

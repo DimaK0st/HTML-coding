@@ -34,7 +34,7 @@ function Rating(props) {
 
             <div className={'rating__number'}>
                 <span
-                    className={`rating__number-title ${NUMBER_CLASS_NAME[4]}`}>{rating?.average!==undefined ? parseFloat(rating?.average??0).toFixed(1) : <Skeleton height={80} width={60} baseColor={'#663ef5'}/>}</span>
+                    className={`rating__number-title ${NUMBER_CLASS_NAME[4]}`}>{rating?.average!==undefined ? parseFloat(rating?.average??0).toFixed(1) : <Skeleton height={70} width={60} style={{marginBottom: "10px"}} baseColor={'#663ef5'}/>}</span>
                 <Stars className={'rating__number-stars'} count={Math.round(parseFloat(rating?.average??0))}
                        gray={true}/>
                 <span className={'rating__number-comment'}>Кількість оцінок: </span><span

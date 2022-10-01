@@ -175,17 +175,6 @@ class RatingRepository
         return $rating;
     }
 
-    public function getLastVisitedNumber(GetLastVisitedPhones $request)
-    {
-        return $this->query()->whereIn('phones.id', $request->getPhones())
-            ->join('regions', 'phones.region_id', '=', 'regions.id')
-            ->select('phones.id',
-                DB::raw('CONCAT(+380,\'\',regions.region, \'\',  phones.digital) as phone'),
-                DB::raw('(select review from ratings where phone_id = phones.id and review !=\'\' order by created_at desc limit 1) as review')
-            )->withAvg('rating', 'rating')
-            ->get()->keyBy('id')->toArray();
-    }
-
     public function getChartDataPhone(int $id, string $start, string $finish){
         return Rating::whereBetween('created_at', [
             $finish, $start

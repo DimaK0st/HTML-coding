@@ -22,13 +22,13 @@ function Tab(props) {
         switch (tabType) {
 
             case RATING:
-                setTabContent(<div className={'tab-content'}><Rating rating={rating}/></div>)
+                setTabContent(<Rating rating={rating}/>)
                 break
 
             case VIEW:
                 setTabContent(
-                    <div className={'tab-content'}><Chart chart={view.chart}/></div>
-                )
+                    <Chart chart={view.chart}/>
+            )
                 break
 
         }
@@ -51,9 +51,9 @@ function Tab(props) {
                     <Skeleton height={15} width={30} baseColor={'#663ef5'} inline={true}/>}×)
                 </button>
             </div>
-
-            {tabContent}
-
+            <div className={'tab-content'}>
+                {tabContent}
+            </div>
         </div>
 
     )

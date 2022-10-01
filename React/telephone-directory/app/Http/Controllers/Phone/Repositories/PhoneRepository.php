@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Phone\Repositories;
 
+use App\Http\Controllers\Rating\Requests\GetLastVisitedPhones;
 use App\Models\Phone;
 use Illuminate\Support\Facades\DB;
 
@@ -47,6 +48,17 @@ class PhoneRepository
             ->where('rating', '!=', '')
             ->whereIn('rating', $sort)
             ->limit($amount)->get()->toArray();
+    }
+
+    public function getLastVisitedNumber(GetLastVisitedPhones $request)
+    {
+        return $this->query()->whereIn('phones.id', $request->getPhones())
+            ->join('regions', 'phones.region_id', '=', 'regions.id')
+            ->select('phones.id',
+                DB::raw('CONCAT(+380,\'\',regions.region, \'\',  phones.digital) as phone'),
+                DB::raw('(select review from ratings where phone_id = phones.id and review !=\'\' order by created_at desc limit 1) as review')
+            )->withAvg('rating', 'rating')
+            ->get()->keyBy('id')->toArray();
     }
 
     public function concatNumber()

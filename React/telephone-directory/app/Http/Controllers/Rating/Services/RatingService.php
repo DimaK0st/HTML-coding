@@ -21,12 +21,14 @@ class RatingService
 {
     private RatingRepository $ratingRepository;
     private PhoneService $phoneService;
+    private PhoneRepository $phoneRepository;
     private IPService $iPService;
 
-    public function __construct(RatingRepository $ratingRepository, PhoneService $phoneService, IPService $iPService)
+    public function __construct(RatingRepository $ratingRepository, PhoneService $phoneService, PhoneRepository $phoneRepository, IPService $iPService)
     {
         $this->ratingRepository = $ratingRepository;
         $this->phoneService = $phoneService;
+        $this->phoneRepository = $phoneRepository;
         $this->iPService = $iPService;
     }
 
@@ -62,7 +64,7 @@ class RatingService
 
     public function getLastVisitedNumber(GetLastVisitedPhones $request)
     {
-        return $this->ratingRepository->getLastVisitedNumber($request);
+        return $this->phoneRepository->getLastVisitedNumber($request);
     }
 
 
