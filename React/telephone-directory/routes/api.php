@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\Phone\Controllers\PhoneController;
-use App\Http\Controllers\Rating\Controllers\RatingController;
-use Symfony\Component\HttpFoundation\Request;
+use App\Api\v1\Phone\Controllers\PhoneController;
+use App\Api\v1\Rating\Controllers\RatingController;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /*
 |--------------------------------------------------------------------------
