@@ -13,6 +13,9 @@ use App\Models\Ip;
 use App\Models\Phone;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
+use Exception;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Collection;
 
 class RatingService
 {
@@ -29,9 +32,8 @@ class RatingService
         $this->iPService = $iPService;
     }
 
-
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function setReviewAndRating(SetReviewAndRatingRequest $request)
     {
@@ -40,6 +42,11 @@ class RatingService
         return $this->ratingRepository->setRating($request, $iP, $phone);
     }
 
+    /**
+     * @param GetRatingRequest $request
+     * @return array
+     * @throws Exception
+     */
     public function getAllInfoAboutPhone(GetRatingRequest $request)
     {
         list($iP, $phone) = $this->getPhoneAndIp($request->ip(), $request->getNumber());
@@ -59,12 +66,20 @@ class RatingService
         ];
     }
 
+    /**
+     * @param GetLastVisitedPhones $request
+     * @return array
+     */
     public function getLastVisitedNumber(GetLastVisitedPhones $request)
     {
         return $this->phoneRepository->getLastVisitedNumber($request);
     }
 
-
+    /**
+     * @param GetRatingRequest $request
+     * @return array[]
+     * @throws Exception
+     */
     public function getCommentsByPhoneWithPaginate(GetRatingRequest $request)
     {
         list($iP, $phone) = $this->getPhoneAndIp($request->ip(), $request->getNumber());
@@ -105,7 +120,7 @@ class RatingService
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function getReviewByIp(Ip $ip, Phone $phone)
     {
@@ -117,36 +132,59 @@ class RatingService
         return $this->ratingRepository->getAllReview($ip, $phone);
     }
 
+    /**
+     * @param Ip $ip
+     * @param Phone $phone
+     * @param array $sort
+     * @param string $order
+     * @return LengthAwarePaginator
+     */
     public function getReviewPaginate(Ip $ip, Phone $phone, array $sort, string $order)
     {
         return $this->ratingRepository->getReviewPaginate($ip, $phone, $sort, $order);
     }
 
+    /**
+     * @param Ip $ip
+     * @param Phone $phone
+     * @return array|Collection
+     */
     public function getAllGroupRating(Ip $ip, Phone $phone)
     {
         return $this->ratingRepository->getAllGroupRating($ip, $phone);
     }
 
+    /**
+     * @param Phone $phone
+     * @return float
+     */
     public function getAverageRatingPhone(Phone $phone)
     {
         return $this->ratingRepository->getAverageRatingPhone($phone);
     }
 
+    /**
+     * @param Phone $phone
+     * @return int
+     */
     public function getCountRatingPhone(Phone $phone)
     {
         return $this->ratingRepository->getCountRatingPhone($phone);
     }
 
-    public function getCountAllReviewsPhone(Phone $phone)
-    {
-        return $this->ratingRepository->getCountAllReviewsPhone($phone);
-    }
-
+    /**
+     * @param Phone $phone
+     * @return int
+     */
     public function getCountViewsPhone(Phone $phone)
     {
         return $this->ratingRepository->getCountViewsPhone($phone);
     }
 
+    /**
+     * @param Phone $phone
+     * @return array
+     */
     public function getChartDataPhone(Phone $phone)
     {
         $result = [];
@@ -171,7 +209,7 @@ class RatingService
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function getPhoneAndIp(string $ip, string $phone)
     {

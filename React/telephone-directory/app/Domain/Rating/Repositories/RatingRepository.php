@@ -10,7 +10,9 @@ use App\Models\Phone;
 use App\Models\Rating;
 use Carbon\Carbon;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 class RatingRepository
@@ -57,6 +59,12 @@ class RatingRepository
         return $rating;
     }
 
+    /**
+     * @param SetReviewAndRatingRequest $request
+     * @param Ip $ip
+     * @param Phone $phone
+     * @return Rating|Builder|Model|object|null
+     */
     public function setRating(SetReviewAndRatingRequest $request,Ip $ip, Phone $phone)
     {
         $this->phoneService->getPhone($request->getPhone());
@@ -68,7 +76,6 @@ class RatingRepository
         if (is_null($rating)) {
             $rating = new Rating();
         }
-
 
         $rating->phone_id = $phone->id;
         $rating->ip_id = $ip->id;
@@ -102,8 +109,6 @@ class RatingRepository
      */
     public function getReviewPaginate(Ip $ip, Phone $phone, array $sort, string $order): LengthAwarePaginator
     {
-
-
         return $this->query()->where('phone_id', $phone->id)
             ->where('review', '!=', 'null')
             ->where('rating', '!=', 'null')
@@ -152,16 +157,10 @@ class RatingRepository
         return $count ? $count : 0;
     }
 
-    public function getCountAllReviewsPhone(Phone $phone)
-    {
-        $rating = $this->query()->where('phone_id', $phone->id)
-            ->where('review', '!=', 'null')
-            ->where('rating', '!=', 'null')
-            ->count();
-
-        return $rating;
-    }
-
+    /**
+     * @param Phone $phone
+     * @return int
+     */
     public function getCountViewsPhone(Phone $phone)
     {
         $rating = $this->query()->where('phone_id', $phone->id)
@@ -170,6 +169,12 @@ class RatingRepository
         return $rating;
     }
 
+    /**
+     * @param int $id
+     * @param string $start
+     * @param string $finish
+     * @return array
+     */
     public function getChartDataPhone(int $id, string $start, string $finish){
         return Rating::whereBetween('created_at', [
             $finish, $start
@@ -179,7 +184,10 @@ class RatingRepository
             ->orderBy('date', 'DESC')->get()->keyBy('date')->toArray();
     }
 
-    public function query()
+    /**
+     * @return Builder
+     */
+    public function query(): Builder
     {
         return Rating::query();
     }

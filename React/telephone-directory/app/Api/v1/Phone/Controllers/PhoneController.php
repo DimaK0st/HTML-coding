@@ -16,18 +16,10 @@ class PhoneController extends Controller
 
     }
 
-    public function index()
-    {
-
-    }
-
-    public function getPhone()
-    {
-//        $this->phoneService->getPhone();
-    }
-
-
-    public function getCarouselCommentsForMainPage(Rating $request)
+    /**
+     * @return array
+     */
+    public function getCarouselCommentsForMainPage()
     {
         return $this->phoneService->getCarouselCommentsForMainPage();
     }

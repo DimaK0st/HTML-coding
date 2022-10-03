@@ -3,10 +3,15 @@
 namespace App\Domain\Region\Repositories;
 
 use App\Models\Region;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 
 class RegionRepository
 {
-
+    /**
+     * @param string $region
+     * @return Region|null
+     */
     public function createRegion(string $region)
     {
         if (strlen($region) == 2) {
@@ -21,14 +26,20 @@ class RegionRepository
         }
     }
 
+    /**
+     * @param string $region
+     * @return Builder|Model|object|null
+     */
     public function getRegion(string $region)
     {
         return $this->query()->where('region', $region)->first();
     }
 
-    public function query()
+    /**
+     * @return Builder
+     */
+    public function query(): Builder
     {
         return Region::query();
     }
-
 }

@@ -21,21 +21,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix'=>'v1', 'middleware'=>['cors']], function () {
-    Route::post('/view', [PhoneController::class, 'index']);
-    Route::post('number-rating', [RatingController::class, 'getPhoneRating']);
-
-
-
-    Route::post('test', [RatingController::class, 'getRating']);
-    Route::post('add-rating', [RatingController::class, 'setReviewAndRating']);
-
 
     Route::post('get-all-info-about-phone', [RatingController::class, 'getAllInfoAboutPhone']);
     Route::post('get-comments-phone', [RatingController::class, 'getCommentsByPhoneWithPaginate']);
     Route::post('get-last-phones', [RatingController::class, 'getLastVisitedNumber']);
-
     Route::post('get-carousel-comments', [PhoneController::class, 'getCarouselCommentsForMainPage']);
 
-
+    Route::post('add-rating', [RatingController::class, 'setReviewAndRating']);
 });
 

@@ -4,11 +4,18 @@ namespace App\Domain\Phone\Repositories;
 
 use App\Api\v1\Rating\Requests\GetLastVisitedPhones;
 use App\Models\Phone;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Expression;
 use Illuminate\Support\Facades\DB;
 
 class PhoneRepository
 {
-
+    /**
+     * @param string $region
+     * @param string $digital
+     * @return Builder|Model|object|null
+     */
     public function getPhone(string $region, string $digital)
     {
         return $this->query()
@@ -16,17 +23,27 @@ class PhoneRepository
             ->where('region', $region)->where('digital', $digital)
             ->select('phones.id as id', $this->concatNumber(), 'regions.description')
             ->first();
-
     }
 
+    /**
+     * @param int $id
+     * @return Builder|Model|object|null
+     */
     public function getPhoneById(int $id)
     {
         return $this->query()
             ->join('regions', 'phones.region_id', '=', 'regions.id')
-            ->where('phones.id', $id)->select('phones.id as id', $this->concatNumber(), 'regions.description')->first();
+            ->where('phones.id', $id)
+            ->select('phones.id as id', $this->concatNumber(), 'regions.description')
+            ->first();
     }
 
-    public function getCarouselCommentsByType($typeComment, $amount = 15)
+    /**
+     * @param string $typeComment
+     * @param int $amount
+     * @return array
+     */
+    public function getCarouselCommentsByType(string $typeComment, int $amount = 15)
     {
         $sort = '';
 
@@ -50,6 +67,10 @@ class PhoneRepository
             ->limit($amount)->get()->toArray();
     }
 
+    /**
+     * @param GetLastVisitedPhones $request
+     * @return array
+     */
     public function getLastVisitedNumber(GetLastVisitedPhones $request)
     {
         return $this->query()->whereIn('phones.id', $request->getPhones())
@@ -61,12 +82,18 @@ class PhoneRepository
             ->get()->keyBy('id')->toArray();
     }
 
+    /**
+     * @return Expression
+     */
     public function concatNumber()
     {
         return DB::raw('CONCAT(regions.region, \'\',  phones.digital) as phone');
     }
 
-    private function query(): \Illuminate\Database\Eloquent\Builder
+    /**
+     * @return Builder
+     */
+    private function query(): Builder
     {
         return Phone::query();
     }

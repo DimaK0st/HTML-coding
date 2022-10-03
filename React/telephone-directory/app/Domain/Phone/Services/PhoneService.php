@@ -5,6 +5,8 @@ namespace App\Domain\Phone\Services;
 use App\Domain\Phone\Repositories\PhoneRepository;
 use App\Domain\Region\Services\RegionService;
 use App\Models\Phone;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 
 class PhoneService
 {
@@ -18,6 +20,10 @@ class PhoneService
         $this->regionService = $regionService;
     }
 
+    /**
+     * @param string $phone
+     * @return Builder|Model|object|null
+     */
     public function getPhone(string $phone)
     {
         if (!$validatePhone = $this->getRegionAndDigitals($phone)) {
@@ -28,12 +34,16 @@ class PhoneService
 
         if (!$phone) {
             return $this->phoneRepository->getPhoneById($this->createNewPhone($validatePhone['region'], $validatePhone['digital']));
-        } else {
-            return $phone;
         }
 
+        return $phone;
     }
 
+    /**
+     * @param string $region
+     * @param string $digital
+     * @return int|null
+     */
     public function createNewPhone(string $region, string $digital): int|null
     {
         if ($regionObj = $this->regionService->getOrCreateRegion($region)) {
@@ -42,11 +52,15 @@ class PhoneService
             $phone->digital = $digital;
             $phone->save();
             return $phone->id;
-        } else {
-            return null;
         }
+
+        return null;
     }
 
+    /**
+     * @param string $phone
+     * @return array|null
+     */
     private function getRegionAndDigitals(string $phone)
     {
         if (strlen($phone) > 13 || strlen($phone) < 9) {
@@ -68,7 +82,11 @@ class PhoneService
         }
     }
 
-    public function getCarouselCommentsForMainPage(){
+    /**
+     * @return array
+     */
+    public function getCarouselCommentsForMainPage()
+    {
         return [
             'positive' => $this->phoneRepository->getCarouselCommentsByType('positive'),
             'negative' => $this->phoneRepository->getCarouselCommentsByType('negative'),

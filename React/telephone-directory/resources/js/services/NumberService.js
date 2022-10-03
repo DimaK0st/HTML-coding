@@ -32,7 +32,6 @@ const usePhoneService = (phone, state, setState) => {
         })
             .then(res => {
                 setLastVisitedNumbers(res.data.currentPhone.id)
-                console.log('11111111111111111111111111111111111111111111111111111', res.data)
                 return res.data
             })
     }
@@ -54,7 +53,6 @@ const usePhoneService = (phone, state, setState) => {
             })
     }
 
-
     const getCommentsByPaginate = (type, order, url) => {
         return axios.post(url, {number: result, sort: type, order: order}, {
             headers: {
@@ -73,27 +71,43 @@ const usePhoneService = (phone, state, setState) => {
             })
     }
 
-    const getNumberRatingPaginate = (url) => {
+    const getLastVisitedNumbers = () => {
+        let getItem = JSON.parse(localStorage.getItem('lastVisitedNumbers'))
 
-        return axios.post(url, {number: result}, {
+        return axios.post(_apiBase + 'get-last-phones', {phones: getItem}, {
             headers: {
                 ...postRequest.headers
             }
+        }).then(res => {
+            return res.data
+        }).then((value) => {
+            varSetState({data: value, sortBy: getItem})
         })
-            .then(res => {
-                return res.data.review
-            }).then(review => {
-                setState({
-                    ...state,
-                    'review': {
-                        'value': [...state.review.value, ...review.value],
-                        'total': review.total,
-                        'nextPage': review.nextPage,
-                    }
-                })
+    }
 
+    const getCarouselCommentsForMainPage= (url, config)=>{
+        return axios.post(_apiBase + 'get-carousel-comments', {}, {
+            headers: {
+                ...postRequest.headers
+            }
+        }).then(res => {
+            varSetState({
+                comments: res.data
             })
+        })
+    }
 
+    const addRating = (reloadComponent) => {
+
+        return axios.post(_apiBase + 'add-rating', {...varState, phone: result}, {
+            headers: {
+                ...postRequest.headers
+            }
+        }).then(res => {
+            reloadComponent()
+        }).then((value) => {
+
+        })
     }
 
     const setLastVisitedNumbers = (phoneId) => {
@@ -114,49 +128,8 @@ const usePhoneService = (phone, state, setState) => {
         }
     }
 
-    const getLastVisitedNumbers = () => {
-
-        let getItem = JSON.parse(localStorage.getItem('lastVisitedNumbers'))
-        return axios.post(_apiBase + 'get-last-phones', {phones: getItem}, {
-            headers: {
-                ...postRequest.headers
-            }
-        }).then(res => {
-            return res.data
-        }).then((value) => {
-            varSetState({data: value, sortBy: getItem})
-        })
-    }
-
-    const addRating = (reloadComponent) => {
-
-        return axios.post(_apiBase + 'add-rating', {...varState, phone: result}, {
-            headers: {
-                ...postRequest.headers
-            }
-        }).then(res => {
-            reloadComponent()
-            // return res.data
-        }).then((value) => {
-
-        })
-    }
-
-    const getCarouselCommentsForMainPage= ()=>{
-        return axios.post(_apiBase + 'get-carousel-comments', {}, {
-            headers: {
-                ...postRequest.headers
-            }
-        }).then(res => {
-            varSetState({
-                comments: res.data
-            })
-        })
-    }
-
     return {
         getNumberRating,
-        getNumberRatingPaginate,
         getCommentsByPaginate,
         getComments,
         getLastVisitedNumbers,
