@@ -7,7 +7,6 @@ function AnimComment(props) {
 
     return (
         <div className={'anim-comment'} style={{direction: 'ltr', textAlign: 'left'}}>
-
             <div className={'anim-comment-up'}>
                 <Stars className={'anim-comment-up-stars'} bg={true} count={Math.round(props.avg ?? 0)} gray={true}/>
                 <div className={'anim-comment-up-phone'}>
@@ -23,10 +22,8 @@ function AnimComment(props) {
                     <Skeleton className={'skeleton'} height={17} baseColor={'#663ef5'} inline={true}/>
                 </>}
             </div>
-
         </div>
     )
 }
-
 
 export default AnimComment;

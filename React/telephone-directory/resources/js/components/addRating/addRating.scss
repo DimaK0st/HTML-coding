@@ -46,17 +46,15 @@
         & > input:checked ~ label {
             color: white;
         }
-
-
     }
 
-     &__title {
+    &__title {
         color: #fff;
         font-size: 40px;
         font-family: Roboto, sans-serif;
         margin-bottom: 32px;
         font-weight: 700;
-         text-align: center;
+        text-align: center;
     }
 
     &__post-wrapper {
@@ -130,7 +128,7 @@
         }
     }
 
-    &__hidden{
+    &__hidden {
         display: none;
     }
 }

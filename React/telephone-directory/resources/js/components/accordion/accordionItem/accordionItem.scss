@@ -61,13 +61,15 @@
             padding: 0;
             list-style: none;
             counter-reset: i;
+
             li {
                 position: relative;
-                font-family: Roboto,sans-serif;
+                font-family: Roboto, sans-serif;
                 padding: 12px 0 12px 45px;
+
                 &:before {
                     position: absolute;
-                    display:flex;
+                    display: flex;
                     background-color: #ab9aff;
                     border-radius: 50%;
                     color: #fff;
@@ -98,8 +100,8 @@
             transform: translate(0, -50%) rotate(180deg);
         }
     }
-
 }
-.border-bot{
-    border-bottom: 1px solid rgba(85,90,129,.64);
+
+.border-bot {
+    border-bottom: 1px solid rgba(85, 90, 129, .64);
 }

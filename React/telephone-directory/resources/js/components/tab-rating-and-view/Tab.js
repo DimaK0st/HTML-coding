@@ -14,7 +14,6 @@ function Tab(props) {
     const [tabContent, setTabContent] = useState(<Rating rating={rating}/>)
 
     useEffect(() => {
-        console.log('update Tab------------------', loaded)
         if (!loaded) {
             return
         }

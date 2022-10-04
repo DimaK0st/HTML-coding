@@ -1,7 +1,4 @@
-import phone from '/assets/phone.svg'
-import search from '/assets/search.svg'
 import './stars.scss'
-import {useState} from "react";
 import NUMBER_CLASS_NAME from "../../../../_CONST";
 
 const Stars = (props) => {
@@ -29,7 +26,6 @@ const Stars = (props) => {
 
     if (count===undefined || count===0) {
         bgClassName = 'stars-bg bg-' + NUMBER_CLASS_NAME[5]
-        console.log(bgClassName)
     }
 
     return (

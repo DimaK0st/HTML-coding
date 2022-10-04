@@ -1,4 +1,4 @@
-import React, {useEffect, useLayoutEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './addRating.scss'
 import NUMBER_CLASS_NAME from "../../_CONST";
 import {useParams} from "react-router-dom";
@@ -48,7 +48,8 @@ function AddRating(props) {
             <div className={`rating-form__post-wrapper ${post.rating === 6 ? 'rating-form__hidden' : ''}`}>
                 <textarea onChange={(e) => {
                     setPost({...post, review: e.target.value})
-                }} required className={'rating-form__review'}
+                }}
+                          required className={'rating-form__review'}
                           placeholder={'Тут напишіть свою оцінку цього номера телефону'}
                           value={post.review}/>
                 <label htmlFor="check1" className={'rating-form__check'}>
@@ -60,12 +61,12 @@ function AddRating(props) {
                 </label>
                 <button type='submit' className={'rating-form__button'}>Відправити</button>
             </div>
-            <span className={'rating-form__bottom-text'}>Допоможіть іншим відвідувачам форуму тим, що поділитеся своїм досвідом з цим номером телефону. Цей номер безпечний чи докучливий? Ви очікували дзвінка з цього номера (<span
-                className={'rating-form__bottom-text-phone'}>{number}</span>), чи це був небажаний дзвінок?</span>
+            <span className={'rating-form__bottom-text'}>
+                Допоможіть іншим відвідувачам форуму тим, що поділитеся своїм досвідом з цим номером телефону. Цей номер
+                безпечний чи докучливий? Ви очікували дзвінка з цього номера (
+                <span className={'rating-form__bottom-text-phone'}>{number}</span>), чи це був небажаний дзвінок?</span>
         </form>
     )
-
-
 }
 
 export default AddRating;

@@ -1,14 +1,12 @@
 @import "./resources/sass/variables";
 
 .anim-comment {
-
     width: 370px;
     height: 108px;
     padding: 24px;
     background: $bg-div-wrapper;
     border-radius: 15px;
     box-sizing: content-box;
-
     font-size: 13px;
     font-family: Roboto, sans-serif;
     color: #afb4bc;
@@ -18,8 +16,7 @@
         align-items: center;
         margin-bottom: 16px;
 
-
-        &-stars{
+        &-stars {
         }
 
         &-phone {

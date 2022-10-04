@@ -27,15 +27,6 @@ function Home(props) {
     const numberService = usePhoneService(number, data, setData)
     let navigate = useNavigate();
 
-
-    // useEffect(() => {
-    //     if (!data.loaded) {
-    //         updateData()
-    //     }
-    // }, []);
-
-    console.log('update data', number)
-
     useEffect(() => {
         setData((data)=> {
             return {

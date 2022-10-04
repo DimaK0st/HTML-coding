@@ -76,9 +76,7 @@ header {
             &[type="text"] {
                 padding-left: 20%;
             }
-
         }
-
     }
 
     &__search {
@@ -96,13 +94,14 @@ header {
             height: 40px;
             top: 10px;
         }
+
         @include _400 {
             display: none;
         }
     }
 }
 
-.main-header{
+.main-header {
     background: $gradient-down-header;
     border-radius: 0 0 30px 30px;
 }

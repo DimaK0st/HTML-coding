@@ -28,7 +28,6 @@ function Rating(props) {
         starsContent.push(<Stars count={i}/>)
         ratingLineContent.push(<RatingLine count={i} current={getCurrentRating(i)} total={rating?.count ?? <Skeleton height={30} width={300} baseColor={'#663ef5'}/>}/>)
     }
-    console.log('rating?.average',rating?.average)
     return (
         <div className="rating">
 

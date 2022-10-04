@@ -14,29 +14,27 @@
 
     &-paginate {
         display: flex;
-    width: 100%;
+        width: 100%;
 
-        .hidden{
+        .hidden {
             display: none;
         }
 
-    &-btn {
-        padding: 10px 20px;
-        justify-content: center;
-        text-transform: uppercase;
-        font-size: 13px;
-        font-weight: 700;
-        margin: 48px auto 0 auto;
-        border: 2px solid #ab9aff;
-        background-color: transparent;
-        border-radius: 44px;
-        color: #ab9aff;
+        &-btn {
+            padding: 10px 20px;
+            justify-content: center;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            margin: 48px auto 0 auto;
+            border: 2px solid #ab9aff;
+            background-color: transparent;
+            border-radius: 44px;
+            color: #ab9aff;
 
-        .skeleton{
-            margin-bottom: 5px;
+            .skeleton {
+                margin-bottom: 5px;
+            }
         }
-
     }
-    }
-
 }

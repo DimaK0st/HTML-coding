@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './accordionItem.scss'
 import chevron from '/assets/chevron.svg'
 
@@ -16,12 +16,10 @@ function AccordionItem (props) {
 
             <div className={`accordion-wrapper-content ${className} ${selected?'hui da':'hidden'}`}>
                 {props.children}
-
                 <div className={'accordion-wrapper-content-wrapper'}>
                     <button className={'accordion-wrapper-content-wrapper-btn'}>Часті питання</button>
                 </div>
             </div>
-
         </div>
     )
 }

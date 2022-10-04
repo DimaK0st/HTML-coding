@@ -8,14 +8,14 @@ import {isNull} from "lodash";
 import Skeleton from "react-loading-skeleton";
 
 function Comments(props) {
-const dataDefaultState = {
-    loaded: false,
-    sort: 'all',
-    order: 1,
-    comments: [
-        [], [], [], [], [], [], [], [], [], []
-    ]
-}
+    const dataDefaultState = {
+        loaded: false,
+        sort: 'all',
+        order: 1,
+        comments: [
+            [], [], [], [], [], [], [], [], [], []
+        ]
+    }
 
     const {number} = useParams()
     const [data, setData] = useState(dataDefaultState);
@@ -27,20 +27,20 @@ const dataDefaultState = {
     }, [data.order, data.sort]);
 
     useEffect(() => {
-        if (props.reload.comments){
+        if (props.reload.comments) {
             updateState()
         }
     }, [props.reload.comments]);
 
-    const updateState = ()=>{
-        numberService.getComments(data.sort, data.order).then(()=>{
+    const updateState = () => {
+        numberService.getComments(data.sort, data.order).then(() => {
             props.reload.setComments(false)
         })
     }
 
-    const paginateComments = ()=>{
+    const paginateComments = () => {
         setPaginateState(true)
-        numberService.getCommentsByPaginate(data.sort, data.order, data.nextPage).then(()=>{
+        numberService.getCommentsByPaginate(data.sort, data.order, data.nextPage).then(() => {
             setPaginateState(false)
         })
     }
@@ -58,9 +58,9 @@ const dataDefaultState = {
             <div className={'comments-paginate'}>
                 <button className={`comments-paginate-btn ${isNull(data.nextPage) ? 'hidden' : ''}`}
                         onClick={() => paginateComments()}>
-                    {props.reload.comments || paginateState?
-                        <Skeleton className={'skeleton'} height={17} width={100} baseColor={'#663ef5'} inline={true}/>:
-                    'ІНШІ КОМЕНТАРІ'}
+                    {props.reload.comments || paginateState ?
+                        <Skeleton className={'skeleton'} height={17} width={100} baseColor={'#663ef5'} inline={true}/> :
+                        'ІНШІ КОМЕНТАРІ'}
                 </button>
             </div>
         </div>

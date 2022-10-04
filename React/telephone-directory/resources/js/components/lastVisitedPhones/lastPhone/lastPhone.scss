@@ -30,7 +30,6 @@
             font-weight: 700;
             font-family: Roboto, sans-serif;
             font-size: 13px;
-
         }
 
         &-review {
@@ -38,15 +37,10 @@
             color: hsla(0, 0%, 100%, .4);
             font-weight: 400;
             font-size: 13px;
-
-
             display: -webkit-box;
             -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
-
-
     }
-
 }

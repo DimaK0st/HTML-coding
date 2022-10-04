@@ -9,8 +9,7 @@ function AnimComments(props) {
 
     const {commentList} = props
     const [comments, setComments] = useState({
-        data: [[], [], [], [], [], [], [], [], [], []
-        ],
+        data: [[], [], [], [], [], [], [], [], [], []],
         loaded: false
     })
 
@@ -30,7 +29,6 @@ function AnimComments(props) {
 
     return (
         <div className={'carousel-comments'}>
-
             <Carousel
                 additionalTransfrom={0}
                 autoPlay={comments.loaded}
@@ -54,8 +52,6 @@ function AnimComments(props) {
             >
                 {contentComments}
             </Carousel>
-
-
         </div>
     )
 }
