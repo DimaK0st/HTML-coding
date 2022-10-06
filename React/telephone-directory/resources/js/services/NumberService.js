@@ -1,5 +1,3 @@
-import {value} from "lodash/seq";
-
 const usePhoneService = (phone, state, setState) => {
     let result = phone?.replace(/(380|)/, '')
     const _apiBase = 'http://127.0.0.1:8000/api/v1/'
@@ -13,7 +11,6 @@ const usePhoneService = (phone, state, setState) => {
             'Accept': 'application/json',
             'Access-Control-Allow-Headers': 'Content-Type, X-Auth-Token, Origin',
             'Access-Control-Allow-Origin': '*',
-
             mode: 'no-cors',
             credentials: 'same-origin',
         },
@@ -85,7 +82,7 @@ const usePhoneService = (phone, state, setState) => {
         })
     }
 
-    const getCarouselCommentsForMainPage= (url, config)=>{
+    const getCarouselCommentsForMainPage = (url, config) => {
         return axios.post(_apiBase + 'get-carousel-comments', {}, {
             headers: {
                 ...postRequest.headers
@@ -105,8 +102,6 @@ const usePhoneService = (phone, state, setState) => {
             }
         }).then(res => {
             reloadComponent()
-        }).then((value) => {
-
         })
     }
 
@@ -121,7 +116,6 @@ const usePhoneService = (phone, state, setState) => {
             if (getItem.filter((item) => item === phoneId).length) {
                 return
             }
-
             localStorage.setItem('lastVisitedNumbers', JSON.stringify([phoneId, ...getItem]));
         } else {
             localStorage.setItem('lastVisitedNumbers', JSON.stringify([phoneId]));

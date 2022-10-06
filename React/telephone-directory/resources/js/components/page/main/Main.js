@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import './main.scss'
 import 'react-multi-carousel/lib/styles.css';
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import usePhoneService from "../../../services/NumberService";
 import AnimComments from "../../animComments/AnimComments";
-import AnimComment from "../../animComments/animComment/AnimComment";
 import SearchInput from "../../searchInput/SearchInput";
 
 function Main(props) {
@@ -27,7 +26,6 @@ function Main(props) {
 
     return (
         <div className={'main'}>
-
             <div className={'main-search'}>
                 <span className={'main-search-top'}>
                     Ідентифікація та <span className={'main-search-top-bold'}>оцінка</span>
@@ -41,15 +39,12 @@ function Main(props) {
                         Порада: почніть з пошуку номера, наприклад:
                         <span className={'main-search-input-bottom-hover'} onClick={()=>redirect('380971281678')}>+380 97 417 2874</span>
                     </span>
-
                 </div>
             </div>
-
             <div className={'main-comments'}>
                 <AnimComments commentList={data.comments?.positive} rtl={true}/>
                 <AnimComments commentList={data.comments?.negative} rtl={false}/>
             </div>
-
         </div>
     )
 }

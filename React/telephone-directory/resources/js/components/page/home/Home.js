@@ -1,19 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {useParams, useNavigate} from "react-router-dom";
-
 import usePhoneService from "../../../services/NumberService";
-import Rating from "../../tab-rating-and-view/rating/Rating";
 import AddRating from "../../addRating/AddRating";
 import Comments from "../../comments/Comments";
 import LastVisitedPhones from "../../lastVisitedPhones/LastVisitedPhones";
 import RecommendedArticles from "../../recommendedArticles/RecommendedArticles";
 import Accordion from "../../accordion/Accordion";
-import Chart from "../../tab-rating-and-view/сhart/Chart";
 import Tab from "../../tab-rating-and-view/Tab";
-import Skeleton, {SkeletonTheme} from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
 import PhoneTitle from "../../phoneTitle/PhoneTitle";
-
 
 function Home(props) {
     const {number} = useParams()
@@ -37,7 +32,6 @@ function Home(props) {
         window.scrollTo(0, 0);
     }, [number,comments]);
 
-
     const updateData = () => {
         numberService.getNumberRating(navigate).then((value) => {
             setData({
@@ -54,10 +48,6 @@ function Home(props) {
 
     return (
         <div className="container">
-
-            <div>
-                {/*{props.children}*/}
-            </div>
 
             <PhoneTitle currentPhone={data?.currentPhone} avg={data?.rating?.average} commentCount={data?.rating?.count}/>
 

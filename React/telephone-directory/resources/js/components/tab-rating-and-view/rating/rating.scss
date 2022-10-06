@@ -1,39 +1,39 @@
-.rating{
+.rating {
     display: flex;
     flex-direction: row;
 
-    &__number{
+    &__number {
         width: 30%;
         display: flex;
         flex-direction: column;
-margin: auto;
-        &-title{
+        margin: auto;
+
+        &-title {
             font-size: 80px;
-            font-family: Roboto,sans-serif;
+            font-family: Roboto, sans-serif;
             line-height: 80px;
             text-align: center;
         }
 
-        &-stars{
-            width: 85px;
+        &-stars {
             font-size: 30px;
             margin: 0 auto;
         }
 
-        &-comment{
-            font-family: Roboto,sans-serif;
+        &-comment {
+            font-family: Roboto, sans-serif;
             text-align: center;
-            color: hsla(0,0%,100%,.4);
+            color: hsla(0, 0%, 100%, .4);
         }
 
     }
 
-    &__line{
+    &__line {
         display: flex;
         flex-direction: row;
         width: 70%;
 
-        &-line{
+        &-line {
             width: 100%;
             display: flex;
             flex-direction: column;

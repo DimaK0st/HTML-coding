@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './recommendedArticle.scss'
 
 function RecommendedArticle(props) {
     const {url, domain, title, date} = props
-
 
     return (
         <div className={'recommended-article'}>
@@ -22,7 +21,6 @@ function RecommendedArticle(props) {
             <span className={'recommended-article-description'}>
                 {props.children}
             </span>
-
         </div>
     )
 }

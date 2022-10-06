@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-
 import './tab.scss'
 import Rating from "./rating/Rating";
 import Chart from "./сhart/Chart";
@@ -27,7 +26,7 @@ function Tab(props) {
             case VIEW:
                 setTabContent(
                     <Chart chart={view.chart}/>
-            )
+                )
                 break
 
         }
@@ -35,9 +34,7 @@ function Tab(props) {
 
 
     return (
-
         <div className={'tab'}>
-
             <div className={'tab-menu'}>
                 <button className={`tab-menu-btn ${RATING === tabType ? 'selected' : ''}`}
                         onClick={() => setTabType(RATING)}>
@@ -54,7 +51,6 @@ function Tab(props) {
                 {tabContent}
             </div>
         </div>
-
     )
 }
 

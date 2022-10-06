@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './recommendedArticles.scss'
 import RecommendedArticle from "./RecommendedArticle/RecommendedArticle";
 
@@ -6,11 +6,8 @@ function RecommendedArticles(props) {
 
     return (
         <div className={'recommended-articles'}>
-
             <span className={'recommended-articles-title'}>Рекомендовані статті</span>
-
             <div className={'recommended-articles-items'}>
-
                 <RecommendedArticle url={'https://promo.bank.gov.ua/stopfraud/'} domain={'promo.bank.gov.ua'}
                                      title={'Телефонне шахрайство'} date={'30 серпня 2022 р.'}>
                     UKRSIBBANK BNP Paribas Group продовжує нагадувати про принципи платіжної безпеки та способи протидії
@@ -31,10 +28,7 @@ function RecommendedArticles(props) {
                     кримінальної відповідальності. В такий спосіб шахраям вдалося виманити в постраждалих близько 100
                     тис. грн.
                 </RecommendedArticle>
-
-
             </div>
-
         </div>
     )
 }

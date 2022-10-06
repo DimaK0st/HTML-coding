@@ -1,16 +1,14 @@
 .title {
-
     margin: 60px 0;
 
     &-numbers {
         font-family: Roboto, sans-serif;
-
         font-size: 40px;
         font-weight: 700;
         color: #ffffff;
         margin-bottom: 20px;
 
-        &-country{
+        &-country {
             margin-right: 10px;
             color: #afb4bc;
             font-weight: 400;
@@ -29,7 +27,6 @@
             border: 1px solid rgba(85, 90, 129, .64);
             border-radius: 40px;
             margin: 5px 16px 0 0;
-
             font-size: 13px;
             font-weight: 700;
             color: #afb4bc;
@@ -48,8 +45,5 @@
                 line-height: 16px;
             }
         }
-
-
     }
-
 }
