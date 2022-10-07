@@ -21,10 +21,10 @@ function LastVisitedPhones(props) {
         });
     }, [])
 
-    let content = data.sortBy?.map((item) => {
+    let content = data.sortBy?.map((item, index) => {
         const temp = data.data[item]
         if (temp) {
-            return <LastPhone avg={parseFloat(temp?.rating_avg_rating).toFixed(1)} phone={temp?.phone}
+            return <LastPhone key={`color-${index}`} avg={parseFloat(temp?.rating_avg_rating).toFixed(1)} phone={temp?.phone}
                               description={temp?.review}/>
         }
     })

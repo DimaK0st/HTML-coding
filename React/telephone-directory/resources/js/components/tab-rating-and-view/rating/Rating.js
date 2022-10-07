@@ -22,8 +22,8 @@ function Rating(props) {
     }
 
     for (let i = 5; i > 0; i--) {
-        starsContent.push(<Stars count={i}/>)
-        ratingLineContent.push(<RatingLine count={i} current={getCurrentRating(i)} total={rating?.count ??
+        starsContent.push(<Stars key={i} count={i}/>)
+        ratingLineContent.push(<RatingLine key={i} count={i} current={getCurrentRating(i)} total={rating?.count ??
             <Skeleton height={30} width={300} baseColor={'#663ef5'}/>}/>)
     }
 

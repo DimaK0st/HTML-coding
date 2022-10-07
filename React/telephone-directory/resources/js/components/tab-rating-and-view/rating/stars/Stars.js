@@ -7,7 +7,7 @@ const Stars = (props) => {
     let bgClassName;
 
     for (let i = 0; i < count; i++) {
-        starsContent.push(<span
+        starsContent.push(<span key={`color-${i}`}
             className={`stars__item ${className}
             ${bg ? 'stars-white' : null}
             ${NUMBER_CLASS_NAME[count - 1]}`}
@@ -16,7 +16,7 @@ const Stars = (props) => {
 
     if (gray) {
         for (let i = 0; i < 5 - count; i++) {
-            starsContent.push(<span className={`stars__item ${className}`} style={{color: count===undefined || count===0? '#282d4f':'rgba(67,65,96,.25)'}}>★</span>);
+            starsContent.push(<span key={`last-${i}`} className={`stars__item ${className}`} style={{color: count===undefined || count===0? '#282d4f':'rgba(67,65,96,.25)'}}>★</span>);
         }
     }
 

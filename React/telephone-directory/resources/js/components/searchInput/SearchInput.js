@@ -6,7 +6,10 @@ import {useNavigate} from "react-router-dom";
 const SearchInput = () => {
 
     let navigate = useNavigate();
-    const [data, setData] = useState()
+    const [data, setData] = useState({
+        value: '',
+        obj: '',
+    })
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -28,7 +31,7 @@ const SearchInput = () => {
                 className={'number__input'}
                 placeholder={'097-123-45-67'}
                 mask="999-999-99-99"
-                maskPlaceholder="-"
+                maskChar="_"
                 value={data?.value}
                 onChange={(e) => setData({value: e.target.value, obj: e.currentTarget})}/>
         </form>

@@ -49,8 +49,8 @@ function Filter(props) {
     return (
         <div className={'filter'}>
 
-            {filterList.map((item) => {
-                return <button className={'filter-item'}
+            {filterList.map((item,index) => {
+                return <button key={index} className={'filter-item'}
                                onClick={() => filterComments(item.key, data.order)}>{item.name}</button>
             })}
 

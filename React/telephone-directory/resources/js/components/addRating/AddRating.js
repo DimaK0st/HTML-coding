@@ -31,9 +31,9 @@ function AddRating(props) {
     let inputsContent = [];
 
     for (let i = 5; i > 0; i--) {
-        inputsContent.push(<>
+        inputsContent.push(<React.Fragment key={i}>
             <input type="radio" id={"star-" + i} name="rating" defaultChecked={data.rating === i} value={i}/>
-            <label htmlFor={"star-" + i} title={"Оценка «" + i + "»"}></label></>)
+            <label htmlFor={"star-" + i} title={"Оценка «" + i + "»"}></label></React.Fragment>)
     }
 
     return (
@@ -41,10 +41,10 @@ function AddRating(props) {
 
             <span className={'rating-form__title'}>Який досвід Ви маєте з цим номером?</span>
 
-            <form className={"rating-form__area bg-" + NUMBER_CLASS_NAME[post.rating - 1]}
+            <div className={"rating-form__area bg-" + NUMBER_CLASS_NAME[post.rating - 1]}
                   onChange={(e) => setPost({...post, rating: e.target.value})}>
                 {inputsContent}
-            </form>
+            </div>
             <div className={`rating-form__post-wrapper ${post.rating === 6 ? 'rating-form__hidden' : ''}`}>
                 <textarea onChange={(e) => {
                     setPost({...post, review: e.target.value})

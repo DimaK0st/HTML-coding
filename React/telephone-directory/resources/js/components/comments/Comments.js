@@ -50,8 +50,8 @@ function Comments(props) {
             <span className={'comments-title'}>Коментарі </span><span className={'comments-count'}>({data.total})</span>
             <Filter setData={setData} data={data} numberService={numberService}/>
             <div className={'comments'}>
-                {data?.comments?.map((item) => {
-                    return <Comment id={item?.id} review={item?.review} rating={item?.rating} city={item?.city}
+                {data?.comments?.map((item,index) => {
+                    return <Comment key={index} id={item?.id} review={item?.review} rating={item?.rating} city={item?.city}
                                     created_at={item?.created_at}/>
                 })}
             </div>
