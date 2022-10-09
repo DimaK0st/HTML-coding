@@ -3,7 +3,6 @@
 namespace App\Domain\Rating\Repositories;
 
 use App\Api\v1\Rating\Requests\SetReviewAndRatingRequest;
-use App\Domain\IP\Services\IPService;
 use App\Domain\Phone\Services\PhoneService;
 use App\Models\Ip;
 use App\Models\Phone;
@@ -17,13 +16,8 @@ use Illuminate\Support\Facades\DB;
 
 class RatingRepository
 {
-    private IPService $iPService;
-    private PhoneService $phoneService;
-
-    public function __construct(IPService $iPService, PhoneService $phoneService)
+    public function __construct(private PhoneService $phoneService)
     {
-        $this->iPService = $iPService;
-        $this->phoneService = $phoneService;
     }
 
     public function getRatingByPhoneId(int $phoneId)
@@ -65,7 +59,7 @@ class RatingRepository
      * @param Phone $phone
      * @return Rating|Builder|Model|object|null
      */
-    public function setRating(SetReviewAndRatingRequest $request,Ip $ip, Phone $phone)
+    public function setRating(SetReviewAndRatingRequest $request, Ip $ip, Phone $phone)
     {
         $this->phoneService->getPhone($request->getPhone());
 
@@ -175,7 +169,8 @@ class RatingRepository
      * @param string $finish
      * @return array
      */
-    public function getChartDataPhone(int $id, string $start, string $finish){
+    public function getChartDataPhone(int $id, string $start, string $finish)
+    {
         return Rating::whereBetween('created_at', [
             $finish, $start
         ])->where('phone_id', $id)

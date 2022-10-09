@@ -7,16 +7,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 class IPController
 {
-    private IPService $iPService;
-
-    public function __construct(IPService $iPService)
+    public function __construct(private IPService $iPService)
     {
-        $this->iPService = $iPService;
     }
 
-    public function getOrCreateIp(Request $request){
+    public function getOrCreateIp(Request $request)
+    {
         $this->iPService->getOrCreateIp(geoip()->getLocation($request->ip()));
-
-}
-
+    }
 }

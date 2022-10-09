@@ -14,11 +14,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class RatingController
 {
-    private RatingService $ratingService;
-
-    public function __construct(RatingService $ratingService)
+    public function __construct(private RatingService $ratingService)
     {
-        $this->ratingService = $ratingService;
     }
 
     /**
@@ -45,7 +42,8 @@ class RatingController
      * @param GetLastVisitedPhones $request
      * @return array
      */
-    public function getLastVisitedNumber(GetLastVisitedPhones $request){
+    public function getLastVisitedNumber(GetLastVisitedPhones $request)
+    {
         return $this->ratingService->getLastVisitedNumber($request);
     }
 
@@ -54,7 +52,8 @@ class RatingController
      * @return array[]
      * @throws Exception
      */
-    public function getCommentsByPhoneWithPaginate(GetRatingRequest $request){
+    public function getCommentsByPhoneWithPaginate(GetRatingRequest $request)
+    {
         return $this->ratingService->getCommentsByPhoneWithPaginate($request);
     }
 }

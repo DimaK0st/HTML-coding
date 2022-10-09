@@ -9,11 +9,8 @@ use Torann\GeoIP\Location;
 
 class IPService
 {
-    private IPRepository $iPRepository;
-
-    public function __construct(IPRepository $iPRepository)
+    public function __construct(private IPRepository $iPRepository)
     {
-        $this->iPRepository = $iPRepository;
     }
 
     /**

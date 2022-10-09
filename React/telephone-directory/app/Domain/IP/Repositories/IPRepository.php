@@ -10,7 +10,6 @@ use Torann\GeoIP\Location;
 
 class IPRepository
 {
-
     /**
      * @param GeoIP|Location $geoIP
      * @return Ip|Builder|Model|object

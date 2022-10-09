@@ -10,14 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class PhoneService
 {
-
-    private PhoneRepository $phoneRepository;
-    private RegionService $regionService;
-
-    public function __construct(PhoneRepository $phoneRepository, RegionService $regionService)
+    public function __construct(private PhoneRepository $phoneRepository, private RegionService $regionService)
     {
-        $this->phoneRepository = $phoneRepository;
-        $this->regionService = $regionService;
     }
 
     /**
@@ -30,10 +24,8 @@ class PhoneService
             return null;
         }
 
-        $phone = $this->phoneRepository->getPhone($validatePhone['region'], $validatePhone['digital']);
-
-        if (!$phone) {
-            return $this->phoneRepository->getPhoneById($this->createNewPhone($validatePhone['region'], $validatePhone['digital']));
+        if (!$phone = $this->phoneRepository->getPhone($validatePhone['region'], $validatePhone['digital'])) {
+            return $this->phoneRepository->getPhoneById($this->createNewPhone($validatePhone['region'], $validatePhone['digital'])->id);
         }
 
         return $phone;
@@ -42,16 +34,16 @@ class PhoneService
     /**
      * @param string $region
      * @param string $digital
-     * @return int|null
+     * @return Phone|null
      */
-    public function createNewPhone(string $region, string $digital): int|null
+    public function createNewPhone(string $region, string $digital): ?Phone
     {
         if ($regionObj = $this->regionService->getOrCreateRegion($region)) {
             $phone = new Phone();
             $phone->region_id = $regionObj->id;
             $phone->digital = $digital;
             $phone->save();
-            return $phone->id;
+            return $phone;
         }
 
         return null;

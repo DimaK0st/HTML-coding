@@ -9,11 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class RegionService
 {
-    private RegionRepository $regionRepository;
-
-    public function __construct(RegionRepository $regionRepository)
+    public function __construct(private RegionRepository $regionRepository)
     {
-        $this->regionRepository = $regionRepository;
     }
 
     /**

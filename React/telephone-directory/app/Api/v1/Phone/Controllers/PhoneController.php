@@ -8,12 +8,8 @@ use App\Models\Rating;
 
 class PhoneController extends Controller
 {
-    private PhoneService $phoneService;
-
-    public function __construct(PhoneService $phoneService)
+    public function __construct(private PhoneService $phoneService)
     {
-        $this->phoneService = $phoneService;
-
     }
 
     /**

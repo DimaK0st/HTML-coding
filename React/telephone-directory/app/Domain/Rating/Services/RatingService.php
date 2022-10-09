@@ -19,17 +19,13 @@ use Illuminate\Database\Eloquent\Collection;
 
 class RatingService
 {
-    private RatingRepository $ratingRepository;
-    private PhoneService $phoneService;
-    private PhoneRepository $phoneRepository;
-    private IPService $iPService;
-
-    public function __construct(RatingRepository $ratingRepository, PhoneService $phoneService, PhoneRepository $phoneRepository, IPService $iPService)
+    public function __construct(
+        private RatingRepository $ratingRepository,
+        private PhoneService     $phoneService,
+        private PhoneRepository  $phoneRepository,
+        private IPService        $iPService
+    )
     {
-        $this->ratingRepository = $ratingRepository;
-        $this->phoneService = $phoneService;
-        $this->phoneRepository = $phoneRepository;
-        $this->iPService = $iPService;
     }
 
     /**
@@ -59,7 +55,7 @@ class RatingService
                 'average' => $this->getAverageRatingPhone($phone),
                 'count' => $this->getCountRatingPhone($phone),
             ],
-            'view'=>[
+            'view' => [
                 'count' => $this->getCountViewsPhone($phone),
                 'chart' => $this->getChartDataPhone($phone),
             ],
