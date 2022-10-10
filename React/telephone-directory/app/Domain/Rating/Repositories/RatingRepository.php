@@ -20,15 +20,6 @@ class RatingRepository
     {
     }
 
-    public function getRatingByPhoneId(int $phoneId)
-    {
-        $rating = $this->query()->where('phone_id', $phoneId)->get();
-
-        if (!$rating->count()) {
-
-        }
-    }
-
     public function getReviewByIp(Ip $ip, Phone $phone)
     {
         $rating = $this->query()->where('phone_id', $phone->id)->where('ip_id', $ip->id)->first();
@@ -78,18 +69,6 @@ class RatingRepository
         $rating->created_at = Carbon::now();
 
         $rating->save();
-
-        return $rating;
-    }
-
-    public function getAllReview(Ip $ip, Phone $phone)
-    {
-        $rating = $this->query()->where('phone_id', $phone->id)->where('ip_id', '!=', $ip->id)
-            ->where('review', '!=', 'null')
-            ->where('rating', '!=', 'null')
-            ->join('ips', 'ratings.ip_id', '=', 'ips.id')
-            ->select('ratings.id', 'review', 'rating', 'ips.city', 'created_at')
-            ->get();
 
         return $rating;
     }

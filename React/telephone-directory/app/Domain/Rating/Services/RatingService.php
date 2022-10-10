@@ -123,11 +123,6 @@ class RatingService
         return $this->ratingRepository->getReviewByIp($ip, $phone);
     }
 
-    public function getAllReview(Ip $ip, Phone $phone)
-    {
-        return $this->ratingRepository->getAllReview($ip, $phone);
-    }
-
     /**
      * @param Ip $ip
      * @param Phone $phone
