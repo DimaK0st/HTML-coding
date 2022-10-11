@@ -104,7 +104,7 @@ class RatingService
 
         }
 
-        $reviewPaginate = $this->getReviewPaginate($iP, $phone, $sort, $request->getOrder());
+        $reviewPaginate = $this->getReviewPaginate($phone, $sort, $request->getOrder());
 
         return ['review' => [
             'comments' => $reviewPaginate->items(),
@@ -130,9 +130,9 @@ class RatingService
      * @param string $order
      * @return LengthAwarePaginator
      */
-    public function getReviewPaginate(Ip $ip, Phone $phone, array $sort, string $order)
+    public function getReviewPaginate(Phone $phone, array $sort, string $order)
     {
-        return $this->ratingRepository->getReviewPaginate($ip, $phone, $sort, $order);
+        return $this->ratingRepository->getReviewPaginate($phone, $sort, $order);
     }
 
     /**

@@ -30,7 +30,7 @@ class IPRepository
      * @param GeoIP|Location $geoIP
      * @return Ip
      */
-    public function createIp(GeoIP|Location $geoIP)
+    public function createIp(GeoIP|Location $geoIP): Ip
     {
         $ip = new Ip();
         $ip->ip = $geoIP->ip;

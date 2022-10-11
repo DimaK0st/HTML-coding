@@ -80,11 +80,10 @@ class RatingRepository
      * @param string $order
      * @return LengthAwarePaginator
      */
-    public function getReviewPaginate(Ip $ip, Phone $phone, array $sort, string $order): LengthAwarePaginator
+    public function getReviewPaginate(Phone $phone, array $sort, string $order): LengthAwarePaginator
     {
         return $this->query()->where('phone_id', $phone->id)
-            ->where('review', '!=', 'null')
-            ->where('rating', '!=', 'null')
+            ->whereNotNull(['review','rating'])
             ->whereIn('rating', $sort)
             ->orderBy('created_at', $order)
             ->join('ips', 'ratings.ip_id', '=', 'ips.id')
@@ -115,7 +114,7 @@ class RatingRepository
         $avg = $this->query()->where('phone_id', $phone->id)
             ->avg('rating');
 
-        return $avg ? $avg : 0;
+        return $avg ?: 0;
     }
 
     /**
@@ -127,19 +126,17 @@ class RatingRepository
         $count = $this->query()->where('phone_id', $phone->id)->where('rating', '!=', 'null')
             ->count();
 
-        return $count ? $count : 0;
+        return $count ?: 0;
     }
 
     /**
      * @param Phone $phone
      * @return int
      */
-    public function getCountViewsPhone(Phone $phone)
+    public function getCountViewsPhone(Phone $phone): int
     {
-        $rating = $this->query()->where('phone_id', $phone->id)
+        return $this->query()->where('phone_id', $phone->id)
             ->count();
-
-        return $rating;
     }
 
     /**
