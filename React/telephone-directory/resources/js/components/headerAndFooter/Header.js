@@ -1,10 +1,11 @@
 import phoneIcon from '/assets/phone.svg'
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import SearchInput from "../searchInput/SearchInput";
 
 const Header = () => {
     const [phone, setPhone] = useState()
+    let navigate = useNavigate();
 
     useEffect(() => {
         setPhone('/' !== window.location.pathname)
@@ -12,7 +13,7 @@ const Header = () => {
 
     return (
         <header className={phone ? 'header main-header' : 'header'}>
-            <img className='logo' alt={'Слава Україні'} src={phoneIcon}/>
+            <img className='logo' alt={'Слава Україні'} src={phoneIcon} onClick={()=>{navigate('/')}}/>
             {phone ? <SearchInput/> : <div></div>}
             <span className={'todo'}>TODO...</span>
         </header>

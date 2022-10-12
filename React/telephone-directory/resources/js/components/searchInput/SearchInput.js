@@ -26,7 +26,7 @@ const SearchInput = () => {
     return (
         <form className={'number header__number'} onSubmit={onSubmit}>
             <span className={'number__code'}>+38</span>
-            <img className={'number__search'} src={search}/>
+            <img className={'number__search'} src={search} />
             <InputMask
                 className={'number__input'}
                 placeholder={'097-123-45-67'}
