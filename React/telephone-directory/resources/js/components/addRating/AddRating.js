@@ -18,7 +18,7 @@ function AddRating(props) {
     useEffect(() => {
         setPost({
             ...post,
-            review: props?.review
+            review: props?.review ?? ''
         })
     }, [props?.review])
 
@@ -42,7 +42,7 @@ function AddRating(props) {
             <span className={'rating-form__title'}>Який досвід Ви маєте з цим номером?</span>
 
             <div className={"rating-form__area bg-" + NUMBER_CLASS_NAME[post.rating - 1]}
-                  onChange={(e) => setPost({...post, rating: e.target.value})}>
+                 onChange={(e) => setPost({...post, rating: e.target.value})}>
                 {inputsContent}
             </div>
             <div className={`rating-form__post-wrapper ${post.rating === 6 ? 'rating-form__hidden' : ''}`}>

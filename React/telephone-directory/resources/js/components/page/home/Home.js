@@ -7,30 +7,30 @@ import LastVisitedPhones from "../../lastVisitedPhones/LastVisitedPhones";
 import RecommendedArticles from "../../recommendedArticles/RecommendedArticles";
 import Accordion from "../../accordion/Accordion";
 import Tab from "../../tab-rating-and-view/Tab";
-import 'react-loading-skeleton/dist/skeleton.css'
 import PhoneTitle from "../../phoneTitle/PhoneTitle";
+import 'react-loading-skeleton/dist/skeleton.css'
 
 function Home(props) {
-    const {number} = useParams()
     const [data, setData] = useState(
         {
             sortedList: [],
             loading: false,
         }
     );
+    const {number} = useParams()
     const [comments, setComments] = useState(true);
     const numberService = usePhoneService(number, data, setData)
     let navigate = useNavigate();
 
     useEffect(() => {
-        setData((data)=> {
+        setData((data) => {
             return {
                 reload: false,
             }
         })
         updateData()
         window.scrollTo(0, 0);
-    }, [number,comments]);
+    }, [number]);
 
     const updateData = () => {
         numberService.getNumberRating(navigate).then((value) => {
@@ -39,6 +39,7 @@ function Home(props) {
                 loaded: true,
                 ...value,
             })
+            reloadComponent()
         })
     }
 
@@ -48,21 +49,15 @@ function Home(props) {
 
     return (
         <div className="container">
-
-            <PhoneTitle currentPhone={data?.currentPhone} avg={data?.rating?.average} commentCount={data?.rating?.count}/>
-
+            <PhoneTitle currentPhone={data?.currentPhone} avg={data?.rating?.average}
+                        commentCount={data?.rating?.count}/>
             <Tab loaded={data.loaded} rating={data.rating} view={data.view}/>
-
-            <AddRating  reloadComponent={reloadComponent} idPhone={data.currentPhone?.id} review = {data?.userReview?.review}/>
-
-            <Comments reload={{comments: comments, setComments:setComments}}/>
-
+            <AddRating reloadComponent={reloadComponent} idPhone={data.currentPhone?.id}
+                       review={data?.userReview?.review}/>
+            <Comments reload={{comments: comments, setComments: setComments}}/>
             <LastVisitedPhones/>
-
             <RecommendedArticles/>
-
             <Accordion/>
-
         </div>
     )
 }
