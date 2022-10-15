@@ -1,6 +1,7 @@
 @import "./resources/sass/component_mixin.scss";
 
 .comments {
+    width: 100%;
 
     &-title, &-count {
         @include title-block;

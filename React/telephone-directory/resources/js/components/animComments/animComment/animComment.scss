@@ -1,7 +1,8 @@
 @import "./resources/sass/variables";
 
 .anim-comment {
-    width: 370px;
+    min-width: 370px;
+    width: 80%;
     height: 108px;
     padding: 24px;
     background: $bg-div-wrapper;
