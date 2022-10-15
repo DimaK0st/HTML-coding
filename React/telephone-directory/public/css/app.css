@@ -11090,6 +11090,12 @@ textarea.form-control-lg {
   padding: 0 20px;
   margin-left: auto;
 }
+@media (max-width: 768px) {
+  .footer-wrapper {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
 .footer-wrapper-item {
   font-family: Roboto, sans-serif;
   font-size: 17px;

@@ -1,9 +1,15 @@
+@import "./resources/sass/media_mixin.scss";
+
 .main {
     width: 100%;
     min-height: calc(100vh - 230px);
     font-family: Roboto, sans-serif;
     color: #fff;
     font-weight: 300;
+
+    @include _600{
+        min-height: calc(100vh - 190px);
+    }
 
     &-search {
         display: flex;

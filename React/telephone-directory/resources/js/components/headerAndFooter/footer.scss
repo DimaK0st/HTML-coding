@@ -1,4 +1,5 @@
 @import "./resources/sass/_variables.scss";
+@import "./resources/sass/media_mixin.scss";
 
 .footer {
     width: 100%;
@@ -16,6 +17,11 @@
         height: 100px;
         padding: 0 20px;
         margin-left: auto;
+
+        @include _768(){
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
 
         &-item {
             font-family: Roboto, sans-serif;
