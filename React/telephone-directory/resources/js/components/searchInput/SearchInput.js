@@ -4,12 +4,12 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 
 const SearchInput = () => {
-
-    let navigate = useNavigate();
-    const [data, setData] = useState({
+    const defaultState = {
         value: '',
         obj: '',
-    })
+    }
+    let navigate = useNavigate();
+    const [data, setData] = useState(defaultState)
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -18,7 +18,7 @@ const SearchInput = () => {
 
         if (phone.length === 10) {
             navigate('/phone/38' + phone)
-            setData('')
+            setData(defaultState)
             data?.obj.blur()
         }
     }
@@ -29,6 +29,7 @@ const SearchInput = () => {
             <img className={'number__search'} src={search} onClick={onSubmit}/>
             <InputMask
                 className={'number__input'}
+                type={'text'}
                 placeholder={'097-123-45-67'}
                 mask="999-999-99-99"
                 maskChar="_"
