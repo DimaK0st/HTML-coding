@@ -30,6 +30,7 @@ function AnimComments(props) {
     return (
         <div className={'carousel-comments'}>
             <Carousel
+                sliderClass={'carousel-comments-slider'}
                 additionalTransfrom={0}
                 autoPlay={comments.loaded}
                 autoPlaySpeed={1}

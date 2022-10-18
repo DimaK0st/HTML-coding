@@ -11,6 +11,12 @@
     font-size: 13px;
     font-family: Roboto, sans-serif;
     color: #afb4bc;
+    transition: .3s;
+
+    &:hover{
+        transform: scale(1.05);
+        cursor: pointer;
+    }
 
     &-up {
         display: flex;
