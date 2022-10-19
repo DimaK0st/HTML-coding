@@ -186,13 +186,18 @@ class RatingService
         $chartData = $this->ratingRepository->getChartDataPhone($phone->id, $start, $finish);
 
         $period = CarbonPeriod::create($finish, $start)->toArray();
+        $countItem = count($period)-1;
 
-        foreach ($period as $item) {
+        foreach ($period as $key =>$item) {
             $timeKey = $item->format('Y-m-d');
             if (array_key_exists($timeKey, $chartData)) {
                 $result[$timeKey] = $chartData[$timeKey]['count'];
             } else {
-                $result[$timeKey] = 0;
+                if ($countItem === $key){
+                    $result[$timeKey] = 1;
+                }else{
+                    $result[$timeKey] = 0;
+                }
             }
         }
 
