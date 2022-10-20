@@ -30,7 +30,7 @@ function Tab(props) {
                 break
 
         }
-    }, [tabType, props])
+    }, [tabType, props, loaded])
 
 
     return (

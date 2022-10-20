@@ -11,11 +11,13 @@ import PhoneTitle from "../../phoneTitle/PhoneTitle";
 import 'react-loading-skeleton/dist/skeleton.css'
 
 function Home(props) {
+    const defaultState =         {
+        sortedList: [],
+        loading: false,
+        reload: false,
+    }
     const [data, setData] = useState(
-        {
-            sortedList: [],
-            loading: false,
-        }
+        defaultState
     );
     const {number} = useParams()
     const [comments, setComments] = useState(true);
@@ -23,14 +25,15 @@ function Home(props) {
     let navigate = useNavigate();
 
     useEffect(() => {
-        setData((data) => {
-            return {
-                reload: false,
-            }
-        })
+        setData(defaultState)
         updateData()
-        window.scrollTo(0, 0);
+        reloadComponent()
     }, [number]);
+
+    useEffect(() => {
+        setData(defaultState)
+        updateData()
+    }, [comments]);
 
     const updateData = () => {
         numberService.getNumberRating(navigate).then((value) => {
@@ -39,12 +42,14 @@ function Home(props) {
                 loaded: true,
                 ...value,
             })
-            reloadComponent()
         })
+        window.scrollTo(0, 0);
     }
 
     const reloadComponent = () => {
-        setComments(true)
+        if (!comments) {
+            setComments(true)
+        }
     }
 
     return (
