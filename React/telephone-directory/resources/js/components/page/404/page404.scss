@@ -1,8 +1,15 @@
+@import "./resources/sass/media_mixin.scss";
+
 .page-404 {
     display: flex;
     justify-content: center;
     flex-direction: column;
     overflow: hidden;
+    min-height: calc(100vh - 230px);
+
+    @include _600{
+        min-height: calc(100vh - 190px);
+    }
 
     &__title {
         display: flex;

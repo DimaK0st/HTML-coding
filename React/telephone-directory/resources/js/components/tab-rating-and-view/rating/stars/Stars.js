@@ -25,7 +25,7 @@ const Stars = (props) => {
     }
 
     if (count===undefined || count===0) {
-        bgClassName = 'stars-bg bg-' + NUMBER_CLASS_NAME[5]
+        bgClassName = 'stars-bg stars-zp bg-' + NUMBER_CLASS_NAME[5]
     }
 
     return (
