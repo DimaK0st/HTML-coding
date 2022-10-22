@@ -23,7 +23,7 @@ function AnimComments(props) {
     }, [commentList])
 
     let contentComments = comments.data.map((item, index) => {
-        return <AnimComment key={index} avg={item?.last_comment?.rating} description={item?.last_comment?.review}
+        return <AnimComment key={index} avg={item?.rating} description={item?.review}
                             phone={item?.phone}/>
     })
 

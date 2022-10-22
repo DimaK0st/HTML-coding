@@ -56,13 +56,12 @@ class PhoneRepository
                 break;
         }
 
-        return Phone::with('lastComment')
+        return Phone::select('phones.id as id', $this->concatNumber(), 'ratings.*')
             ->join('regions', 'phones.region_id', '=', 'regions.id')
             ->join('ratings', 'phones.id', '=', 'ratings.phone_id')
-            ->select('phones.id as id', $this->concatNumber())
             ->orderBy('created_at', 'desc')
-            ->where('review', '!=', '')
-            ->where('rating', '!=', '')
+            ->whereNotNull('review')
+            ->where('rating', '>', 0)
             ->whereIn('rating', $sort)
             ->limit($amount)->get()->toArray();
     }
