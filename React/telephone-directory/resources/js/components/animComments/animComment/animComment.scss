@@ -1,4 +1,5 @@
 @import "./resources/sass/variables";
+@import "./resources/sass/media_mixin";
 
 .anim-comment {
     min-width: 370px;
@@ -12,6 +13,11 @@
     font-family: Roboto, sans-serif;
     color: #afb4bc;
     transition: .3s;
+
+    @include _480{
+        min-width: auto;
+        width: 80%;
+    }
 
     &:hover{
         transform: scale(1.05);
