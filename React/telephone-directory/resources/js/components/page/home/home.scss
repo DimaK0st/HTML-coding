@@ -1,0 +1,12 @@
+@import "./resources/sass/media_mixin.scss";
+
+.home{
+
+    width: 80%;
+    margin: auto;
+
+    @include _768{
+        width: 98%;
+    }
+
+}

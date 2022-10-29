@@ -9,6 +9,7 @@ import Accordion from "../../accordion/Accordion";
 import Tab from "../../tab-rating-and-view/Tab";
 import PhoneTitle from "../../phoneTitle/PhoneTitle";
 import 'react-loading-skeleton/dist/skeleton.css'
+import './home.scss'
 
 function Home(props) {
     const defaultState =         {
@@ -53,7 +54,7 @@ function Home(props) {
     }
 
     return (
-        <div className="container">
+        <div className="home">
             <PhoneTitle currentPhone={data?.currentPhone} avg={data?.rating?.average}
                         commentCount={data?.rating?.count}/>
             <Tab loaded={data.loaded} rating={data.rating} view={data.view}/>
