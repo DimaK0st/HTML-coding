@@ -1,5 +1,4 @@
 import React from 'react';
-import './recommendedArticles.scss'
 import RecommendedArticle from "./RecommendedArticle/RecommendedArticle";
 
 function RecommendedArticles(props) {

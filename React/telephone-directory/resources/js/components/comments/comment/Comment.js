@@ -1,5 +1,4 @@
-import React, {useEffect, useLayoutEffect, useState} from 'react';
-import './comment.scss'
+import React from 'react';
 import report from '/assets/report.svg'
 import Stars from "../../tab-rating-and-view/rating/stars/Stars";
 import Skeleton from "react-loading-skeleton";

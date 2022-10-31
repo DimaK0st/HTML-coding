@@ -2,7 +2,6 @@ import phoneIcon from '/assets/phone.svg'
 import {useLocation, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import SearchInput from "../searchInput/SearchInput";
-import './header.scss'
 
 const Header = () => {
     const [phone, setPhone] = useState()

@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import './main.scss'
 import 'react-multi-carousel/lib/styles.css';
 import {useNavigate} from "react-router-dom";
 import usePhoneService from "../../../services/NumberService";

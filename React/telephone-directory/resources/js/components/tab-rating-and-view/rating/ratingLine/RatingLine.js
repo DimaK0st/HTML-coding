@@ -1,4 +1,3 @@
-import './ratingLine.scss'
 import NUMBER_CLASS_NAME from "../../../../_CONST";
 import Skeleton from "react-loading-skeleton";
 

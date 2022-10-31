@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import './tab.scss'
 import Rating from "./rating/Rating";
-import Chart from "./сhart/Chart";
+import Chart from "./chart/Chart";
 import Skeleton from "react-loading-skeleton";
 
 const RATING = 'rating'

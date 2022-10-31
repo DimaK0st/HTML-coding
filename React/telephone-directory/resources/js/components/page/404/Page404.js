@@ -1,5 +1,4 @@
 import React from 'react';
-import './page404.scss'
 import {useNavigate} from "react-router-dom";
 
 function Page404(props) {

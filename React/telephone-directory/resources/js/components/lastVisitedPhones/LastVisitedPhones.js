@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import './lastVisitedPhones.scss'
 import LastPhone from "./lastPhone/LastPhone";
 import usePhoneService from "../../services/NumberService";
 import {useParams} from "react-router-dom";

@@ -1,8 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import './animComments.scss'
 import Carousel from "react-multi-carousel";
-import {useParams} from "react-router-dom";
-import usePhoneService from "../../services/NumberService";
 import AnimComment from "./animComment/AnimComment";
 
 function AnimComments(props) {

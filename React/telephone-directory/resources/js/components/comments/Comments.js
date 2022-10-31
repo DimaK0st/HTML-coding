@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import './comments.scss'
 import Filter from "./filter/Filter";
 import Comment from "./comment/Comment";
 import {useParams} from "react-router-dom";

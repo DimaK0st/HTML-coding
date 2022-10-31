@@ -1,5 +1,4 @@
 import React from 'react';
-import './lastPhone.scss'
 import NUMBER_CLASS_NAME from "../../../_CONST";
 import {Link} from "react-router-dom";
 import Skeleton from "react-loading-skeleton";

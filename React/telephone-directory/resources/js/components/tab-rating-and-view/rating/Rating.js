@@ -1,5 +1,4 @@
 import React from 'react';
-import './rating.scss'
 import RatingLine from "./ratingLine/RatingLine";
 import Stars from "./stars/Stars";
 import NUMBER_CLASS_NAME from "../../../_CONST";

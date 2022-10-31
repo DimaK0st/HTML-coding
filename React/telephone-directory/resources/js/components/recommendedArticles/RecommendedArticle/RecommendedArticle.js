@@ -1,5 +1,4 @@
 import React from 'react';
-import './recommendedArticle.scss'
 
 function RecommendedArticle(props) {
     const {url, domain, title, date} = props

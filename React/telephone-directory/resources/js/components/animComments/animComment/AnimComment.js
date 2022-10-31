@@ -1,5 +1,4 @@
 import React from 'react';
-import './animComment.scss'
 import Stars from "../../tab-rating-and-view/rating/stars/Stars";
 import Skeleton from "react-loading-skeleton";
 import {useNavigate} from "react-router-dom";

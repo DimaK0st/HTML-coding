@@ -1,5 +1,4 @@
-import React, {useEffect, useLayoutEffect, useState} from 'react';
-import './filter.scss'
+import React from 'react';
 import order from '/assets/order.svg'
 
 function Filter(props) {

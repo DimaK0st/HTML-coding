@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import './addRating.scss'
 import NUMBER_CLASS_NAME from "../../_CONST";
 import {useParams} from "react-router-dom";
 import usePhoneService from "../../services/NumberService";

@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import './accordion.scss'
 import AccordionItem from "./accordionItem/AccordionItem";
 
 function Accordion(props) {

@@ -9,7 +9,6 @@ import Accordion from "../../accordion/Accordion";
 import Tab from "../../tab-rating-and-view/Tab";
 import PhoneTitle from "../../phoneTitle/PhoneTitle";
 import 'react-loading-skeleton/dist/skeleton.css'
-import './home.scss'
 
 function Home(props) {
     const defaultState =         {

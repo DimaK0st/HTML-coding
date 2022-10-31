@@ -11,7 +11,6 @@ import {
 } from 'chart.js';
 import {Line} from 'react-chartjs-2';
 import {useParams} from "react-router-dom";
-import './chart.scss'
 
 ChartJS.register(
     CategoryScale,

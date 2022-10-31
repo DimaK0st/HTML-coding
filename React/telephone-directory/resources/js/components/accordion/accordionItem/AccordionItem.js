@@ -1,5 +1,4 @@
 import React from 'react';
-import './accordionItem.scss'
 import chevron from '/assets/chevron.svg'
 
 function AccordionItem (props) {

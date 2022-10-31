@@ -1,4 +1,3 @@
-import './stars.scss'
 import NUMBER_CLASS_NAME from "../../../../_CONST";
 
 const Stars = (props) => {
