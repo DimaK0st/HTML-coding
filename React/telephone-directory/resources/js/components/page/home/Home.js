@@ -25,17 +25,12 @@ function Home(props) {
     let navigate = useNavigate();
 
     useEffect(() => {
-        setData(defaultState)
-        updateData()
         reloadComponent()
     }, [number]);
 
     useEffect(() => {
         setData(defaultState)
-        updateData()
-    }, [comments]);
 
-    const updateData = () => {
         numberService.getNumberRating(navigate).then((value) => {
             setData({
                 ...data,
@@ -44,7 +39,7 @@ function Home(props) {
             })
         })
         window.scrollTo(0, 0);
-    }
+    }, [comments, number]);
 
     const reloadComponent = () => {
         if (!comments) {
