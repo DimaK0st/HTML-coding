@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Facade;
+use Laravel\Cashier\CashierServiceProvider;
 
 return [
 
@@ -143,6 +145,12 @@ return [
         // 'store'  => 'redis',
     ],
 
+    'stripe' => [
+        'model'  => User::class,
+        'key' => env('STRIPE_KEY'),
+        'secret' => env('STRIPE_SECRET'),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -181,7 +189,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        CashierServiceProvider::class,
         /*
          * Package Service Providers...
          */
