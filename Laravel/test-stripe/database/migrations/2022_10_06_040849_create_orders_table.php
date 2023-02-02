@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function ($table) {
-            $table->string('stripe_id')->nullable();
-            $table->string('card_brand')->nullable();
-            $table->string('card_last_four')->nullable();
-            $table->timestamp('trial_ends_at')->nullable();
+        Schema::create('orders', function (Blueprint $table) {
+            $table->id();
+            $table->string('status');
+            $table->decimal('total_price', 6, 2);
+            $table->string('session_id');
+            $table->timestamps();
         });
     }
 
@@ -28,8 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('orders');
     }
 };
