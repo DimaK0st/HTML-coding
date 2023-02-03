@@ -95,7 +95,7 @@ class ProductController extends Controller
         $payload = @file_get_contents('php://input');
         $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
         $event = null;
-
+//dd('hui');
         try {
             $event = \Stripe\Webhook::constructEvent(
                 $payload, $sig_header, $endpoint_secret

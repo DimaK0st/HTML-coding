@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TableController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
+use Laravel\Cashier\Cashier;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,7 @@ Route::get('/', function () {
 //
 //    dd($user);
 
+    dd(Cashier::findBillable('cus_NMuHvBFvoO35vQ'));
     $user = User::find(1);
 //    dd($user);
     dump($user->subscribed(2));
@@ -45,8 +48,7 @@ Route::get('/', function () {
 //    dd($user);
 
 //    dd($user->paymentMethods());
-    dd($user->subscribed('premium'));
-
+//    ;
     return view('welcome');
 });
 
@@ -88,3 +90,6 @@ Route::post('/checkout', [ProductController::class, 'checkout'])->name('checkout
 Route::get('/success', [ProductController::class, 'success'])->name('checkout.success');
 Route::get('/cancel', [ProductController::class, 'cancel'])->name('checkout.cancel');
 Route::post('/webhook', [ProductController::class, 'webhook'])->name('checkout.webhook');
+
+
+Route::get('/table-test', [TableController::class, 'show']);

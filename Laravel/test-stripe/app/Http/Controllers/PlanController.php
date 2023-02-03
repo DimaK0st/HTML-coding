@@ -28,7 +28,7 @@ class PlanController extends Controller
     public function show(Plan $plan, Request $request)
     {
         $intent = auth()->user()->createSetupIntent();
-dd($intent);
+
         return view("subscription", compact("plan", "intent"));
     }
 
