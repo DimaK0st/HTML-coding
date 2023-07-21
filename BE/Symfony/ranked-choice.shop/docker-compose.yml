@@ -28,7 +28,6 @@ services:
     ports:
       - 80:8080
     environment:
-      # The Hostname for the FPM (needs to match the hostname for the `app`)
       PHP_FPM_HOST: app
     volumes:
       - ${APP_BASE_DIR-.}/public:/app/public
@@ -37,7 +36,6 @@ services:
     networks:
       - network-ranked
 
-    ###> doctrine/doctrine-bundle ###
   database:
     image: postgres:${POSTGRES_VERSION:-15}-alpine
     container_name: ranker_database
@@ -45,18 +43,14 @@ services:
       - "3306:3306"
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-app}
-      # You should definitely change the password in production
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-!ChangeMe!}
       POSTGRES_USER: ${POSTGRES_USER:-app}
     volumes:
       - database_data:/var/lib/postgresql/data:rw
-      # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
-      # - ./docker/db/data:/var/lib/postgresql/data:rw
     networks:
         - network-ranked
-    ###< doctrine/doctrine-bundle ###
 volumes:
-  database_data: # Объявление именованного тома для базы данных PostgreSQL
+  database_data:
 networks:
   network-ranked:
     driver: bridge
