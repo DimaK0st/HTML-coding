@@ -56,12 +56,14 @@ RUN apk add --no-cache --virtual .build-deps \
       $PHPIZE_DEPS  \
       libzip-dev    \
       icu-dev       \
+      postgresql-dev \
  # PHP Extensions --------------------------------- \
  && docker-php-ext-install -j$(nproc) \
       intl        \
       opcache     \
       pdo_mysql   \
       zip         \
+      pdo_pgsql   \
  # Pecl Extensions -------------------------------- \
  && pecl install apcu && docker-php-ext-enable apcu \
  # ---------------------------------------------------------------------
