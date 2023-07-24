@@ -16,9 +16,22 @@ FROM composer:${COMPOSER_VERSION} as composer
 # ======================================================================================================================
 
 
-RUN echo ${PHP_VERSION}
-
 FROM php:${PHP_VERSION}-fpm-alpine${PHP_ALPINE_VERSION} AS base
+
+RUN apk add --no-cache bash
+RUN apk update && apk add --no-cache zlib-dev g++ git icu-dev zip libzip-dev autoconf make bash \
+    && docker-php-ext-install intl opcache pdo pdo_mysql
+
+# Install Xdebug only if it's not already enabled
+
+# Install and enable Xdebug
+#RUN pecl install xdebug-${XDEBUG_VERSION}; \
+#    docker-php-ext-enable xdebug
+
+# Add your further configuration or steps here if needed
+
+
+RUN curl -sS https://get.symfony.com/cli/installer | bash -s -- --install-dir=/usr/local/bin
 
 # Required Args ( inherited from start of file, or passed at build )
 ARG XDEBUG_VERSION

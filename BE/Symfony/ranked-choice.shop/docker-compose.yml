@@ -40,7 +40,7 @@ services:
     image: postgres:${POSTGRES_VERSION:-15}-alpine
     container_name: ranker_database
     ports:
-      - "3306:3306"
+      - "5432:5432"
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-app}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-!ChangeMe!}
