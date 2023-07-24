@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,8 +14,30 @@ class DefaultController extends AbstractController
      */
     public function index(): Response
     {
+        $em = $this->getDoctrine()->getManager();
+        $productList = $em->getRepository(Product::class)->findAll();
+        dd($productList);
+
         return $this->render('main/default/index.html.twig', [
             'controller_name' => 'DefaultController',
         ]);
+    }
+
+    /**
+     * @Route("/product-add", name="product_add")
+     */
+    public function productAdd(): Response
+    {
+        $product = new Product();
+        $product->setTitle('Product '.rand(1, 100));
+        $product->setDescription('Description '.rand(1, 100));
+        $product->setPrice(rand(10, 100));
+        $product->setQuantity(rand(1, 10));
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($product);
+        $em->flush();
+
+        return $this->redirectToRoute('homepage');
     }
 }
