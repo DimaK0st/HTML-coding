@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20230724191128 extends AbstractMigration
+final class Version20230726203212 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,20 +20,13 @@ final class Version20230724191128 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE SEQUENCE "users_id_seq" INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE TABLE "users" (id INT NOT NULL, PRIMARY KEY(id))');
-        $this->addSql("ALTER TABLE users ADD is_deleted BOOLEAN NULL; ");
-        $this->addSql("UPDATE users SET is_deleted='0' WHERE is_deleted IS NULL;");
-        $this->addSql("ALTER TABLE users ALTER is_deleted SET NOT NULL;");
-
-
+        $this->addSql('ALTER TABLE "user" ADD is_verified BOOLEAN NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE SCHEMA public');
-        $this->addSql('DROP SEQUENCE "user_id_seq" CASCADE');
-        $this->addSql('DROP TABLE "user"');
+        $this->addSql('ALTER TABLE "user" DROP is_verified');
     }
 }
