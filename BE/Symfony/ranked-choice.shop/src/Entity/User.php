@@ -45,7 +45,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $fullname;
+    private $fullName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -160,14 +160,14 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getFullname(): ?string
+    public function getFullName(): ?string
     {
-        return $this->fullname;
+        return $this->fullName;
     }
 
-    public function setFullname(?string $fullname): self
+    public function setFullName(?string $fullName): self
     {
-        $this->fullname = $fullname;
+        $this->fullName = $fullName;
 
         return $this;
     }
