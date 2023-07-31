@@ -6,8 +6,6 @@ services:
       context: .
       target: app-dev
       args:
-        # To authenticate to private registry either use username / password, or Oauth key/secret / etc
-        # Please add Composer Auth JSON Object
         COMPOSER_AUTH: "{}"
         APP_BASE_DIR: ${APP_BASE_DIR-.}
     restart: unless-stopped

@@ -23,13 +23,13 @@ class ProfileController extends AbstractController
     /**
      * @Route("/profile/edit", name="main_profile_edit")
      */
-    public function edit(Request $request):Response
+    public function edit(Request $request): Response
     {
         $user = $this->getUser();
         $form = $this->createForm(ProfileEditFormType::class, $user);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
