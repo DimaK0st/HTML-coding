@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Security;
+namespace App\Security\Admin;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,7 +24,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 {
     use TargetPathTrait;
 
-    public const LOGIN_ROUTE = 'main_login';
+    public const LOGIN_ROUTE = 'admin_security_login';
 
     private $entityManager;
     private $urlGenerator;
@@ -69,7 +69,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
         $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $credentials['email']]);
 
-        if (!$user) {
+        if (!$user || !in_array('ROLE_ADMIN', $user->getRoles())) {
             throw new UsernameNotFoundException('Email could not be found.');
         }
 
@@ -89,16 +89,16 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         return $credentials['password'];
     }
 
-    public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey): RedirectResponse
+    public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey)
     {
         if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->urlGenerator->generate('main_homepage'));
+        return new RedirectResponse($this->urlGenerator->generate('admin_dashboard_show'));
     }
 
-    protected function getLoginUrl(): string
+    protected function getLoginUrl()
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }
