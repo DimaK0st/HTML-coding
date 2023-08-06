@@ -3,6 +3,7 @@
 namespace App\Utils\File;
 
 use Imagine\Gd\Imagine;
+use Imagine\Image\Box;
 
 class ImageResizer
 {
@@ -13,12 +14,41 @@ class ImageResizer
         $this->imagine = new Imagine();
     }
 
-    public function resizeImageAndSave(string $originalFileFolder, string $originalFileName, array $targetParams){
+    /**
+     * @param string $originalFileFolder
+     * @param string $originalFileName
+     * @param array $targetParams
+     * @return string
+     */
+    public function resizeImageAndSave(string $originalFileFolder, string $originalFileName, array $targetParams): string
+    {
         $originalFilePath = $originalFileFolder . '/' . $originalFileName;
 
         list($imageWidth, $imageHeight) = getimagesize($originalFilePath);
-        dd($imageWidth, $imageHeight);
+        $ratio = $imageWidth / $imageHeight;
+        $targetWidth = $targetParams['width'];
+        $targetHeight = $targetParams['height'];
 
+        if ($targetHeight) {
+            if ($targetWidth / $targetHeight > $ratio) {
+                $targetWidth = $targetHeight * $ratio;
+            } else {
+                $targetHeight = $targetWidth / $ratio;
+
+            }
+        } else {
+            $targetHeight = $targetWidth / $ratio;
+        }
+
+        $targetFolder = $targetParams['newFolder'];
+        $targetFilename = $targetParams['newFilename'];
+        $targetFilePath = $targetFolder . '/' . $targetFilename;
+
+        $imagineFile = $this->imagine->open($originalFilePath);
+        $imagineFile->resize(new Box($targetWidth, $targetHeight))
+            ->save($targetFilePath);
+
+        return $targetFilename;
     }
 
 }

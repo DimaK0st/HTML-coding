@@ -29,8 +29,9 @@ class ProductFormHandler
 
 
         $this->productManager->updateProductImages($product, $tempImageFileName);
+        $this->productManager->save($product);
 
-
+dd($product);
         return $product;
     }
 }

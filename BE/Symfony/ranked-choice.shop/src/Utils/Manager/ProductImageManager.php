@@ -52,7 +52,7 @@ class ProductImageManager
             'newFolder' => $productDir,
             'newFilename' => $filenameId . '_middle.jpg'
         ];
-        $imageMiddle = $this->imageResizer->resizeImageAndSave($this->uploadsTempDir, $tempImageFileName, $imageSmallParams);
+        $imageMiddle = $this->imageResizer->resizeImageAndSave($this->uploadsTempDir, $tempImageFileName, $imageMiddleParams);
 
         $imageBigParams = [
             'width' => 800,
@@ -60,12 +60,12 @@ class ProductImageManager
             'newFolder' => $productDir,
             'newFilename' => $filenameId . '_big.jpg'
         ];
-        $imageBig = $this->imageResizer->resizeImageAndSave($this->uploadsTempDir, $tempImageFileName, $imageSmallParams);
+        $imageBig = $this->imageResizer->resizeImageAndSave($this->uploadsTempDir, $tempImageFileName, $imageBigParams);
 
         $productImage = new ProductImage();
-        $productImage->setFilenameSmall($filenameId . '_small.jpg');
-        $productImage->setFilenameMiddle($filenameId . '_middle.jpg');
-        $productImage->setFilenameBig($filenameId . '_big.jpg');
+        $productImage->setFilenameSmall($imageSmall);
+        $productImage->setFilenameMiddle($imageMiddle);
+        $productImage->setFilenameBig($imageBig);
 
         return $productImage;
 
