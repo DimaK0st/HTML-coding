@@ -3,6 +3,7 @@
 namespace App\Utils\Manager;
 
 use App\Entity\ProductImage;
+use App\Utils\File\ImageResizer;
 use App\Utils\Filesystem\FilesystemWorker;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -12,12 +13,20 @@ class ProductImageManager
     private EntityManagerInterface $entityManager;
     private FilesystemWorker $filesystemWorker;
     private string $uploadsTempDir;
+    private ImageResizer $imageResizer;
 
-    public function __construct(EntityManagerInterface $entityManager, FilesystemWorker $filesystemWorker, string $uploadsTempDir)
+    /**
+     * @param EntityManagerInterface $entityManager
+     * @param FilesystemWorker $filesystemWorker
+     * @param ImageResizer $imageResizer
+     * @param string $uploadsTempDir
+     */
+    public function __construct(EntityManagerInterface $entityManager, FilesystemWorker $filesystemWorker, ImageResizer $imageResizer, string $uploadsTempDir)
     {
         $this->entityManager = $entityManager;
         $this->filesystemWorker = $filesystemWorker;
         $this->uploadsTempDir = $uploadsTempDir;
+        $this->imageResizer = $imageResizer;
     }
 
     public function saveImageForProduct(string $productDir, string $tempImageFileName=null): ?ProductImage
@@ -29,29 +38,29 @@ class ProductImageManager
         $this->filesystemWorker->createFolderIfItNotExists($productDir);
         $filenameId = uniqid();
 
-        $imageSmall = $this->filesystemWorker->resizeImage($tempImageFileName, 100, 100);
         $imageSmallParams = [
             'width' => 60,
             'height' => null,
             'newFolder' => $productDir,
             'newFilename' => $filenameId . '_small.jpg'
         ];
+        $imageSmall = $this->imageResizer->resizeImageAndSave($this->uploadsTempDir, $tempImageFileName, $imageSmallParams);
 
-        $imageMiddle = $this->filesystemWorker->resizeImage($tempImageFileName, 300, 300);
         $imageMiddleParams = [
             'width' => 430,
             'height' => null,
             'newFolder' => $productDir,
             'newFilename' => $filenameId . '_middle.jpg'
         ];
+        $imageMiddle = $this->imageResizer->resizeImageAndSave($this->uploadsTempDir, $tempImageFileName, $imageSmallParams);
 
-        $imageBig = $this->filesystemWorker->resizeImage($tempImageFileName, 600, 600);
         $imageBigParams = [
             'width' => 800,
             'height' => null,
             'newFolder' => $productDir,
             'newFilename' => $filenameId . '_big.jpg'
         ];
+        $imageBig = $this->imageResizer->resizeImageAndSave($this->uploadsTempDir, $tempImageFileName, $imageSmallParams);
 
         $productImage = new ProductImage();
         $productImage->setFilenameSmall($filenameId . '_small.jpg');

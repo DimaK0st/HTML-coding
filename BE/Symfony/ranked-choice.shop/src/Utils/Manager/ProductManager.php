@@ -9,11 +9,13 @@ class ProductManager
 {
     private EntityManagerInterface $entityManager;
     private string $productImagesDir;
+    private ProductImageManager $imageManager;
 
-    public function __construct(EntityManagerInterface $entityManager, string $productImagesDir)
+    public function __construct(EntityManagerInterface $entityManager, ProductImageManager $imageManager, string $productImagesDir)
     {
         $this->entityManager = $entityManager;
         $this->productImagesDir = $productImagesDir;
+        $this->imageManager = $imageManager;
     }
 
     public function getRepository()
@@ -50,9 +52,9 @@ class ProductManager
 
         $productImageDir = $this->getProductImagesDir($product);
 
-//        $productImage = $this->productImageManager->saveImageForProduct($product, $tempImageFileName);
-//        $product->addProductImage($productImage);
-//        return $product;
+        $productImage = $this->imageManager->saveImageForProduct($productImageDir, $tempImageFileName);
+        $product->addProductImage($productImage);
+        return $product;
         dd($productImageDir);
     }
 }

@@ -18,8 +18,8 @@ FROM composer:${COMPOSER_VERSION} as composer
 
 FROM php:${PHP_VERSION}-fpm-alpine${PHP_ALPINE_VERSION} AS base
 
-RUN apk add --no-cache bash
-RUN apk update && apk add --no-cache zlib-dev g++ git icu-dev zip libzip-dev autoconf make bash \
+RUN apk add  bash
+RUN apk update && apk add  zlib-dev g++ git icu-dev zip libzip-dev autoconf make bash \
     && docker-php-ext-install intl opcache pdo pdo_mysql
 
 # Install Xdebug only if it's not already enabled
@@ -47,25 +47,33 @@ SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
 RUN RUNTIME_DEPS="tini fcgi"; \
     SECURITY_UPGRADES="curl"; \
-    apk add --no-cache --upgrade ${RUNTIME_DEPS} ${SECURITY_UPGRADES}
+    apk add --upgrade ${RUNTIME_DEPS} ${SECURITY_UPGRADES}
 
 # ---------------------------------------- Install / Enable PHP Extensions ---------------------------------------------
 
 
-RUN apk add --no-cache --virtual .build-deps \
+RUN apk add --virtual .build-deps \
       $PHPIZE_DEPS  \
       libzip-dev    \
       icu-dev       \
       postgresql-dev \
+      libpng-dev    \
+      freetype-dev  \
+      libjpeg-turbo-dev \
+#      php-gd \
  # PHP Extensions --------------------------------- \
+ && docker-php-ext-configure gd --with-freetype --with-jpeg \
  && docker-php-ext-install -j$(nproc) \
       intl        \
       opcache     \
       pdo_mysql   \
       zip         \
       pdo_pgsql   \
+      gd          \
  # Pecl Extensions -------------------------------- \
  && pecl install apcu && docker-php-ext-enable apcu \
+ && pecl install xdebug-${XDEBUG_VERSION} \
+ && docker-php-ext-enable xdebug \
  # ---------------------------------------------------------------------
  # Install Xdebug at this step to make editing dev image cache-friendly, we delete xdebug from production image later
  && pecl install xdebug-${XDEBUG_VERSION} \
@@ -223,7 +231,7 @@ ENV APP_DEBUG 1
 USER root
 
 # For Composer Installs
-RUN apk --no-cache add git openssh bash; \
+RUN apk  add git openssh bash; \
  # Enable Xdebug
  docker-php-ext-enable xdebug
 
@@ -292,7 +300,7 @@ FROM nginx AS web
 USER root
 
 RUN SECURITY_UPGRADES="curl"; \
-    apk add --no-cache --upgrade ${SECURITY_UPGRADES}
+    apk add  --upgrade ${SECURITY_UPGRADES}
 
 USER www-data
 
