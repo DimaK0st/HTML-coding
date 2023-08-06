@@ -46,17 +46,16 @@ class ProductManager
 
     public function updateProductImages(Product $product, string $tempImageFileName = null): Product
     {
-        if (!$tempImageFileName){
+        if (!$tempImageFileName) {
             return $product;
         }
 
         $productImageDir = $this->getProductImagesDir($product);
-
         $productImage = $this->imageManager->saveImageForProduct($productImageDir, $tempImageFileName);
 
         $productImage->setProduct($product);
         $product->addProductImage($productImage);
+
         return $product;
-        dd($productImageDir);
     }
 }
