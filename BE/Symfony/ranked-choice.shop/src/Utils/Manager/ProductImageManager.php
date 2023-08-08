@@ -71,4 +71,21 @@ class ProductImageManager
 
     }
 
+    public function removeImageFromProduct(ProductImage $productImage, string $productImageDir): void
+    {
+        $imagePath = [
+            $productImageDir. '/'.$productImage->getFilenameSmall(),
+            $productImageDir. '/'.$productImage->getFilenameMiddle(),
+            $productImageDir. '/'.$productImage->getFilenameBig(),
+        ];
+
+        foreach ($imagePath as $path){
+            $this->filesystemWorker->remove($path);
+        }
+
+        $product=$productImage->getProduct();
+        $product->removeProductImage($productImage);
+
+        $this->entityManager->flush();
+    }
 }

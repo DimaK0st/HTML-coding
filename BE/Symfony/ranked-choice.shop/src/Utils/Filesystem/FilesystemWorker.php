@@ -19,4 +19,18 @@ class FilesystemWorker
             $this->filesystem->mkdir($folderPath);
         }
     }
+
+    public function removeFolder(string $folderPath)
+    {
+        if ($this->filesystem->exists($folderPath)) {
+            $this->filesystem->remove($folderPath);
+        }
+    }
+
+    public function remove(string $filePath)
+    {
+        if ($this->filesystem->exists($filePath)) {
+            $this->filesystem->remove($filePath);
+        }
+    }
 }

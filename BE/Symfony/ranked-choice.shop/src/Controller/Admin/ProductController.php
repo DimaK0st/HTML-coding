@@ -48,9 +48,6 @@ class ProductController extends AbstractController
             'form' => $form->createView(),
             'product' => $product,
         ]);
-
-        dd($product);
-        //
     }
 
     /**

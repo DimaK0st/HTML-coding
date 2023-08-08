@@ -3,6 +3,7 @@
 namespace App\Utils\Manager;
 
 use App\Entity\Product;
+use App\Entity\ProductImage;
 use Doctrine\ORM\EntityManagerInterface;
 
 class ProductManager
@@ -58,4 +59,5 @@ class ProductManager
 
         return $product;
     }
+
 }
