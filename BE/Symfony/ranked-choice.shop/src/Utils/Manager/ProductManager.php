@@ -32,8 +32,8 @@ class ProductManager
 
     public function remove(Product $product)
     {
-        $this->entityManager->remove($product);
-        $this->entityManager->flush();
+        $product->setIsDeleted(true);
+        $this->save($product);
     }
 
     /**

@@ -158,7 +158,7 @@
             'id': 'approveDeleteModal',
             'title': 'Are you sure?',
             'text': 'Product will be deleted.',
-            'actionUrl': path('admin_product_delete', {'id': product.id}),
+            'actionUrl': path('admin_product_delete', {'id': product.id ?? null}),
             'btnText': 'Delete row'
         } %}
     {% endif %}

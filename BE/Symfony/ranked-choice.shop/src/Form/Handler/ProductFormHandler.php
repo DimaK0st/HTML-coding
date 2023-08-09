@@ -21,7 +21,7 @@ class ProductFormHandler
         $this->fileSaver = $fileSaver;
     }
 
-    public function processEditForm(Product $product, FormInterface $form)
+    public function processEditForm(Product $product, FormInterface $form): Product
     {
         $this->productManager->save($form->getData());
         $newImageFile = $form->get('newImage')->getData();
