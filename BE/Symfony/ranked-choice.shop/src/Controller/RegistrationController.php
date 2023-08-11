@@ -52,13 +52,13 @@ class RegistrationController extends AbstractController
                     ->from(new Address('robot@ranked-choice.com', 'Robot'))
                     ->to($user->getEmail())
                     ->subject('Please Confirm your Email')
-                    ->htmlTemplate('registration/confirmation_email.html.twig')
+                    ->htmlTemplate('main/email/security/confirmation_email.html.twig')
             );
 
             return $this->redirectToRoute('main_homepage');
         }
 
-        return $this->render('registration/register.html.twig', [
+        return $this->render('main/security/registration.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }
