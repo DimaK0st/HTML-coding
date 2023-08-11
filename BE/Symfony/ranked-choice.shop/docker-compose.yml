@@ -44,6 +44,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-!ChangeMe!}
       POSTGRES_USER: ${POSTGRES_USER:-app}
     volumes:
+      - ./init.sql:/docker/db/init.sql
       - database_data:/var/lib/postgresql/data:rw
     networks:
         - network-ranked
