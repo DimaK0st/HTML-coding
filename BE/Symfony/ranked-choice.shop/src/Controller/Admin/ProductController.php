@@ -40,7 +40,7 @@ class ProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $formHandler->processEditForm($product, $form);
+            $product = $formHandler->processEditForm($editProductModel, $form);
 
             $this->addFlash('success', 'Product saved');
 
