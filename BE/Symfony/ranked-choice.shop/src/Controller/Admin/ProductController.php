@@ -47,6 +47,10 @@ class ProductController extends AbstractController
             return $this->redirectToRoute('admin_product_edit', ['id' => $product->getId()]);
         }
 
+        if ($form->isSubmitted() && !$form->isValid()) {
+            $this->addFlash('warning', 'Form is not valid');
+        }
+
         $images = $product ? $product->getProductImages()->getValues() : [];
 
         return $this->render('admin/product/edit.html.twig', [
@@ -62,6 +66,8 @@ class ProductController extends AbstractController
     public function delete(Product $product, ProductManager $productManager): Response
     {
         $productManager->remove($product);
+
+        $this->addFlash('success', 'Product deleted');
 
         return $this->redirectToRoute('admin_product_list');
     }

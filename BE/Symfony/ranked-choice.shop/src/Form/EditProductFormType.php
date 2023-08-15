@@ -43,7 +43,7 @@ class EditProductFormType extends AbstractType
                     'step' => '0.03',
                 ],
             ])
-            ->add('quantity', IntegerType::class,[
+            ->add('quantity', IntegerType::class, [
                 'label' => 'Product quantity',
                 'attr' => [
                     'class' => 'form-control',
@@ -84,8 +84,7 @@ class EditProductFormType extends AbstractType
                 'label_attr' => [
                     'class' => 'form-check-label',
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
