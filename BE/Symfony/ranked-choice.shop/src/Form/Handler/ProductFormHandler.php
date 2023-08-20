@@ -36,9 +36,10 @@ class ProductFormHandler
         $product->setQuantity($editProductModel->quantity);
         $product->setIsPublished($editProductModel->isPublished);
         $product->setIsDeleted($editProductModel->isDeleted);
-
+        $product->setCategory($editProductModel->category);
 
         $this->productManager->save($product);
+
         $newImageFile = $form->get('newImage')->getData();
         $tempImageFileName = $newImageFile? $this->fileSaver->saveUploadedFileIntoTemp($newImageFile) : null;
 
