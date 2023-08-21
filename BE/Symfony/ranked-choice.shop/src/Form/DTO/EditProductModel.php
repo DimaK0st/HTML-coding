@@ -75,6 +75,7 @@ class EditProductModel
         $model->description = $product->getDescription();
         $model->price = $product->getPrice();
         $model->quantity = $product->getQuantity();
+        $model->category = $product->getCategory();
         $model->isPublished = $product->getIsPublished();
         $model->isDeleted = $product->getIsDeleted();
 
