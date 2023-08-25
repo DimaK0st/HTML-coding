@@ -3,8 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Category;
+use App\Form\Admin\EditCategoryFormType;
 use App\Form\DTO\EditCategoryModel;
-use App\Form\EditCategoryFormType;
 use App\Form\Handler\CategoryFormHandler;
 use App\Repository\CategoryRepository;
 use App\Utils\Manager\CategoryManager;
@@ -44,7 +44,13 @@ class CategoryController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $category = $categoryFormHandler->processEditForm($editCategoryModel);
 
+            $this->addFlash('success', 'Category saved');
+
             return $this->redirectToRoute('admin_category_edit', ['id' => $category->getId()]);
+        }
+
+        if ($form->isSubmitted() && !$form->isValid()) {
+            $this->addFlash('warning', 'Form is not valid');
         }
 
         return $this->render('admin/category/edit.html.twig', [
@@ -59,6 +65,8 @@ class CategoryController extends AbstractController
     public function delete(Category $category, CategoryManager $categoryManager): Response
     {
         $categoryManager->remove($category);
+
+        $this->addFlash('success', 'Category deleted');
 
         return $this->redirectToRoute('admin_category_list');
     }
