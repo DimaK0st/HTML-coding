@@ -3,6 +3,7 @@
 namespace App\Controller\Main;
 
 use App\Repository\CartRepository;
+use App\Utils\Manager\OrderManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +19,22 @@ class CartController extends AbstractController
         $sessionId = $request->cookies->get('PHPSESSID');
         $cart = $cartRepository->findOneBy(['sessionId'=>$sessionId]);
 
-
-
         return $this->render('main/cart/show.html.twig', [
             'cart' => $cart,
         ]);
+    }
+
+    /**
+     * @Route("/cart/create", name="main_cart_create")
+     */
+    public function create(Request $request, OrderManager $orderManager): Response
+    {
+        $sessionId = $request->cookies->get('PHPSESSID');
+        $user = $this->getUser();
+        $orderManager->createOrderFromCartBySessionId($sessionId, $user);
+        dd($sessionId);
+
+        return $this->redirectToRoute('main_cart_show');
+
     }
 }

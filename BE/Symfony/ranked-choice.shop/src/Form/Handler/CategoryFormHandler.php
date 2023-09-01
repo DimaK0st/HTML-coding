@@ -4,17 +4,17 @@ namespace App\Form\Handler;
 
 use App\Entity\Category;
 use App\Form\DTO\EditCategoryModel;
-use App\Utils\Manager\CategoryManager;
+use App\Utils\Manager\OrderManager;
 
 class CategoryFormHandler
 {
 
-    private CategoryManager $categoryManager;
+    private OrderManager $categoryManager;
 
     /**
-     * @param CategoryManager $categoryManager
+     * @param OrderManager $categoryManager
      */
-    public function __construct(CategoryManager $categoryManager){
+    public function __construct(OrderManager $categoryManager){
 
         $this->categoryManager = $categoryManager;
     }
