@@ -32,7 +32,6 @@ class CartController extends AbstractController
         $sessionId = $request->cookies->get('PHPSESSID');
         $user = $this->getUser();
         $orderManager->createOrderFromCartBySessionId($sessionId, $user);
-        dd($sessionId);
 
         return $this->redirectToRoute('main_cart_show');
 
