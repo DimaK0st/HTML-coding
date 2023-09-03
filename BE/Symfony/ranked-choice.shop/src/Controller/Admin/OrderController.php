@@ -4,6 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Entity\Order;
 use App\Entity\StaticStorage\OrderStaticStorage;
+use App\Form\Admin\EditOrderFormType;
+use App\Form\DTO\EditCategoryModel;
 use App\Repository\OrderRepository;
 use App\Utils\Manager\OrderManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -35,26 +37,29 @@ class OrderController extends AbstractController
      */
     public function edit(Request $request, Order $order = null): Response
     {
-//        $editCategoryModel = EditCategoryModel::makeFromCategory($order);
-//
-//        $form = $this->createForm(EditCategoryFormType::class, $editCategoryModel);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $order = $categoryFormHandler->processEditForm($editCategoryModel);
-//
-//            $this->addFlash('success', 'Category saved');
-//
-//            return $this->redirectToRoute('admin_category_edit', ['id' => $order->getId()]);
-//        }
-//
-//        if ($form->isSubmitted() && !$form->isValid()) {
-//            $this->addFlash('warning', 'Form is not valid');
-//        }
+        if (!$order) {
+            $order = new Order();
+        }
 
-        return $this->render('admin/category/edit.html.twig', [
-//            'form' => $form->createView(),
-            'category' => $order,
+        $form = $this->createForm(EditOrderFormType::class, $order);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            dd($order);
+
+            $this->addFlash('success', 'Category saved');
+
+            return $this->redirectToRoute('admin_order_edit', ['id' => $order->getId()]);
+        }
+
+        if ($form->isSubmitted() && !$form->isValid()) {
+            $this->addFlash('warning', 'Form is not valid');
+        }
+
+        return $this->render('admin/order/edit.html.twig', [
+            'form' => $form->createView(),
+            'order' => $order,
         ]);
     }
 
