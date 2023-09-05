@@ -78,6 +78,13 @@ class OrderManager extends AbstractBaseManager {
         dd($order);
     }
 
+    public function save(object $order): void
+    {
+      	$order->setUpdatedAt(new \DateTimeImmutable());
+        $this->entityManager->persist($order);
+        $this->entityManager->flush();
+    }
+
     /**
      * @param Order $order
      * @return void

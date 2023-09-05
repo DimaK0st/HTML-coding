@@ -3,33 +3,28 @@
 namespace App\Form\Handler;
 
 use App\Entity\Category;
+use App\Entity\Order;
 use App\Form\DTO\EditCategoryModel;
 use App\Utils\Manager\OrderManager;
 
 class OrderFormHandler
 {
 
-    private OrderManager $categoryManager;
+    private OrderManager $orderManager;
 
     /**
-     * @param OrderManager $categoryManager
+     * @param OrderManager $orderManager
      */
-    public function __construct(OrderManager $categoryManager){
-
-        $this->categoryManager = $categoryManager;
+    public function __construct(OrderManager $orderManager)
+    {
+        $this->orderManager = $orderManager;
     }
 
-    public function processEditForm(EditCategoryModel $editCategoryModel){
-        $category = new Category();
 
-        if ($editCategoryModel->id) {
-            $category = $this->categoryManager->find($editCategoryModel->id);
-        }
+    public function processEditForm(Order $order): Order
+    {
+        $this->orderManager->save($order);
 
-        $category->setTitle($editCategoryModel->title);
-
-
-        $this->categoryManager->save($category);
-        return $category;
+        return $order;
     }
 }
