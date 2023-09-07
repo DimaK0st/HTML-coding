@@ -3,9 +3,12 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Category;
+use App\Entity\User;
 use App\Form\Admin\EditCategoryFormType;
+use App\Form\Admin\EditUserFormType;
 use App\Form\DTO\EditCategoryModel;
 use App\Form\Handler\CategoryFormHandler;
+use App\Form\Handler\UserFormHandler;
 use App\Repository\CategoryRepository;
 use App\Repository\UserRepository;
 use App\Utils\Manager\OrderManager;
@@ -35,28 +38,32 @@ class UserController extends AbstractController
      * @Route("/edit/{id}", name="edit")
      * @Route("/add", name="add")
      */
-    public function edit(Request $request, CategoryFormHandler $categoryFormHandler, Category $category = null): Response
+    public function edit(Request $request,UserFormHandler $formHandler, User $user = null): Response
     {
-//        $editCategoryModel = EditCategoryModel::makeFromCategory($category);
-//
-//        $form = $this->createForm(EditCategoryFormType::class, $editCategoryModel);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $category = $categoryFormHandler->processEditForm($editCategoryModel);
-//
-//            $this->addFlash('success', 'Category saved');
-//
-//            return $this->redirectToRoute('admin_category_edit', ['id' => $category->getId()]);
-//        }
-//
-//        if ($form->isSubmitted() && !$form->isValid()) {
-//            $this->addFlash('warning', 'Form is not valid');
-//        }
 
-        return $this->render('admin/category/edit.html.twig', [
-//            'form' => $form->createView(),
-            'category' => $category,
+        if (!$user) {
+            $user = new User();
+        }
+
+        $form = $this->createForm(EditUserFormType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            dd($form->getData(), $user);
+            $user = $formHandler->processEditForm($user);
+
+            $this->addFlash('success', 'Category saved');
+
+            return $this->redirectToRoute('admin_user_edit', ['id' => $user->getId()]);
+        }
+
+        if ($form->isSubmitted() && !$form->isValid()) {
+            $this->addFlash('warning', 'Form is not valid');
+        }
+
+        return $this->render('admin/user/edit.html.twig', [
+            'form' => $form->createView(),
+            'user' => $user,
         ]);
     }
 
