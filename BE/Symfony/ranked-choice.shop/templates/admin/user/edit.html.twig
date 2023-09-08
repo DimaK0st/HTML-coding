@@ -19,7 +19,15 @@
                     Email
                 </div>
                 <div class="col-md-11">
-                    {{ user.email ?? '' }}
+                    {% if user.id %}
+                        {{ user.email ?? '' }}
+                        {% do form.newEmail.setRendered %}
+                    {% else %}
+                        {{ form_widget(form.newEmail) }}
+                        <div class="form-error">
+                            {{ form_errors(form.newEmail) }}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
 
@@ -110,7 +118,7 @@
             {% include 'admin/_embed/_card/_form_buttons.html.twig' with {
                 'entity': user,
                 'catalogRoute': path('admin_user_list')
-            }  %}
+            } %}
             {{ form_rest(form) }}
             {{ form_end(form) }}
         </div>
