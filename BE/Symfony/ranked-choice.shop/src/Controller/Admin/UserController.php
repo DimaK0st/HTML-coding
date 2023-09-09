@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Category;
+use App\Entity\StaticStorage\UserStaticStorage;
 use App\Entity\User;
 use App\Form\Admin\EditCategoryFormType;
 use App\Form\Admin\EditUserFormType;
@@ -27,6 +28,10 @@ class UserController extends AbstractController
      */
     public function list(UserRepository $userRepository): Response
     {
+        if (!$this->isGranted(UserStaticStorage::ROLE_SUPER_ADMIN)) {
+            $this->redirectToRoute('admin_dashboard_show');
+        }
+
         $users = $userRepository->findBy(['isDeleted' => false], ['id' => 'DESC']);
 
         return $this->render('admin/user/list.html.twig', [
@@ -40,6 +45,9 @@ class UserController extends AbstractController
      */
     public function edit(Request $request,UserFormHandler $formHandler, User $user = null): Response
     {
+        if (!$this->isGranted(UserStaticStorage::ROLE_SUPER_ADMIN)) {
+            $this->redirectToRoute('admin_dashboard_show');
+        }
 
         if (!$user) {
             $user = new User();
@@ -51,7 +59,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $formHandler->processEditForm($form);
 
-            $this->addFlash('success', 'Category saved');
+            $this->addFlash('success', 'User saved');
 
             return $this->redirectToRoute('admin_user_edit', ['id' => $user->getId()]);
         }

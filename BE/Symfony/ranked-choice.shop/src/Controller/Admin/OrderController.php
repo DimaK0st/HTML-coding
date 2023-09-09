@@ -48,7 +48,7 @@ class OrderController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $order = $formHandler->processEditForm($order);
 
-            $this->addFlash('success', 'Category saved');
+            $this->addFlash('success', 'Order saved');
 
             return $this->redirectToRoute('admin_order_edit', ['id' => $order->getId()]);
         }
