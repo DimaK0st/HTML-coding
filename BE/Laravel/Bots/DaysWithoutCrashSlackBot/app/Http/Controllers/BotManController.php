@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use BotMan\BotMan\BotMan;
 use Illuminate\Http\Request;
 use App\Conversations\ExampleConversation;
+use Illuminate\Support\Facades\Log;
 
 class BotManController extends Controller
 {
@@ -28,10 +29,12 @@ class BotManController extends Controller
 
     /**
      * Loaded through routes/botman.php
-     * @param  BotMan $bot
+     * @param BotMan $bot
      */
     public function startConversation(BotMan $bot)
     {
+        Log::info('', [$bot->getMessage()]);
         $bot->startConversation(new ExampleConversation());
+
     }
 }

@@ -1,8 +1,8 @@
 # ---------------------------------------------- Build Time Arguments --------------------------------------------------
-ARG PHP_VERSION="8.1"
-ARG PHP_ALPINE_VERSION="3.16"
+ARG PHP_VERSION="7.4"
+ARG PHP_ALPINE_VERSION=""
 ARG NGINX_VERSION="1.21"
-ARG COMPOSER_VERSION="2"
+ARG COMPOSER_VERSION="1"
 ARG XDEBUG_VERSION="3.1.3"
 ARG COMPOSER_AUTH
 ARG APP_BASE_DIR="."
@@ -15,6 +15,14 @@ FROM composer:${COMPOSER_VERSION} as composer
 #                                                   --- Base ---
 # ---------------  This stage install needed extenstions, plugins and add all needed configurations  -------------------
 # ======================================================================================================================
+
+#RUN apk add --no-cache openssh
+#
+## Додавання вашого SSH-ключа до контейнера
+#RUN chmod 600 /home/www-data/.ssh/id_rsa
+
+## Встановлення ssh-agent та додавання вашого ключа
+#RUN eval $(ssh-agent -s) && ssh-add /home/www-data/.ssh/id_rsa
 
 FROM php:${PHP_VERSION}-fpm-alpine${PHP_ALPINE_VERSION} AS base
 
