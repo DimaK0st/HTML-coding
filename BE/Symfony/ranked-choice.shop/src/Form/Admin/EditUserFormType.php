@@ -62,7 +62,7 @@ class EditUserFormType extends AbstractType
                 ],
             ])
             ->add('isDeleted', CheckboxType::class, [
-                'label' => 'Delete product?',
+                'label' => 'Delete user?',
                 'required' => false,
                 'attr' => [
                     'class' => 'form-check-input',

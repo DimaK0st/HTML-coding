@@ -49,8 +49,7 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            dd($form->getData(), $user);
-            $user = $formHandler->processEditForm($user);
+            $user = $formHandler->processEditForm($form);
 
             $this->addFlash('success', 'Category saved');
 
