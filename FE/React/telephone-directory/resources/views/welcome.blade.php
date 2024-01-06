@@ -11,6 +11,10 @@
 
     </head>
     <body>
+    <script>
+        window.REACT_APP_API_URL = "{{ env('APP_URL') }}";
+    </script>
+
         <div id="root"></div>
         <script src="{{asset('js/app.js')}}" ></script>
     </body>
