@@ -1,6 +1,6 @@
 const usePhoneService = (phone, state, setState) => {
     let result = phone?.replace(/(380|)/, '')
-    const _apiBase = window.REACT_APP_API_URL + ':8000/api/v1/'
+    const _apiBase = 'http://telephone.dimakost.us.to/api/v1/'
     let varState = state
     let varSetState = setState
 
