@@ -83,6 +83,7 @@ const usePhoneService = (phone, state, setState) => {
     }
 
     const getCarouselCommentsForMainPage = (url, config) => {
+        console.log(url, config, _apiBase + 'get-carousel-comments')
         return axios.post(_apiBase + 'get-carousel-comments', {}, {
             headers: {
                 ...postRequest.headers
