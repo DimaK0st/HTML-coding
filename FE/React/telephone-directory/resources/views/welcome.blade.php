@@ -12,7 +12,7 @@
     </head>
     <body>
     <script>
-        window.REACT_APP_API_URL = "{{ env('APP_URL') }}";
+        window.REACT_APP_API_URL = "{{ env('API_URL') }}";
     </script>
 
         <div id="root"></div>
