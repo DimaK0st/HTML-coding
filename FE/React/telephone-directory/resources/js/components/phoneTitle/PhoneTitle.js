@@ -19,7 +19,7 @@ function PhoneTitle(props) {
                 </span>
                 <div className="title-tags-item">
                     {currentPhone ?
-                        <><Stars className={'title-tags-item-stars'} count={Math.round(avg ?? 0)} gray={true}/>
+                        <><Stars className={'title-tags-item-stars'} count={Math.round(avg ?? 0)} gray={true} bg_invisible={true}/>
                             <span className={'title-tags-item-count'}>{commentCount}x</span></> :
                         <Skeleton className={'skeleton'} height={16} width={60} baseColor={'#663ef5'} inline={true}/>}
                 </div>

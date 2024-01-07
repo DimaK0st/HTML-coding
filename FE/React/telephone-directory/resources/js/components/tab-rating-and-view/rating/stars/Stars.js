@@ -1,7 +1,7 @@
 import NUMBER_CLASS_NAME from "../../../../_CONST";
 
 const Stars = (props) => {
-    const {count, className, gray, bg} = props;
+    const {count, className, gray, bg, bg_invisible} = props;
     let starsContent = [];
     let bgClassName;
 
@@ -24,7 +24,10 @@ const Stars = (props) => {
     }
 
     if (count===undefined || count===0) {
-        bgClassName = 'stars-bg stars-zp bg-' + NUMBER_CLASS_NAME[5]
+        bgClassName = 'stars-bg stars-zp'
+        if (!bg_invisible) {
+            bgClassName += ' bg-' + NUMBER_CLASS_NAME[5]
+        }
     }
 
     return (
