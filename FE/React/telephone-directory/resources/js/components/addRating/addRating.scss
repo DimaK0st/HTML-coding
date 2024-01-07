@@ -24,7 +24,7 @@
         padding: 10px;
         border-radius: 40px;
 
-        @include _350{
+        @include _400{
             width: 210px;
         }
 
@@ -41,7 +41,7 @@
                 line-height: 40px;
                 color: #a2a2a2;
 
-                @include _350{
+                @include _400{
                     font-size: 50px;
                 }
             }
