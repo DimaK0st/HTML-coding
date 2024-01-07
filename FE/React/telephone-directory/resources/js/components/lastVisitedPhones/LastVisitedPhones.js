@@ -12,6 +12,7 @@ function LastVisitedPhones(props) {
             2: [],
         }
     })
+    const [content, setContent] = useState('ghjgfhgfhghgf')
 
     const numberService = usePhoneService(number, data, setData)
 
@@ -19,15 +20,18 @@ function LastVisitedPhones(props) {
         numberService.getLastVisitedNumbers().then(() => {
         });
     }, [])
+    console.log('content111111', content)
 
-    let content = data.sortBy?.map((item, index) => {
-        const temp = data.data[item]
-        if (temp) {
-            return <LastPhone key={`color-${index}`} avg={parseFloat(temp?.rating_avg_rating).toFixed(1)} phone={temp?.phone}
-                              description={temp?.review}/>
-        }
-    })
-
+    useEffect(() => {
+        setContent(data.sortBy?.map((item, index) => {
+            const temp = data.data[item]
+            if (temp) {
+                return <LastPhone key={`color-${index}`} avg={parseFloat(temp?.rating_avg_rating).toFixed(1)}
+                                  phone={temp?.phone}
+                                  description={temp?.review}/>
+            }
+        }))
+    }, [data])
     return (
         <div className={'last-numbers'}>
             <span className={'last-numbers-title'}>Останні відвідані номери</span>

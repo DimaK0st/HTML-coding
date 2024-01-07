@@ -1,14 +1,18 @@
 import NUMBER_CLASS_NAME from "../../../../_CONST";
 import Skeleton from "react-loading-skeleton";
+import {useEffect, useState} from "react";
 
 const RatingLine = (props) => {
     const {count, current, total, width} = props;
+    let [content, setContent] = useState(null);
 
-    const content = current !== 0 ?
-        <>
-            <div className={`rating-line__item bg-${NUMBER_CLASS_NAME[count - 1]}`}
-                 style={{width: `${current / total * 100}%`}}></div>
-        </> : null
+    useEffect(() => {
+        setContent(current !== 0 ?
+            <>
+                <div className={`rating-line__item bg-${NUMBER_CLASS_NAME[count - 1]}`}
+                     style={{width: `${current / total * 100}%`}}></div>
+            </> : null)
+    }, [props]);
 
     return (
         <div className={'rating-line'}>

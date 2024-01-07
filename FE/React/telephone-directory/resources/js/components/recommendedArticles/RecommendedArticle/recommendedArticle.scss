@@ -21,9 +21,17 @@
         color: hsla(0, 0%, 100%, .4);
         font-size: 13px;
         margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
 
         &-date {
             margin-right: 16px;
+
+            @include _350 {
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
         }
 
         &-domain {

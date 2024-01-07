@@ -9,6 +9,7 @@
     &__top-content {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
         position: relative;
 
