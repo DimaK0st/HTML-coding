@@ -14,8 +14,13 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "spatie/data-transfer-object": "^3.9",
-        "torann/geoip": "^3.0"
+        "torann/geoip": "^3.0",
+        "laravel/nova": "^4.32.14"
     },
+    "repositories": [{
+        "type": "composer",
+        "url": "https://laravelsatis.com"
+    }],
     "require-dev": {
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
