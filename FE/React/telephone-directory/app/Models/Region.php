@@ -15,9 +15,13 @@ class Region extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'id',
         'region',
         'description',
     ];
+
+    public function phones()
+    {
+        return $this->hasMany(Phone::class);
+    }
 
 }

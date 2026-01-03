@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
@@ -12,8 +13,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $rating
  * @property int $ip_id
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rating find()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rating where()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rating whereBetween()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rating whereIn()
+ * @method static \Illuminate\Database\Eloquent\Builder rating()
+ *
  *
  */
 class Rating extends Model
@@ -30,16 +33,20 @@ class Rating extends Model
         ];
 
     /**
-     * @return HasMany
+     * @return BelongsTo
      */
-    public function phones(): HasMany
+    public function phone(): BelongsTo
     {
-        return $this->hasMany(Phone::class, 'id', 'phone_id');
+        return $this->belongsTo(Phone::class);
     }
 
-
-    public function ips(): HasMany
+    public function ip(): BelongsTo
     {
-        return $this->hasMany(Ip::class, 'id', 'ip_id');
+        return $this->belongsTo(Ip::class);
+    }
+
+    public function scopeRating($query)
+    {
+        return $query->where('rating', '>', 0);
     }
 }

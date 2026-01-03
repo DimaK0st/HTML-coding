@@ -2,37 +2,30 @@
 
 namespace App\Nova;
 
+use App\Nova\Metrics\NewRatings;
+use App\Nova\Metrics\RatingPerDay;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rules;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\Gravatar;
+use Illuminate\Support\Str;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class User extends Resource
+class Rating extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\User>
+     * @var class-string<\App\Models\Rating>
      */
-    public static $model = \App\Models\User::class;
+    public static $model = \App\Models\Rating::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
-
-    public function subtitle()
-    {
-        return $this->is_admin ? 'Admin' : 'User';
-    }
-
-    public static $globallySearchable = false;
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -40,8 +33,20 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'name', 'email',
+        'id',
     ];
+
+    /**
+     * Build an "index" query for the given resource.
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        return $query->where('rating', '>', 0);
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -53,27 +58,12 @@ class User extends Resource
     {
         return [
             ID::make()->sortable(),
-
-            Gravatar::make()->maxWidth(50),
-
-            Text::make('Name')
-                ->sortable()
-                ->rules('required', 'max:255'),
-
-            Text::make('Email')
-                ->sortable()
-                ->rules('required', 'email', 'max:254')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
-
-            Password::make('Password')
-                ->onlyOnForms()
-                ->creationRules('required', Rules\Password::defaults())
-                ->updateRules('nullable', Rules\Password::defaults()),
-
-            Boolean::make('Is Admin', 'is_admin')
-                ->sortable()
-                ->showOnPreview()
+            BelongsTo::make('Phone')->sortable(),
+            Text::make('Rating')->sortable(),
+            Text::make('Review', function () {
+                return Str::limit($this->review, 50, '...') ?? 'No review available';
+            })->sortable(),
+            BelongsTo::make('Ip')->sortable(),
         ];
     }
 
@@ -86,6 +76,8 @@ class User extends Resource
     public function cards(NovaRequest $request)
     {
         return [
+            new NewRatings(),
+            new RatingPerDay(),
         ];
     }
 

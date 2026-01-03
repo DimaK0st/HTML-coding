@@ -77,7 +77,7 @@ class PhoneRepository
             ->select('phones.id',
                 DB::raw('CONCAT(+380,\'\',regions.region, \'\',  phones.digital) as phone'),
                 DB::raw('(select review from ratings where phone_id = phones.id and review !=\'\' order by created_at desc limit 1) as review')
-            )->withAvg('rating', 'rating')
+            )->withAvg('ratings', 'rating')
             ->get()->keyBy('id')->toArray();
     }
 

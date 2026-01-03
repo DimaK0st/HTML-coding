@@ -5,6 +5,7 @@ namespace App\Domain\Phone\Services;
 use App\Domain\Phone\Repositories\PhoneRepository;
 use App\Domain\Region\Services\RegionService;
 use App\Models\Phone;
+use App\Models\Region;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 

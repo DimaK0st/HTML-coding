@@ -8,12 +8,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 /**
  * @property int $id
  * @property int $region_id
  * @property int $digital
+ * @property string $phone
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Phone query()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Phone with()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Phone all()
@@ -23,7 +25,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Phone extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     public $table = 'phones';
     public $timestamps = false;
@@ -31,20 +33,21 @@ class Phone extends Model
     protected $fillable = [
         'region_id',
         'digital',
+        'phone',
     ];
 
 
     /**
-     * @return HasMany
+     * @return BelongsTo
      */
-    public function regions(): HasMany
+    public function region(): BelongsTo
     {
-        return $this->hasMany(Region::class, 'id', 'region_id');
+        return $this->belongsTo(Region::class);
     }
 
-    public function rating(): BelongsTo
+    public function ratings(): HasMany
     {
-        return $this->belongsTo(Rating::class, 'id', 'phone_id');
+        return $this->hasMany(Rating::class, 'phone_id', 'id');
     }
 
 //    public function getLastReview(){

@@ -27,6 +27,8 @@ class RatingRepository
         if (!$rating) {
             return $this->addViewRating($ip, $phone);
         } else {
+            $rating->updated_at = now();
+            $rating->save();
             return $rating;
         }
     }
