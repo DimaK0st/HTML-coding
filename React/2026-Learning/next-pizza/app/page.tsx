@@ -4,11 +4,11 @@ import {ProductCard} from "@/components/shared/product-card";
 
 export default function Home() {
     return <>
-        {/*<Container className="mt-10">*/}
-        {/*    <Title text={"Всі піци"} size={'lg'} className={"font-extrabold"}/>*/}
-        {/*</Container>*/}
+        <Container className="mt-10">
+            <Title text={"Всі піци"} size={'lg'} className={"font-extrabold"}/>
+        </Container>
 
-        {/*<TopBar/>*/}
+        <TopBar/>
 
         <Container className="mt-10 pb-14">
             <div className="flex gap-[60px]">
@@ -29,6 +29,24 @@ export default function Home() {
                                 items: [{price:160},{price:220}]
                             },
                         ]} categoryId={1}/>
+                        <ProductsGroupList title="Піци" items={[
+                            {
+                                id: '1',
+                                name: 'Маргарита',
+                                price: 390,
+                                imageUrl: 'https://img.postershop.me/cdn-cgi/image/width=390,format=webp/https://img.postershop.me/10126/f1ca2338-da31-40c9-ad5a-86416dc81944_image.jpeg',
+                                items: [{price:160},{price:220}]
+                            },
+                        ]} categoryId={2}/>
+                        <ProductsGroupList title="Піци" items={[
+                            {
+                                id: '1',
+                                name: 'Маргарита',
+                                price: 390,
+                                imageUrl: 'https://img.postershop.me/cdn-cgi/image/width=390,format=webp/https://img.postershop.me/10126/f1ca2338-da31-40c9-ad5a-86416dc81944_image.jpeg',
+                                items: [{price:160},{price:220}]
+                            },
+                        ]} categoryId={3}/>
                     </div>
                 </div>
             </div>
