@@ -30,6 +30,12 @@ export const SearchInput: React.FC<Props> = ({className}) => {
         [searchQuery],
     )
 
+    const onClickItem = ()=>{
+        setFocused(false)
+        setSearchQuery('')
+        setProducts([])
+    }
+
     return (
         <>
             {focused && <div className="fixed top-0 left-0 bottom-0 right-0 bg-black/50 z-30"></div>}
@@ -51,6 +57,7 @@ export const SearchInput: React.FC<Props> = ({className}) => {
                 )}>
                     {products.map((product) => (
                         <Link
+                            onClick={onClickItem}
                             key={product.id}
                             className="flex items-center gap-3 px-3 py-2 hover:bg-primary/10 cursor-pointer"
                             href={"/product/" + product.id}
