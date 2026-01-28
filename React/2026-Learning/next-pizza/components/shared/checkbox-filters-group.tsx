@@ -13,9 +13,11 @@ interface Props {
     limit?: number;
     loading?: boolean;
     searchInputPlaceholder?: string;
-    onChange?: (value: string[]) => void;
+    onClickCheckbox?: (id: string) => void;
     defaultValue?: string[];
     className?: string;
+    selectedIds: Set<string>;
+    name?: string;
 }
 
 export const CheckboxFiltersGroup: React.FC<Props> = (
@@ -26,9 +28,11 @@ export const CheckboxFiltersGroup: React.FC<Props> = (
         limit = 5,
         searchInputPlaceholder = 'Пошук...',
         loading = false,
-        onChange,
+        onClickCheckbox,
         defaultValue,
-        className
+        className,
+        selectedIds,
+        name,
     }) => {
     const [showAll, setShowAll] = React.useState(false);
     const [selected, setSelected] = React.useState<Set<string>>(new Set(defaultValue || []));
@@ -71,12 +75,13 @@ export const CheckboxFiltersGroup: React.FC<Props> = (
             <div className={'flex flex-col gap-4 max-h-96 pr-2 overflow-auto scrollbar'}>
                 {list.map((item, index) => (
                     <FilterCheckbox
-                        // onCheckedChange={() => onCheckedChange(item.value)}
-                        checked={selected.has(item.value)}
+                        onCheckedChange={() => onClickCheckbox?.(item.value)}
+                        checked={selectedIds.has(item.value)}
                         key={String(item.value) + index}
                         value={item.value}
                         text={item.text}
                         endAdornment={item.endAdornment}
+                        name={name}
                     />
                 ))}
 
