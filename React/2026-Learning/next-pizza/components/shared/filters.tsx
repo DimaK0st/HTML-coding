@@ -4,7 +4,6 @@ import React from 'react';
 import {Title} from "@/components/shared/title";
 import {Input, RangeSlider} from "@/components/ui";
 import {CheckboxFiltersGroup} from "@/components/shared/checkbox-filters-group";
-import {useRouter, useSearchParams} from "next/navigation";
 import {useFilters, useIngredients, useQueryFilters} from "@/hooks";
 
 interface Props {
@@ -13,7 +12,6 @@ interface Props {
 
 
 export const Filters: React.FC<Props> = ({className}) => {
-    const router = useRouter();
     const {ingredients, isLoading} = useIngredients()
     const filters = useFilters()
 

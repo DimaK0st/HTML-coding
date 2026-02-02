@@ -1,57 +1,58 @@
 import {Container, Filters, ProductsGroupList, TopBar} from "@/components/shared";
 import {Title} from "@/components/shared/title";
 import {ProductCard} from "@/components/shared/product-card";
+import {prisma} from "@/prisma/prisma-client";
 
-export default function Home() {
-    return <>
-        <Container className="mt-10">
-            <Title text={"Всі піци"} size={'lg'} className={"font-extrabold"}/>
-        </Container>
+export default async function Home() {
+    const categories = await prisma.category.findMany({
+        include: {
+            products: {
+                include: {
+                    ingredients: true,
+                    items: true,
+                },
+            },
+        },
+    });
 
-        <TopBar/>
+    return (
+        <>
+            <Container className="mt-10">
+                <Title text={"Всі піци"} size={'lg'} className={"font-extrabold"}/>
+            </Container>
 
-        <Container className="mt-10 pb-14">
-            <div className="flex gap-[60px]">
-                {/*Filters*/}
-                <div className="flex gap-[250px]">
-                    <Filters/>
-                </div>
+            <TopBar categories={categories.filter(
+                (category) => category.products.length > 0
+            )}/>
 
-                {/*Product List*/}
-                <div className={'flex-1'}>
-                    <div className={'flex flex-col gap-16'}>
-                        <ProductsGroupList title="Піци" items={[
+            <Container className="mt-10 pb-14">
+                <div className="flex gap-[60px]">
+                    {/*Filters*/}
+                    <div className="flex gap-[250px]">
+                        <Filters/>
+                    </div>
+
+                    {/*Product List*/}
+                    <div className={'flex-1'}>
+                        <div className={'flex flex-col gap-16'}>
                             {
-                                id: '1',
-                                name: 'Маргарита',
-                                price: 390,
-                                imageUrl: 'https://img.postershop.me/cdn-cgi/image/width=390,format=webp/https://img.postershop.me/10126/f1ca2338-da31-40c9-ad5a-86416dc81944_image.jpeg',
-                                items: [{price:160},{price:220}]
-                            },
-                        ]} categoryId={1}/>
-                        <ProductsGroupList title="Піци" items={[
-                            {
-                                id: '1',
-                                name: 'Маргарита',
-                                price: 390,
-                                imageUrl: 'https://img.postershop.me/cdn-cgi/image/width=390,format=webp/https://img.postershop.me/10126/f1ca2338-da31-40c9-ad5a-86416dc81944_image.jpeg',
-                                items: [{price:160},{price:220}]
-                            },
-                        ]} categoryId={2}/>
-                        <ProductsGroupList title="Піци" items={[
-                            {
-                                id: '1',
-                                name: 'Маргарита',
-                                price: 390,
-                                imageUrl: 'https://img.postershop.me/cdn-cgi/image/width=390,format=webp/https://img.postershop.me/10126/f1ca2338-da31-40c9-ad5a-86416dc81944_image.jpeg',
-                                items: [{price:160},{price:220}]
-                            },
-                        ]} categoryId={3}/>
+                                categories?.map(
+                                    (category, i) =>
+                                        category.products.length > 0 && (
+                                            <ProductsGroupList
+                                                key={category.id}
+                                                title={category.name}
+                                                categoryId={category.id}
+                                                items={category.products}
+                                            />
+                                        )
+                                )
+                            }
+                        </div>
                     </div>
                 </div>
-            </div>
-        </Container>
-    </>;
+            </Container>
+        </>);
 }
 
 

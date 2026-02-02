@@ -5,10 +5,11 @@ import {Title} from "@/components/shared/title";
 import {ProductCard} from "@/components/shared/product-card";
 import {useIntersection} from "react-use";
 import {useCategoryStore} from "@/store/category";
+import {Product} from "@prisma/client";
 
 interface Props {
     title: string;
-    items: any[];
+    items: Product[];
     categoryId: number;
     className?: string;
     listClassName?: string;
@@ -42,9 +43,9 @@ export const ProductsGroupList: React.FC<Props> = (
             <div className="grid grid-cols-3 gap-[50px]">
                 {items.map((item, i) => (
                     <ProductCard
-                        id={'1'}
+                        id={item.id.toString()}
                         key={i}
-                        name={'Сирна'}
+                        name={item.name}
                         price={160}
                         imageUrl="https://img.postershop.me/cdn-cgi/image/width=390,format=webp/https://img.postershop.me/10126/f1ca2338-da31-40c9-ad5a-86416dc81944_image.jpeg"/>
                 ))}
