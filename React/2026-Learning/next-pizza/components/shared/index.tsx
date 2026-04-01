@@ -7,5 +7,7 @@ export {FilterCheckbox} from './filter-checkbox';
 export {Filters} from './filters';
 export {ProductCard} from './product-card';
 export {ProductsGroupList} from './products-group-list';
-export {SearchInput} from './searchInput'
-export {ProductImage} from './product-image'
+export {SearchInput} from './searchInput';
+export {ProductImage} from './product-image';
+// @ts-ignore
+export * from './modals';
