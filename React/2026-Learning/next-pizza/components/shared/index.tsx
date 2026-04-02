@@ -8,6 +8,7 @@ export {Filters} from './filters';
 export {ProductCard} from './product-card';
 export {ProductsGroupList} from './products-group-list';
 export {SearchInput} from './searchInput';
-export {ProductImage} from './product-image';
+export {PizzaImage} from './pizza-image';
+export {ChooseProductForm} from './choose-product-form';
 // @ts-ignore
 export * from './modals';
